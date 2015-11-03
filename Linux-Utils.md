@@ -4,8 +4,8 @@
     qv4l2
     v4l2-sysfs-path
 
-   vi /etc/environment
-   http_proxy=http://proxy-chain.intel.com:911
-   https_proxy=http://proxy-chain.intel.com:911
+    vi /etc/environment
+    http_proxy=http://proxy-chain.intel.com:911
+    https_proxy=http://proxy-chain.intel.com:911
 
 
