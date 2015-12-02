@@ -3,3 +3,5 @@
 3. DS4 calibration struct versions - Buggy version 0, old version 1
 4. Selecting makefile backend + configure debug/release
 5. insmod / modprobe difficulties
+6. Intel proxy settings
+7. Pointcloud wrong projection / weird IR images
