@@ -1,5 +1,3 @@
-# Frame Management
-
 librealsense2 provides flexible model for frame management and synchronization. The document will overview frame memory management, passing frames between threads and synchronization. 
 
 ## API Overview
