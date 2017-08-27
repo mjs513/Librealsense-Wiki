@@ -6,6 +6,22 @@ Intel® RealSense™ SDK 2.0
 - [[Home]]
 - [Examples](../examples)
 
+### Documentation
+- [[API Architecture]]
+- API References
+  - [[C API]]
+  - [[C++ API]]
+  - [[Python API]]
+- Frames
+  - [[Frame Management]]
+  - [[Frame Metadata]]
+- [[Working with OpenCV]]
+- [[Error Handling]]
+- Device specific topics:
+  - [[RS400 and External Devices]]
+  - [[RS400 Advanced Mode]]
+- [[Record and Playback]]
+
 ### Help
 - [[Troubleshooting]]
 - [[Q&A]]
@@ -14,8 +30,5 @@ Intel® RealSense™ SDK 2.0
 - [Support](https://www.intel.com/content/www/us/en/support/emerging-technologies/intel-realsense-technology.html)
 - [Open a new GitHub issue](https://github.com/IntelRealSense/librealsense/issues/new)
 
-### API Reference
-- **C**
-- **C++**
-- **Python**
+
 
