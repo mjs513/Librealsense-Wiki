@@ -24,9 +24,9 @@ Intel® RealSense™ SDK 2.0
 
 
 ### [[Installation]]
-- [[Linux|installation-linux]]
-- [[Window|installation-windows]]
-- [[OS X|installation-osx]]
+- [[Linux|Linux-Installation]]
+- [[Window|Windows-Installation]]
+- [[OS X|OS-X-Installation]]
 
 
 ### Help
