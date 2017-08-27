@@ -6,9 +6,7 @@
 - [Q: What's next?](#q-whats-next)
 
 ## Q: How to start?
-----
 Start here!
 
 ## Q: What's next?
-----
 Continue there...
