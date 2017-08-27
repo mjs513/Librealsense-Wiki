@@ -1,6 +1,6 @@
 > [Wiki](Home) ▸ **Q&A**
 
-### Table of Contents
+### Frequently Asked Questions
 
 - [Q: How to start?](#q-how-to-start)
 - [Q: What's next?](#q-whats-next)
