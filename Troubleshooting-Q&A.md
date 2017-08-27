@@ -9,7 +9,7 @@ We've grouped together related questions for your convenience
 - [How do I see which Intel RealSense cameras are connects?](#q-how-do-i-see-which-intel-realsense-cameras-are-connects)
 - [I connected the camera to the USB port but it is not recognized](#q-i-connected-the-camera-to-the-usb-port-but-it-is-not-recognized)
 - [I'm using a virtual machine and the camera is not working](#q-im-using-a-virtual-machine-and-the-camera-is-not-working)
-- [Streaming gets stuck on windows](#q-streaming-gets-stuck-on=windows)
+- [Streaming gets stuck on windows](#q-streaming-gets-stuck-on-windows)
 
 **[Installation](#installation)**
 - [How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
