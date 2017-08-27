@@ -1,14 +1,14 @@
 > [Wiki](Home) ▸ **Q&A**
 
-### Frequently Asked Questions
+# Frequently Asked Questions
 
 - [Q: How to start?](#q-how-to-start)
 - [Q: What's next?](#q-whats-next)
 
-#### Q: How to start?
+## Q: How to start?
 ----
 Start here!
 
-#### Q: What's next?
+## Q: What's next?
 ----
 Continue there...
