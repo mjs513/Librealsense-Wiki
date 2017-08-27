@@ -1,39 +1,45 @@
-> [Wiki](Home) ▸ **Troubleshooting**
-
-
+> [Wiki](Home) ▸ **Troubleshooting Q&A**
 Having some troubles? You came to the right place!
-# Troubleshooting Tips and Tricks
 
-The following commands can be used to isolate and analyze issues:
+**Summary of all questions:**
+- [Q: How to retrieve the kernel version?](#q-how-to-start)
+- [Q: What's next?](#q-whats-next)
 
-## Kernel Version
-- To Retrieve the Kernel Version use:
+## Q: How to retrieve my Linux kernel version?
+Type the following in your shell:
 ```bash
 $ uname -r
 ```
 
-## Enable LibRealSense Log
-- To change the log level of LibRealSense logger, you need to set a local variable named **LRS_LOG_LEVEL**
+## Q: How do I enable librealsense logs?
+To change the log level of LibRealSense logger, you need to set a local variable named **LRS_LOG_LEVEL**
 and initialize it with the desirable log level:
 
-On Linux:
+**Linux:**
 ```bash
 $ export LRS_LOG_LEVEL="<Log Level>"
 ```
-On Windows:
+
+**Windows:**
 ```bash
 $ set LRS_LOG_LEVEL="<Log Level>"
 ```
 - A LibRealSense log will be created even when an application does not activate the LibRealSense logger.
 
-## Connected Intel Cameras
-- To list all connected Intel Cameras:
+## Q: How do I see which Intel RealSense cameras are connects?
+**Linux:**
+Open shell:
 ```bash
 $ lsusb | grep 8086
 ```
 
-## General Linux Kernel Log
-- To retrieve the last Linux Kernel log messages with timestamps:
+**Windows:**
+1. Click the `Win-Key`+`X` keys
+2. Choose `Device Manager`
+3. Look under `Imaging devices` for "Intel RealSense" cameras
+
+## Q: How do I view the general Linux kernel log?
+To retrieve the last Linux Kernel log messages with timestamps:
 ```bash
 $ dmesg -T
 ```
@@ -49,7 +55,7 @@ To review the entire kernel log file, use:
 $ less /var/log/kern.log
 ```
 
-## UVC Video Module Traces
+## Q: How do I view the Linux UVC video module traces?
 You can get more verbose logs from the uvcvideo kernel-module.  
 These logs can be seen in `dmesg`
 - To enable the UVC driver verbose log:
@@ -70,19 +76,21 @@ For example, once enabled you will get the following line inside `dmesg` for eac
 [619003.843785] uvcvideo: frame 4 stats: 0/0/1 packets, 0/0/1 pts (!early initial), 0/1 scr, last pts/stc/sof 25244064/25244330/612
 ```
 
-## Kernel Events
+## Q: How do I view the Linux kernel events
 - To listen to camera connect/disconnect events:
 ```bash
 $ sudo udevadm monitor
 ```
 
-## System Calls and Signals
+## Q: How do I view Linux system calls and signals
 - To get a verbose log of all calls an application makes to the kernel, run the application under `strace`:
 ```bash
 $ strace <Application Path>
 ```
 
-## Core Dump File
+## Q: How do I get core dump files?
+
+**Linux:**
 In case of a crash (for example SEGFAULT), a snapshot of the crash can be created (Core Dump) and submitted for inspection.
 1. Enable the auto-creation of Core Dump files:
 ```bash
@@ -91,5 +99,8 @@ $ ulimit -c unlimited
 2. Run the application that causes the crash
 
 3. Search for the `core` file in the current directory
+
+**Windows:**
+Follow this guide: [How to generate a complete crash dump file or a kernel crash dump file by using an NMI on a Windows-based system](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 **Note:** Auto-creation of the dump file will only work on the same Terminal that you ran the **ulimit** command.
