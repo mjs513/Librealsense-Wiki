@@ -14,7 +14,7 @@ Intel® RealSense™ SDK 2.0
 - [Open a new GitHub issue](https://github.com/IntelRealSense/librealsense/issues/new)
 
 ### API Reference
-##### C
-##### C++
-##### Python
+**C**
+**C++**
+**Python**
 
