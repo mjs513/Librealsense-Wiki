@@ -1,5 +1,3 @@
-# Frame Metadata
-
 Frame metadata is a set of parameters (or attributes) that provide a snapshot of the sensor configuration and/or system state present during the frame's generation.
 The attributes are recalculated and updated on per-frame basis.
 `librealsense2` supports querying a set predefined attributes as part of the frame data available to the end-user.
