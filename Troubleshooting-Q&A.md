@@ -7,8 +7,8 @@ Having some troubles? You came to the right place!
 - [Q: How do I see which Intel RealSense cameras are connects?](#q-how-do-i-see-which-intel-realsense-cameras-are-connects)
 - [Q: How do I view the general Linux kernel log?](#q-how-do-i-view-the-general-linux-kernel-log)
 - [Q: How do I view the Linux UVC video module traces?](#q-how-do-i-view-the-linux-uvc-video-module-traces)
-- [Q: How do I view the Linux kernel events](#q-how-do-i-view-the-linux-kernel-event)
-- [Q: How do I view Linux system calls and signals](#q-how-do-i-view-linux-system-calls-and-signal)
+- [Q: How do I view the Linux kernel events](#q-how-do-i-view-the-linux-kernel-events)
+- [Q: How do I view Linux system calls and signals](#q-how-do-i-view-linux-system-calls-and-signals)
 - [Q: How do I get core dump files?](#q-how-do-i-get-core-dump-files)
 
 
