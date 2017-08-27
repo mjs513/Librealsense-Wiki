@@ -22,6 +22,7 @@ Intel® RealSense™ SDK 2.0
   - [[RS400 Advanced Mode]]
 - [[Record and Playback]]
 
+### Documentation
 ### Help
 - [[Troubleshooting]]
 - [[Q&A]]
