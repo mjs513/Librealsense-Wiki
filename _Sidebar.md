@@ -1,4 +1,4 @@
-### Intel® RealSense™ SDK
+#### Intel® RealSense™ SDK Wiki
 
 
 - [[Home]]
