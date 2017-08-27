@@ -4,8 +4,7 @@ Intel® RealSense™ SDK 2.0
 ===============
 
 - [[Home]]
-- [Examples](https://bl.ocks.org/mbostock)
-- [[Tutorials]]
+- [Examples](../examples)
 
 ### Help
 - [[Troubleshooting, Q&A]]
