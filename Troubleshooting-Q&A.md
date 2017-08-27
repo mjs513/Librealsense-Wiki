@@ -1,23 +1,74 @@
 > [Wiki](Home) ▸ **Troubleshooting Q&A**
-Having some troubles? You came to the right place!
 
-**Summary of all questions:**
-- [Q: How to retrieve my Linux kernel version?](#q-how-to-retrieve-my-linux-kernel-version)
-- [Q: How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
-- [Q: How do I see which Intel RealSense cameras are connects?](#q-how-do-i-see-which-intel-realsense-cameras-are-connects)
-- [Q: How do I view the general Linux kernel log?](#q-how-do-i-view-the-general-linux-kernel-log)
-- [Q: How do I view the Linux UVC video module traces?](#q-how-do-i-view-the-linux-uvc-video-module-traces)
-- [Q: How do I view the Linux kernel events](#q-how-do-i-view-the-linux-kernel-events)
-- [Q: How do I view Linux system calls and signals](#q-how-do-i-view-linux-system-calls-and-signals)
-- [Q: How do I get core dump files?](#q-how-do-i-get-core-dump-files)
-- [Q: CMake shows an error when I try to build with Python bindings](#q-cmake-shows-an-error-when-i-try-to-build-with-python-bindings)
+We've grouped together related questions for your convenience 
+
+**[Git](#git)**
+- [Git returns `access timeout` when I try to clone the repository](#q-git-returns-access-timeout-when-i-try-to-clone-the-repository)
+
+**[Camera not working\detected](#camera-not-working-detected)**
+- [How do I see which Intel RealSense cameras are connects?](#q-how-do-i-see-which-intel-realsense-cameras-are-connects)
+- [I connected the camera to the USB port but it is not recognized](#q-i-connected-the-camera-to-the-usb-port-but-it-is-not-recognized)
+- [I'm using a virtual machine and the camera is not working](#q-im-using-a-virtual-machine-and-the-camera-is-not-working)
+- [My camera works and 
+
+**[Installation](#installation)**
+- [How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
+- [GCC Internal Error](#q-gcc-internal-error)
+
+**[Python](#python)**
+  - [CMake shows an error when I try to build with Python bindings](#q-cmake-shows-an-error-when-i-try-to-build-with-python-bindings)
 
 
-## Q: How to retrieve my Linux kernel version?
-Type the following in your shell:
+-----------------
+
+
+Git
+====================
+## Q: Git returns `access timeout` when I try to clone the repository
+
+    git.launchpad... access timeout
+
+This usually happens when your computer is behind a firewall, try to configure git to use the appropriate proxy server
+
+
+
+-----------------
+
+Camera not working\detected
+====================
+
+## Q: How do I see which Intel RealSense cameras are connects?
+#### **Linux:**
+Open shell:
 ```bash
-$ uname -r
+$ lsusb | grep 8086
 ```
+
+#### **Windows:**
+1. Click the `Win-Key`+`X` keys
+2. Choose `Device Manager`
+3. Look under `Imaging devices` for "Intel RealSense" cameras
+
+
+
+## Q: I connected the camera to the USB port but it is not recognized
+
+> ❗️ Make sure your camera is connected using USB 3.0 ❗️ 
+
+If your camera is connected via USB 3.0, check to make sure your OS detects the camera ([how?](#q-how-do-i-see-which-intel-realsense-cameras-are-connects)).
+
+
+## Q: I'm using a virtual machine and the camera is not working
+
+Due to the USB 3.0 translation layer between native hardware and virtual machine, the librealsense team does not support installation in a VM. If you do choose to try it, we recommend using VMware Workstation Player, and not Oracle VirtualBox for proper emulation of the USB3 controller.
+
+
+
+
+-----------------
+
+Installation
+====================
 
 ## Q: How do I enable librealsense logs?
 To change the log level of LibRealSense logger, you need to set a local variable named **LRS_LOG_LEVEL**
@@ -34,84 +85,21 @@ $ set LRS_LOG_LEVEL="<Log Level>"
 ```
 - A LibRealSense log will be created even when an application does not activate the LibRealSense logger.
 
-## Q: How do I see which Intel RealSense cameras are connects?
-#### **Linux:**
-Open shell:
-```bash
-$ lsusb | grep 8086
-```
 
-#### **Windows:**
-1. Click the `Win-Key`+`X` keys
-2. Choose `Device Manager`
-3. Look under `Imaging devices` for "Intel RealSense" cameras
+## Q: GCC Internal Error
 
-## Q: How do I view the general Linux kernel log?
-To retrieve the last Linux Kernel log messages with timestamps:
-```bash
-$ dmesg -T
-```
+The gcc compiler issues the following error while compiling:
 
-- To clear the dmesg buffer:
-```bash
-$ sudo dmesg -c
-```
+> gcc: internal compiler error
 
-- Linux writes all OS logs to ```/var/log``` folder.  
-To review the entire kernel log file, use:
-```bash
-$ less /var/log/kern.log
-```
+This might indicate that you do not have enough memory or swap space on your machine. Try closing memory consuming applications, and if you are running inside a VM increase available RAM to at least 2 GB.
 
-## Q: How do I view the Linux UVC video module traces?
-You can get more verbose logs from the uvcvideo kernel-module.  
-These logs can be seen in `dmesg`
-- To enable the UVC driver verbose log:
-```bash
-$ sudo echo 0xFFFF > /sys/module/uvcvideo/parameters/trace
-```
-- To disable the UVC verbose log, replace 0xFFFF with 0.
 
-For example, once enabled you will get the following line inside `dmesg` for each frame received from USB:
-```bash
-[619003.810541] uvcvideo: frame 1 stats: 0/0/1 packets, 0/0/1 pts (!early initial), 0/1 scr, last pts/stc/sof 25177741/25178007/81
-[619003.810546] uvcvideo: Frame complete (FID bit toggled).
-[619003.810556] uvcvideo: frame 2 stats: 0/0/1 packets, 0/0/1 pts (!early initial), 0/1 scr, last pts/stc/sof 25210903/25211168/346
-[619003.810588] uvcvideo: uvc_v4l2_poll
-[619003.811173] uvcvideo: uvc_v4l2_poll
-[619003.843768] uvcvideo: frame 3 stats: 0/0/1 packets, 0/0/1 pts (!early initial), 0/1 scr, last pts/stc/sof 25210903/25211168/346
-[619003.843774] uvcvideo: Frame complete (FID bit toggled).
-[619003.843785] uvcvideo: frame 4 stats: 0/0/1 packets, 0/0/1 pts (!early initial), 0/1 scr, last pts/stc/sof 25244064/25244330/612
-```
 
-## Q: How do I view the Linux kernel events
-- To listen to camera connect/disconnect events:
-```bash
-$ sudo udevadm monitor
-```
+-----------------
 
-## Q: How do I view Linux system calls and signals
-- To get a verbose log of all calls an application makes to the kernel, run the application under `strace`:
-```bash
-$ strace <Application Path>
-```
-
-## Q: How do I get core dump files?
-
-#### **Linux:**
-In case of a crash (for example SEGFAULT), a snapshot of the crash can be created (Core Dump) and submitted for inspection.
-1. Enable the auto-creation of Core Dump files:
-```bash
-$ ulimit -c unlimited
-```
-2. Run the application that causes the crash
-
-3. Search for the `core` file in the current directory
-
-**Note:** Auto-creation of the dump file will only work on the same Terminal that you ran the **ulimit** command.
-
-#### **Windows:**
-Follow this guide: [How to generate a complete crash dump file or a kernel crash dump file by using an NMI on a Windows-based system](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
+Python
+====================
 
 ## Q: CMake shows an error when I try to build with Python bindings
 The following message appears:
