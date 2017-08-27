@@ -10,7 +10,7 @@ Having some troubles? You came to the right place!
 - [Q: How do I view the Linux kernel events](#q-how-do-i-view-the-linux-kernel-events)
 - [Q: How do I view Linux system calls and signals](#q-how-do-i-view-linux-system-calls-and-signals)
 - [Q: How do I get core dump files?](#q-how-do-i-get-core-dump-files)
-
+- [Q: CMake shows an error when I try to build with Python bindings](#q-cmake-shows-an-error-when-i-try-to-build-with-python-bindings)
 
 
 ## Q: How to retrieve my Linux kernel version?
@@ -113,3 +113,17 @@ $ ulimit -c unlimited
 #### **Windows:**
 Follow this guide: [How to generate a complete crash dump file or a kernel crash dump file by using an NMI on a Windows-based system](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## Q: CMake shows an error when I try to build with Python bindings
+The following message appears:
+
+>  Could NOT find PythonInterp (missing: PYTHON_EXECUTABLE)
+
+Please check the following:
+- Make sure Python is installed
+- **On Windows**: If you've just installed python, reboot (or log off) and try again
+  - Try the answers suggested here: [building-opencv-libraries-from-source-files](https://stackoverflow.com/questions/9119253/building-opencv-libraries-from-source-files)
+
+
+>   Python config failure: Python is 32-bit, chosen compiler is 64-bit
+
+If this message appears you should install python 64 bit
