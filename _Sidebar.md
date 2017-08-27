@@ -1,4 +1,4 @@
-[[[https://yt3.ggpht.com/-zykWKdblgU4/AAAAAAAAAAI/AAAAAAAAAAA/SzdkO5F30hM/s900-c-k-no-mo-rj-c0xffffff/photo.jpg|alt="Intel RealSense Logo"|height=210px|width=210px]]](https://github.com/IntelRealSense/librealsense)
+[[[RSLogo.png|alt="Intel RealSense Logo"|height=210px|width=210px]]](https://github.com/IntelRealSense/librealsense)
 
 Intel® RealSense™ SDK 2.0
 ===============
