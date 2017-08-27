@@ -2,8 +2,16 @@
 Having some troubles? You came to the right place!
 
 **Summary of all questions:**
-- [Q: How to retrieve the kernel version?](#q-how-to-start)
-- [Q: What's next?](#q-whats-next)
+- [Q: How to retrieve my Linux kernel version?](#q-how-to-retrieve-my-linux-kernel-version)
+- [Q: How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
+- [Q: How do I see which Intel RealSense cameras are connects?](#q-how-do-i-see-which-intel-realsense-cameras-are-connects)
+- [Q: How do I view the general Linux kernel log?](#q-how-do-i-view-the-general-linux-kernel-log)
+- [Q: How do I view the Linux UVC video module traces?](#q-how-do-i-view-the-linux-uvc-video-module-traces)
+- [Q: How do I view the Linux kernel events](#q-how-do-i-view-the-linux-kernel-event)
+- [Q: How do I view Linux system calls and signals](#q-how-do-i-view-linux-system-calls-and-signal)
+- [Q: How do I get core dump files?](#q-how-do-i-get-core-dump-files)
+
+
 
 ## Q: How to retrieve my Linux kernel version?
 Type the following in your shell:
@@ -15,25 +23,25 @@ $ uname -r
 To change the log level of LibRealSense logger, you need to set a local variable named **LRS_LOG_LEVEL**
 and initialize it with the desirable log level:
 
-**Linux:**
+#### **Linux:**
 ```bash
 $ export LRS_LOG_LEVEL="<Log Level>"
 ```
 
-**Windows:**
+#### **Windows:**
 ```bash
 $ set LRS_LOG_LEVEL="<Log Level>"
 ```
 - A LibRealSense log will be created even when an application does not activate the LibRealSense logger.
 
 ## Q: How do I see which Intel RealSense cameras are connects?
-**Linux:**
+#### **Linux:**
 Open shell:
 ```bash
 $ lsusb | grep 8086
 ```
 
-**Windows:**
+#### **Windows:**
 1. Click the `Win-Key`+`X` keys
 2. Choose `Device Manager`
 3. Look under `Imaging devices` for "Intel RealSense" cameras
@@ -90,7 +98,7 @@ $ strace <Application Path>
 
 ## Q: How do I get core dump files?
 
-**Linux:**
+#### **Linux:**
 In case of a crash (for example SEGFAULT), a snapshot of the crash can be created (Core Dump) and submitted for inspection.
 1. Enable the auto-creation of Core Dump files:
 ```bash
@@ -100,7 +108,8 @@ $ ulimit -c unlimited
 
 3. Search for the `core` file in the current directory
 
-**Windows:**
+**Note:** Auto-creation of the dump file will only work on the same Terminal that you ran the **ulimit** command.
+
+#### **Windows:**
 Follow this guide: [How to generate a complete crash dump file or a kernel crash dump file by using an NMI on a Windows-based system](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
-**Note:** Auto-creation of the dump file will only work on the same Terminal that you ran the **ulimit** command.
