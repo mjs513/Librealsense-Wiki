@@ -9,7 +9,7 @@ We've grouped together related questions for your convenience
 - [How do I see which Intel RealSense cameras are connects?](#q-how-do-i-see-which-intel-realsense-cameras-are-connects)
 - [I connected the camera to the USB port but it is not recognized](#q-i-connected-the-camera-to-the-usb-port-but-it-is-not-recognized)
 - [I'm using a virtual machine and the camera is not working](#q-im-using-a-virtual-machine-and-the-camera-is-not-working)
-- [My camera works and 
+- [Streaming gets stuck on windows](#q-streaming-gets-stuck-on=windows)
 
 **[Installation](#installation)**
 - [How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
@@ -62,7 +62,9 @@ If your camera is connected via USB 3.0, check to make sure your OS detects the 
 
 Due to the USB 3.0 translation layer between native hardware and virtual machine, the librealsense team does not support installation in a VM. If you do choose to try it, we recommend using VMware Workstation Player, and not Oracle VirtualBox for proper emulation of the USB3 controller.
 
+## Q: Streaming gets stuck on windows
 
+When working on Windows 8.1, make sure you have [KB3075872](https://support.microsoft.com/en-us/kb/3075872) and [KB2919355](https://support.microsoft.com/en-us/kb/2919355) installed. These patches are addressing issues with 8.1 video drivers, resolved in Windows 10.
 
 
 -----------------
