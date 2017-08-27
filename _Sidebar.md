@@ -1,4 +1,4 @@
-[[[RSLogo.png|alt="Intel RealSense Logo"|height=210px|width=210px]]](https://github.com/IntelRealSense/librealsense)
+[[[img/RSLogo.png|alt="Intel RealSense Logo"|height=210px|width=210px]]](https://github.com/IntelRealSense/librealsense)
 
 Intel® RealSense™ SDK 2.0
 ===============
