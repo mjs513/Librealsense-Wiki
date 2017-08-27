@@ -1,4 +1,4 @@
-> [Wiki](Home) ▸ **Troubleshooting, Q&A**
+> [Wiki](Home) ▸ **Troubleshooting**
 
 
 Having some troubles? You came to the right place!
