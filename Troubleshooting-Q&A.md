@@ -27,7 +27,7 @@ We've grouped together related questions for your convenience
 
 ### Git
 
-#### Q: Git returns `access timeout` when I try to clone the repository
+#### __Q: Git returns `access timeout` when I try to clone the repository__
 
     git.launchpad... access timeout
 
