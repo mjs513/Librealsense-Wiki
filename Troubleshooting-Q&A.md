@@ -114,7 +114,7 @@ $ lsusb | grep 8086
 > ❗️ Make sure your camera is connected using USB 3.0 ❗️ 
 
 If your camera is connected via USB 3.0, check to make sure your OS detects the camera ([how?](#q-how-do-i-see-which-intel-realsense-cameras-are-connected)).
-
+The camera will not work without USB 3.0 (or higher)
 
 #### Q: I'm using a virtual machine and the camera is not working
 
