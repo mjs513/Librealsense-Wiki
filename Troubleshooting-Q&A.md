@@ -16,7 +16,7 @@ We've grouped together related questions for your convenience
 - [GCC Internal Error](#q-gcc-internal-error)
 - [I ran the udev rules script but Linux still get `Permission denied`](#q-i-ran-the-udev-rules-script-but-linux-still-get-permission-denied)
 - [`dmesg` shows: `uvcvideo: module verification failed: signature and/or required key missing - tainting kernel`](#q-dmesg-shows-uvcvideo-module-verification-failed-signature-andor-required-key-missing---tainting-kernel)
-- [`sudo modprobe uvcvideo` produces `dmesg: uvc kernel module is not loaded`](#q)
+- [`sudo modprobe uvcvideo` produces `dmesg: uvc kernel module is not loaded`](#q-sudo-modprobe-uvcvideo-produces-dmesg-uvc-kernel-module-is-not-loaded)
 
 **[Python](#python)**
   - [CMake shows an error when I try to build with Python bindings](#q-cmake-shows-an-error-when-i-try-to-build-with-python-bindings)
