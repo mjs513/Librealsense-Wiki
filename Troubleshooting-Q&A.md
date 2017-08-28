@@ -16,7 +16,7 @@ We've grouped together related questions for your convenience
 - [GCC Internal Error](#q-gcc-internal-error)
 - [I ran the udev rules script but Linux still get `Permission denied`](#q-i-ran-the-udev-rules-script-but-linux-still-get-permission-denied)
 - [`dmesg` shows: `uvcvideo: module verification failed: signature and/or required key missing - tainting kernel`](#q-dmesg-shows-uvcvideo-module-verification-failed-signature-andor-required-key-missing---tainting-kernel)
-
+- [`sudo modprobe uvcvideo` produces `dmesg: uvc kernel module is not loaded`](#q)
 
 **[Python](#python)**
   - [CMake shows an error when I try to build with Python bindings](#q-cmake-shows-an-error-when-i-try-to-build-with-python-bindings)
@@ -112,6 +112,11 @@ If the issue persists, the cause might be due to the fact that your user is not 
 
 This is a standard warning issued since Kernel 4.4-30+, it is only a notification and does not affect module's functionality.
 
+## Q: `sudo modprobe uvcvideo` produces `dmesg: uvc kernel module is not loaded`
+
+This issue is caused since the patched module kernel version is incompatible with the resident kernel.
+Verify the actual kernel version with `uname -r`.
+Revert and proceed from [Make Ubuntu Up-to-date](../doc/installation.md#make-ubuntu-up-to-date) step from the Linux installation guide.
 
 -----------------
 
