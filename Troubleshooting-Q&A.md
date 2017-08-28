@@ -1,8 +1,5 @@
 > [Wiki](Home) ▸ **Troubleshooting Q&A**
 
-We've grouped together related questions for your convenience 
-
-
 
 **[Camera not working\detected](#camera-not-workingdetected)**
 - [How do I see which Intel RealSense cameras are connected?](#q-how-do-i-see-which-intel-realsense-cameras-are-connected)
