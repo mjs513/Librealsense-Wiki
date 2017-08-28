@@ -15,7 +15,7 @@ We've grouped together related questions for your convenience
 - [How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
 - [GCC Internal Error](#q-gcc-internal-error)
 - [I ran the udev rules script but Linux still get `Permission denied`](#q-i-ran-the-udev-rules-script-but-linux-still-get-permission-denied)
-- [`dmesg` shows: `uvcvideo: module verification failed: signature and/or required key missing - tainting kernel`](#q-dmesg-shows-uvcvideo-module-verification-failed-signature-and-or-required-key-missing--tainting-kernel)
+- [`dmesg` shows: `uvcvideo: module verification failed: signature and/or required key missing - tainting kernel`](#q-dmesg-shows-uvcvideo-module-verification-failed-signature-andor-required-key-missing---tainting-kernel)
 
 
 **[Python](#python)**
