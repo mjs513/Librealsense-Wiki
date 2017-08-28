@@ -14,6 +14,9 @@ We've grouped together related questions for your convenience
 **[Installation](#installation)**
 - [How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
 - [GCC Internal Error](#q-gcc-internal-error)
+- [I ran the udev rules script but Linux still get `Permission denied`](#q-i-ran-the-udev-rules-script-but-linux-still-get-permission-denied)
+- [`dmesg` shows: `uvcvideo: module verification failed: signature and/or required key missing - tainting kernel`](#q-dmesg-shows-uvcvideo-module-verification-failed-signature-and-or-required-key-missing--tainting-kernel)
+
 
 **[Python](#python)**
   - [CMake shows an error when I try to build with Python bindings](#q-cmake-shows-an-error-when-i-try-to-build-with-python-bindings)
@@ -96,6 +99,18 @@ The gcc compiler issues the following error while compiling:
 
 This might indicate that you do not have enough memory or swap space on your machine. Try closing memory consuming applications, and if you are running inside a VM increase available RAM to at least 2 GB.
 
+## Q: I ran the udev rules script but Linux still get `Permission denied`
+
+First, try re-installing udev rules located in librealsense source directory:
+    sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
+    sudo udevadm control --reload-rules && udevadm trigger
+
+If the issue persists, the cause might be due to the fact that your user is not part of the `plugdev` group.
+
+
+## Q: `dmesg` shows: `uvcvideo: module verification failed: signature and/or required key missing - tainting kernel`
+
+This is a standard warning issued since Kernel 4.4-30+, it is only a notification and does not affect module's functionality.
 
 
 -----------------
