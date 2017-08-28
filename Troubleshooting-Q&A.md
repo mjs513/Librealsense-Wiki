@@ -50,7 +50,7 @@ $ export LRS_LOG_LEVEL="<Log Level>"
 ```
 - A LibRealSense log will be created even when an application does not activate the LibRealSense logger.
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 #### Q: GCC Internal Error
 
@@ -61,7 +61,7 @@ The gcc compiler issues the following error while compiling:
 This might indicate that you do not have enough memory or swap space on your machine. Try closing memory consuming applications, and if you are running inside a VM increase available RAM to at least 2 GB.
 
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 #### Q: I ran the udev rules script but Linux still get `Permission denied`
 
@@ -72,13 +72,13 @@ First, try re-installing udev rules located in librealsense source directory:
 If the issue persists, the cause might be due to the fact that your user is not part of the `plugdev` group.
 
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 #### Q: `dmesg` shows: `uvcvideo: module verification failed: signature and/or required key missing - tainting kernel`
 
 This is a standard warning issued since Kernel 4.4-30+, it is only a notification and does not affect module's functionality.
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 #### Q: `sudo modprobe uvcvideo` produces `dmesg: uvc kernel module is not loaded`
 
@@ -86,7 +86,7 @@ This issue is caused since the patched module kernel version is incompatible wit
 Verify the actual kernel version with `uname -r`.
 Revert and proceed from [Make Ubuntu Up-to-date](../blob/master/doc/installation.md#make-ubuntu-up-to-date) step from the Linux installation guide.
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 #### Q: `ubuntu-xenial.sh` script  fails with fatal error: `openssl/opensslv.h`
 
@@ -94,7 +94,7 @@ This is usually caused due to a missing dependency.
 Install *openssl* package from [Video4Linux backend preparation](../blob/master/doc/installation.md#video4linux-backend-preparation) step
 
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 
 
@@ -121,7 +121,7 @@ $ lsusb | grep 8086
 
 
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 #### Q: I connected the camera to the USB port but it is not recognized
 
@@ -130,13 +130,13 @@ $ lsusb | grep 8086
 If your camera is connected via USB 3.0, check to make sure your OS detects the camera ([how?](#q-how-do-i-see-which-intel-realsense-cameras-are-connected)).
 The camera will not work without USB 3.0 (or higher)
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 #### Q: I'm using a virtual machine and the camera is not working
 
 Due to the USB 3.0 translation layer between native hardware and virtual machine, the librealsense team does not support installation in a VM. If you do choose to try it, we recommend using VMware Workstation Player, and not Oracle VirtualBox for proper emulation of the USB3 controller.
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 #### Q: Camera gets stuck\hangs on windows
 
@@ -147,7 +147,7 @@ When working on Windows 8.1, make sure you have [KB3075872](https://support.micr
 These patches address issues with Windows 8.1 video drivers. They should be resolved in Windows 10.
 
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 
 
@@ -162,7 +162,7 @@ These patches address issues with Windows 8.1 video drivers. They should be reso
 This usually happens when your computer is behind a firewall, try to configure git to use the appropriate proxy server
 
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
 
 
 
@@ -184,4 +184,4 @@ Please check the following:
 
 If this message appears you should install python 64 bit
 
-[Up ⬆️](#)
+[(up ⬆️)](#)
