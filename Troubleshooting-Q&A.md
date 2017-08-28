@@ -39,7 +39,7 @@ This usually happens when your computer is behind a firewall, try to configure g
 ## Camera not working\detected
 
 
-#### Q: How do I see which Intel RealSense cameras are connects?
+#### Q: How do I see which Intel RealSense cameras are connected?
 **Linux:**
 Open shell:
 ```bash
