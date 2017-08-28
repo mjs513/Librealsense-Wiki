@@ -76,12 +76,12 @@ This is a standard warning issued since Kernel 4.4-30+, it is only a notificatio
 
 This issue is caused since the patched module kernel version is incompatible with the resident kernel.
 Verify the actual kernel version with `uname -r`.
-Revert and proceed from [[Make Ubuntu Up-to-date | ../blob/master/doc/installation.md#make-ubuntu-up-to-date]] step from the Linux installation guide.
+Revert and proceed from [Make Ubuntu Up-to-date](../blob/master/doc/installation.md#make-ubuntu-up-to-date) step from the Linux installation guide.
 
 #### Q: `ubuntu-xenial.sh` script  fails with fatal error: `openssl/opensslv.h`
 
 This is usually caused due to a missing dependency.
-Install *openssl* package from [[Video4Linux backend preparation|../blob/master/doc/installation.md#video4linux-backend-preparation]] step
+Install *openssl* package from [Video4Linux backend preparation](../blob/master/doc/installation.md#video4linux-backend-preparation) step
 
 
 
