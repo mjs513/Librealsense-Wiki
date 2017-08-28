@@ -3,7 +3,7 @@
 We've grouped together related questions for your convenience 
 
 
-### **[Installation](#installation)**
+**[Installation](#installation)**
 - [How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
 - [GCC Internal Error](#q-gcc-internal-error)
 - [I ran the udev rules script but Linux still get `Permission denied`](#q-i-ran-the-udev-rules-script-but-linux-still-get-permission-denied)
@@ -12,18 +12,18 @@ We've grouped together related questions for your convenience
 - [`ubuntu-xenial.sh` script  fails with fatal error: `openssl/opensslv.h`](#q-ubuntu-xenialsh-script--fails-with-fatal-error-opensslopensslvh)
 
 
-### **[Camera not working\detected](#camera-not-working-detected)**
+**[Camera not working\detected](##camera-not-workingdetected)**
 - [How do I see which Intel RealSense cameras are connects?](#q-how-do-i-see-which-intel-realsense-cameras-are-connects)
 - [I connected the camera to the USB port but it is not recognized](#q-i-connected-the-camera-to-the-usb-port-but-it-is-not-recognized)
 - [I'm using a virtual machine and the camera is not working](#q-im-using-a-virtual-machine-and-the-camera-is-not-working)
 - [Streaming gets stuck on windows](#q-streaming-gets-stuck-on-windows)
 
 
-### **[Git](#git)**
+**[Git](#git)**
 - [Git returns `access timeout` when I try to clone the repository](#q-git-returns-access-timeout-when-i-try-to-clone-the-repository)
 
 
-### **[Python](#python)**
+**[Python](#python)**
   - [CMake shows an error when I try to build with Python bindings](#q-cmake-shows-an-error-when-i-try-to-build-with-python-bindings)
 
 
