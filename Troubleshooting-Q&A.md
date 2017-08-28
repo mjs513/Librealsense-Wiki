@@ -15,9 +15,9 @@ We've grouped together related questions for your convenience
 - [How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
 - [GCC Internal Error](#q-gcc-internal-error)
 - [I ran the udev rules script but Linux still get `Permission denied`](#q-i-ran-the-udev-rules-script-but-linux-still-get-permission-denied)
-- [`dmesg` shows: `uvcvideo: module verification failed: signature and/or required key missing - tainting kernel`](#q-dmesg-shows-uvcvideo-module-verification-failed-signature-andor-required-key-missing---tainting-kernel)
-- [`sudo modprobe uvcvideo` produces `dmesg: uvc kernel module is not loaded`](#q-sudo-modprobe-uvcvideo-produces-dmesg-uvc-kernel-module-is-not-loaded)
-
+- [dmesg shows: `uvcvideo: module verification failed: signature and/or required key missing - tainting kernel`](#q-dmesg-shows-uvcvideo-module-verification-failed-signature-andor-required-key-missing---tainting-kernel)
+- [`sudo modprobe uvcvideo` produces dmesg: `uvc kernel module is not loaded`](#q-sudo-modprobe-uvcvideo-produces-dmesg-uvc-kernel-module-is-not-loaded)
+- [`ubuntu-xenial.sh` script  fails with fatal error: `openssl/opensslv.h`](#q)
 ### **[Python](#python)**
   - [CMake shows an error when I try to build with Python bindings](#q-cmake-shows-an-error-when-i-try-to-build-with-python-bindings)
 
@@ -40,13 +40,15 @@ This usually happens when your computer is behind a firewall, try to configure g
 
 
 #### Q: How do I see which Intel RealSense cameras are connected?
+
 **Linux:**
-Open shell:
+
 ```bash
 $ lsusb | grep 8086
 ```
 
 **Windows:**
+
 1. Click the `Win-Key`+`X` keys
 2. Choose `Device Manager`
 3. Look under `Imaging devices` for "Intel RealSense" cameras
@@ -69,6 +71,11 @@ Due to the USB 3.0 translation layer between native hardware and virtual machine
 When working on Windows 8.1, make sure you have [KB3075872](https://support.microsoft.com/en-us/kb/3075872) and [KB2919355](https://support.microsoft.com/en-us/kb/2919355) installed. These patches are addressing issues with 8.1 video drivers, resolved in Windows 10.
 
 
+
+
+
+
+
 ## Installation
 
 #### Q: How do I enable librealsense logs?
@@ -76,13 +83,15 @@ To change the log level of LibRealSense logger, you need to set a local variable
 and initialize it with the desirable log level:
 
 **Linux:**
+
 ```bash
 $ export LRS_LOG_LEVEL="<Log Level>"
 ```
 
 **Windows:**
+
 ```bash
-$ set LRS_LOG_LEVEL="<Log Level>"
+> set LRS_LOG_LEVEL="<Log Level>"
 ```
 - A LibRealSense log will be created even when an application does not activate the LibRealSense logger.
 
@@ -114,7 +123,10 @@ This issue is caused since the patched module kernel version is incompatible wit
 Verify the actual kernel version with `uname -r`.
 Revert and proceed from [Make Ubuntu Up-to-date](../doc/installation.md#make-ubuntu-up-to-date) step from the Linux installation guide.
 
+#### Q: `ubuntu-xenial.sh` script  fails with fatal error: `openssl/opensslv.h`
 
+This is usually caused due to a missing dependency.
+Install *openssl* package from [Video4Linux backend preparation](../doc/installation.md#video4linux-backend-preparation) step
 ## Python
 
 #### Q: CMake shows an error when I try to build with Python bindings
