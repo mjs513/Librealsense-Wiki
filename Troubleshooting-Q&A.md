@@ -25,9 +25,9 @@ We've grouped together related questions for your convenience
 -----------------
 
 
-### Git
+## Git
 
-#### __Q: Git returns `access timeout` when I try to clone the repository__
+#### > Q: Git returns `access timeout` when I try to clone the repository
 
     git.launchpad... access timeout
 
@@ -35,9 +35,8 @@ This usually happens when your computer is behind a firewall, try to configure g
 
 
 
------------------
 
-### Camera not working\detected
+## Camera not working\detected
 
 
 #### Q: How do I see which Intel RealSense cameras are connects?
@@ -70,21 +69,18 @@ Due to the USB 3.0 translation layer between native hardware and virtual machine
 When working on Windows 8.1, make sure you have [KB3075872](https://support.microsoft.com/en-us/kb/3075872) and [KB2919355](https://support.microsoft.com/en-us/kb/2919355) installed. These patches are addressing issues with 8.1 video drivers, resolved in Windows 10.
 
 
------------------
-
-Installation
-====================
+## Installation
 
 #### Q: How do I enable librealsense logs?
 To change the log level of LibRealSense logger, you need to set a local variable named **LRS_LOG_LEVEL**
 and initialize it with the desirable log level:
 
-#### **Linux:**
+**Linux:**
 ```bash
 $ export LRS_LOG_LEVEL="<Log Level>"
 ```
 
-#### **Windows:**
+**Windows:**
 ```bash
 $ set LRS_LOG_LEVEL="<Log Level>"
 ```
@@ -118,10 +114,8 @@ This issue is caused since the patched module kernel version is incompatible wit
 Verify the actual kernel version with `uname -r`.
 Revert and proceed from [Make Ubuntu Up-to-date](../doc/installation.md#make-ubuntu-up-to-date) step from the Linux installation guide.
 
------------------
 
-Python
-====================
+## Python
 
 #### Q: CMake shows an error when I try to build with Python bindings
 The following message appears:
