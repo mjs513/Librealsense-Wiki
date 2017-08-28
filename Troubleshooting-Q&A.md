@@ -50,7 +50,7 @@ $ export LRS_LOG_LEVEL="<Log Level>"
 ```
 - A LibRealSense log will be created even when an application does not activate the LibRealSense logger.
 
-[(up ⬆️)]()
+[(up ⬆️)](#)
 
 #### Q: GCC Internal Error
 
