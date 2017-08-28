@@ -2,6 +2,4 @@
 
 Use the navigation bar on the right to find the information you're looking for.
 
-### Table of Contents
-
- - [[Troubleshooting Q&A|Troubleshooting-Q&A]]
+If you're having some issue with the SDK please try our [[Troubleshooting Q&A]]
