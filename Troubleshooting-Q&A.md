@@ -31,7 +31,7 @@ We've grouped together related questions for your convenience
 
 
 
-## Installation
+## Installation  [Up ⬆️](#)
 
 #### Q: How do I enable librealsense logs?
 To change the log level of LibRealSense logger, you need to set a local variable named **LRS_LOG_LEVEL**
@@ -90,7 +90,7 @@ Install *openssl* package from [Video4Linux backend preparation](../blob/master/
 
 
 
-## Camera not working\detected
+## Camera not working\detected [Up ⬆️](#)
 
 
 #### Q: How do I see which Intel RealSense cameras are connected?
@@ -133,7 +133,7 @@ These patches address issues with Windows 8.1 video drivers. They should be reso
 
 
 
-## Git
+## Git [Up ⬆️](#)
 
 #### Q: Git returns `access timeout` when I try to clone the repository
 
@@ -145,7 +145,7 @@ This usually happens when your computer is behind a firewall, try to configure g
 
 
 
-## Python
+## Python [Up ⬆️](#)
 
 #### Q: CMake shows an error when I try to build with Python bindings
 The following message appears:
