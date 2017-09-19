@@ -18,5 +18,5 @@
 * rs-data-collect example fails to execute
 
 ### Limitations
-* (Firmware) When Advance Mode is changed, the camera requires to disconnect/reconnect
-* (Firmware) Sometimes when RGB and Stereo resolutions are at HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off
+* **[Firmware]** When Advance Mode is changed, the camera requires to disconnect/reconnect
+* **[Firmware]** Sometimes when RGB and Stereo resolutions are at HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off
