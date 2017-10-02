@@ -19,4 +19,4 @@
 
 ### Limitations
 * **[Firmware]** When Advance Mode is changed, the camera requires to disconnect/reconnect (DSO-7015)
-* **[Firmware]** Sometimes when RGB and Stereo resolutions are at HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
+* **[Firmware]** Sometimes when RGB and Stereo resolutions are at FHD-HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
