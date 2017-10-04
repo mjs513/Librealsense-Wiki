@@ -1,5 +1,7 @@
 ## Release 2.7.9
 17 Sep 2017
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-277-to-279)
+
 ### New Features And Improvements
 * Preliminary [node.js](https://github.com/IntelRealSense/librealsense/tree/development/wrappers/nodejs) integration
 * Preliminary [ROS](https://github.com/intel-ros/realsense/releases/tag/2.0.0) integration
