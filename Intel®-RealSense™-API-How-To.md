@@ -12,6 +12,11 @@
 * [Get Depth Units](#get-depth-units)
 * [Controlling the Laser](#controlling-the-laser)
 
+### TODO:
+* Fetch frame width, height, bytes-per-pixel and stride in bytes
+* Fetch frame time-stamp and per-frame metadata
+* Get color aligned to depth and vice-versa
+
 ### Get first RealSense device
 * **librealsense1**:
 ```cpp
@@ -71,7 +76,8 @@ dev.enable_stream(rs::stream::color, rs::preset::best_quality);
 dev.enable_stream(rs::stream::depth, rs::preset::best_quality);
 dev.start();
 dev.wait_for_frames();
-dev.get_frame_data(rs2::stream::depth); // Pointer to depth pixels, invalidated by next call to wait/poll for frames
+dev.get_frame_data(rs2::stream::depth); // Pointer to depth pixels, 
+// invalidated by next call to wait/poll for frames
 ```
 * **librealsense2**:
 ```cpp
