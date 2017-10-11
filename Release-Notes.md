@@ -1,3 +1,16 @@
+## Release 2.8.0
+11 Oct 2017
+
+> [API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-279-to-280) from previous release
+
+## New Features and Improvements
+
+* [Depth Quality Tools](https://github.com/IntelRealSense/librealsense/tree/development/tools/depth-quality) is now available
+
+### Bug Fixes
+### Known Issues
+### Limitations
+
 ## Release 2.7.9
 17 Sep 2017
 
