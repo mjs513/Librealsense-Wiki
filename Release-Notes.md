@@ -6,9 +6,11 @@
 ## New Features and Improvements
 
 * [Depth Quality Tools](https://github.com/IntelRealSense/librealsense/tree/development/tools/depth-quality) is now available
+* Improved pipeline architecture
 
 ### Bug Fixes
 * rs-data-collect example fails to execute
+* **[Viewer]** - Some of the Advance Mode parameters are not updated properly
 
 ### Known Issues
 * **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
