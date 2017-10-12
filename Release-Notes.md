@@ -8,7 +8,18 @@
 * [Depth Quality Tools](https://github.com/IntelRealSense/librealsense/tree/development/tools/depth-quality) is now available
 
 ### Bug Fixes
+* rs-data-collect example fails to execute
+
 ### Known Issues
+* **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
+* Windows - device disconnect events are sometimes not reported (DSO-6813)
+* Windows - Soft stability issue: start-stop test hangs when RGB and Depth running together after hundreds of cycles (DSO-6930)
+* When requesting 2 streams (such as color and depth) only one frameset is returned in the pipeline, instead of the 2 synchronized streams (DSO-7202)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+* Linux - When using IR format that is different than UYVY, the FPS drops to half (DSO-7183)
+* The Viewer CPU utilization is high, even when no stream is activated (DSO-7224)
+* GUI - The Output Viewer window doesn't show the bottom notifications (DSO-7197)
+
 ### Limitations
 * **[Firmware]** When Advance Mode is changed, the camera requires sometimes to disconnect/reconnect (DSO-7015)
 * **[Firmware]** Sometimes when RGB and Stereo resolutions are at FHD-HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
