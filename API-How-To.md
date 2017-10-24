@@ -84,7 +84,7 @@ dev.get_frame_data(rs2::stream::depth); // Pointer to depth pixels,
 rs2::pipeline pipe;
 pipe.start();
 rs2::frameset frames = pipe.wait_for_frames();
-rs2::frame frame = frames.get(RS2_STREAM_DEPTH);
+rs2::frame frame = frames.first(RS2_STREAM_DEPTH);
 if (frame)
     frame.get_data(); // Pointer to depth pixels, 
                       // invalidated when last copy of frame goes out of scope
@@ -108,7 +108,7 @@ pipe.start();
 rs2::frameset frames;
 if (pipe.poll_for_frames(&frames))
 {
-    rs2::frame depth_frame = frames.get(RS2_STREAM_DEPTH);
+    rs2::frame depth_frame = frames.first(RS2_STREAM_DEPTH);
     depth_frame.get_data();
 }
 ```
