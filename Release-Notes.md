@@ -1,9 +1,16 @@
+## Release 2.8.1
+1 Nov 2017
+
+> [API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-280-to-281) from previous release
+
+TBD
+
 ## Release 2.8.0
 11 Oct 2017
 
 > [API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-279-to-280) from previous release
 
-## New Features and Improvements
+### New Features and Improvements
 
 * [Depth Quality Tools](https://github.com/IntelRealSense/librealsense/tree/development/tools/depth-quality) is now available
 * Improved pipeline architecture
