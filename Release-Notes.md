@@ -17,6 +17,9 @@
 * Pipeline fails to choose the correct device when several devices are connected (DSO-7366)
 * When requesting 2 streams (such as color and depth) only one frameset is returned in the pipeline, instead of the 2 synchronized streams. (DSO-7202) #754 
 
+### Limitations
+* **[Firmware]** Sometimes when RGB and Stereo resolutions are at FHD-HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
+
 ## Release 2.8.0
 11 Oct 2017
 
