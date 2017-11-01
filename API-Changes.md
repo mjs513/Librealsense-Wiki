@@ -1,3 +1,10 @@
+## From [2.8.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.0) to [2.8.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.1)
+
+### Added
+* [rs2_start_processing_queue](https://github.com/IntelRealSense/librealsense/tree/v2.8.1/include/librealsense2/h/rs_processing.h#L67) - convenience function that lets the user target the output of a processing block (for example **align**) directly into a **frame_queue**. This helps in languages where function pointers are not available, such as LabView 
+
+> Signature of **rs2_is_option_read_only**, **rs2_get_option**, **rs2_set_option**, **rs2_supports_option**, **rs2_get_option_description** and **rs2_get_option_value_description** was changed. First parameter used to be pointer to **rs2_sensor** and now is pointer to **rs2_options**. However, it is 100% safe to cast pointer to **rs2_sensor** to pointer to **rs2_options**. 
+
 ## From [2.7.9](https://github.com/IntelRealSense/librealsense/releases/tag/v2.7.9) to [2.8.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.0)
 
 ### Moved
