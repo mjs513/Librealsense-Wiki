@@ -23,6 +23,7 @@
 * Windows - Soft stability issue: start-stop test hangs when RGB and Depth running together after hundreds of cycles (DSO-6930)
 * Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
 * GUI - The Output Viewer window doesn't show the bottom notifications (DSO-7197)
+* Linux - When using IR format that is different than UYVY, the FPS drops to half (DSO-7183)
 
 ### Limitations
 * **[Firmware]** Sometimes when RGB and Stereo resolutions are at FHD-HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
