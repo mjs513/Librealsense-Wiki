@@ -13,6 +13,7 @@ Refactor implementation of Z-Accuracy metric to use the rectified depth.
 * Adding USB2 support for selected D400 models (DSO-6814)
 * Python [example](https://github.com/IntelRealSense/librealsense/blob/v2.8.2/wrappers/python/examples/align-depth2color.py) for Depth2Color registration
 * Librealsense with Raspberry Pi platform [tutorial](https://github.com/IntelRealSense/librealsense/blob/v2.8.2/doc/RaspberryPi3.md)
+* [LabView](https://github.com/IntelRealSense/librealsense/tree/master/wrappers/labview) wrapper was added
 
 ### Bug Fixes
 * **Windows OS** Librealsense fails to recognize devices with DMFT installed (DSO-6345)
@@ -26,14 +27,22 @@ Refactor implementation of Z-Accuracy metric to use the rectified depth.
 * Fixed an issue when using LRS_LOG_LEVEL environment variable didn't enforce the creation of log file
 * Fixed an issue on rs-fw-logger tool when 'wait_for_device()' throws an exception
 * **Python** add missing initializer in pointcloud demo
+* Fixed Firmware issue (ver 5.8.14): Sometimes when RGB and Stereo resolutions are at FHD-HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
+* Windows - device disconnect events are sometimes not reported (DSO-6813)
 
 ### Known Issues
-* Realsense-viewer UX alignment issues with 4K display (DSO-7739)
+* Saving depth capture doesn't save the image - Windows only (DSO-7875)
+* **[DQT]** - Z-accuracy is shown when no GT is selected (DSO-7885)
+* UX alignment issues with 4K display (DSO-7739)
 * Latency of 100ms (DSO-7745)
 * Viewer doesn't automatically select the correct Depth stream (DSO-7764)
 * High CPU Utilization when streaming D435 RGB (DSO-7720)
 * Depth data snapshot issue on Windows (DSO-7875)
-* Exposure control error raised when changing frame rate (DSO-7775)
+* Windows - Soft stability issue: start-stop test hangs when RGB and Depth running together after hundreds of cycles (DSO-6930)
+* **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
+* **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
+* GUI - The Output Viewer window doesn't show the bottom notifications (DSO-7197)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
 
 ### Limitations
 * **[Firmware]** Version 5.8.14 is required to run Advanced mode assignments (DSO-7649)
