@@ -1,3 +1,44 @@
+## Release 2.8.2
+21 Nov 2017
+
+### API Changes
+N/A
+
+### New Features and Improvements
+
+* [Depth Quality Tool](https://github.com/IntelRealSense/librealsense/tree/development/tools/depth-quality) enhancements:  
+Replace AVG metric with Plane fit RMS  
+Refactor implementation of Z-Accuracy metric to use the rectified depth.
+
+* Adding USB2 support for selected D400 models (DSO-6814)
+* Python [example](https://github.com/IntelRealSense/librealsense/blob/v2.8.2/wrappers/python/examples/align-depth2color.py) for Depth2Color registration
+* Librealsense with Raspberry Pi platform [tutorial](https://github.com/IntelRealSense/librealsense/blob/v2.8.2/doc/RaspberryPi3.md)
+
+### Bug Fixes
+* **Windows OS** Librealsense fails to recognize devices with DMFT installed (DSO-6345)
+* **Linux** FPS drops to 50% when streaming RGB formats (DSO-7183)
+* Fix left2right stereo imagers extrinsic calculation
+* Fixed realsense-viewer crash when running on a PC with no display attached
+* Improve frames synchronization flow in the viewer
+* Fixed an issue when rs-depth-quality tool crashing as a result of clicking on the window close button
+* Added an appropriate message on rs-depth-quality tool when a camera is used by another application.
+* Fixed an issue when loading a JSON file failed with unrecognized fields.
+* Fixed an issue when using LRS_LOG_LEVEL environment variable didn't enforce the creation of log file
+* Fixed an issue on rs-fw-logger tool when 'wait_for_device()' throws an exception
+* **Python** add missing initializer in pointcloud demo
+
+### Known Issues
+* Realsense-viewer UX alignment issues with 4K display (DSO-7739)
+* Latency of 100ms (DSO-7745)
+* Viewer doesn't automatically select the correct Depth stream (DSO-7764)
+* High CPU Utilization when streaming D435 RGB (DSO-7720)
+* Depth data snapshot issue on Windows (DSO-7875)
+* Exposure control error raised when changing frame rate (DSO-7775)
+
+### Limitations
+* **[Firmware]** Version 5.8.14 is required to run Advanced mode assignments (DSO-7649)
+
+
 ## Release 2.8.1
 1 Nov 2017
 
