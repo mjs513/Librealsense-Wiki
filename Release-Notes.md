@@ -30,6 +30,7 @@ Refactor implementation of Z-Accuracy metric to use the rectified depth.
 * Fixed Firmware issue (ver 5.8.14): Sometimes when RGB and Stereo resolutions are at FHD-HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
 * Windows - device disconnect events are sometimes not reported (DSO-6813)
 * The Viewer and the visual examples CPU utilization is high, when no stream is activated (DSO-7224)
+* Depth Quality Tool gets stuck - FPS alert after a few min run (DSO-7859)
 
 ### Known Issues
 * Saving depth capture doesn't save the image - Windows only (DSO-7875)
