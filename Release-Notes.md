@@ -38,7 +38,7 @@ Refactor implementation of Z-Accuracy metric to use the rectified depth.
 * Pointcloude misalignment in 4K display laptop (DSO-7891)
 * Latency of 100ms (DSO-7745)
 * Viewer doesn't automatically select the correct Depth stream (DSO-7764)
-* High CPU Utilization when streaming D435 RGB (DSO-7720)
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
 * Depth data snapshot issue on Windows (DSO-7875)
 * Windows - Soft stability issue: start-stop test hangs when RGB and Depth running together after hundreds of cycles (DSO-6930)
 * **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
