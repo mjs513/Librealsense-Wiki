@@ -29,11 +29,13 @@ Refactor implementation of Z-Accuracy metric to use the rectified depth.
 * **Python** add missing initializer in pointcloud demo
 * Fixed Firmware issue (ver 5.8.14): Sometimes when RGB and Stereo resolutions are at FHD-HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
 * Windows - device disconnect events are sometimes not reported (DSO-6813)
+* The Viewer and the visual examples CPU utilization is high, when no stream is activated (DSO-7224)
 
 ### Known Issues
 * Saving depth capture doesn't save the image - Windows only (DSO-7875)
 * **[DQT]** - Z-accuracy is shown when no GT is selected (DSO-7885)
-* UX alignment issues with 4K display (DSO-7739)
+* UX menu alignment issues with some platforms (DSO-7739)
+* Pointcloude misalignment in 4K display laptop (DSO-7891)
 * Latency of 100ms (DSO-7745)
 * Viewer doesn't automatically select the correct Depth stream (DSO-7764)
 * High CPU Utilization when streaming D435 RGB (DSO-7720)
@@ -43,6 +45,7 @@ Refactor implementation of Z-Accuracy metric to use the rectified depth.
 * **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
 * GUI - The Output Viewer window doesn't show the bottom notifications (DSO-7197)
 * Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+* Distance calculation is not accurate when there is no plain target in the DQT (DSO-7866)
 
 ### Limitations
 * **[Firmware]** Version 5.8.14 is required to run Advanced mode assignments (DSO-7649)
