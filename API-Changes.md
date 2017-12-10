@@ -11,7 +11,7 @@ Post-processing depth filters:
 The filters have been integrated into the **realsense-viewer**  and **depth-quality** tools.
     
 
-## From [2.8.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.2) to [2.8.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.2)
+## From [2.8.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.1) to [2.8.2](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.2)
 
 No API changes introduced
 
