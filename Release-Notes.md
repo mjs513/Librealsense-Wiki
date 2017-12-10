@@ -1,3 +1,47 @@
+## Release 2.8.3
+8 Dec 2017
+
+### API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-282-to-283) from the previous 2.8.2 version
+
+### New Features and Improvements
+
+* Adding Depth Post-Processing filters  
+   * Temporal Moving average Filter (DSO-7393)  
+   * Spatial Edge-preserving Domain Transform filter(DSO-7392)  
+   * Decimation filter (DSO-7394)  
+   The filters are integrated into **realsense-viewer** and **depth-quality** tools and appear under "Post-Processing" entry in the control panel.
+* Add support for d4m device (D405) : enumeration, depth/IR streaming and controls.
+* [PCL wrapper](https://github.com/IntelRealSense/librealsense/pull/854)
+* [Additional OpenCV examples](https://github.com/IntelRealSense/librealsense/pull/853)
+   * Latency  profiling tool.
+   * Integrating Depth with Deep-Neural Network example
+* **realsense-viewer**:
+   * Pointcloud visualization with colorized depth.
+   * Depth post-processing controls: toggle on/off; control filter parameters.
+* Performance enhancements
+
+### Bug Fixes
+* Fix export to PNG.
+* Support for alignment of any stream to depth - [#858](https://github.com/IntelRealSense/librealsense/issues/858)
+* Removing work-around for [DSO-7649](https://github.com/IntelRealSense/librealsense/pull/833) - D400 devices require FW v5.8.15 upgrade.
+* Saving depth capture doesn't save the image - Windows only (DSO-7875)
+* **[depth-quality]** tool - Z-accuracy is shown when no GT is selected (DSO-7885)
+* Distance calculation is not accurate when there is no plain target in the DQT (DSO-7866)
+
+
+### Known Issues
+* D4m device not recognized on startup (DSO-7883)
+* Streaming two D415 devices on SKL system (DSO-7889)
+* Depth-quality tool: invalid UI selections (DSO-7884)
+
+### Prerequisites
+* **[Firmware]** D400 Firmware Version 5.8.15 is required as the software w/a for v5.8.14 has been removed.
+
+
+
+
+
 ## Release 2.8.2
 21 Nov 2017
 
