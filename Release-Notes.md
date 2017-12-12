@@ -36,7 +36,6 @@ The 2 issues below are fixed with a graphics updated driver, pelase refer to:[In
 
 ### Known Issues
 * Streaming two D415 devices on SKL system (DSO-7889)
-* Depth-quality tool: invalid UI selections (DSO-7884)
 * Pointcloude misalignment in 4K display laptop (DSO-7891)
 * Latency of 100ms (DSO-7745)
 * The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
