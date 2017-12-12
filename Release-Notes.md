@@ -22,12 +22,12 @@
 * Performance enhancements
 
 ### Bug Fixes
-* Fix export to PNG.
 * Support for alignment of any stream to depth - [#858](https://github.com/IntelRealSense/librealsense/issues/858)
-* Removing work-around for [DSO-7649](https://github.com/IntelRealSense/librealsense/pull/833) - D400 devices require FW v5.8.15 upgrade.
-* Saving depth capture doesn't save the image - Windows only (DSO-7875)
+* Removing work-around for [#833](https://github.com/IntelRealSense/librealsense/pull/833) - D400 devices require FW v5.8.15 upgrade.
+* Saving depth capture (PNG) doesn't save the image - Windows only (DSO-7875)
 * **[depth-quality]** tool - Z-accuracy is shown when no GT is selected (DSO-7885)
 * Distance calculation is not accurate when there is no plain target in the DQT (DSO-7866)
+* Viewer doesn't automatically select the correct Depth stream (DSO-7764)
 
 ### Other related fixes
 The 2 issues below are fixed with a graphics updated driver, pelase refer to:[Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
@@ -35,9 +35,15 @@ The 2 issues below are fixed with a graphics updated driver, pelase refer to:[In
 * **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
 
 ### Known Issues
-* D4m device not recognized on startup (DSO-7883)
 * Streaming two D415 devices on SKL system (DSO-7889)
 * Depth-quality tool: invalid UI selections (DSO-7884)
+* Pointcloude misalignment in 4K display laptop (DSO-7891)
+* Latency of 100ms (DSO-7745)
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+* Windows - Soft stability issue: start-stop test hangs when RGB and Depth running together after hundreds of cycles (DSO-6930)
+* **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
+* GUI - The Output Viewer window doesn't show the bottom notifications (DSO-7197)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
 
 ### Prerequisites
 * **[Firmware]** D400 Firmware Version 5.8.15 is required as the software w/a for v5.8.14 has been removed.
