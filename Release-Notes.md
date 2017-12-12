@@ -29,6 +29,10 @@
 * **[depth-quality]** tool - Z-accuracy is shown when no GT is selected (DSO-7885)
 * Distance calculation is not accurate when there is no plain target in the DQT (DSO-7866)
 
+### Other related fixes
+The 2 issues below are fixed with a graphics updated driver, pelase refer to:[Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+* UX menu alignment issues with some platforms (DSO-7739)
+* **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
 
 ### Known Issues
 * D4m device not recognized on startup (DSO-7883)
