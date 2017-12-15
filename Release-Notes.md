@@ -40,7 +40,6 @@ The 2 issues below are fixed with a graphics updated driver, pelase refer to:[In
 * Latency of 100ms (DSO-7745)
 * The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
   * Disabling the OpenMP in the makefile, can slightly reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
-* Windows - Soft stability issue: start-stop test hangs when RGB and Depth running together after hundreds of cycles (DSO-6930)
 * **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
 * GUI - The Output Viewer window doesn't show the bottom notifications (DSO-7197)
 * Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
