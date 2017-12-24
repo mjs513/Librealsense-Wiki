@@ -1,3 +1,21 @@
+## From [2.8.2](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.0) to [2.8.3](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.3)
+
+### Added
+* [rs2_log](https://github.com/IntelRealSense/librealsense/blob/v2.8.3/include/librealsense2/rs.h#L80) - Usability function that allows the user to add logs to librealsense internal logger. The feature is useful in debugging and profiling scenarios.
+
+Post-processing depth filters:
+* [rs2_create_decimation_filter_block](https://github.com/IntelRealSense/librealsense/blob/v2.8.3/include/librealsense2/h/rs_processing.h#L133) - Down-sampling filter that effectively reduces the depth map resolution.
+* [rs2_create_spatial_filter_block](https://github.com/IntelRealSense/librealsense/blob/v2.8.3/include/librealsense2/h/rs_processing.h#L145) - Spatial edge-preserving depth filter.
+* [rs2_create_temporal_filter_block](https://github.com/IntelRealSense/librealsense/blob/v2.8.3/include/librealsense2/h/rs_processing.h#L139) - Temporal filter that rectifies depth values based on previously-available frames.
+
+The filters have been integrated into the **realsense-viewer**  and **depth-quality** tools.
+    
+
+## From [2.8.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.1) to [2.8.2](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.2)
+
+No API changes introduced
+
+
 ## From [2.8.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.0) to [2.8.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.1)
 
 ### Added
