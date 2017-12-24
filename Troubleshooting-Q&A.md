@@ -99,8 +99,8 @@ $ export LRS_LOG_LEVEL="<Log Level>"
 ```bash
 > set LRS_LOG_LEVEL="<Log Level>"
 ```
-- A LibRealSense log will be created even when an application does not activate the LibRealSense logger.
 
+> `<Log Level>` can be either `DEBUG`, `INFO`, `WARNING`, `ERROR` or `FATAL`
 
 
 #### Q: GCC Internal Error

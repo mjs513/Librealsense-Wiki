@@ -1,3 +1,110 @@
+## Release 2.8.3
+8 Dec 2017
+
+### API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-282-to-283) from the previous 2.8.2 version
+
+### New Features and Improvements
+
+* Adding Depth Post-Processing filters  
+   * Temporal Moving average Filter (DSO-7393)  
+   * Spatial Edge-preserving Domain Transform filter(DSO-7392)  
+   * Decimation filter (DSO-7394)  
+   The filters are integrated into **realsense-viewer** and **depth-quality** tools and appear under "Post-Processing" entry in the control panel.
+* Add support for d4m device (D405) : enumeration, depth/IR streaming and controls.
+* [PCL wrapper](https://github.com/IntelRealSense/librealsense/pull/854)
+* [Additional OpenCV examples](https://github.com/IntelRealSense/librealsense/pull/853)
+   * Latency  profiling tool.
+   * Integrating Depth with Deep-Neural Network example
+* **realsense-viewer**:
+   * Pointcloud visualization with colorized depth.
+   * Depth post-processing controls: toggle on/off; control filter parameters.
+* Performance enhancements
+
+### Bug Fixes
+* Support for alignment of any stream to depth - [#858](https://github.com/IntelRealSense/librealsense/issues/858)
+* Removing work-around for [#833](https://github.com/IntelRealSense/librealsense/pull/833) - D400 devices require FW v5.8.15 upgrade.
+* Saving depth capture (PNG) doesn't save the image - Windows only (DSO-7875)
+* **[depth-quality]** tool - Z-accuracy is shown when no GT is selected (DSO-7885)
+* Distance calculation is not accurate when there is no plain target in the DQT (DSO-7866)
+* Viewer doesn't automatically select the correct Depth stream (DSO-7764)
+
+### Other related fixes
+The 2 issues below are fixed with a graphics updated driver, pelase refer to:[Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+* UX menu alignment issues with some platforms (DSO-7739)
+* **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
+
+### Known Issues
+* Streaming two D415 devices on SKL system (DSO-7889)
+* Pointcloude misalignment in 4K display laptop (DSO-7891)
+* Latency of 100ms (DSO-7745)
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+  * Disabling the OpenMP in the makefile, can slightly reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
+* **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
+* GUI - The Output Viewer window doesn't show the bottom notifications (DSO-7197)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+
+### Prerequisites
+* **[Firmware]** D400 Firmware Version 5.8.15 is required as the software w/a for v5.8.14 has been removed.
+
+
+
+
+
+## Release 2.8.2
+21 Nov 2017
+
+### API Changes
+N/A
+
+### New Features and Improvements
+
+* [Depth Quality Tool](https://github.com/IntelRealSense/librealsense/tree/development/tools/depth-quality) enhancements:  
+Replace AVG metric with Plane fit RMS  
+Refactor implementation of Z-Accuracy metric to use the rectified depth.
+
+* Adding USB2 support for selected D400 models (DSO-6814)
+* Python [example](https://github.com/IntelRealSense/librealsense/blob/v2.8.2/wrappers/python/examples/align-depth2color.py) for Depth2Color registration
+* Librealsense with Raspberry Pi platform [tutorial](https://github.com/IntelRealSense/librealsense/blob/v2.8.2/doc/RaspberryPi3.md)
+* [LabView](https://github.com/IntelRealSense/librealsense/tree/master/wrappers/labview) wrapper was added
+
+### Bug Fixes
+* **Windows OS** Librealsense fails to recognize devices with DMFT installed (DSO-6345)
+* **Linux** FPS drops to 50% when streaming RGB formats (DSO-7183)
+* Fix left2right stereo imagers extrinsic calculation
+* Fixed realsense-viewer crash when running on a PC with no display attached
+* Improve frames synchronization flow in the viewer
+* Fixed an issue when rs-depth-quality tool crashing as a result of clicking on the window close button
+* Added an appropriate message on rs-depth-quality tool when a camera is used by another application.
+* Fixed an issue when loading a JSON file failed with unrecognized fields.
+* Fixed an issue when using LRS_LOG_LEVEL environment variable didn't enforce the creation of log file
+* Fixed an issue on rs-fw-logger tool when 'wait_for_device()' throws an exception
+* **Python** add missing initializer in pointcloud demo
+* Fixed Firmware issue (ver 5.8.14): Sometimes when RGB and Stereo resolutions are at FHD-HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
+* Windows - device disconnect events are sometimes not reported (DSO-6813)
+* The Viewer and the visual examples CPU utilization is high, when no stream is activated (DSO-7224)
+* Depth Quality Tool gets stuck - FPS alert after a few min run (DSO-7859)
+
+### Known Issues
+* Saving depth capture doesn't save the image - Windows only (DSO-7875)
+* **[DQT]** - Z-accuracy is shown when no GT is selected (DSO-7885)
+* UX menu alignment issues with some platforms (DSO-7739)
+* Pointcloude misalignment in 4K display laptop (DSO-7891)
+* Latency of 100ms (DSO-7745)
+* Viewer doesn't automatically select the correct Depth stream (DSO-7764)
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+* Depth data snapshot issue on Windows (DSO-7875)
+* Windows - Soft stability issue: start-stop test hangs when RGB and Depth running together after hundreds of cycles (DSO-6930)
+* **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
+* **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
+* GUI - The Output Viewer window doesn't show the bottom notifications (DSO-7197)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+* Distance calculation is not accurate when there is no plain target in the DQT (DSO-7866)
+
+### Limitations
+* **[Firmware]** Version 5.8.14 is required to run Advanced mode assignments (DSO-7649)
+
+
 ## Release 2.8.1
 1 Nov 2017
 
@@ -23,6 +130,7 @@
 * Windows - Soft stability issue: start-stop test hangs when RGB and Depth running together after hundreds of cycles (DSO-6930)
 * Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
 * GUI - The Output Viewer window doesn't show the bottom notifications (DSO-7197)
+* Linux - When using IR format that is different than UYVY, the FPS drops to half (DSO-7183)
 
 ### Limitations
 * **[Firmware]** Sometimes when RGB and Stereo resolutions are at FHD-HD, the RGB camera streaming stops and doesn't return even after turning the Depth Stereo to Off (DSO-6894)
