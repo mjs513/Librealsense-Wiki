@@ -1,3 +1,26 @@
+## Release 2.9.0
+January 2, 2017
+
+### API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-283-to-290) from the previous 2.8.3 version
+
+### New Features and Improvements
+
+* Allow Depth Post-Processing filters to operate in disparity domain (DSO-8162)
+* Rework on the output Panel in the Realsense Viewer (DSO-7197)
+* Mac OS: making playback and record functional (DSO-4836) 
+* Added API for point-cloud export to PLY [#862](https://github.com/IntelRealSense/librealsense/issues/862)
+* Publish documentation for [building and running libralsense on Android](https://github.com/IntelRealSense/librealsense/blob/development/doc/android/Android.md)
+
+### Bug Fixes
+* Applied fix reducing multi-cam latency [#935](https://github.com/IntelRealSense/librealsense/issues/935).
+
+### Known Issues
+* Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
+* Realsense Viewer crash on switching Advanced mode (DSO-8088)
+* rs-fw-logger is not deployed with 'make install' (DSO-8087)
+
+
 ## Release 2.8.3
 8 Dec 2017
 
