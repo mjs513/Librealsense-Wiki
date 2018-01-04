@@ -14,12 +14,19 @@ January 2, 2017
 
 ### Bug Fixes
 * Applied fix reducing multi-cam latency [#935](https://github.com/IntelRealSense/librealsense/issues/935).
+* Pointcloude misalignment in 4K display laptop (DSO-7891)
 
 ### Known Issues
 * Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
 * Realsense Viewer crash on switching Advanced mode (DSO-8088)
 * rs-fw-logger is not deployed with 'make install' (DSO-8087)
-
+* Streaming two D415 devices on SKL system (DSO-7889)
+* Pointcloude misalignment in 4K display laptop (DSO-7891)
+* Latency of 100ms (DSO-7745)
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+  * Disabling the OpenMP in the makefile, can slightly reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
+* **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
 
 ## Release 2.8.3
 8 Dec 2017
