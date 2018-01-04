@@ -10,6 +10,7 @@ Migration from previous versions requires `sudo apt-get install libudev-dev`
 ### New Features and Improvements
 
 * Allow Depth Post-Processing filters to operate in disparity domain (DSO-8162)
+  * Please note that the Post Processing is enabled by default and increases the CPU utilization
 * Rework on the output Panel in the Realsense Viewer (DSO-7197)
 * Mac OS: making playback and record functional (DSO-4836) 
 * Added API for point-cloud export to PLY [#862](https://github.com/IntelRealSense/librealsense/issues/862)
@@ -21,7 +22,7 @@ Migration from previous versions requires `sudo apt-get install libudev-dev`
 
 ### Known Issues
 * Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
-* Realsense Viewer crash on switching Advanced mode (DSO-8088)
+* Realsense Viewer crash on switching Advanced mode - may be due to wrong installation/permission (DSO-8088)
 * rs-fw-logger is not deployed with 'make install' (DSO-8087)
 * Streaming two D415 devices on SKL system (DSO-7889)
 * Pointcloude misalignment in 4K display laptop (DSO-7891)
