@@ -4,6 +4,9 @@ January 2, 2017
 ### API Changes
 [API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-283-to-290) from the previous 2.8.3 version
 
+### Prerequisites
+* A new dependency package `libudev-dev` was added to the [installation for Linux OS](https://github.com/IntelRealSense/librealsense/blob/development/doc/installation.md#make-ubuntu-up-to-date) due to a custom `libusb` library that was employed in this release.  
+Migration from previous versions requires `sudo apt-get install libudev-dev`
 ### New Features and Improvements
 
 * Allow Depth Post-Processing filters to operate in disparity domain (DSO-8162)
