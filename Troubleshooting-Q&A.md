@@ -15,7 +15,7 @@
 - [`sudo modprobe uvcvideo` produces dmesg: `uvc kernel module is not loaded`](#q-sudo-modprobe-uvcvideo-produces-dmesg-uvc-kernel-module-is-not-loaded)
 - [`ubuntu-xenial.sh` script  fails with fatal error: `openssl/opensslv.h`](#q-ubuntu-xenialsh-script--fails-with-fatal-error-opensslopensslvh)
 - [How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
-- [Fatal error: libudev.h: when building from sources](#q-fatal-error-libudevh-when-building-from-sources)
+- [`Fatal error: libudev.h:` when building from sources](#q-fatal-error-libudevh-when-building-from-sources)
 
 **[Git](#git)**
 - [Git returns `access timeout` when I try to clone the repository](#q-git-returns-access-timeout-when-i-try-to-clone-the-repository)
@@ -82,7 +82,7 @@ These patches address issues with Windows 8.1 video drivers. They should be reso
 
 ## Installation 
 
-#### Q: Fatal error: libudev.h: when building from sources
+#### Q: `Fatal error: libudev.h:` when building from sources
 From version 2.9.0 a new dependency third-party package `libudev-dev` has to be installed:
 `sudo apt-get install libudev-dev`
 See [Release Notes](https://github.com/IntelRealSense/librealsense/wiki/Release-Notes#prerequisites) for v2.9.0
