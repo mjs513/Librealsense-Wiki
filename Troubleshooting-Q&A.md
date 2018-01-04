@@ -15,7 +15,7 @@
 - [`sudo modprobe uvcvideo` produces dmesg: `uvc kernel module is not loaded`](#q-sudo-modprobe-uvcvideo-produces-dmesg-uvc-kernel-module-is-not-loaded)
 - [`ubuntu-xenial.sh` script  fails with fatal error: `openssl/opensslv.h`](#q-ubuntu-xenialsh-script--fails-with-fatal-error-opensslopensslvh)
 - [How do I enable librealsense logs?](#q-how-do-i-enable-librealsense-logs)
-- [Fatal error: libudev.h: when building from sources](#q-libudev-dev)
+- [Fatal error: libudev.h: when building from sources](#q-fatal-error-libudevh-when-building-from-sources)
 
 **[Git](#git)**
 - [Git returns `access timeout` when I try to clone the repository](#q-git-returns-access-timeout-when-i-try-to-clone-the-repository)
