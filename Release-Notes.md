@@ -25,7 +25,6 @@ Migration from previous versions requires `sudo apt-get install libudev-dev`
 * Realsense Viewer crash on switching Advanced mode - may be due to wrong installation/permission (DSO-8088)
 * rs-fw-logger is not deployed with 'make install' (DSO-8087)
 * Streaming two D415 devices on SKL system (DSO-7889)
-* Pointcloude misalignment in 4K display laptop (DSO-7891)
 * Latency of 100ms (DSO-7745)
 * The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
   * Disabling the OpenMP in the makefile, can slightly reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
