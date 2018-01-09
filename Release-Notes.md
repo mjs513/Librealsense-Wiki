@@ -31,6 +31,9 @@ Migration from previous versions requires `sudo apt-get install libudev-dev`
 * **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
 * Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
 
+### Other Issues
+* Display alignment issues can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+
 ## Release 2.8.3
 8 Dec 2017
 
@@ -63,7 +66,7 @@ Migration from previous versions requires `sudo apt-get install libudev-dev`
 * Viewer doesn't automatically select the correct Depth stream (DSO-7764)
 
 ### Other related fixes
-The 2 issues below are fixed with a graphics updated driver, pelase refer to:[Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+The 2 issues below are fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
 * UX menu alignment issues with some platforms (DSO-7739)
 * **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
 
