@@ -1,5 +1,3 @@
-# Depth Visual Presets of D4XX Cameras 
-
 This document contains image samples viewed from D415 and D435 cameras to visualize the Depth Visual Presets.
 
 All pictures were taken with these settings:
