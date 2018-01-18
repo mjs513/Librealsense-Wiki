@@ -7,6 +7,7 @@
 - [[API Changes]]
 - [[API How-To]]
 - [[Build Configuration]]
+- [[D4XX Visual Presets]]
 
 ### Help
 - [Closed GitHub Issues](https://github.com/IntelRealSense/librealsense/issues?utf8=%E2%9C%93&q=is%3Aclosed)
