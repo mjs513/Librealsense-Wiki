@@ -18,4 +18,9 @@ Alternatively, use `cmake-gui` utility to configure and generate your build file
 |TRACE_API|When this flag is enabled, all API-calls will be written to the log at `INFO` severity. This will include any errors, duration, input and output parameters as well as the return value. Entry and exit from API calls will be documented as well at `DEBUG` severity. Enabling this feature will result in severe performance penalty|`false`|
 |HWM_OVER_XU|When this option is enabled, hardware commands will be dispatched through extension-unit (XU) transfer protocol. When disabled (and assuming the hardware supports it) the SDK will talk to the hardware directly using `libusb` / `WinUSB`|`true`|
 |BUILD_SHARED_LIBS| When enabled the output of the library will be a dynamic link library (DLL) or a shared object (SO). When disabled the output will be a static library (LIB/A)|`true`|
-|CMAKE_BUILD_TYPE|Desired build time. To take advantage of compiler optimizations set to "Release" or "RelWithDebInfo"|`Debug`|
+|**CMAKE_BUILD_TYPE**|Desired build time. To take advantage of compiler optimizations set to "Release" or "RelWithDebInfo"|`Debug`|
+|ENABLE_ZERO_COPY| When enabled frames that do not require processing will not be mem-copied on arrival, rather the `rs2::frame` object will track native handle to the underlying OS resource (be it V4L2 video-buff or an `ISample`). This will reduce CPU utilization and save battery life, but can introduce unexpected latency or frame-drops, since the responsibility for buffer lifetime management falls on the application developer|`false`|
+|ENABLE_EASYLOGGINGPP|Perform cross-platform logging using EasyLogging++ 3rd-party library|`true`|
+|BUILD_CV_EXAMPLES|Search for OpenCV 3rd-party and include examples under `wrappers/opencv` in the project|`false`|
+|BUILD_PCL_EXAMPLES|Search for PCL 3rd-party library and include example under `wrappers/pcl` in the project|`false`|
+|BUILD_WITH_TM2|Assuming you received from Intel an engineering sample of V200 (TM2) device with its drivers, enable support for it in the SDK|`false`|

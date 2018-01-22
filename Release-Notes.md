@@ -1,3 +1,39 @@
+## Release 2.9.0
+January 2, 2017
+
+### API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-283-to-290) from the previous 2.8.3 version
+
+### Prerequisites
+* A new dependency package `libudev-dev` was added to the [installation for Linux OS](https://github.com/IntelRealSense/librealsense/blob/development/doc/installation.md#make-ubuntu-up-to-date) due to a custom `libusb` library that was employed in this release.  
+Migration from previous versions requires `sudo apt-get install libudev-dev`
+### New Features and Improvements
+
+* Allow Depth Post-Processing filters to operate in disparity domain (DSO-8162)
+  * Please note that the Post Processing is enabled by default and increases the CPU utilization
+* Rework on the output Panel in the Realsense Viewer (DSO-7197)
+* Mac OS: making playback and record functional (DSO-4836) 
+* Added API for point-cloud export to PLY [#862](https://github.com/IntelRealSense/librealsense/issues/862)
+* Publish documentation for [building and running libralsense on Android](https://github.com/IntelRealSense/librealsense/blob/development/doc/android/Android.md)
+
+### Bug Fixes
+* Applied fix reducing multi-cam latency [#935](https://github.com/IntelRealSense/librealsense/issues/935).
+* Pointcloude misalignment in 4K display laptop (DSO-7891)
+
+### Known Issues
+* Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
+* Realsense Viewer crash on switching Advanced mode - may be due to wrong installation/permission (DSO-8088)
+* rs-fw-logger is not deployed with 'make install' (DSO-8087)
+* Streaming two D415 devices on SKL system (DSO-7889)
+* Latency of 100ms (DSO-7745)
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+  * Disabling the OpenMP in the makefile, can slightly reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
+* **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+
+### Other Issues
+* Display alignment issues can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+
 ## Release 2.8.3
 8 Dec 2017
 
@@ -30,7 +66,7 @@
 * Viewer doesn't automatically select the correct Depth stream (DSO-7764)
 
 ### Other related fixes
-The 2 issues below are fixed with a graphics updated driver, pelase refer to:[Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+The 2 issues below are fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
 * UX menu alignment issues with some platforms (DSO-7739)
 * **[Viewer]** OpenGL tools and samples don't work with some types of Docking Stations(ThinkPad USB3.0 Pro) (DSO-6674)
 

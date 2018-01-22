@@ -1,4 +1,16 @@
-## From [2.8.2](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.0) to [2.8.3](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.3)
+## From [2.8.3](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.3) to [2.9.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.9.0)
+
+### Added
+* [rs2_create_disparity_transform_block](https://github.com/IntelRealSense/librealsense/blob/v2.9.0/include/librealsense2/h/rs_processing.h#L152) A depth data conversion class that transforms depth data info/from disparity domain for stereo-based depth sensors (D400 series). This functionality allows to run post-processing filters in disparity domain to enhance the filtered outcome.
+
+* [rs2_depth_stereo_frame_get_baseline](https://github.com/IntelRealSense/librealsense/blob/v2.9.0/include/librealsense2/h/rs_sensor.h#L158) Retrieve the stereoscopic baseline in mm for stereo-based depth camera.
+
+* [rs2_export_to_ply](https://github.com/IntelRealSense/librealsense/blob/v2.9.0/include/librealsense2/h/rs_frame.h#L171)
+Making the export functionality publicly available, also addressing [#862](https://github.com/IntelRealSense/librealsense/issues/862)
+
+
+
+## From [2.8.2](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.2) to [2.8.3](https://github.com/IntelRealSense/librealsense/releases/tag/v2.8.3)
 
 ### Added
 * [rs2_log](https://github.com/IntelRealSense/librealsense/blob/v2.8.3/include/librealsense2/rs.h#L80) - Usability function that allows the user to add logs to librealsense internal logger. The feature is useful in debugging and profiling scenarios.

@@ -37,7 +37,7 @@ rs2::device dev = list.front();
 ### Start Streaming with Default Configuration
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 dev.enable_stream(rs::stream::color, rs::preset::best_quality);
 dev.enable_stream(rs::stream::depth, rs::preset::best_quality);
@@ -52,7 +52,7 @@ pipe.start();
 ### Start Streaming Left and Right Infrared Imagers
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 dev.enable_stream(rs::stream::infrared, rs::preset::best_quality);
 dev.enable_stream(rs::stream::infrared2, rs::preset::best_quality);
@@ -70,13 +70,13 @@ pipe.start(cfg);
 ### Wait for Coherent Set of Frames
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 dev.enable_stream(rs::stream::color, rs::preset::best_quality);
 dev.enable_stream(rs::stream::depth, rs::preset::best_quality);
 dev.start();
 dev.wait_for_frames();
-dev.get_frame_data(rs2::stream::depth); // Pointer to depth pixels, 
+dev.get_frame_data(rs::stream::depth); // Pointer to depth pixels, 
 // invalidated by next call to wait/poll for frames
 ```
 * **librealsense2**:
@@ -93,13 +93,13 @@ if (frame)
 ### Poll for Frames
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 dev.enable_stream(rs::stream::color, rs::preset::best_quality);
 dev.enable_stream(rs::stream::depth, rs::preset::best_quality);
 dev.start();
 if (dev.poll_for_frames())
-    dev.get_frame_data(rs2::stream::depth); 
+    dev.get_frame_data(rs::stream::depth); 
 ```
 * **librealsense2**:
 ```cpp
@@ -210,7 +210,7 @@ while (true)
 ### Get and Apply Depth-to-Color Extrinsics
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 dev.enable_stream(rs::stream::color, rs::preset::best_quality);
 dev.enable_stream(rs::stream::depth, rs::preset::best_quality);
@@ -235,7 +235,7 @@ rs2_transform_point_to_point(target, &e, origin);
 ### Get Disparity Baseline
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 dev.enable_stream(rs::stream::infrared, rs::preset::best_quality);
 dev.enable_stream(rs::stream::infrared2, rs::preset::best_quality);
@@ -259,7 +259,7 @@ auto baseline = e.translation[0];
 ### Get Video Stream Intrinsics
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 dev.enable_stream(rs::stream::infrared, rs::preset::best_quality);
 dev.enable_stream(rs::stream::infrared2, rs::preset::best_quality);
@@ -287,7 +287,7 @@ rs2_distortion model = i.model;
 ### Get Field of View
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 dev.enable_stream(rs::stream::infrared, rs::preset::best_quality);
 dev.enable_stream(rs::stream::infrared2, rs::preset::best_quality);
@@ -310,7 +310,7 @@ rs2_fov(&i, fov);
 ### Get Depth Units
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 dev.enable_stream(rs::stream::infrared, rs::preset::best_quality);
 dev.enable_stream(rs::stream::infrared2, rs::preset::best_quality);
@@ -331,7 +331,7 @@ auto scale =  sensor.get_depth_scale();
 ### Controlling the Laser
 * **librealsense1**:
 ```cpp
-rs2::context ctx;
+rs::context ctx;
 rs::device & dev = *ctx.get_device(0);
 
 if (dev.supports_option(rs::option::r200_emitter_enabled)) // For R200 family
