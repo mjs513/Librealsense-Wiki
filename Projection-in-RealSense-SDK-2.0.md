@@ -1,5 +1,3 @@
-# Projection and Deprojection in RealSense SDK 2.0
-
 This document describes the projection mathematics relating the images provided by the RealSense depth devices to their associated 3D coordinate systems, as well as the relationships between those coordinate systems. These facilities are mathematically equivalent to those provided by previous APIs and SDKs, but may use slightly different phrasing of coefficients and formulas.
 
 ## Table of Contents
@@ -59,7 +57,7 @@ Based on the design of each model of RealSense device, the different streams may
 3. **Inverse Brown-Conrady** Distortion
   * An image is distorted, and has been calibrated according to the inverse of the Brown-Conrady Distortion model. This model provides a closed-form formula to map from distorted points to undistored points, while mapping in the other direction requires iteration or lookup tables. Therefore, images with Inverse Brown-Conrady Distortion can only be used with `rs2_deproject_pixel_to_point(...)`. This model is used by the RealSense SR300's depth and infrared image streams.
 
-~~Although it is inconvenient that projection and deprojection cannot always be applied to an image, the inconvenience is minimized by the fact that RealSense devices always support calling `rs_project_deprojection` from depth images, and always support projection to color images. Therefore, it is always possible to map a depth image into a set of 3D points (a point cloud), and it is always possible to discover where a 3D object would appear on the color image.~~
+Although it is inconvenient that projection and deprojection cannot always be applied to an image, the inconvenience is minimized by the fact that RealSense devices always support calling `rs_project_deprojection` from depth images, and always support projection to color images. Therefore, it is always possible to map a depth image into a set of 3D points (a point cloud), and it is always possible to discover where a 3D object would appear on the color image.
 
 ## Extrinsic Camera Parameters
 
