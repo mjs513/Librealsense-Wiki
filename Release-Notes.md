@@ -1,5 +1,50 @@
+## Release 2.9.1
+January 25, 2018
+
+### API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-290-to-291) from the previous 2.9.0 version
+
+### Prerequisites
+
+* A new dependency package `libudev-dev` was added in 2.9.0 to the [installation for Linux OS](https://github.com/IntelRealSense/librealsense/blob/development/doc/installation.md#make-ubuntu-up-to-date) due to a custom `libusb` library that was employed in this release. 
+
+Migration from previous versions requires `sudo apt-get install libudev-dev`
+
+### New Features and Improvements
+
+1. Updated Presets (both content and UX)
+2. Improved Record / Playback UX, 
+3. Intel® RealSense™ Tracking Module support
+4. **[Viewer]** Depth legend (ruler)
+5. Added two new examples: [software-device](https://github.com/IntelRealSense/librealsense/tree/master/examples/software-device) and [measure](https://github.com/IntelRealSense/librealsense/tree/master/examples/measure)
+6. Added functionality to preserve frames for longer processing
+7. Added [Projection](https://github.com/IntelRealSense/librealsense/wiki/Projection-in-RealSense-SDK-2.0) chapter to the Wiki
+
+### Bug Fixes
+* rs-fw-logger is not deployed with 'make install' (DSO-8087)
+* RGB-Depth texture mapping not aligned (DSO-8308)
+* The value of RGB camera "Exposure" is incorrect in Win10 (DSO-8291)
+
+### Known Issues
+* Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
+* Latency of 100ms (DSO-7745)
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+  * Disabling the OpenMP using CMake, can reduce the CPU utilization. Please refer to #744
+* **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+* RGB-Depth occlusion effect can introduce artifacts to texture mapping (DSO-8308)
+* Memory leak when repeatedly closing and opening the device (DSO-8362)
+* DQT angle is sometime displayed wrong (DSO-8388) 
+* Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
+
+### Other Issues
+
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+
+* Some of the Depth Quality Tool (DQT) metrics will be modified in the next coming releases
+
 ## Release 2.9.0
-January 2, 2017
+January 2, 2018
 
 ### API Changes
 [API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-283-to-290) from the previous 2.8.3 version
