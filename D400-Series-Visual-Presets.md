@@ -7,6 +7,20 @@ The table below explains the main goal for each predefined preset and also inclu
 Please refer to [latest release](https://github.com/IntelRealSense/librealsense/releases/latest) for the supported devices and platforms.
 
 ## Preset Table
+Note: Some of the presets are different based on the resolution and some are the same for all resolutions.
+The resolution range is:
+* High Res  - 1280x720 or 848x480
+* Mid Res - 640x480 or 640x360
+* Low Res  - 480x270 or 424x240
+
+| Resolution \ Preset| Use Cases recommended for usage| Resolution Based? |
+| ------------------------- | ------------------------------------------------ |-------------|
+| High Density | Higher Fill factor, sees more objects. (Ex. BGS and 3D Enhanced Photography,  Object recognition) | Yes |
+| Medium Density | Balance between Fill factor and accuracy. | yes |
+| High Accuracy | High confidence threshold value of depth, lower fill factor.  (Ex. Object Scanning,  Collision Avoidance) | yes |
+| Hand | Good for Hand Tracking,  Gesture recognition, good edges | No |	 
+| Default | Best Visual appeal, Clean edges,  Reduced PointCloud Spraying | Yes |
+
 
 
 ## Example Pictures
