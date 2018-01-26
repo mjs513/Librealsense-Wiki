@@ -1,6 +1,21 @@
-This document contains image samples viewed from D415 and D435 cameras to visualize the Depth Visual Presets.
+## Overview
+The [Intel® RealSense™ Viewer](https://github.com/IntelRealSense/librealsense/tree/master/tools/realsense-viewer ) tool supports several predefined depth presets that can be selected according to the user's usage. Some of the presets are predefined in the tool and others can be uploaded via the Load Settings menu.
+The user can also modify the settings via the Advanced Mode menu and save a customized user preset. All the settings can be saved and loaded via the tool's menu.
+The table below explains the main goal for each predefined preset and also includes examples for images with each preset.
 
-All pictures were taken with these settings:
+## Supported Devices
+Please refer to [latest release](https://github.com/IntelRealSense/librealsense/releases/latest) for the supported devices and platforms.
+
+## Preset Table
+
+
+## Example Pictures
+Please refer to the example pictures below captured with the various presets. The depth presets are evaluated and compared based on:
+* Depth quality based on a 3D scene configured to include a variety of object types, textures, and distances.
+* A flat target depth metric test
+
+
+All pictures were taken with these settings/conditions:
 * Resolution: 1280 x 720
 * Frame Rate: 30
 * Auto Exposure: On
