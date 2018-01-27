@@ -225,7 +225,7 @@ rs2::pipeline pipe;
 rs2::pipeline_profile selection = pipe.start();
 auto depth_stream = selection.get_stream(RS2_STREAM_DEPTH);
 auto color_stream = selection.get_stream(RS2_STREAM_COLOR);
-rs_extrinsics e = depth_stream.get_extrinsics_to(color_stream);
+rs2_extrinsics e = depth_stream.get_extrinsics_to(color_stream);
 // Apply extrinsics to the origin
 float origin[3] { 0.f, 0.f, 0.f };
 float target[3];
