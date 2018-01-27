@@ -16,7 +16,7 @@ Migration from previous versions requires `sudo apt-get install libudev-dev`
 2. Improved Record / Playback UX, 
 3. Intel® RealSense™ Tracking Module support
 4. **[Viewer]** Depth legend (ruler)
-5. Added two new examples: [software-device](https://github.com/IntelRealSense/librealsense/tree/master/examples/software-device) and [measure](https://github.com/IntelRealSense/librealsense/tree/master/examples/measure)
+5. Added new example: [measure](https://github.com/IntelRealSense/librealsense/tree/master/examples/measure)
 6. Added functionality to preserve frames for longer processing
 7. Added [Projection](https://github.com/IntelRealSense/librealsense/wiki/Projection-in-RealSense-SDK-2.0) chapter to the Wiki
 
