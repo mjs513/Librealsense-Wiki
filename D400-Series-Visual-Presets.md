@@ -91,3 +91,11 @@ Hand tracking and gesture recognition.<br>
 
 <p align="center"><br><br><b>D435 Camera</b><br><img width=90% src="https://user-images.githubusercontent.com/17433152/35097797-91f03a0a-fc49-11e7-8b30-4701ba9134dc.png" /></p>
 <p align="center"><img width=90% src="https://user-images.githubusercontent.com/17433152/35097813-ab783496-fc49-11e7-8b73-3ac8ea08d1c1.png" /></p>
+
+* ### Body Scan Preset
+Preset for body scan usages.<br>
+[JSON file of body scan preset](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/BodyScanPreset.json)<br>
+
+* ### Short Range Preset
+Preset for short range video capturing.<br>
+[JSON file of short range preset](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/ShortRangePreset.json)<br>
