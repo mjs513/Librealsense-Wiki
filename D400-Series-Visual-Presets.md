@@ -13,14 +13,21 @@ The resolution range is:
 * Mid Res - 640x480 or 640x360
 * Low Res  - 480x270 or 424x240
 
-| Resolution \ Preset| Use Cases recommended for usage| Resolution Based? |
-| ------------------------- | ------------------------------------------------ |-------------|
-| High Density | Higher Fill factor, sees more objects. (Ex. BGS and 3D Enhanced Photography,  Object recognition) | Yes |
-| Medium Density | Balance between Fill factor and accuracy. | yes |
-| High Accuracy | High confidence threshold value of depth, lower fill factor.  (Ex. Object Scanning,  Collision Avoidance) | yes |
-| Hand | Good for Hand Tracking,  Gesture recognition, good edges | No |	 
-| Default | Best Visual appeal, Clean edges,  Reduced PointCloud Spraying | Yes |
+| Resolution \ Preset| Use Cases recommended for usage| Resolution Based? | JSON files |
+| ------------------------- | ------------------------------------------------ |-------------|------- |
+| High Density | Higher Fill factor, sees more objects. (Ex. BGS and 3D Enhanced Photography,  Object recognition) | Yes | |
+| Medium Density | Balance between Fill factor and accuracy. | Yes | |
+| High Accuracy | High confidence threshold value of depth, lower fill factor.  (Ex. Object Scanning,  Collision Avoidance) | Yes | |
+| Hand | Good for Hand Tracking,  Gesture recognition, good edges | No | |	 
+| Default | Best Visual appeal, Clean edges,  Reduced PointCloud Spraying | No| [DefaultPreset_D415.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D415.json), [DefaultPreset_D435.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D435.json) |
 
+
+Additional Presets not in the Viewer:
+
+| Resolution \ Preset| JSON file |
+| ------------------------- | --------------- |
+| Vacuum Cleaner | [ShortRangePreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/ShortRangePreset.json) |
+| Body Scan | [BodyScanPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/BodyScanPreset.json)|
 
 
 ## Example Pictures
@@ -44,8 +51,6 @@ The following RGB images captured as a test scene with objects ranging from ~0.6
 ## Corresponding Depth images using Visual Presets
 * ### Default Preset
 Best visual appeal, clean edges and reduced Point Cloud spraying.<br>
-[JSON file of default preset for D415](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D415.json)<br>
-[JSON file of default preset for D435](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D435.json)
 
 <p align="center"><b>D415 Camera</b><br><img width=90% src="https://user-images.githubusercontent.com/17433152/35091885-c6d1c6da-fc35-11e7-9484-a3b2b0214032.png" /></p>
 
@@ -91,11 +96,3 @@ Hand tracking and gesture recognition.<br>
 
 <p align="center"><br><br><b>D435 Camera</b><br><img width=90% src="https://user-images.githubusercontent.com/17433152/35097797-91f03a0a-fc49-11e7-8b30-4701ba9134dc.png" /></p>
 <p align="center"><img width=90% src="https://user-images.githubusercontent.com/17433152/35097813-ab783496-fc49-11e7-8b73-3ac8ea08d1c1.png" /></p>
-
-* ### Body Scan Preset
-Preset for body scan usages.<br>
-[JSON file of body scan preset](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/BodyScanPreset.json)<br>
-
-* ### Short Range Preset
-Preset for short range video capturing.<br>
-[JSON file of short range preset](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/ShortRangePreset.json)<br>
