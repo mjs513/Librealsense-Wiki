@@ -22,9 +22,9 @@ The resolution range is:
 | Default | Best Visual appeal, Clean edges,  Reduced PointCloud Spraying | No| [DefaultPreset_D415.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D415.json), [DefaultPreset_D435.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D435.json) |
 
 
-Additional Presets not in the Viewer:
+<br>Additional Presets not in the Viewer:
 
-| Resolution \ Preset| JSON file |
+| Preset Use case | JSON file |
 | ------------------------- | --------------- |
 | Vacuum Cleaner | [ShortRangePreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/ShortRangePreset.json) |
 | Body Scan | [BodyScanPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/BodyScanPreset.json)|
