@@ -15,8 +15,8 @@ The resolution range is:
 
 | Resolution \ Preset| Use Cases recommended for usage| Resolution Based? | JSON files |
 | ------------------------- | ------------------------------------------------ |-------------|------- |
-| High Density | Higher Fill factor, sees more objects. (Ex. BGS and 3D Enhanced Photography,  Object recognition) | Yes | [HighResHighDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResHighDensityPreset.json), [MidResHighDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResHighDensityPreset.json), [LowResHighDensityPreset.jso](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResHighDensityPreset.json) |
-| Medium Density | Balance between Fill factor and accuracy. | Yes | |
+| High Density | Higher Fill factor, sees more objects. (Ex. BGS and 3D Enhanced Photography,  Object recognition) | Yes | [HighResHighDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResHighDensityPreset.json), [MedResHighDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResHighDensityPreset.json), [LowResHighDensityPreset.jso](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResHighDensityPreset.json) |
+| Medium Density | Balance between Fill factor and accuracy. | Yes |[HighResMedDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResMidDensityPreset.json),  [MedResMedDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResMidDensityPreset.json), [LowResMedDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResMidDensityPreset.json)|
 | High Accuracy | High confidence threshold value of depth, lower fill factor.  (Ex. Object Scanning,  Collision Avoidance) | Yes | |
 | Hand | Good for Hand Tracking,  Gesture recognition, good edges | No | |	 
 | Default | Best Visual appeal, Clean edges,  Reduced PointCloud Spraying | No| [DefaultPreset_D415.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D415.json), [DefaultPreset_D435.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D435.json) |
@@ -75,9 +75,6 @@ Higher fill factor which sees more objects.<br>
 
 * ### Medium Density Preset
 Balance between fill factor and accuracy.<br>
-[JSON file of medium density preset for high resolution](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResMidDensityPreset.json)<br>
-[JSON file of medium density preset for mid resolution](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResMidDensityPreset.json)<br>
-[JSON file of medium density preset for low resolution](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResMidDensityPreset.json)<br>
 
 <p align="center"><b>D415 Camera</b><br><img width=90% src="https://user-images.githubusercontent.com/17433152/35094547-7636f7c4-fc3d-11e7-9558-7a1fa68875bd.png" /></p>
 
