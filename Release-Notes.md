@@ -32,7 +32,6 @@ Migration from previous versions requires `sudo apt-get install libudev-dev`
   * Disabling the OpenMP using CMake, can reduce the CPU utilization. Please refer to #744
 * **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
 * Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
-* RGB-Depth occlusion effect can introduce artifacts to texture mapping (DSO-8308)
 * Memory leak when repeatedly closing and opening the device (DSO-8362)
 * DQT angle is sometime displayed wrong (DSO-8388) 
 * Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
