@@ -15,7 +15,7 @@ The resolution range is:
 
 | Resolution \ Preset| Use Cases recommended for usage| Resolution Based? | JSON files |
 | ------------------------- | ------------------------------------------------ |-------------|------- |
-| High Density | Higher Fill factor, sees more objects. (Ex. BGS and 3D Enhanced Photography,  Object recognition) | Yes | |
+| High Density | Higher Fill factor, sees more objects. (Ex. BGS and 3D Enhanced Photography,  Object recognition) | Yes | [HighResHighDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResHighDensityPreset.json), [MidResHighDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResHighDensityPreset.json), [LowResHighDensityPreset.jso](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResHighDensityPreset.json) |
 | Medium Density | Balance between Fill factor and accuracy. | Yes | |
 | High Accuracy | High confidence threshold value of depth, lower fill factor.  (Ex. Object Scanning,  Collision Avoidance) | Yes | |
 | Hand | Good for Hand Tracking,  Gesture recognition, good edges | No | |	 
@@ -68,9 +68,6 @@ High confidence threshold value of depth, lower fill factor.<br>
 
 * ### High Density Preset
 Higher fill factor which sees more objects.<br>
-[JSON file of high density preset for high resolution](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResHighDensityPreset.json)<br>
-[JSON file of high density preset for mid resolution](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResHighDensityPreset.json)<br>
-[JSON file of high density preset for low resolution](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResHighDensityPreset.json)<br>
 
 <p align="center"><b>D415 Camera</b><br><img width=90% src="https://user-images.githubusercontent.com/17433152/35094430-1eb2217c-fc3d-11e7-8608-9cec38c1ba79.png" /></p>
 
