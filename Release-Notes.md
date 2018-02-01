@@ -41,6 +41,7 @@ Migration from previous versions requires `sudo apt-get install libudev-dev`
 * Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
 
 * Some of the Depth Quality Tool (DQT) metrics will be modified in the next coming releases
+* In Windows 10, automatic FW update is activated. In case needed to update a diferent FW version, please check the FW and the FW update tool for Windows at:  ([Windows* Device Firmware Update tool for Intel® RealSense™ D400 Product Family](https://downloadcenter.intel.com/download/27408/?v=t )).
 
 ## Release 2.9.0
 January 2, 2018
