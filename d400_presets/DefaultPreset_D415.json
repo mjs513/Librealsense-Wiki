@@ -45,7 +45,7 @@
   "param-zunits": "1000",
   "aux-param-depthclampmin": "0",
   "aux-param-depthclampmax": "65536",
-  "aux-param-disparitymultiplier": "0",
+  "param-disparitymode": "0",
   "aux-param-disparityshift": "0",
   "aux-param-autoexposure-setpoint": "400",
   "aux-param-colorcorrection1": "0.462",
@@ -64,10 +64,5 @@
   "controls-laserpower": "150",
   "controls-autoexposure-auto": "True",
   "controls-autoexposure-manual": "33000",
-  "controls-depth-gain": "16",
-  "stream-depth-format": "Z16",
-  "stream-ir-format": "UYVY",
-  "stream-width": "1280",
-  "stream-height": "720",
-  "stream-fps": "30"
+  "controls-depth-gain": "16"
 }

@@ -60,11 +60,10 @@
   "param-censususize": "9",
   "param-censusvsize": "9",
   "param-zunits": "1000",
-  
-  
+    
   "controls-laserstate": "on",
   "controls-laserpower": "150",
   "controls-autoexposure-auto": "True",
   "controls-autoexposure-manual": "8500",
-  "controls-depth-gain": "16",
+  "controls-depth-gain": "16"
 }
