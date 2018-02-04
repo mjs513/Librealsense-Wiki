@@ -36,6 +36,14 @@ Migration from previous versions requires `sudo apt-get install libudev-dev`
 * DQT angle is sometime displayed wrong (DSO-8388) 
 * Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
 
+### Known Issues on Mac OS
+We are ramping-up our support for Mac OS but unfortunately there are still several known-issues: 
+* Changing resolution after first start & stop fails. Reconnect might be required
+* Setting controls is likely to return an exception, even when the control was applied successfully
+* File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets
+
+In addition, many users are reporting the camera identifying as USB2 (`device doesn't support depth streaming!` error), most likely due to cables / dongles combinations. 
+
 ### Other Issues
 
 * Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
