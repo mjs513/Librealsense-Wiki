@@ -28,6 +28,7 @@ The resolution range is:
 | ------------------------- | --------------- |
 | Vacuum Cleaner | [ShortRangePreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/ShortRangePreset.json) |
 | Body Scan | [BodyScanPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/BodyScanPreset.json)|
+| Remove IR pattern | D415_RemoveIR.json |
 
 
 ## Example Pictures
