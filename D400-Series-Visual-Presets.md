@@ -1,7 +1,12 @@
 ## Overview
 The [Intel® RealSense™ Viewer](https://github.com/IntelRealSense/librealsense/tree/master/tools/realsense-viewer ) tool supports several predefined depth presets that can be selected according to the user's usage. 
-The predefined presets are listed in the table below. The table explains some of the recommended use cases for each predefined preset. There are also examples of images with each preset and a corresponding JSON file.
-The user can also modify the settings via the Advanced Mode menu and save a customized user preset. All the settings can be saved and loaded via the tool's menu.
+The predefined presets are listed in the table below. The table explains some of the recommended use cases for each predefined preset. There are also examples of images with each preset and a corresponding JSON file.<br>
+The user can also modify the settings via the Advanced Mode menu and save a customized user preset. All the settings can be saved and loaded via the tool's menu. We use machine learning algorithms and capture of ground truth datasets to optimize preset for certain conditions, and we may add more presets in the future. The developers can do this too, or just start adjusting the parameters by hand, but we do not provide guidance on this.
+The key to good depth is to start from our recommended defaults:
+* 	D435: Use 848x480 resolution @30fps, with auto-exposure.  Use post processing with downsample 2.   
+* 	D415: Use 1280x720 resolution @30fps, with auto-exposure. Use post processing with downsample 3. <br>
+<br>If you have bad depth, please first try to use manual exposure and adjust exposure. Keep gain as low as possible (preferably 16).
+
 
 ## Supported Devices
 Please refer to [latest release](https://github.com/IntelRealSense/librealsense/releases/latest) for the supported devices and platforms.
