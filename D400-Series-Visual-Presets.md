@@ -1,7 +1,7 @@
 ## Overview
-The [Intel® RealSense™ Viewer](https://github.com/IntelRealSense/librealsense/tree/master/tools/realsense-viewer ) tool supports several predefined depth presets that can be selected according to the user's usage. Some of the presets are predefined in the tool and others can be uploaded via the Load Settings menu.
+The [Intel® RealSense™ Viewer](https://github.com/IntelRealSense/librealsense/tree/master/tools/realsense-viewer ) tool supports several predefined depth presets that can be selected according to the user's usage. 
+The predefined presets are listed in the table below. The table explains some of the recommended use cases for each predefined preset. There are also examples of images with each preset and a corresponding JSON file.
 The user can also modify the settings via the Advanced Mode menu and save a customized user preset. All the settings can be saved and loaded via the tool's menu.
-The table below explains the main goal for each predefined preset and also includes examples for images with each preset and a corresponding JSON file that contains the control values.
 
 ## Supported Devices
 Please refer to [latest release](https://github.com/IntelRealSense/librealsense/releases/latest) for the supported devices and platforms.
