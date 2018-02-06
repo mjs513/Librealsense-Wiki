@@ -1,7 +1,0 @@
-Hi all,
-
-I am planning to use the D435 with the c# wrapper.  I studied the c# wrapper and I need some help / example to save the VideoFrame after pipeline.WaitForFrames() for the color frame as a file such as png (like the c++ sample) or .jpg.
-
-Regards,
-
-Kenric
