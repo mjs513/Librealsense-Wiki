@@ -1,3 +1,98 @@
+## Release 2.10.0
+February 8, 2018
+
+### API Changes
+
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-291-to-2100) from the previous 2.9.1 version
+
+### New Features & Improvements
+
+##### Examples
+* Addes Post Processing Example (Tracked on DSO-8318)
+
+##### Library Improvements   
+* Added support to backend-timestamp on windows (related to latency optimizations, Tracked on DSO-8289)
+* Removed redundant dependency of `Threads` package
+* Improvements to temporal filter/ holes filling mode (Tracked on DSO-8523)
+* Raw frame snapshot now use `.raw` extension instead of `.bin`
+* Occlusion filter for Pointcloud from RGB and Depth streams (Tracked on DSO-8513)
+* Added USE_SYSTEM_LIBUSB flag to CMake file
+
+##### C++
+* Adding `rs2::frameset::get_infrared_frame()`
+
+##### Node.js
+* Export to PLY
+* Missing enums
+* Tracking module support
+
+
+##### Python
+* Renamed `align.proccess` to `align.process`
+* Binding for missing functions of `stream_profile`:
+  * is_default
+  * register_extrinsics_to
+
+  Binding for `rsutil.h` projection related functions:
+  * `rs2_deproject_pixel_to_point`
+  * `rs2_transform_point_to_point`
+  * `rs2_project_point_to_pixel`
+  * `rs2_fov`
+* Allow extrinsics and intrinsics creation and modification
+
+##### Unity
+* Initial integration with RealSense SDK 2.0
+* Providing streams as textures
+
+##### Additional
+* [D400 Series Visual Presets](https://github.com/IntelRealSense/librealsense/wiki/D400-Series-Visual-Presets) Wiki page (Tracked on DSO-7102)
+* Integration of community contributions by @BjarneHerland, @UnaNancyOwen, @OTL, @sh0
+
+### Bug Fixes
+
+* DSO-8308 : Undo 0.5 pixel offset when mapping pixel to texture coordinate
+* Issue #1087: Linkage error when using `rs2_set_devices_changed_callback`
+* Removed multiple `gcc` warnings.
+* "Apple Mach-O Linkter (ld) Error" happens when it builds the targets which links glfw.
+* Playback panel bug when no other device exists (did not show info icon)
+* `Align` in .NET bug fix - no frames after ~10 frames
+* Fixed an issue when device_id parameter wasn't actually selected the required device in rs-terminal tool.
+* Prevent access to invalid data in v4l backend when trying to read the metadata size of an empty frames.
+* Ignore duplicated advanced mode parameters
+* Fix compilation under Gentoo
+* Fixed memory leak issues
+* Issue #1087: Python free() bug
+* Fixed an issue with ColorCorrection parameters
+* TM1 calibration update
+* Enhancements and bug fixes in viewer
+* Fix `stderr` redirection in the patch script
+
+### Known Issues
+* Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
+* Latency of 100ms (DSO-7745)
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+  * Disabling the OpenMP using CMake, can reduce the CPU utilization. Please refer to #744
+* **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+* Memory leak when repeatedly closing and opening the device (DSO-8362)
+* DQT angle is sometime displayed wrong (DSO-8388)
+* Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
+
+### Known Issues on Mac OS
+We are ramping-up our support for Mac OS but unfortunately there are still several known-issues:
+* Changing resolution after first start & stop fails. Reconnect might be required
+* Setting controls is likely to return an exception, even when the control was applied successfully
+* File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets
+
+In addition, many users are reporting the camera identifying as USB2 (`device doesn't support depth streaming!` error), most likely due to cables / dongles combinations.
+
+### Other Issues
+
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+
+* Some of the Depth Quality Tool (DQT) metrics will be modified in the next coming releases
+* In Windows 10, automatic FW update is activated. In case needed to update a diferent FW version, please check the FW and the FW update tool for Windows at:  ([Windows* Device Firmware Update tool for Intel® RealSense™ D400 Product Family](https://downloadcenter.intel.com/download/27408/?v=t )).
+
 ## Release 2.9.1
 January 25, 2018
 
