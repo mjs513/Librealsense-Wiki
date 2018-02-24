@@ -4,8 +4,9 @@ The predefined presets are listed in the table below. The table explains some of
 The user can also modify the settings via the Advanced Mode menu and save a customized user preset. All the settings can be saved and loaded via the tool's menu. We use machine learning algorithms and capture of ground truth datasets to optimize preset for certain conditions, and we may add more presets in the future. The developers can do this too, or just start adjusting the parameters by hand, but we do not provide guidance on this.
 The key to good depth is to start from our recommended defaults:
 * 	D435: Use 848x480 resolution @30fps, with auto-exposure.  Use post processing with downsample 2.   
-* 	D415: Use 1280x720 resolution @30fps, with auto-exposure. Use post processing with downsample 3. <br>
-<br>If you have bad depth, please first try to use manual exposure and adjust exposure. Keep gain as low as possible (preferably 16).
+* 	D415: Use 1280x720 resolution @30fps, with auto-exposure. Use post processing with downsample 3. 
+
+If you have bad depth, please first try to use manual exposure and adjust exposure. Keep gain as low as possible (preferably 16).
 
 
 ## Supported Devices
@@ -92,3 +93,9 @@ Hand tracking and gesture recognition.<br>
 
 <p align="center"><br><br><b>D435 Camera</b><br><img width=90% src="https://user-images.githubusercontent.com/17433152/35097797-91f03a0a-fc49-11e7-8b30-4701ba9134dc.png" /></p>
 <p align="center"><img width=90% src="https://user-images.githubusercontent.com/17433152/35097813-ab783496-fc49-11e7-8b73-3ac8ea08d1c1.png" /></p>
+
+## Related Discussion
+
+1. Best parameters for **short-range**:
+* [Finding the best acquisition parameters](https://github.com/IntelRealSense/librealsense/issues/1171)
+* [D435 Recommended configuration for near-range (< 1m) accuracy](https://github.com/IntelRealSense/librealsense/issues/1021)
