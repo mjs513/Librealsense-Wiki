@@ -1,3 +1,51 @@
+## Release 2.10.1
+March 1st, 2018
+
+### API Changes 
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-210.0-to-2101) from the previous 2.10.0 version
+
+### New Features & Improvements
+* Adding SIMD AVX2 implementation for YUYV to RGB decoding
+* Kernel patches for Ubuntu LTS kernel 4.13 (DSO-8654)
+* Updated DKMS debian package : 
+    - Support for Ubuntu LTS kernels 4.4, 4.10 and 4.13.
+    - Support for TM1 tracking device
+    - Package name changed from `**realsense-uvcvideo**` to `librealsense2-dkms`
+* Adding repeat capability for playback
+* Allow to use JSON files with playback
+* A new metadata attribute is available - Actual FPS - in use by syncer.
+
+##### Examples
+* Adding Presets example (Community contribution)
+
+##### Library Improvements   
+* Installation guides update for Linux and MacOS
+
+##### Node.js
+* Support npm installation on MacOs
+* Enhancements and minor API changes
+* Add sensor control example
+
+##### Python
+* Changing realseance to librealseance in the python wrapper
+
+##### C#
+* Add netstandard2.0 support to C# wrapper
+
+##### Additional
+* Integration of a contribution by @SirDifferential,  Jan Lukas Gernert and Sebastian Andraos.
+
+### Bug Fixes
+* **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
+* **[Viewer]** Memory leak in sensor's open/close flow (DSO-8362)
+
+### Known Issues
+* CPU utilization increases with Projector switched off (DSO-8040).
+* HID Custom Sensor fails on Cold Boot (DSO-8398)
+* Unity wrapper limited support for sensors (DSO-8666)
+* IR Right is selected as default stream  (DSO-8733)
+* Snapshots stored by Depth Quality Tool are not aligned with Reports (DSO-8638)
+
 ## Release 2.10.0
 February 8, 2018
 
