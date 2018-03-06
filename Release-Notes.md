@@ -46,6 +46,29 @@ March 1st, 2018
 * IR Right is selected as default stream  (DSO-8733)
 * Snapshots stored by Depth Quality Tool are not aligned with Reports (DSO-8638)
 
+* Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
+* Latency of 100ms (DSO-7745) - Will be fixed in a later FW release
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+  * In this release OpenMP compile flag is disabled by default, which can reduce the CPU utilization. Please refer to #744
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+* DQT angle is sometime displayed wrong (DSO-8388)
+* Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
+
+### Known Issues on Mac OS
+We are ramping-up our support for Mac OS but unfortunately there are still several known-issues:
+* Changing resolution after first start & stop fails. Reconnect might be required
+* Setting controls is likely to return an exception, even when the control was applied successfully
+* File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets
+
+In addition, many users are reporting the camera identifying as USB2 (`device doesn't support depth streaming!` error), most likely due to cables / dongles combinations.
+
+### Other Issues
+
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+
+* Some of the Depth Quality Tool (DQT) metrics will be modified in the next coming releases
+* In Windows 10, automatic FW update is activated. In case needed to update a diferent FW version, please check the FW and the FW update tool for Windows at:  ([Windows* Device Firmware Update tool for Intel® RealSense™ D400 Product Family](https://downloadcenter.intel.com/download/27408/?v=t )).
+
 ## Release 2.10.0
 February 8, 2018
 
