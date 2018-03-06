@@ -16,7 +16,7 @@ March 1st, 2018
 * A new metadata attribute is available - Actual FPS - in use by syncer.
 
 ##### Examples
-* Adding Presets example (Community contribution)
+* Adding Presets example [Community contribution](https://github.com/SirDifferential/minimal_realsense2)
 
 ##### Library Improvements   
 * Installation guides update for Linux and MacOS
