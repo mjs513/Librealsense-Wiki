@@ -49,7 +49,7 @@ March 1st, 2018
 * Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
 * Latency of 100ms (DSO-7745) - Will be fixed in a later FW release
 * The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
-  * In this release OpenMP compile flag is disabled by default, which can reduce the CPU utilization. Please refer to #744
+  * In this release OpenMP compile flag is disabled by default, which can reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
 * Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
 * DQT angle is sometime displayed wrong (DSO-8388)
 * Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
