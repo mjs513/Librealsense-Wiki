@@ -27,7 +27,7 @@ March 1st, 2018
 * Add sensor control example
 
 ##### Python
-* Changing realseance to librealseance in the python wrapper
+* Changing realsence to librealsence in the python wrapper
 
 ##### C#
 * Add netstandard2.0 support to C# wrapper
