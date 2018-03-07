@@ -39,10 +39,11 @@ March 1st, 2018
 * **[Viewer]** Exposure control error raised when changing frame rate with 4 cameras connected (DSO-7775)
 * **[Viewer]** Memory leak in sensor's open/close flow (DSO-8362)
 * **[Viewer]** Color camera of D415 is reddish for face portrait(DS5U-1891)
+* **[TM1]**  HID Custom Sensor fails on Cold Boot (DSO-8398)
 
 ### Known Issues
 * CPU utilization increases with Projector switched off (DSO-8040).
-* HID Custom Sensor fails on Cold Boot (DSO-8398)
+
 * Unity wrapper limited support for sensors (DSO-8666)
 * IR Right is selected as default stream  (DSO-8733)
 * Snapshots stored by Depth Quality Tool are not aligned with Reports (DSO-8638)
