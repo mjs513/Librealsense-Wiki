@@ -12,6 +12,7 @@ N/A
 ### Changed
 
 * Fixed [`rs2_set_devices_changed_callback`](https://github.com/IntelRealSense/librealsense/blob/master/include/librealsense2/h/rs_context.h#L42) - missing `const` specifier and `void** user` parameter were added.
+* Change the 'Holes Filling' control for Temporal Post-Processing filter to be activated with `RS2_OPTION_HOLES_FILL` instead of `RS2_OPTION_FILTER_MAGNITUDE`
 
 ## From [2.9.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.9.0) to [2.9.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.9.1)
 
