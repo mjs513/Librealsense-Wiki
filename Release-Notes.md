@@ -55,6 +55,7 @@ March 1st, 2018
 * Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
 * DQT angle is sometime displayed wrong (DSO-8388)
 * Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
+* DQT - When the decimation filter is enabled the ROI window is offset, and the visualization changes to default when the ROI% is changed	(DSO-8740)
 
 ### Known Issues on Mac OS
 We are ramping-up our support for Mac OS but unfortunately there are still several known-issues:
