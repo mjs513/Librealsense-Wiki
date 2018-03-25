@@ -1,7 +1,14 @@
+## From [2.10.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.1) to [2.10.2](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.2)
+
+
+### Modified
+Adding `RS2_OPTION_AUTO_EXPOSURE_CONVERGE_STEP` enumeration to control the FishEye Auto-Exposure algorithm
+The option is available for TM1-enabled devices only.
+
+
 ## From [2.10.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.0) to [2.10.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.1)
 
-N/A
-
+No API changes
 
 ## From [2.9.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.9.1) to [2.10.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.0)
 
