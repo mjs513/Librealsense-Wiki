@@ -8,6 +8,8 @@ The key to good depth is to start from our recommended defaults:
 
 If you have bad depth, please first try to use manual exposure and adjust exposure. Keep gain as low as possible (preferably 16).
 
+For further information, please refer to [BKMs-For-Tuning-RealSense_D4xx_Cameras_WP](https://realsense.intel.com/wp-content/uploads/sites/63/BKMs-For-Tuning-RealSense_D4xx_Cameras_WP_1.7.pdf)
+
 
 ## Supported Devices
 Please refer to [latest release](https://github.com/IntelRealSense/librealsense/releases/latest) for the supported devices and platforms.
