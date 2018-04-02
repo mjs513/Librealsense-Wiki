@@ -1,3 +1,56 @@
+## Release 2.10.2
+March 22st, 2018
+
+### API Changes 
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-2101-to-2102) from the previous 2.10.1 version
+
+### New Features & Improvements
+
+* Improvements to the `rs-terminal` utility [#1356](https://github.com/IntelRealSense/librealsense/pull/1356)
+* Enabling to apply post-processing after spatial alignment ([#1278](https://github.com/IntelRealSense/librealsense/pull/1278))
+* More comprehensive support for firmware error reporting ([#1403](https://github.com/IntelRealSense/librealsense/pull/1403))
+* [Python] Fixing dead-lock in certain callbacks (DSO-8782)
+* [Unity] Textured point-cloud implementation ([#1293](https://github.com/IntelRealSense/librealsense/pull/1293))
+* [C#] Depth-Disparity processing block added ([#1307](https://github.com/IntelRealSense/librealsense/pull/1307))
+
+### Bug Fixes
+* Occasional frame drops from the fisheye camera on the AWGT modules (DSO-8628)
+* Slow auto-exposure convergence rate on the AWGT modules (DSO-8853)
+* GetBPP returning incorrect value when using software device ([#1377](https://github.com/IntelRealSense/librealsense/issues/1377))
+* Better error message when no OpenGL driver is available (DSO-8545)
+
+### Known Issues
+
+* Mismatch between post-processing implementation and the guiding requirements (DSO-8884)
+
+* CPU utilization increases with Projector switched off (DSO-8040).
+
+* Unity wrapper limited support for sensors (DSO-8666)
+* IR Right is selected as default stream  (DSO-8733)
+* Snapshots stored by Depth Quality Tool are not aligned with Reports (DSO-8638)
+
+* Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
+* Latency of 100ms (DSO-7745) - Will be fixed in a later FW release
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+* DQT angle is sometime displayed wrong (DSO-8388)
+* Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
+* DQT - When the decimation filter is enabled the ROI window is offset, and the visualization changes to default when the ROI% is changed	(DSO-8740)
+
+* [Firmware] Hardware timestamp on AWGT modules is not consistent across streams (DSO-8880)
+
+* [MacOS] Changing resolution after first start & stop fails. Reconnect might be required
+* [MacOS] Setting controls is likely to return an exception, even when the control was applied successfully
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets
+
+> Some of the issues has been address in [#1452](https://github.com/IntelRealSense/librealsense/pull/1452) but are still being tested at the time of this release
+
+### Other Issues
+
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+
+* Some of the Depth Quality Tool (DQT) metrics will be modified in the next coming releases
+
 ## Release 2.10.1
 March 1st, 2018
 
