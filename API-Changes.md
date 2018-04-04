@@ -1,3 +1,9 @@
+## From [2.10.2](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.2) to [2.10.3](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.3)
+
+
+### Modified
+Adding `RS2_CAMERA_INFO_USB_TYPE_DESCRIPTOR` enumeration to detect USB2 vs USB3 mode (when supported by the firmware). 
+
 ## From [2.10.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.1) to [2.10.2](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.2)
 
 
