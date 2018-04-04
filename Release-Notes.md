@@ -1,3 +1,50 @@
+## Release 2.10.3
+April 4th, 2018
+
+### API Changes 
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-2102-to-2103) from the previous 2.10.2 version
+
+### New Features & Improvements
+
+* Integrated functionality changes in preparation for USB2 firmware support (DSO-8952)
+
+### Bug Fixes
+* [MacOS] Changing resolution after first start & stop fails. Reconnect might be required
+* Fixing ARM build ([#1472](https://github.com/IntelRealSense/librealsense/pull/1472))
+* Fixing compilation error with -Wall in clang ([#1292](https://github.com/IntelRealSense/librealsense/pull/1292))
+
+ 
+### Known Issues
+
+* Mismatch between post-processing implementation and the guiding requirements (DSO-8884)
+
+* CPU utilization increases with Projector switched off (DSO-8040).
+
+* Unity wrapper limited support for sensors (DSO-8666)
+* Memory leak in the Unity wrapper ([#1477](https://github.com/IntelRealSense/librealsense/issues/1477))
+* IR Right is selected as default stream  (DSO-8733)
+* Snapshots stored by Depth Quality Tool are not aligned with Reports (DSO-8638)
+
+* Realsense Viewer is not streaming after wake up from sleep mode (DSO-8094)
+* Latency of 100ms (DSO-7745) - Will be fixed in a later FW release
+* The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
+* Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
+* DQT angle is sometime displayed wrong (DSO-8388)
+* Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
+* DQT - When the decimation filter is enabled the ROI window is offset, and the visualization changes to default when the ROI% is changed	(DSO-8740)
+
+* [Firmware] Hardware timestamp on AWGT modules is not consistent across streams (DSO-8880)
+
+* [MacOS] Setting controls is likely to return an exception, even when the control was applied successfully
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets
+
+### Other Issues
+
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+
+* Some of the Depth Quality Tool (DQT) metrics will be modified in the next coming releases
+
+
 ## Release 2.10.2
 March 22st, 2018
 
