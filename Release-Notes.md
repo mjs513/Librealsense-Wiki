@@ -30,7 +30,7 @@ April 4th, 2018
 * The Viewer and the visual examples CPU utilization is high, when streaming depth or color (DSO-7888)
 * Changing the gain value while Auto Exposure (AE) is enabled disables AE, this requires manually enabling AE (DSO-6853)
 * DQT angle is sometime displayed wrong (DSO-8388)
-* Color correction parameters are not updated to the device when a setting file is loaded (DSO-8424)
+* Color correction parameters are not updated to the device when a setting file is loaded (DSO-8538)
 * DQT - When the decimation filter is enabled the ROI window is offset, and the visualization changes to default when the ROI% is changed	(DSO-8740)
 
 * [Firmware] Hardware timestamp on AWGT modules is not consistent across streams (DSO-8880)
