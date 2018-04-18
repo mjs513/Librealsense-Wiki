@@ -1,3 +1,59 @@
+## Release 2.10.4
+April 18th, 2018
+
+### API Changes 
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-2103-to-2104) from the previous 2.10.3 version
+
+### New Features & Improvements
+* [Viewer] Add units to camera controls (DSO-8966)
+* Post-processing filters rework and testing automation (DSO-8884)
+* Playback and record demo (DSO-8656)
+* CTO fixes for D4M modules (#1520)
+* [Depth Quality Tool] "save report" to save consistent frames (DSO-8638)
+* [Viewer] Allowing to input accurate numbers in the advance mode controls (DSO-6867)
+
+### Bug Fixes
+* cpuid.h missing on Arm boards ([#1501](https://github.com/IntelRealSense/librealsense/issues/1501))
+* SegFault on Intel CPUs without AVX support ([#1491](https://github.com/IntelRealSense/librealsense/issues/1491))
+* [Depth Quality Tool] Cannot load presets ([#1488](https://github.com/IntelRealSense/librealsense/issues/1488), [#1457](https://github.com/IntelRealSense/librealsense/issues/1457), [#1443](https://github.com/IntelRealSense/librealsense/issues/1443), )
+* Load JSON crashing on Mac ([#1392](https://github.com/IntelRealSense/librealsense/issues/1392))
+* Compilation error for non-optimized builds ([#1237](https://github.com/IntelRealSense/librealsense/issues/1237))
+* Linux driver stalls if a signal is received ([#1203](https://github.com/IntelRealSense/librealsense/issues/1203))
+* Compilation error with -Wall in clang ([#1292](https://github.com/IntelRealSense/librealsense/issues/1292))
+* enable_stream selects right IR in USB2 (DSO-8733)
+
+### Known Issues
+* playback.seek not working in python ([#1545](https://github.com/IntelRealSense/librealsense/issues/1545))
+* playback fails to auto-resolve two IR streams ([#1543](https://github.com/IntelRealSense/librealsense/issues/1543))
+* Issue running on Android 7 Odroid XU4 board ((#1534)[https://github.com/IntelRealSense/librealsense/issues/1534])
+* rs-measure gives incorrect distance ([#1516](https://github.com/IntelRealSense/librealsense/issues/1516))
+* Multi-cam support is broken on some Mac OS systems ([#1506](https://github.com/IntelRealSense/librealsense/issues/1506))
+* Potential alignment issue when using enable_device ([#1504](https://github.com/IntelRealSense/librealsense/issues/1504))
+* Post-processing not available for python users ([#1502](https://github.com/IntelRealSense/librealsense/issues/1502))
+* Unity Demo with Point-Cloud is running out of memory ([#1477](https://github.com/IntelRealSense/librealsense/issues/1477), [#1394](https://github.com/IntelRealSense/librealsense/issues/1394))
+* App crashing when using Sensor.Start using C# ([#1250](https://github.com/IntelRealSense/librealsense/issues/1250))
+* **[Firmware]** Sporadic errors, only workaround is to physically reconnect camera ([#1213](https://github.com/IntelRealSense/librealsense/issues/1213))
+* **[Firmware]** Corrupted color image after pipeline restart ([#1206](https://github.com/IntelRealSense/librealsense/issues/1206))
+* **[Firmware]** Frames didn't arrive error - after improper shutdown ([#1086](https://github.com/IntelRealSense/librealsense/issues/1086))
+* Repeated read device temperature fail on Windows ([#866](https://github.com/IntelRealSense/librealsense/issues/866))
+* **[Firmware]** RGB-Depth sync ([#774](https://github.com/IntelRealSense/librealsense/issues/774))
+* No camera control ([#765](https://github.com/IntelRealSense/librealsense/issues/765))
+
+* [Depth Quality Tool] Z-accuracy distance plot has a sinusoidal pattern mismatching IPDev (DSO-8939)
+* Unity support for cameras without RGB (DSO-8666)
+* [Depth Quality Tool] When the decimation filter is enabled the ROI window is offset, and the visualization changes to default when the ROI% is changed (DSO-8740)
+* Detection of USB2 vs USB3 is not working correctly on Windows RS3 (DSO-9109)
+* [Viewer] Streaming does not resume after wake up from sleep on Windows RS3 (S3) (DSO-8094)
+* Relatively high CPU utilization on Linux when running without laser power (DSO-8040)
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+
+### Other Issues
+
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+
+* Some of the Depth Quality Tool (DQT) metrics will be modified in the next coming releases
+
+
 ## Release 2.10.3
 April 4th, 2018
 
