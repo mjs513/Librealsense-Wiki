@@ -5,6 +5,12 @@
 * [rs2_create_processing_block_fptr](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L61) - Allows to create custom processing blocks using C-bindings (C, LabView, .NET)
 * [rs2_start_processing_fptr](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L78) - Allows to start a processing block with a callback
 * [rs2_config_enable_device_from_file_repeat_option](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_pipeline.h#L259) - Allows to configure pipeline to play from recording while controlling playback-repeat behavior 
+* [rs2_create_hole_filling_filter_block](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L177) - Hole-Filling filter supports three modes of operation:
+  - Fill from left - fill the hole by the value from an immediate left neighbor
+  - Fill from Far - select one of the up/down/left/right pixel neighbors farthest away from the camera
+  - Fill from Near - select one of the up/down/left/right neighbors closest to the camera.  
+  It is recommended to use this post-processing block last in the filters chain.
+The functionality is integrated and can be reviewed in realsense-viewer/post-processing section
 
 
 ## From [2.10.3](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.3) to [2.10.4](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.4)
