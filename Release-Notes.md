@@ -13,6 +13,8 @@ May 06th, 2018
 * Adding USB3.2 descriptor support (DSO-9306)
 * Notify user when new firmware is available (#1648)
 * Adding processing APIs to the .NET wrapper (DSO-9023)
+* New camera info attribute: RS2_CAMERA_INFO_RECOMMENDED_FIRMWARE_VERSION, tracking the
+[download page for D400 Devices firmware](https://downloadcenter.intel.com/download/27522/Latest-Firmware-for-Intel-RealSense-D400-Product-Family?v=t)
 
 ## Bug Fixes
 * playback.seek not working in python ([#1545](https://github.com/IntelRealSense/librealsense/issues/1545))
