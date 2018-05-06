@@ -1,3 +1,58 @@
+## Release 2.11.0
+May 06th, 2018
+
+## API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-2104-to-2110) from the previous 2.10.4 version
+
+### New Features & Improvements
+* Playback Repeat control (#1426)
+* Exposing Multipin UVC device via pybackend (#1614)
+* Post-Processing via Python API (#1502 and #1535)
+* SSE optimization of PointCloud processing block (#1633)
+* Adding a dedicated Hole-Filling processing block (DSO-9164, #1644)
+* Adding USB3.2 descriptor support (DSO-9306)
+* Notify user when new firmware is available (#1648)
+* Adding processing APIs to the .NET wrapper (DSO-9023)
+
+## Bug Fixes
+* playback.seek not working in python ([#1545](https://github.com/IntelRealSense/librealsense/issues/1545))
+* [DQT] Fixing Z-accuracy metric calculation in the Depth Quality Tool (DSO-8939)
+* Compilation on ARM (#1593 and #1574)
+* Holes filling capabilities fix of the Spatial Filter (#1591)
+* Syncer crash when using two handles to the same device (#1600)
+* [Viewer] Auto-exposure was not being updated in UI after setting exposure value (DSO-8873, #1636)
+* [Viewer] Auto-exposure ROI was not correctly visualized with Decimation filter enabled (DSO-9096, #1638)
+* Y16 format is not presented for D435 (DSO-8913)
+
+### Known Issues
+* playback fails to auto-resolve two IR streams ([#1543](https://github.com/IntelRealSense/librealsense/issues/1543))
+* Issue running on Android 7 Odroid XU4 board ((#1534)[https://github.com/IntelRealSense/librealsense/issues/1534])
+* rs-measure gives incorrect distance ([#1516](https://github.com/IntelRealSense/librealsense/issues/1516))
+* Multi-cam support is broken on some Mac OS systems ([#1506](https://github.com/IntelRealSense/librealsense/issues/1506))
+* Potential alignment issue when using enable_device ([#1504](https://github.com/IntelRealSense/librealsense/issues/1504))
+* Unity Demo with Point-Cloud is running out of memory ([#1477](https://github.com/IntelRealSense/librealsense/issues/1477), [#1394](https://github.com/IntelRealSense/librealsense/issues/1394)) 
+* **[Firmware]** Sporadic errors, only workaround is to physically reconnect camera ([#1213](https://github.com/IntelRealSense/librealsense/issues/1213))
+* **[Firmware]** Corrupted color image after pipeline restart ([#1206](https://github.com/IntelRealSense/librealsense/issues/1206))
+* **[Firmware]** Frames didn't arrive error - after improper shutdown ([#1086](https://github.com/IntelRealSense/librealsense/issues/1086))
+* Repeated read device temperature fail on Windows ([#866](https://github.com/IntelRealSense/librealsense/issues/866))
+* **[Firmware]** RGB-Depth sync ([#774](https://github.com/IntelRealSense/librealsense/issues/774))
+* No camera control ([#765](https://github.com/IntelRealSense/librealsense/issues/765))
+
+* Unity support for cameras without RGB (DSO-8666)
+* [Depth Quality Tool] When the decimation filter is enabled the ROI window is offset, and the visualization changes to default when the ROI% is changed (DSO-8740)
+* Detection of USB2 vs USB3 is not working correctly on Windows RS3 (DSO-9109)
+* [Viewer] Streaming does not resume after wake up from sleep on Windows RS3 (S3) (DSO-8094)
+* Relatively high CPU utilization on Linux when running without laser power (DSO-8040)
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Potential UV-mapping (align) error using pyrealsense (DSO-9206)
+
+### Other Issues
+
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939)
+
+* Some of the Depth Quality Tool (DQT) metrics will be modified in the next coming releases
+
+
 ## Release 2.10.4
 April 18th, 2018
 
