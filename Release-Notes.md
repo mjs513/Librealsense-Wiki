@@ -45,8 +45,10 @@ May 06th, 2018
 * Detection of USB2 vs USB3 is not working correctly on Windows RS3 (DSO-9109)
 * [Viewer] Streaming does not resume after wake up from sleep on Windows RS3 (S3) (DSO-8094)
 * Relatively high CPU utilization on Linux when running without laser power (DSO-8040)
+
 * [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
-* Potential UV-mapping (align) error using pyrealsense (DSO-9206)
+* Potential UV-mapping (align) error using pyrealsense (DSO-9206) 
+* In this release OpenMP compile flag is disabled by default, which can reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
 
 ### Other Issues
 
