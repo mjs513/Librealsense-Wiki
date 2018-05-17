@@ -1,3 +1,10 @@
+## From [2.11.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.11.0) to [2.11.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.11.1)
+
+## Modified
+
+* [rs2_camera_info::RS2_CAMERA_INFO_RECOMMENDED_FIRMWARE_VERSION](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L26) - Field was moved next to RS2_CAMERA_INFO_FIRMWARE_VERSION.
+
+
 ## From [2.10.4](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.4) to [2.11.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.11.0)
 
 ## Added 
