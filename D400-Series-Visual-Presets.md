@@ -1,10 +1,10 @@
 ## Overview
-The [Intel® RealSense™ Viewer](https://github.com/IntelRealSense/librealsense/tree/master/tools/realsense-viewer ) tool supports several predefined depth presets that can be selected according to the user's usage. 
+The [Intel® RealSense™ Viewer](https://github.com/IntelRealSense/librealsense/tree/master/tools/realsense-viewer ) tool supports several predefined depth presets that can be selected according to the user's usage.
 The predefined presets are listed in the table below. The table explains some of the recommended use cases for each predefined preset. There are also examples of images with each preset and a corresponding JSON file.<br>
 The user can also modify the settings via the Advanced Mode menu and save a customized user preset. All the settings can be saved and loaded via the tool's menu. We use machine learning algorithms and capture of ground truth datasets to optimize preset for certain conditions, and we may add more presets in the future. The developers can do this too, or just start adjusting the parameters by hand, but we do not provide guidance on this.
 The key to good depth is to start from our recommended defaults:
 * 	D435: Use 848x480 resolution @30fps, with auto-exposure.  Use post processing with downsample 2.   
-* 	D415: Use 1280x720 resolution @30fps, with auto-exposure. Use post processing with downsample 3. 
+* 	D415: Use 1280x720 resolution @30fps, with auto-exposure. Use post processing with downsample 3.
 
 If you have bad depth, please first try to use manual exposure and adjust exposure. Keep gain as low as possible (preferably 16).
 
@@ -27,6 +27,7 @@ The resolution range is:
 | Medium Density | Balance between Fill factor and accuracy. | Yes |[HighResMedDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResMidDensityPreset.json),  [MedResMedDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResMidDensityPreset.json), [LowResMedDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResMidDensityPreset.json)|
 | High Accuracy | High confidence threshold value of depth, lower fill factor.  (Ex. Object Scanning,  Collision Avoidance, Robots) | Yes | [HighResHighAccuracyPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResHighAccuracyPreset.json), [MedResHighAccuracyPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResHighAccuracyPreset.json), [LowResHighAccuracyPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResHighAccuracyPreset.json)|
 | Hand | Good for Hand Tracking,  Gesture recognition, good edges | No | [HandGesturePreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HandGesturePreset.json)|	 
+| Left Imager Color w/o IR Pattern | Removes the Projector-generated IR pattern from left imager when streaming synthetic RGB.<br> Applies to D415 and D460 Devices.<br> Supported since FW ver 5.9.10+| No| [D415_RemoveIR.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/D415_RemoveIR.json), [D460_RemoveIR.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/D460_RemoveIR.json) |
 | Default | Best Visual appeal, Clean edges,  Reduced PointCloud Spraying | No| [DefaultPreset_D415.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D415.json), [DefaultPreset_D435.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D435.json) |
 
 
