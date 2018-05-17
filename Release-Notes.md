@@ -21,6 +21,7 @@ May 17th, 2018
 
 
 ### Known Issues
+* High CPU utilization when running the Viewer, Windows and Linux (DSO-9381)
 * Repeatedly changing exposure of d435 brings down a camera ([#1687](https://github.com/IntelRealSense/librealsense/issues/1687))
 * playback fails to auto-resolve two IR streams ([#1543](https://github.com/IntelRealSense/librealsense/issues/1543))
 * Issue running on Android 7 Odroid XU4 board ((#1534)[https://github.com/IntelRealSense/librealsense/issues/1534])
