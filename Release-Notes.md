@@ -5,7 +5,7 @@ May 17th, 2018
 [API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-2110-to-2111) from the previous 2.11.0 version
 
 ### New Features & Improvements
-* Kernel Patches for Ubuntu 18/Bionic Beaver with kernel 4.15. DSO-8769 ([#1700](https://github.com/IntelRealSense/librealsense/issues/1700))
+* Support for Ubuntu 18/Bionic Beaver (kernel 4.15). DSO-8769 ([#1700](https://github.com/IntelRealSense/librealsense/issues/1700))
 * Realsense [v2.11.0 wrapper for LabView](https://github.com/IntelRealSense/librealsense/tree/development/wrappers/labview#getting-started-with-realsense-sdk20-for-labview)
 * Documentation updates (DSO-9164, DSO-9123)
 * [New presets](https://github.com/IntelRealSense/librealsense/wiki/D400-Series-Visual-Presets#preset-table) to rectify IR pattern from Left IR imager (DSO-6868)
