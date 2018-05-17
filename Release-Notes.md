@@ -1,3 +1,52 @@
+## Release 2.11.1
+May 17th, 2018
+
+## API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-2110-to-2111) from the previous 2.11.0 version
+
+### New Features & Improvements
+* Kernel Patches for Ubuntu 18/Bionic Beaver with kernel 4.15. DSO-8769 ([#1700](https://github.com/IntelRealSense/librealsense/issues/1700))
+* Realsense [v2.11.0 wrapper for LabView](https://github.com/IntelRealSense/librealsense/tree/development/wrappers/labview#getting-started-with-realsense-sdk20-for-labview)
+* Documentation updates (DSO-9164, DSO-9123)
+* [New presets](https://github.com/IntelRealSense/librealsense/wiki/D400-Series-Visual-Presets#preset-table) to rectify IR pattern from Left IR imager (DSO-6868)
+
+## Bug Fixes
+* USB2/3 enumeration with RedStone3 (DSO-9161)
+* Playback failure on unload_device (DSO-9269).
+* Wrong height reported with distance demo. DSO-9111 (([#1516](https://github.com/IntelRealSense/librealsense/issues/1516)),([#1667](https://github.com/IntelRealSense/librealsense/issues/1667))).
+* Support DMFT-introduced GUIDs on RedStone3 (DSO-9276).
+* Post-processing blocks to report error on failure (([#1658](https://github.com/IntelRealSense/librealsense/issues/1658))).
+* Calibration formats are not available for D5U (DSO-9382)
+* [Depth Quality Tool] When the decimation filter is enabled the ROI window is offset, and the visualization changes to default when the ROI% is changed (DSO-8740)
+
+
+### Known Issues
+* Repeatedly changing exposure of d435 brings down a camera ([#1687](https://github.com/IntelRealSense/librealsense/issues/1687))
+* playback fails to auto-resolve two IR streams ([#1543](https://github.com/IntelRealSense/librealsense/issues/1543))
+* Issue running on Android 7 Odroid XU4 board ((#1534)[https://github.com/IntelRealSense/librealsense/issues/1534])
+* Multi-cam support is broken on some Mac OS systems ([#1506](https://github.com/IntelRealSense/librealsense/issues/1506))
+* Potential alignment issue when using enable_device ([#1504](https://github.com/IntelRealSense/librealsense/issues/1504))
+* Unity Demo with Point-Cloud is running out of memory ([#1477](https://github.com/IntelRealSense/librealsense/issues/1477), [#1394](https://github.com/IntelRealSense/librealsense/issues/1394)) 
+* **[Firmware]** Sporadic errors, only workaround is to physically reconnect camera ([#1213](https://github.com/IntelRealSense/librealsense/issues/1213))
+* **[Firmware]** Corrupted color image after pipeline restart ([#1206](https://github.com/IntelRealSense/librealsense/issues/1206))
+* **[Firmware]** Frames didn't arrive error - after improper shutdown ([#1086](https://github.com/IntelRealSense/librealsense/issues/1086))
+* Repeated read device temperature fail on Windows ([#866](https://github.com/IntelRealSense/librealsense/issues/866))
+* **[Firmware]** RGB-Depth sync ([#774](https://github.com/IntelRealSense/librealsense/issues/774))
+* No camera control ([#765](https://github.com/IntelRealSense/librealsense/issues/765))
+
+* Unity support for cameras without RGB (DSO-8666)
+* [Viewer] Streaming does not resume after wake up from sleep on Windows RS3 (S3) (DSO-8094)
+* Relatively high CPU utilization on Linux when running without laser power (DSO-8040)
+
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* In this release OpenMP compile flag is disabled by default, which can reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
+
+### Other Issues
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
+* Linux Kernel 4.16 is currently not supported due to changes to the media sub-system and specifically metadata nodes.
+Patches are available for Ubuntu LTS kernel 4.15 .
+
+
 ## Release 2.11.0
 May 06th, 2018
 
