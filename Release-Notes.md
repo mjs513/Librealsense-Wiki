@@ -43,6 +43,8 @@ May 17th, 2018
 * In this release OpenMP compile flag is disabled by default, which can reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
 
 ### Other Issues
+* The API change introduced in this version is non backward-compatible with the previous v2.11.0.
+This may affect Linux users who rely on the Debian versioning compatibility policy - please remove the previous v2.11.0. when installing the current version.
 * Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
 * Linux Kernel 4.16 is currently not supported due to changes to the media sub-system and specifically metadata nodes.
 Patches are available for Ubuntu LTS kernel 4.15 .
