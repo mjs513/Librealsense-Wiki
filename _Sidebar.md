@@ -1,9 +1,9 @@
 **Intel® RealSense™ SDK Wiki**
 
 
-- [Ioanna](https://github.com/IntelRealSense/librealsense/wiki)
-- [Eisai](https://github.com/IntelRealSense/librealsense/wiki/Troubleshooting-Q&A)
-- [[Kaula]]
+- [Home](https://github.com/IntelRealSense/librealsense/wiki)
+- [Troubleshooting Q&A](https://github.com/IntelRealSense/librealsense/wiki/Troubleshooting-Q&A)
+- [[Release Notes]]
 - [[API Changes]]
 - [[API How-To]]
 - [[Build Configuration]]
