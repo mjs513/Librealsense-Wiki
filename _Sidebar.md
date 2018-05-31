@@ -1,7 +1,7 @@
 **Intel® RealSense™ SDK Wiki**
 
 
-- [[Home]]
+- [s
 - [Troubleshooting Q&A](https://github.com/IntelRealSense/librealsense/wiki/Troubleshooting-Q&A)
 - [[Release Notes]]
 - [[API Changes]]
