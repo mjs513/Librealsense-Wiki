@@ -30,12 +30,20 @@ N/A
 * [Viewer] Streaming does not resume after wake up from sleep on Windows RS3 (S3) (DSO-8094)
 * Relatively high CPU utilization on Linux when running without laser power (DSO-8040)
 
-
 ### Known Issues
+* Read device temperature (DSO-9125)
+* [Linux] Double-clicking C interferes with other applications (DSO-8896)
+* [DQT] Wrong message is presented with no camera connected (DSO-7994)
+* [MacOS] C Examples freeze (DSO-9386,[#1586](https://github.com/IntelRealSense/librealsense/issues/1586))
+* [Realsense Viewer] Save setting fail (DSO-9543)
+* Streaming multiple IR feeds from bag file (DSO-9472)
+* Post-processing filters invalidate metadata (DSO-9443, [#1727](https://github.com/IntelRealSense/librealsense/issues/1727))
+* [Linux] Unit-test failure (DSO-9110)
+* Multiple cameras in pyrealsense2 (DSO-9112/[#1089](https://github.com/IntelRealSense/librealsense/issues/1089))
 * Repeatedly changing exposure of d435 brings down a camera ([#1687](https://github.com/IntelRealSense/librealsense/issues/1687))
 * playback fails to auto-resolve two IR streams ([#1543](https://github.com/IntelRealSense/librealsense/issues/1543))
 * Issue running on Android 7 Odroid XU4 board ((#1534)[https://github.com/IntelRealSense/librealsense/issues/1534])
-* Multi-cam support is broken on some Mac OS systems ([#1506](https://github.com/IntelRealSense/librealsense/issues/1506))
+* Multi-cam support is broken on some Mac OS systems (DSO-9231/[#1506](https://github.com/IntelRealSense/librealsense/issues/1506))
 * Potential alignment issue when using enable_device ([#1504](https://github.com/IntelRealSense/librealsense/issues/1504))
 * **[Firmware]** Sporadic errors, only workaround is to physically reconnect camera ([#1213](https://github.com/IntelRealSense/librealsense/issues/1213))
 * **[Firmware]** Corrupted color image after pipeline restart ([#1206](https://github.com/IntelRealSense/librealsense/issues/1206))
@@ -51,7 +59,7 @@ N/A
 ### Other Issues
 * Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
 * Linux Kernel 4.16 is currently not supported due to changes to the media sub-system and specifically metadata nodes.
-Patches are available for Ubuntu LTS kernel 4.15.
+Patches are available for Ubuntu LTS kernel 4.15.(DSO-9160,[#1514](https://github.com/IntelRealSense/librealsense/issues/1514))
 
 
 ## Release 2.11.1
@@ -77,6 +85,7 @@ May 17th, 2018
 
 
 ### Known Issues
+* SDK samples fail for D430 (DSO-9397)
 * High CPU utilization when running the Viewer, Windows and Linux (DSO-9381)
 * Repeatedly changing exposure of d435 brings down a camera ([#1687](https://github.com/IntelRealSense/librealsense/issues/1687))
 * playback fails to auto-resolve two IR streams ([#1543](https://github.com/IntelRealSense/librealsense/issues/1543))
