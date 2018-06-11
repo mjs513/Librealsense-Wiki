@@ -9,6 +9,7 @@
 - [[Build Configuration]]
 - [[D400 Series Visual Presets]]
 - [[Projection in RealSense SDK 2.0]]
+- [API Documentation](http://intelrealsense.github.io/librealsense/doxygen/annotated.html)
 ### Help
 - [Closed GitHub Issues](https://github.com/IntelRealSense/librealsense/issues?utf8=%E2%9C%93&q=is%3Aclosed)
 - [Community](https://communities.intel.com/community/tech/realsense) 
