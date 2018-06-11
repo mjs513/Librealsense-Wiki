@@ -24,3 +24,4 @@ Alternatively, use `cmake-gui` utility to configure and generate your build file
 |BUILD_CV_EXAMPLES|Search for OpenCV 3rd-party and include examples under `wrappers/opencv` in the project|`false`|
 |BUILD_PCL_EXAMPLES|Search for PCL 3rd-party library and include example under `wrappers/pcl` in the project|`false`|
 |BUILD_WITH_TM2|Assuming you received from Intel an engineering sample of V200 (TM2) device with its drivers, enable support for it in the SDK|`false`|
+|BUILD_WITH_STATIC_CRT|When enabled increases binary footprint but prevents the dependency on Visual C++ Redistributables|`true`|
