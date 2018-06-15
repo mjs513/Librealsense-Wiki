@@ -27,7 +27,7 @@ The resolution range is:
 | Medium Density | Balance between Fill factor and accuracy. | Yes |[HighResMedDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResMidDensityPreset.json),  [MedResMedDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResMidDensityPreset.json), [LowResMedDensityPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResMidDensityPreset.json)|
 | High Accuracy | High confidence threshold value of depth, lower fill factor.  (Ex. Object Scanning,  Collision Avoidance, Robots) | Yes | [HighResHighAccuracyPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HighResHighAccuracyPreset.json), [MedResHighAccuracyPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/MidResHighAccuracyPreset.json), [LowResHighAccuracyPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/LowResHighAccuracyPreset.json)|
 | Hand | Good for Hand Tracking,  Gesture recognition, good edges | No | [HandGesturePreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/HandGesturePreset.json)|	 
-| Left Imager Color w/o IR Pattern | Removes the Projector-generated IR pattern from left imager when streaming synthetic RGB.<br> Applies to D415 and D460 Devices.<br> Supported since FW ver 5.9.10+| No| [D415_RemoveIR.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/D415_RemoveIR.json), [D460_RemoveIR.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/D460_RemoveIR.json) |
+| Left Imager Color w/o IR Pattern | Removes the Projector-generated IR pattern from left imager when streaming synthetic RGB.<br> Applies to D415 and D410 Devices.<br> Supported since FW ver 5.9.10+| No| [D415_RemoveIR.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/D415_RemoveIR.json) |
 | Default | Best Visual appeal, Clean edges,  Reduced PointCloud Spraying | No| [DefaultPreset_D415.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D415.json), [DefaultPreset_D435.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/DefaultPreset_D435.json) |
 
 
@@ -37,7 +37,6 @@ The resolution range is:
 | ------------------------- | --------------- |
 | Vacuum Cleaner | [ShortRangePreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/ShortRangePreset.json) |
 | Body Scan | [BodyScanPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/BodyScanPreset.json)|
-| Remove IR pattern | D415_RemoveIR.json |
 
 
 ## Example Pictures
