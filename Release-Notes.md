@@ -9,7 +9,6 @@ June 22, 2018
 
 ### New Features & Improvements
 * Additional per-frame metadata attributes available for Depth and RGB sensors. (DSO-9517)
-* Inter-camera hw sync control for multi-cam setups (DSO-9602)
 * Adding [CUDA-optimized implementation](https://github.com/IntelRealSense/librealsense/pull/1866) for Jetson-TX (arm) platform
 
 ## Bug Fixes
