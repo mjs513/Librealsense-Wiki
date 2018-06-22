@@ -1,3 +1,70 @@
+## Release 2.13.0
+June 22, 2018
+
+## API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2130-vs-2111) from the previous 2.11.1/2.12.0 versions
+
+### New Features & Improvements
+* Additional per-frame metadata attributes available for Depth and RGB sensors. (DSO-9517)
+* Decimation filter added support for non-depth (IR/RGB) frames. (DSO-9164,DSO-8312)
+* Realsense Viewer UI Enhancements:
+  - Keyboard binding to facilitate navigation in 3D view ("WASD" mapping) 
+  - Point-cloud rendering with Quads\Points to enhance visualization traits
+  - Adding close button to notification pop-ups.
+  - Point-cloud generation - Occlusion filter options extended (DSO-8513)
+* Documentation added:
+  - [Depth from Stereo](https://github.com/IntelRealSense/librealsense/blob/development/doc/depth-from-stereo.md) Introductory
+  - [Post-processing Filters](https://github.com/IntelRealSense/librealsense/blob/development/doc/post-processing-filters.md) in Librealsense
+
+## Bug Fixes
+* [Linux] SR300 streaming with zero-copy is disabled to avoid running out of kernel-allocated memory.
+* [Win] Fix power management on stream interrupt event.(DSO-9310)
+* [CMake] Unit-test patterns download rules fix to prevent phony failure reports.
+* [Wrappers]Unity Demo with Point-Cloud is running out of memory ([#1477](https://github.com/IntelRealSense/librealsense/issues/1477), [#1394](https://github.com/IntelRealSense/librealsense/issues/1394)) 
+* Depth Gain control modifies AE mode (DSO-6853)
+* [Viewer] ROI method improperly reported ([#1616](https://github.com/IntelRealSense/librealsense/issues/1616))
+* High CPU utilization when running the Viewer, Windows and Linux (DSO-9381)
+* Laser Power control description update ([#1793](https://github.com/IntelRealSense/librealsense/issues/1793))
+
+* No camera control ([#765](https://github.com/IntelRealSense/librealsense/issues/765)) - Abandoned by user
+* [Viewer] Streaming does not resume after wake up from sleep on Windows RS3 (S3) (DSO-8094)
+* Relatively high CPU utilization on Linux when running without laser power (DSO-8040)
+
+### Known Issues
+* Read device temperature (DSO-9125)
+* [Linux] Double-clicking C interferes with other applications (DSO-8896)
+* [DQT] Wrong message is presented with no camera connected (DSO-7994)
+* [MacOS] C Examples freeze (DSO-9386,[#1586](https://github.com/IntelRealSense/librealsense/issues/1586))
+* [Realsense Viewer] Save setting fail (DSO-9543)
+* Streaming multiple IR feeds from bag file (DSO-9472)
+* Post-processing filters invalidate metadata (DSO-9443, [#1727](https://github.com/IntelRealSense/librealsense/issues/1727))
+* [Linux] Unit-test failure (DSO-9110)
+* Multiple cameras in pyrealsense2 (DSO-9112/[#1089](https://github.com/IntelRealSense/librealsense/issues/1089))
+* Repeatedly changing exposure of d435 brings down a camera ([#1687](https://github.com/IntelRealSense/librealsense/issues/1687))
+* playback fails to auto-resolve two IR streams ([#1543](https://github.com/IntelRealSense/librealsense/issues/1543))
+* Issue running on Android 7 Odroid XU4 board ((#1534)[https://github.com/IntelRealSense/librealsense/issues/1534])
+* Multi-cam support is broken on some Mac OS systems (DSO-9231/[#1506](https://github.com/IntelRealSense/librealsense/issues/1506))
+* Potential alignment issue when using enable_device ([#1504](https://github.com/IntelRealSense/librealsense/issues/1504))
+* **[Firmware]** Sporadic errors, only workaround is to physically reconnect camera ([#1213](https://github.com/IntelRealSense/librealsense/issues/1213))
+* **[Firmware]** Corrupted color image after pipeline restart ([#1206](https://github.com/IntelRealSense/librealsense/issues/1206))
+* **[Firmware]** Frames didn't arrive error - after improper shutdown ([#1086](https://github.com/IntelRealSense/librealsense/issues/1086))
+* Repeated read device temperature fail on Windows ([#866](https://github.com/IntelRealSense/librealsense/issues/866))
+* **[Firmware]** RGB-Depth sync ([#774](https://github.com/IntelRealSense/librealsense/issues/774))
+
+
+* Unity support for cameras without RGB (DSO-8666)
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* In this release OpenMP compile flag is disabled by default, which can reduce the CPU utilization. Please refer to [#744](https://github.com/IntelRealSense/librealsense/issues/744)
+
+### Other Issues
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
+* Linux Kernel 4.16 is currently not supported due to changes to the media sub-system and specifically metadata nodes.
+Patches are available for Ubuntu LTS kernel 4.15.(DSO-9160,[#1514](https://github.com/IntelRealSense/librealsense/issues/1514))
+
+
+
+
+
 ## Release 2.12.0
 June 5th, 2018
 
