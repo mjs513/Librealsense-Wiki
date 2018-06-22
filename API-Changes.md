@@ -1,13 +1,27 @@
+## Version [2.13.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.13.0) (vs [2.11.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.11.1))
+
+### Added 
+
+* [rs2_option::RS2_OPTION_INTER_CAM_SYNC_MODE](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L66) - Master/Slave control for multi-cam setup synchronization.
+
+* [rs2_frame_metadata_value](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_frame.h#L42-L59) - Extending available attributes:
+    - Depth Sensor:
+       - Laser Power, Laser Power Mode, Exposure Priority, Exposure ROI.
+    - RGB Sensor:
+       - Brightness, Contrast, Saturation, Sharpness, Backlight_Compensation, Hue, Gamma, White_Balance_Mode & Temperature, Powerline Frequency and Low Light Compensation.
+
+
+
 ## From [2.11.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.11.0) to [2.11.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.11.1)
 
-## Modified
+### Modified
 
 * [rs2_camera_info::RS2_CAMERA_INFO_RECOMMENDED_FIRMWARE_VERSION](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L26) - Field was moved next to RS2_CAMERA_INFO_FIRMWARE_VERSION.
 
 
 ## From [2.10.4](https://github.com/IntelRealSense/librealsense/releases/tag/v2.10.4) to [2.11.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.11.0)
 
-## Added 
+### Added 
 
 * [rs2_create_processing_block_fptr](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L61) - Allows to create custom processing blocks using C-bindings (C, LabView, .NET)
 * [rs2_start_processing_fptr](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L78) - Allows to start a processing block with a callback
