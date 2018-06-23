@@ -8,6 +8,7 @@
 - [[API How-To]]
 - [[Build Configuration]]
 - [Overview of Depth from Stereo](https://github.com/IntelRealSense/librealsense/blob/master/doc/depth-from-stereo.md)
+- [Post-Processing](https://github.com/IntelRealSense/librealsense/blob/master/doc/post-processing-filters.md)
 - [Sample Data for SDK examples](https://github.com/IntelRealSense/librealsense/blob/master/doc/sample-data.md)
 - [[D400 Series Visual Presets]]
 - [[Projection in RealSense SDK 2.0]]
