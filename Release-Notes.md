@@ -759,7 +759,7 @@ Refactor implementation of Z-Accuracy metric to use the rectified depth.
 ### New Features and Improvements
 
 * [Depth Quality Tools](https://github.com/IntelRealSense/librealsense/tree/development/tools/depth-quality) now includes Z-Accuracy metric based on ground-truth (DSO-6434)
-* librealsense CI now includes recorded test cases for the 4 major supported lines of devices - SR300, D415, D435 and D460 (DSO-7101)
+* librealsense CI now includes recorded test cases for the 4 major supported lines of devices - SR300, D415, D435 and other engineering models (DSO-7101)
 * New example added showcasing the [Sensor API](https://github.com/IntelRealSense/librealsense/tree/master/examples/sensor-control) (DSO-7016)
 * Set of new examples added showcasing working with [C API](https://github.com/IntelRealSense/librealsense/tree/master/examples/C) (DSO-6909)
 * Added Python example for working with [D400 Advanced Mode](https://github.com/IntelRealSense/librealsense/blob/master/wrappers/python/python-rs400-advanced-mode-example.py) (DSO-7287)
