@@ -1,3 +1,54 @@
+## Release 2.14.0
+July 17, 2018
+
+## API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2140-vs-2130) from the previous 2.13.0 versions
+
+### New Features & Improvements
+* [Try Wait for Frames](https://github.com/IntelRealSense/librealsense/pull/2049) API added for more intelligent CPU utilization ([#1949](https://github.com/IntelRealSense/librealsense/issues/1949))
+* Major rework of [RealSense Unity Sample](https://github.com/IntelRealSense/librealsense/pull/2063) with many new features
+* Option to generate Unity package via CMake - [#1974](https://github.com/IntelRealSense/librealsense/pull/1974)
+* Significant [optimization of align processing block](https://github.com/IntelRealSense/librealsense/pull/2040) for Intel x86/x64 architecture
+* Added API to fix asymmetry in rs::context notifications about devices being added / removed - [#1968](https://github.com/IntelRealSense/librealsense/pull/1968)
+* DSO-8309 - Change Plane-fit RMS from mm to % in the Depth Quality tool ([#1975](https://github.com/IntelRealSense/librealsense/pull/1975))
+* Viewer - Point-cloud navigation with WASD
+
+### Bug fixes
+* DSO-9443 / [#1727](https://github.com/IntelRealSense/librealsense/issues/1727) - Post-processing filters removing Depth metadata
+* [#1390](https://github.com/IntelRealSense/librealsense/issues/1390) - Use long PGP ID for debian install instructions
+* DSO-9736 / [#1946](https://github.com/IntelRealSense/librealsense/pull/1946) - Setting Depth Units in realsense_viewer fails 
+* DSO-9472 / [#1543](https://github.com/IntelRealSense/librealsense/issues/1543) - rs2::pipeline can't playback two IR streams from bag file
+* DSO-8086 - insufficient description of Depth Quality Tool distance calculation ([#2030](https://github.com/IntelRealSense/librealsense/pull/2030))
+* DSO-9386 / [#1586](https://github.com/IntelRealSense/librealsense/issues/1586) - Deadlock in libuvc backend (Mac OS / Android)
+* DSO-9835 / [#2039](https://github.com/IntelRealSense/librealsense/pull/2039) - incorrect multi-camera resolution using libuvc backend (Mac OS / Android)
+* [Realsense Viewer] Streaming interrupted when streaming multiple cameras and deactivating one (DSO-9680)
+
+### Known Issues
+* [DQT] Wrong message is presented with no camera connected (DSO-7994)
+* Frame drops when changing depth controls while streaming (DSO-9065)
+* Repeatedly changing exposure of d435 brings down a camera ([#1687](https://github.com/IntelRealSense/librealsense/issues/1687))
+* Potential alignment issue when using enable_device ([#1504](https://github.com/IntelRealSense/librealsense/issues/1504))
+* **[Firmware]** Frames didn't arrive error - after improper shutdown ([#1086](https://github.com/IntelRealSense/librealsense/issues/1086))
+* Repeated read device temperature fail on Windows ([#866](https://github.com/IntelRealSense/librealsense/issues/866))
+* **[Firmware]** RGB-Depth sync ([#774](https://github.com/IntelRealSense/librealsense/issues/774))
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Artifact generated in depth image/point cloud from SR300 (DSO-9383)
+* DSO-9792 - C# query device function doesn't release memory causing memory leak
+* DSO-9160 #1514 Inappropriate ioctl - Kernel 4.16 with the new metadata treenode
+* DSO-9702 #1587 Issue serializing json in adv mode: Value not found in map! value=8
+* DSO-9927 - camera not moving to Idle - Linux
+* DSO-9853 - #1919 problems (framedrop) in rs_convert
+* DSO-9802 - #1462, Invalid Depth Band in depth stream is not match to spec
+* DSO-9738 - Cannot set Autoexposure ROI on RGB Sensor (incorrect error displayed) 
+* DSO-9357 - D420 / D430 Cameras w/ FW 5.9.11 wont run LRS 2.11 align capture and pointcloud apps
+* DSO-9942 - #1998 Y16 "Save snapshot" Crashes RealSense Viewer
+* DSO-9065 - Frame Drops when changing depth controls while depth streaming
+
+### Other Issues
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
+* Linux Kernel 4.16 is currently not supported due to changes to the media sub-system and specifically metadata nodes.
+Patches are available for Ubuntu LTS kernel 4.15.(DSO-9160,[#1514](https://github.com/IntelRealSense/librealsense/issues/1514))
+
 ## Release 2.13.0
 June 22, 2018
 
