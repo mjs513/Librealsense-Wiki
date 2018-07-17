@@ -1,3 +1,11 @@
+## Version [2.14.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.14.0) vs [2.13.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.13.1)
+
+### Added
+
+* [rs2_try_wait_for_frame](https://github.com/IntelRealSense/librealsense/blob/master/include/librealsense2/h/rs_processing.h#L143), [rs2_pipeline_try_wait_for_frames](https://github.com/IntelRealSense/librealsense/blob/master/include/librealsense2/h/rs_pipeline.h#L91) - wait_for_frames overload that does not throw an exception on timeout
+
+* [was_added](https://github.com/BrendanDrew/librealsense/blob/12b42d3eb8d6cd44167134737d96d1b06ea0e8eb/include/librealsense2/hpp/rs_context.hpp#L40) and [get_new_devices](https://github.com/BrendanDrew/librealsense/blob/12b42d3eb8d6cd44167134737d96d1b06ea0e8eb/include/librealsense2/hpp/rs_context.hpp#L57) methods added to [event_information](https://github.com/BrendanDrew/librealsense/blob/12b42d3eb8d6cd44167134737d96d1b06ea0e8eb/include/librealsense2/hpp/rs_context.hpp#L13) C++ class 
+
 ## Version [2.13.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.13.0) (vs [2.11.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.11.1))
 
 ### Added 
