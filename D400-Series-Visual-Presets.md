@@ -8,8 +8,7 @@ The key to good depth is to start from our recommended defaults:
 
 If you have bad depth, please first try to use manual exposure and adjust exposure. Keep gain as low as possible (preferably 16).
 
-For further information, please refer to [Best Known Methods for Tuning Intel RealSense Depth Cameras D415 and D435 at [Whitepapers](https://realsense.intel.com/intel-realsense-downloads/#whitepaper)
-
+For further information, please refer to "_Best Known Methods for Tuning Intel RealSense Depth Cameras D415 and D435_" at https://realsense.intel.com/intel-realsense-downloads/#whitepaper.
 
 ## Supported Devices
 Please refer to [latest release](https://github.com/IntelRealSense/librealsense/releases/latest) for the supported devices and platforms.
