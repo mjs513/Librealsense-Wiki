@@ -216,12 +216,12 @@ It is not necessary to know which model of RealSense device is plugged in to suc
   * There is no rotation between left and right infrared images (identity matrix)
   * There is translation on only one axis between left and right infrared images (`translation[1]` and `translation[2]` are zero)
   * Therefore, the `y` component of pixel coordinates can be used interchangeably between these two streams
-2. Stereo disparity is related to depth via an inverse linear relationship, and the distance of a point which registers a disparity of 1 can be queried via `rs2_get_depth_scale(...)`. The following shows how to retrieve the depth of a pixel in meters:
+2. Stereo disparity is related to depth via an inverse linear relationship, and the distance of a point which registers a disparity of 1 can be queried via `1 / rs2_get_depth_scale(...)`. The following shows how to retrieve the depth of a pixel in meters:
 
     ```c
     const float scale = rs2_get_depth_scale(sensor, NULL);
     const uint16_t * image = (const uint16_t *)rs2_get_frame_data(frame, NULL);
-    float depth_in_meters = scale / image[pixel_index];
+    float depth_in_meters = 1 / (scale * image[pixel_index]);
     ```
 
   * Unlike `RS2_FORMAT_Z16`, a disparity value of zero is meaningful. A stereo match with zero disparity will occur for objects "at infinity", objects which are so far away that the parallax between the two imagers is negligible. By contrast, there is a maximum possible disparity.
