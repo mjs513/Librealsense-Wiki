@@ -107,7 +107,7 @@ As mentioned above, mapping from 2D pixel coordinates to 3D point coordinates vi
 
   * If a device fails to determine the depth of a given image pixel, a value of zero will be stored in the depth image. This is a reasonable sentinel for "no depth" because all pixels with a depth of zero would correspond to the same physical location, the location of the imager itself.
   * The default scale of an SR300 device is 1/32th of a millimeter, allowing for a maximum expressive range of two meters. However, the scale is encoded into the camera's calibration information, potentially allowing for long-range models to use a different scaling factor.
-  * The default scale of a D400 device is one millimeter, allowing for a maximum expressive range of ~65 meters. The depth scale can be modified by calling `rs2_set_option(...)` with `RS2_OPTION_DEPTH_UNITS`, which specifies the number of micrometers per one increment of depth. 1000 would indicate millimeter scale, 10000 would indicate centimeter scale, while 31 would roughly approximate the SR300's 1/32th of a millimeter scale.
+  * The default scale of a D400 device is one millimeter, allowing for a maximum expressive range of ~65 meters. The depth scale can be modified by calling `rs2_set_option(...)` with `RS2_OPTION_DEPTH_UNITS`, which specifies the number of meters per one increment of depth. 0.001 would indicate millimeter scale, while 0.01 would indicate centimeter scale.
 
 ## Processing Blocks Helpers
 
