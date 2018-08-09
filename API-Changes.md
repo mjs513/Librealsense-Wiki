@@ -1,3 +1,9 @@
+## From version [2.14.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.14.0) to [2.15.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.15.0)
+
+### Added
+* [rs2_query_devices_ex](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_context.h#L87) - provide a list of connected devices with user-specified mask. This allows to cherry-pick specific types (e.g D400/SR300) during device acquisition stage. 
+
+
 ## Version [2.14.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.14.0) vs [2.13.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.13.1)
 
 ### Added
