@@ -1,3 +1,48 @@
+## Release 2.15.0
+Aug 10, 2018
+
+## API Changes
+[v2.15.0](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-version-2140-to-2150) 
+
+### New Features & Improvements
+* Establishing Github Pages [Developers Portal](https://intelrealsense.github.io/librealsense/index.html)
+* Establishing [Debian repository](https://github.com/IntelRealSense/librealsense/pull/2146) for Ubuntu 18 (Bionic) packages, including DKMS.
+* Adding [processing blocks to Unity wrapper](https://github.com/IntelRealSense/librealsense/pull/2164)
+* Enhancements for python [Box Dimentioner](https://github.com/IntelRealSense/librealsense/pull/2160) demo 
+
+### Bug fixes
+* DSO-10232 / [#2202](https://github.com/IntelRealSense/librealsense/issues/2202) - Depth alignment grid artifact for specific resolutions
+* [#2211](https://github.com/IntelRealSense/librealsense/issues/2211) - Fix Android Studio build
+* DSO-9738 / [#2208](https://github.com/IntelRealSense/librealsense/issues/2208) - [Viewer] ROI control attached to non-ROI sensors.
+* DSO-9927- [Linux] Fix idle state management to reduce power consumption.
+* DSO-9942 / [#1998](https://github.com/IntelRealSense/librealsense/issues/1998) - Y16 "Save snapshot" Crashes RealSense Viewer
+* [DQT] Wrong message is presented with no camera connected (DSO-7994) / ( [#1775](https://github.com/IntelRealSense/librealsense/issues/1775), ( [#1580](https://github.com/IntelRealSense/librealsense/issues/1580) )
+
+
+### Known Issues
+* Frame drops when changing depth controls while streaming (DSO-9065)
+* Repeatedly changing exposure of d435 brings down a camera ([#1687](https://github.com/IntelRealSense/librealsense/issues/1687))
+* Potential alignment issue when using enable_device ([#1504](https://github.com/IntelRealSense/librealsense/issues/1504))
+* **[Firmware]** Frames didn't arrive error - after improper shutdown ([#1086](https://github.com/IntelRealSense/librealsense/issues/1086))
+* Repeated read device temperature fail on Windows ([#866](https://github.com/IntelRealSense/librealsense/issues/866))
+* **[Firmware]** RGB-Depth sync ([#774](https://github.com/IntelRealSense/librealsense/issues/774))
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Artifact generated in depth image/point cloud from SR300 (DSO-9383)
+* DSO-9792 - C# query device function doesn't release memory causing memory leak
+* DSO-9160 #1514 Inappropriate ioctl - Kernel 4.16 with the new metadata treenode
+* DSO-9702 #1587 Issue serializing json in adv mode: Value not found in map! value=8
+* DSO-9853 - #1919 problems (framedrop) in rs_convert
+* DSO-9802 - #1462, Invalid Depth Band in depth stream is not match to spec
+* DSO-9357 - D420 / D430 Cameras w/ FW 5.9.11 wont run LRS 2.11 align capture and pointcloud apps
+* DSO-9065 - Frame Drops when changing depth controls while depth streaming
+
+### Other Issues
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
+* Linux Kernel 4.16 is currently not supported due to changes to the media sub-system and specifically metadata nodes.
+Patches are available for Ubuntu LTS kernel 4.15.(DSO-9160,[#1514](https://github.com/IntelRealSense/librealsense/issues/1514))
+
+
+
 ## Release 2.14.0
 July 17, 2018
 
