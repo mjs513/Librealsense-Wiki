@@ -12,7 +12,7 @@ Aug 10, 2018
 
 ### Bug fixes
 * DSO-10232 / [#2202](https://github.com/IntelRealSense/librealsense/issues/2202) - Depth alignment grid artifact for specific resolutions
-* [#2211](https://github.com/IntelRealSense/librealsense/issues/2211) - Fix Android Studio build
+* [Android] Fix Android Studio build
 * DSO-9738 / [#2208](https://github.com/IntelRealSense/librealsense/issues/2208) - [Viewer] ROI control attached to non-ROI sensors.
 * DSO-9927- [Linux] Fix idle state management to reduce power consumption.
 * DSO-9942 / [#1998](https://github.com/IntelRealSense/librealsense/issues/1998) - Y16 "Save snapshot" Crashes RealSense Viewer
