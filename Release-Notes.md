@@ -5,7 +5,6 @@ Aug 10, 2018
 [v2.15.0](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-version-2140-to-2150) 
 
 ### New Features & Improvements
-* Establishing Github Pages [Developers Portal](https://intelrealsense.github.io/librealsense/index.html)
 * Establishing [Debian repository](https://github.com/IntelRealSense/librealsense/pull/2146) for Ubuntu 18 (Bionic) packages, including DKMS.
 * Adding [processing blocks to Unity wrapper](https://github.com/IntelRealSense/librealsense/pull/2164)
 * Enhancements for python [Box Dimentioner](https://github.com/IntelRealSense/librealsense/pull/2160) demo 
