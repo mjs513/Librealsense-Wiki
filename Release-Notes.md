@@ -1,8 +1,47 @@
+## Release 2.16.0
+Aug 27, 2018
+
+## API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-version-2150-to-2160) from 2.15.0 version
+
+### New Features & Improvements
+* [#2154](https://github.com/IntelRealSense/librealsense/pull/2154) - Adding Two Dimensional Data Protocols for python wrapper (by @baptiste-mnh)
+* DSO-10233 / [#2265](https://github.com/IntelRealSense/librealsense/pull/2265) - Adding function to project single color pixel to the depth image
+* DSO-7213 / [#1038](https://github.com/IntelRealSense/librealsense/pull/1038) - Matlab Wrapper
+
+### Bug fixes
+* DSO-9792 / [#1899](https://github.com/IntelRealSense/librealsense/issues/1899) - C# query device function doesn't release memory causing memory leak
+* [#2299](https://github.com/IntelRealSense/librealsense/issues/2299) - better handling of AVX compilation (by @kjkjava)
+* DSO-10262 / [#2293](https://github.com/IntelRealSense/librealsense/pull/2293) - D430+MM not moving to idle power state
+* [#2008](https://github.com/IntelRealSense/librealsense/issues/2008) / [#2075](https://github.com/IntelRealSense/librealsense/issues/2075) - merging general Android fixes
+* DSO-10227 / [#2283](https://github.com/IntelRealSense/librealsense/pull/2283) - pipeline stop & start not working on Android
+* DSO-10045 / [#2002](https://github.com/IntelRealSense/librealsense/issues/2002) - aligned intrinsics incorrect
+* DSO-10274 / [#2187](https://github.com/IntelRealSense/librealsense/issues/2187) - end of recording sometimes causes a crash
+* DSO-9160 / [#1514](https://github.com/IntelRealSense/librealsense/issues/1514) - Kernel 4.16 support (new metadata V4L2 API)
+* DSO-10101 / [#2097](https://github.com/IntelRealSense/librealsense/issues/2097) - Pre-built Intel.Realsense.dll has no version number
+* [#2261](https://github.com/IntelRealSense/librealsense/issues/2261) - RGBA with depth-to-color alignment
+* [#2256](https://github.com/IntelRealSense/librealsense/issues/2256) - avoid crash in case of illegal device ID (by @bentank)
+
+
+### Known Issues
+* Repeatedly changing exposure of d435 brings down a camera ([#1687](https://github.com/IntelRealSense/librealsense/issues/1687))
+* **[Firmware]** Frames didn't arrive error - after improper shutdown ([#1086](https://github.com/IntelRealSense/librealsense/issues/1086))
+* Repeated read device temperature fail on Windows ([#866](https://github.com/IntelRealSense/librealsense/issues/866))
+* **[Firmware]** RGB-Depth sync ([#774](https://github.com/IntelRealSense/librealsense/issues/774))
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Artifact generated in depth image/point cloud from SR300 (DSO-9383)
+* DSO-9702 #1587 Issue serializing json in adv mode: Value not found in map! value=8
+* DSO-9853 - #1919 problems (framedrop) in rs_convert
+* DSO-9065 - Frame Drops when changing depth controls while depth streaming
+
+### Other Issues
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
+
 ## Release 2.15.0
 Aug 10, 2018
 
 ## API Changes
-[v2.15.0](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-version-2140-to-2150) 
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-version-2140-to-2150) from 2.14.0 version
 
 ### New Features & Improvements
 * Establishing [Debian repository](https://github.com/IntelRealSense/librealsense/pull/2146) for Ubuntu 18 (Bionic) packages, including DKMS.
