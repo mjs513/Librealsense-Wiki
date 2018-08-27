@@ -1,3 +1,10 @@
+## From version [2.15.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.15.0) to [2.16.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.16.0)
+
+### Added
+* [rs2_project_color_pixel_to_depth_pixel](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rsutil.h#L117) - map pixel in the color image to pixel in depth image
+
+* [rs2_allocate_points](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_frame.h#L288) - allows the user to write custom processing block that outputs frame of type points
+
 ## From version [2.14.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.14.0) to [2.15.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.15.0)
 
 ### Added
