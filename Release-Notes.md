@@ -8,6 +8,7 @@ Aug 27, 2018
 * [#2154](https://github.com/IntelRealSense/librealsense/pull/2154) - Adding Two Dimensional Data Protocols for python wrapper (by @baptiste-mnh)
 * DSO-10233 / [#2265](https://github.com/IntelRealSense/librealsense/pull/2265) - Adding function to project single color pixel to the depth image
 * DSO-7213 / [#1038](https://github.com/IntelRealSense/librealsense/pull/1038) - Matlab Wrapper
+* DSO-10202 / [#2245](https://github.com/IntelRealSense/librealsense/pull/2245) - making sure all SDK processing can be done consistently at frame-set level, allowing easier composition of processing
 
 ### Bug fixes
 * DSO-9792 / [#1899](https://github.com/IntelRealSense/librealsense/issues/1899) - C# query device function doesn't release memory causing memory leak
