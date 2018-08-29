@@ -9,7 +9,7 @@
 
 ### Removed
 
-* [`processing_block::operator()(frame f) const](https://github.com/IntelRealSense/librealsense/blob/v2.15.0/include/librealsense2/hpp/rs_processing.hpp#L151) was removed to reduce the overall ways processing block can be invoked. All processing blocks still contain `invoke` method for async processing (that sends the results to callback), and can be applied using added `apply_filter` method, in addition to helper methods like `colorize` and `calculate` specific to each block.
+* [`processing_block::operator()(frame f) const`](https://github.com/IntelRealSense/librealsense/blob/v2.15.0/include/librealsense2/hpp/rs_processing.hpp#L151) was removed to reduce the overall ways processing block can be invoked. All processing blocks still contain `invoke` method for async processing (that sends the results to callback), and can be applied using added `apply_filter` method, in addition to helper methods like `colorize` and `calculate` specific to each block.
 
 ## From version [2.14.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.14.0) to [2.15.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.15.0)
 
