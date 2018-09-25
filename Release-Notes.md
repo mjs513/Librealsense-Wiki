@@ -1,3 +1,40 @@
+## Release 2.16.1
+Sep 25, 2018
+
+## API Changes
+No API changes in this release
+
+### New Features & Improvements
+
+* [Add log mechanism for Android port](https://github.com/IntelRealSense/librealsense/pull/2429)
+* [Adding Windows 7 support](https://github.com/dorodnic/librealsense/blob/development/doc/installation_win7.md)
+* [Adding `ENABLE_CCACHE` CMake flag, contributed by @akatrevorjay](https://github.com/IntelRealSense/librealsense/pull/2342)
+* [Strict uvcvideo buffers overflow handling](https://github.com/IntelRealSense/librealsense/pull/2341) - this patch is likely to create issues with 5.8.15 firmware and requires a firmware update.
+* [Adding `TESTDATA_LOCATION` CMake flag, contributed by @muojp](https://github.com/IntelRealSense/librealsense/pull/2388/files)
+
+### Bug fixes
+* [#2420](https://github.com/IntelRealSense/librealsense/issues/2420), [#2306](https://github.com/IntelRealSense/librealsense/issues/2306) - RGB decoding on non-Intel non-Android systems
+* [#2430](https://github.com/IntelRealSense/librealsense/pull/2430) - crash on some Android systems due to memory alignment
+* [#2377](https://github.com/IntelRealSense/librealsense/pull/2377) - fix for ROS file format, contributed by @shuntaraw
+* [#2371](https://github.com/IntelRealSense/librealsense/pull/2371) - fixing texture misalignment in the Viewer in last release
+* [#1579](https://github.com/IntelRealSense/librealsense/issues/1579), [#1919](https://github.com/IntelRealSense/librealsense/issues/1919), [#2102](https://github.com/IntelRealSense/librealsense/issues/2102), [#2242](https://github.com/IntelRealSense/librealsense/issues/2242), [#2224](https://github.com/IntelRealSense/librealsense/issues/2224), [#2216](https://github.com/IntelRealSense/librealsense/issues/2216), [#2214](https://github.com/IntelRealSense/librealsense/issues/2214), [#2308](https://github.com/IntelRealSense/librealsense/issues/2308), [#2411](https://github.com/IntelRealSense/librealsense/issues/2411) - Issues related to ROS-bag playback
+* Several issues related to Mac OS stability reported under [#2057](https://github.com/IntelRealSense/librealsense/issues/2057)
+* [#2354](https://github.com/IntelRealSense/librealsense/pull/2354) - fixed OpenCV compilation, contributed by @neuralassembly
+* [#2318](https://github.com/IntelRealSense/librealsense/issues/2318) - Broken presets interface in the Intel RealSense Viewer 
+* [#2311](https://github.com/IntelRealSense/librealsense/issues/2311) - USB 2.1 when plugging in slowly
+
+### Known Issues
+* **[Firmware]** Frames didn't arrive error - after improper shutdown ([#1086](https://github.com/IntelRealSense/librealsense/issues/1086))
+* Repeated read device temperature fail on Windows ([#866](https://github.com/IntelRealSense/librealsense/issues/866))
+* **[Firmware]** RGB-Depth sync ([#774](https://github.com/IntelRealSense/librealsense/issues/774))
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* DSO-9702 #1587 Issue serializing json in adv mode: Value not found in map! value=8
+* DSO-9065 - Frame Drops when changing depth controls while depth streaming
+* **[Firmware]** - Read device temperature [#866](https://github.com/IntelRealSense/librealsense/issues/866)
+
+### Other Issues
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
+
 ## Release 2.16.0
 Aug 27, 2018
 
