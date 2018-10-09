@@ -16,6 +16,7 @@
 - [About Android Support](https://github.com/IntelRealSense/librealsense/blob/master/doc/android/Android.md)
 - [RealSense with Raspberry Pi 3](https://github.com/IntelRealSense/librealsense/blob/master/doc/RaspberryPi3.md)
 - [RealSense with NVidia Jetson](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md)
+- [Using Two Cameras with ROS](https://github.com/intel-ros/realsense/wiki/Showcase-of-using-2-cameras)
 ### Help
 - [Closed GitHub Issues](https://github.com/IntelRealSense/librealsense/issues?utf8=%E2%9C%93&q=is%3Aclosed)
 - [Community](https://communities.intel.com/community/tech/realsense) 
