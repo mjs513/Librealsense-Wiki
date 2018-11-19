@@ -1,3 +1,62 @@
+## Release 2.16.5
+Nov 19, 2018
+
+## API Changes
+No API changes in this release
+
+### New Features & Improvements
+* Optimization of [align processing with CUDA](https://github.com/IntelRealSense/librealsense/pull/2670).  
+Results with Jetson TX2 board:  
+
+![align_results](https://user-images.githubusercontent.com/18511514/47967255-31b38480-e064-11e8-9815-240117e37505.PNG)
+* [Core] Disable platform cameras from being selected with pipeline ([PR2600](https://github.com/IntelRealSense/librealsense/pull/2600))
+* [Core] Refactoring of CMake configuration files - also addressing [#745](https://github.com/IntelRealSense/librealsense/issues/745) issue ([PR2716](https://github.com/IntelRealSense/librealsense/pull/2716)).  
+Note that the following librealsense Cmake variables have been modified:  
+`realsense_INCLUDE_DIR` -> `realsense2_INCLUDE_DIR`  
+`realsense_VERSION` -> `realsense2_VERSION`  
+* [Linux] Add D435i IMU patch for non-LTS kernel 4.16
+* [Matlab] Add Matlab build to CMake. Multiple fixes to wrapper [2644](https://github.com/IntelRealSense/librealsense/pull/2644), []()
+* [Matlab] Replace toolbox' `vec2mat` with standard `reshape` in `rosbag_example` by [@apoorva2398](https://github.com/IntelRealSense/librealsense/pull/2708)
+* [OpenCV] Fixing typo in [Getting Started with OpenCV](https://github.com/IntelRealSense/librealsense/blob/master/doc/stepbystep/getting_started_with_openCV.md) guide by [@gideont](https://github.com/IntelRealSense/librealsense/pull/2708)
+* [OpenCV] Adding a key press to exit the image window by [@vinaysannaiah](https://github.com/IntelRealSense/librealsense/pull/2641)
+* [PCL] Color example provided by [@LinuxGogley](https://github.com/IntelRealSense/librealsense/pull/2668)
+* [OpenNI] Linux build fix by [@Daichou ](https://github.com/IntelRealSense/librealsense/pull/2651)
+* [Easylogging++] Update to v9.96.5 by [@rschlaikjer](https://github.com/IntelRealSense/librealsense/pull/2674)
+* [Core] `rs-convert` documentation updated to address [#2671](https://github.com/IntelRealSense/librealsense/issues/2671)
+
+### Bug fixes
+* [#745](https://github.com/IntelRealSense/librealsense/issues/745) - CMake: fix `find_package` functionality
+* [#2710](https://github.com/IntelRealSense/librealsense/issues/2710) - Matlab wrapper: Correct error in align.m
+* [#2539](https://github.com/IntelRealSense/librealsense/issues/2539) - Matlab wrapper: error on context.query_devices
+* [#2541](https://github.com/IntelRealSense/librealsense/issues/2541) - Matlab wrapper: crash when trying to get intrinsics
+* [#2487](https://github.com/IntelRealSense/librealsense/issues/2487) - Matlab: wrapper typos
+* [#1587](https://github.com/IntelRealSense/librealsense/issues/1587) -  [Libuvc] serializing json in adv mode (DSO-9702)
+* DSO-10889: IMU timestamp conversion patch with kernels 4.8/10 ([PR2732](https://github.com/IntelRealSense/librealsense/pull/2732)).
+* DSO-10471: Remove zero-copy for YUYV ([PR2653](https://github.com/IntelRealSense/librealsense/pull/2653)).
+* Update depth units when modified by user ([PR2665](https://github.com/IntelRealSense/librealsense/pull/2665)).
+
+### Known Issues
+* [#866](https://github.com/IntelRealSense/librealsense/issues/866) **[Firmware]** - Read device temperature
+* [#774](https://github.com/IntelRealSense/librealsense/issues/774) **[Firmware]** RGB-Depth sync
+* [#1086](https://github.com/IntelRealSense/librealsense/issues/1086) **[Firmware]** Frames didn't arrive error - after improper shutdown 
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* [#2241](https://github.com/IntelRealSense/librealsense/issues/2241) Intel RealSence Viewer crash when add playback source
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2321](https://github.com/IntelRealSense/librealsense/issues/2321) and [#2376](https://github.com/IntelRealSense/librealsense/issues/2376) rs2::align optimization/performance (DSO-10718)
+* [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) Python Decimation Filter with Aligning Frames (DSO-10681)
+* [#2376](https://github.com/IntelRealSense/librealsense/issues/2376) cv::align not optimized (windows 10, C++) (DSO-10718)
+* [#2540](https://github.com/IntelRealSense/librealsense/issues/2540) Using playback function in unity crash (DSO-10757)
+* [#2575](https://github.com/IntelRealSense/librealsense/issues/2575) Automatic Firmware Downgrade: 5.9.2 to 5.8.15
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2492) Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2479](https://github.com/IntelRealSense/librealsense/issues/2497) USB2.1 infra-red exposure issue for short exposure times
+* [#2645](https://github.com/IntelRealSense/librealsense/issues/2645)[ROS] Librealsense collision with ROS API ros::Time::now()
+* [#2693](https://github.com/IntelRealSense/librealsense/issues/2693) - Error in reading rosbag files
+
+
+### Other Issues
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
+
+
 ## Release 2.16.1
 Sep 25, 2018
 
