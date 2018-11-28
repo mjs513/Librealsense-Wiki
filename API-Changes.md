@@ -8,6 +8,31 @@
 3. [rs2_pipeline_start_with_config_and_callback](https://github.com/matkatz/librealsense/blob/a2406a5c7713bb9de5cd0b28e8558e85a63a19b1/include/librealsense2/h/rs_pipeline.h#L180) - pipeline start with callback and config
 4. [rs2_pipeline_start_with_config_and_callback_cpp](https://github.com/matkatz/librealsense/blob/a2406a5c7713bb9de5cd0b28e8558e85a63a19b1/include/librealsense2/h/rs_pipeline.h#L199) - pipeline start with callback and config (C++ frame callback object)
 
+* [#2687](https://github.com/IntelRealSense/librealsense/pull/2687) introduces new API to control recording compression: 
+
+1. [rs2_create_record_device_ex](https://github.com/belkinirena/librealsense/blob/9d8d3a690ebd5fd4b60c3d3c73a6e11e901f14bc/include/librealsense2/h/rs_record_playback.h#L49) - create recorder and explicitly enable or disable compression. By default, compression will be enabled based on device type. D435i and T265 devices that provide high FPS streams disable compression by default to avoid frame drops during recording. 
+
+* [#2673](https://github.com/IntelRealSense/librealsense/pull/2673) adds API to generate IMU and pose data with `software_device`:
+
+Added support for IMU stream and recording IMU frames in software sensor:
+
+- stream_profile **add_motion_stream**(rs2_motion_stream motion_stream)
+- rs2_stream_profile* **rs2_software_sensor_add_motion_stream**(rs2_sensor* sensor, rs2_motion_stream motion_stream, rs2_error** error);
+- void **on_motion_frame**(rs2_software_motion_frame frame)
+- void **rs2_software_sensor_on_motion_frame**(rs2_sensor* sensor, rs2_software_motion_frame frame, rs2_error** error);
+
+Added support for pose stream and recording pose frames in software sensor:
+
+- stream_profile **add_pose_stream**(rs2_pose_stream pose_stream)
+- rs2_stream_profile* **rs2_software_sensor_add_pose_stream**(rs2_sensor* sensor, rs2_pose_stream pose_stream, rs2_error** error);
+- void **on_pose_frame**(rs2_software_pose_frame frame)
+- void **rs2_software_sensor_on_pose_frame**(rs2_sensor* sensor, rs2_software_pose_frame frame, rs2_error** error);
+
+### Renamed
+
+* [#2757](https://github.com/IntelRealSense/librealsense/pull/2757) is splitting C++ `processing_block` class into `processing_block` and `filter` classes, with `filter` being derived from `processing_block`.
+`processing_block` abstraction offers `start` and `invoke` operations and does not guaranty results will be immediately available (`processing_block` can chose to **delay** frames). `filter` is special type of processing block that performs its operation immediately. This lets users compose filters using `apply_filter` operation. 
+
 ## From version [2.15.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.15.0) to [2.16.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.16.0)
 
 ### Added
