@@ -1,3 +1,13 @@
+## From version [2.16.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.16.0) to [2.17.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.17.0)
+
+### Added
+
+* [#2773](https://github.com/IntelRealSense/librealsense/pull/2773) introduced asynchronous pipeline API (recommended for high frequency data such as IMU). This change is limited to adding new overloads to `pipeline.start` method:
+1. [rs2_pipeline_start_with_callback](https://github.com/matkatz/librealsense/blob/a2406a5c7713bb9de5cd0b28e8558e85a63a19b1/include/librealsense2/h/rs_pipeline.h#L147) - pipeline start with C function pointer and user data, similar to `sensor.start`
+2. [rs2_pipeline_start_with_callback_cpp](https://github.com/matkatz/librealsense/blob/a2406a5c7713bb9de5cd0b28e8558e85a63a19b1/include/librealsense2/h/rs_pipeline.h#L160) - pipeline start with C++ frame callback object, similar to `sensor.start`
+3. [rs2_pipeline_start_with_config_and_callback](https://github.com/matkatz/librealsense/blob/a2406a5c7713bb9de5cd0b28e8558e85a63a19b1/include/librealsense2/h/rs_pipeline.h#L180) - pipeline start with callback and config
+4. [rs2_pipeline_start_with_config_and_callback_cpp](https://github.com/matkatz/librealsense/blob/a2406a5c7713bb9de5cd0b28e8558e85a63a19b1/include/librealsense2/h/rs_pipeline.h#L199) - pipeline start with callback and config (C++ frame callback object)
+
 ## From version [2.15.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.15.0) to [2.16.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.16.0)
 
 ### Added
