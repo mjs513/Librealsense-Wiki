@@ -7,7 +7,7 @@ Nov 28, 2018
 ### New Features & Improvements
 
 * Adding [rs-callback](https://github.com/IntelRealSense/librealsense/tree/development/examples/callback) example for asynchronous (low-latency) processing with pipeline.
-* Adding new [python](https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python/examples#pointcloud-visualization) and [Matlab](https://github.com/IntelRealSense/librealsense/tree/development/wrappers/matlab#building-from-source) for point-cloud data visualization 
+* Adding new [python](https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python/examples#pointcloud-visualization) and [Matlab](https://github.com/IntelRealSense/librealsense/tree/development/wrappers/matlab#building-from-source) examples for point-cloud data visualization 
 * D435i IMU is now supported on Windows 10 ([#2788](https://github.com/IntelRealSense/librealsense/pull/2788), DSO-10754)
 * `rs-capture` will now show IMU data when connected to D435i, and rest of the SDK demos will work properly.
 
