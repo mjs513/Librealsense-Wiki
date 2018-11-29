@@ -1,3 +1,40 @@
+## Release 2.17.0
+Nov 28, 2018
+
+## API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-version-2160-to-2170) from 2.16.x versions
+
+### New Features & Improvements
+
+* Adding [rs-callback](https://github.com/IntelRealSense/librealsense/tree/development/examples/callback) example for asynchronous (low-latency) processing with pipeline.
+* Adding new [python](https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python/examples#pointcloud-visualization) and [Matlab](https://github.com/IntelRealSense/librealsense/tree/development/wrappers/matlab#building-from-source) for point-cloud data visualization 
+* D435i IMU is now supported on Windows 10 ([#2788](https://github.com/IntelRealSense/librealsense/pull/2788), DSO-10754)
+* `rs-capture` will now show IMU data when connected to D435i, and rest of the SDK demos will work properly.
+
+### Bug Fixes
+
+* [#2763](https://github.com/IntelRealSense/librealsense/issues/2763) - SDK can now be compiled with `-Werror=shadow` GCC flag
+* [#2645](https://github.com/IntelRealSense/librealsense/issues/2645) - fixing symbols collision with ROS libraries
+
+### Known Issues
+* [#866](https://github.com/IntelRealSense/librealsense/issues/866) **[Firmware]** - Read device temperature
+* [#774](https://github.com/IntelRealSense/librealsense/issues/774) **[Firmware]** RGB-Depth sync
+* [#1086](https://github.com/IntelRealSense/librealsense/issues/1086) **[Firmware]** Frames didn't arrive error - after improper shutdown 
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* [#2241](https://github.com/IntelRealSense/librealsense/issues/2241) Intel RealSence Viewer crash when add playback source
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) Python Decimation Filter with Aligning Frames (DSO-10681)
+* [#2376](https://github.com/IntelRealSense/librealsense/issues/2376) cv::align not optimized (windows 10, C++) (DSO-10718)
+* [#2540](https://github.com/IntelRealSense/librealsense/issues/2540) Using playback function in unity crash (DSO-10757)
+* [#2575](https://github.com/IntelRealSense/librealsense/issues/2575) Automatic Firmware Downgrade: 5.9.2 to 5.8.15
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2492) Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2479](https://github.com/IntelRealSense/librealsense/issues/2497) USB2.1 infra-red exposure issue for short exposure times
+* [#2693](https://github.com/IntelRealSense/librealsense/issues/2693) - Error in reading rosbag files
+
+
+### Other Issues
+* Display alignment of the GUI of the Viewer and the DQT can be fixed with a graphics updated driver, please refer to: [Intel® Graphics Driver for Windows* [15.60]](https://downloadcenter.intel.com/download/27266/Graphics-Intel-Graphics-Driver-for-Windows-15-60-?product=80939).
+
 ## Release 2.16.5
 Nov 19, 2018
 
