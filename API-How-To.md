@@ -61,8 +61,8 @@ dev.start();
 * **librealsense2**:
 ```cpp
 rs2::config cfg;
+cfg.enable_stream(RS2_STREAM_INFRARED, 0);
 cfg.enable_stream(RS2_STREAM_INFRARED, 1);
-cfg.enable_stream(RS2_STREAM_INFRARED, 2);
 rs2::pipeline pipe;
 pipe.start(cfg);
 ```
