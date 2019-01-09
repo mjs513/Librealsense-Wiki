@@ -34,5 +34,6 @@ Alternatively, use `cmake-gui` utility to configure and generate your build file
 |BUILD_CV_KINFU_EXAMPLES|Build simple 3d-reconstruction example using Kinnect-Fussion implementation. Relies on `OPENCV_ENABLE_NONFREE`. See [wrappers/opencv/kinfu](https://github.com/IntelRealSense/librealsense/tree/master/wrappers/opencv/kinfu#rs-kinfu-sample)|`false`|
 |BUILD_PCL_EXAMPLES|Search for PCL 3rd-party library and include example under `wrappers/pcl` in the project|`false`|
 |BUILD_WITH_TM2|Assuming you received from Intel an engineering sample of T265(TM2) device, enable support for it in the SDK|`false`|
+|INTERNAL_FW_SOURCE|Lets the user manually download T265 firmware image and use it in SDK build instead of downloading it automatically during CMake|`remote`|
 |BUILD_WITH_CUDA|Build the SDK using CUDA for color conversions and image alignment|`false`|
 |BUILD_WITH_STATIC_CRT|When enabled increases binary footprint but prevents the dependency on Visual C++ Redistributables|`true`|
