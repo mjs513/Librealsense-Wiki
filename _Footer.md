@@ -1,1 +1,1 @@
-how to install relsense D435i in ubuntu
+how to install relsense D435i in ubuntu, I am very very confused by the guidence doc of intel.
