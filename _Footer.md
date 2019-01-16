@@ -1,0 +1,1 @@
+how to install relsense D435i in ubuntu
