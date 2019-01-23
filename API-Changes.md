@@ -1,11 +1,16 @@
-## Version [2.18.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.18.0)
+## From version [2.17.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.17.0) to [2.18.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.18.0)
 
 ### Added
-1. [rs2_create_yuy_decoder](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L54) Adding YUY2 to RGB processing block [#3056](https://github.com/IntelRealSense/librealsense/pull/3056) :
-2. [rs2_create_error](https://github.com/IntelRealSense/librealsense/blame/d39b5139ce62efffddee4cd11a87e8927ecdfa0c/src/api.h#L35) Exposing librealsense error to avoid cross-boundary new/delete operations:
-3. [rs2_create_threshold](https://github.com/IntelRealSense/librealsense/blob/d39b5139ce62efffddee4cd11a87e8927ecdfa0c/include/librealsense2/h/rs_processing.h#L62) Adding depth min/max clamp filter (processing block):
+1. [`rs2_create_yuy_decoder`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L54) Adding YUY2 to RGB processing block [#3056](https://github.com/IntelRealSense/librealsense/pull/3056) :
+2. [`rs2_create_error`](https://github.com/IntelRealSense/librealsense/blame/d39b5139ce62efffddee4cd11a87e8927ecdfa0c/src/api.h#L35) Exposing librealsense error to avoid cross-boundary new/delete operations:
+3. [`rs2_create_threshold`](https://github.com/IntelRealSense/librealsense/blob/d39b5139ce62efffddee4cd11a87e8927ecdfa0c/include/librealsense2/h/rs_processing.h#L62) Adding depth min/max clamp filter (processing block):
+4. [`RS2_OPTION_EMITTER_ON_OFF`](https://github.com/IntelRealSense/librealsense/pull/2829) - adding `RS2_OPTION_EMITTER_ON_OFF` to options enumeration
+5. [`rs2_processing_block_register_simple_option`](https://github.com/IntelRealSense/librealsense/pull/2830/files#diff-c47ed929a30eaaa0bfce02ecdcfa2701R64) - adding ability to register custom processing block options
+6. Adding [`save_to_ply`](https://github.com/IntelRealSense/librealsense/pull/2830/files#diff-883f598ceaa739d7473cdc28d7995e23R17) and [`save_single_frameset`](https://github.com/IntelRealSense/librealsense/pull/2830/files#diff-883f598ceaa739d7473cdc28d7995e23R161) processing blocks to C++ headers only (staging to be added to the API) under [rs_export.hpp](https://github.com/IntelRealSense/librealsense/blob/master/include/librealsense2/hpp/rs_export.hpp).
 
+### Removed
 
+1. [set_devices_changed_callback](https://github.com/IntelRealSense/librealsense/pull/2823) - was removed from C++ header files
 
 ## From version [2.16.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.16.0) to [2.17.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.17.0)
 
