@@ -1,3 +1,42 @@
+## Release 2.18.0
+Jan 22, 2019
+ 
+## API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-version-2170-to-2180) from 2.17.0 version
+ 
+### New Features & Improvements
+* Realsense-viewer enhancements:
+   * Rendering 3D camera model in 3D view
+   * Depth threshold [min/max] control
+   * Adding `Report Issue` button
+   * Adding configuration file to control and preserve UX settings
+     - Control record file name and location ([#2750](https://github.com/IntelRealSense/librealsense/issues/2750))
+     - Recording compression level (follow-up on [#2687](https://github.com/IntelRealSense/librealsense/pull/2687))
+   * Enhancing support for POSE frame type ([#3010](https://github.com/IntelRealSense/librealsense/pull/3010))
+* D435i IMU intrinsic calibration ([Learn More...](https://github.com/IntelRealSense/librealsense/tree/master/tools/rs-imu-calibration#rs-imu-calibration-tool)) [(#3023)](https://github.com/IntelRealSense/librealsense/pull/3023).
+* **[Firmware 5.11+]** Alternating emitter (on/off) flickering pattern ([#3066](https://github.com/IntelRealSense/librealsense/pull/3066) following-up on [#482](https://github.com/IntelRealSense/librealsense/issues/482), [#1299](https://github.com/IntelRealSense/librealsense/issues/1299))
+* Upgrade to GLFW 3.3 ([#3051](https://github.com/IntelRealSense/librealsense/pull/3051))
+* Adding **Code of Conduct** ([#3034](https://github.com/IntelRealSense/librealsense/pull/3034))
+* Improved file structure in the C# wrapper ([#3038](https://github.com/IntelRealSense/librealsense/pull/3038))
+* Completing CI migration from Appveyor and consolidation all build types to Travis, including Windows. Enhancing parallel build ([#2993](https://github.com/IntelRealSense/librealsense/pull/2993))
+* Adding community-developed [installation guide for **raspbian**](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_raspbian.md) platform (contributed by [@koji](https://github.com/koji)) 
+ 
+### Bug Fixed
+* [#2997](https://github.com/IntelRealSense/librealsense/pull/2997) - Fix IMU Start-up delay on Linux (DSO-11674)
+* [#3080](https://github.com/IntelRealSense/librealsense/issues/3080) - **[Matlab]** `get_extrinsics` fix
+* [#3047](https://github.com/IntelRealSense/librealsense/issues/3047) - Revert to a stable libusb release
+* [#2540](https://github.com/IntelRealSense/librealsense/issues/2540) - Using playback function in unity crash (DSO-10757)
+* [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) - Python Decimation Filter with Aligning Frames (DSO-10681)
+ 
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [#2965](https://github.com/IntelRealSense/librealsense/issues/2965) - D435i accel sensor fails to start on some Linux PC
+* **[MacOS]** File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2492) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2693](https://github.com/IntelRealSense/librealsense/issues/2693) - Error in reading rosbag files
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+
 ## Release 2.17.0
 Nov 28, 2018
 
