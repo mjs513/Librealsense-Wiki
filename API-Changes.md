@@ -1,3 +1,12 @@
+## Version [2.18.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.18.0)
+
+### Added
+1. [rs2_create_yuy_decoder](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L54) Adding YUY2 to RGB processing block [#3056](https://github.com/IntelRealSense/librealsense/pull/3056) :
+2. [rs2_create_error](https://github.com/IntelRealSense/librealsense/blame/d39b5139ce62efffddee4cd11a87e8927ecdfa0c/src/api.h#L35) Exposing librealsense error to avoid cross-boundary new/delete operations:
+3. [rs2_create_threshold](https://github.com/IntelRealSense/librealsense/blob/d39b5139ce62efffddee4cd11a87e8927ecdfa0c/include/librealsense2/h/rs_processing.h#L62) Adding depth min/max clamp filter (processing block):
+
+
+
 ## From version [2.16.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.16.0) to [2.17.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.17.0)
 
 ### Added
