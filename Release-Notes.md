@@ -29,7 +29,7 @@ No C/C++ API changes in this release
 * [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
 * [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
 * Frame Drops when changing depth controls while depth streaming. (DSO-9065)
-* [#2472](https://github.com/IntelRealSense/librealsense/issues/2492) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
 * [#2693](https://github.com/IntelRealSense/librealsense/issues/2693) - Error in reading rosbag files
 * [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
 * (Python) DSO-10777 - LIBUSB_ERROR_IO on repeated sensor open/close
