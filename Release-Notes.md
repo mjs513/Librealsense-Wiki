@@ -1,3 +1,45 @@
+## Release 2.18.1
+TBD
+ 
+## API Changes
+No C/C++ API changes in this release
+ 
+### New Features & Improvements
+* [rs-motion](https://github.com/IntelRealSense/librealsense/blob/development/examples/motion) - new example dedicated to devices with an IMU
+* [#3203](https://github.com/IntelRealSense/librealsense/pull/3203) - correct T265 PID reporting
+* .NET API to register extrinsics ([#3202](https://github.com/IntelRealSense/librealsense/pull/3202) contributed by [@jb455](https://github.com/jb455))
+* Making CV examples work with all versions of OpenCV ([#3196](https://github.com/IntelRealSense/librealsense/pull/3196) contributed by [@devernay](https://github.com/devernay) and [@s-trinh](https://github.com/s-trinh))
+* Added link to [realsense-ir-to-vaapi-h264](https://github.com/bmegli/realsense-ir-to-vaapi-h264) community example ([#3194](https://github.com/IntelRealSense/librealsense/pull/3194) contributed by [@bmegli](https://github.com/bmegli))
+* Adding Hardware Reset to .NET API ([#3192](https://github.com/IntelRealSense/librealsense/pull/3192) contributed by [@victorsbd](https://github.com/victorsbd))
+* Addressing libusb error C2001 ([#3190](https://github.com/IntelRealSense/librealsense/pull/3190) contributed by [@UnaNancyOwen](https://github.com/UnaNancyOwen)) 
+* Improvements to IMU calibration documentation ([#3172](https://github.com/IntelRealSense/librealsense/pull/3172) and [#3132](https://github.com/IntelRealSense/librealsense/pull/3132) contributed by [@barnjamin](https://github.com/barnjamin))
+* [#3162](https://github.com/IntelRealSense/librealsense/pull/3162) - basic T265 Python example
+* [#3161](https://github.com/IntelRealSense/librealsense/pull/3161) - adding IMU documentation
+* [#3149](https://github.com/IntelRealSense/librealsense/pull/3149) - don't rebuild libtm after CMake if T265 firmware did not change
+
+### Bug Fixes
+* Fixing GLSL issue on Mac OS ([#3195](https://github.com/IntelRealSense/librealsense/pull/3195) contributed by [@devernay](https://github.com/devernay))
+* [#3177](https://github.com/IntelRealSense/librealsense/issues/3177) - Depth quality tool issue, no point cloud visualization in 3D mode ([#3130](https://github.com/IntelRealSense/librealsense/pull/3130))
+* [#3137](https://github.com/IntelRealSense/librealsense/issues/3137), [#3146](https://github.com/IntelRealSense/librealsense/issues/3146), [#3212](https://github.com/IntelRealSense/librealsense/issues/3212), [#3191](https://github.com/IntelRealSense/librealsense/issues/3191) - Invalid Value in rs2_get_option error after upgrading to firmware 5.11.1.0 ([#3127](https://github.com/IntelRealSense/librealsense/pull/3127))
+* [#2965](https://github.com/IntelRealSense/librealsense/issues/2965) - D435i accelero not working on some platforms ([#3200](https://github.com/IntelRealSense/librealsense/pull/3200), DSO-11745)
+* [#3113](https://github.com/IntelRealSense/librealsense/pull/3113) / DSO-11799 - Fix bug with depth scale before starting device
+* (Python) [#3111](https://github.com/IntelRealSense/librealsense/pull/3111) / DSO-10988 - Add dims=3 option to get_vertices/get_texture for (h,w,n) output format
+ 
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2492) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2693](https://github.com/IntelRealSense/librealsense/issues/2693) - Error in reading rosbag files
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* (Python) DSO-10777 - LIBUSB_ERROR_IO on repeated sensor open/close
+* DSO-9820 - Cannot load RGB8 format in the JSON file for D415
+* (.NET) [#2854](https://github.com/IntelRealSense/librealsense/issues/2854) / DSO-11095 - c# D400 Series Visual Presets
+* [#2924](https://github.com/IntelRealSense/librealsense/issues/2924) / DSO-11705 - usbids conflicts with Movidius Neural Compute Stick
+* [#2850](https://github.com/IntelRealSense/librealsense/issues/2850) / DSO-11696 - Linux Kernel 4.19 support
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* DSO-11755 - Realsense Viewer total crash when sliding Rsm controls to max value
+
 ## Release 2.18.0
 Jan 22, 2019
  
