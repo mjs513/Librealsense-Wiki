@@ -1,5 +1,5 @@
 ## Release 2.18.1
-TBD
+Feb 07, 2019
  
 ## API Changes
 No C/C++ API changes in this release
