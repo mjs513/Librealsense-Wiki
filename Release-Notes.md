@@ -1,3 +1,50 @@
+## Release 2.19.0
+Release Date: TBD
+
+## API Changes
+TBD
+
+### New Features & Improvements
+* [rs-pose](https://github.com/IntelRealSense/librealsense/tree/development/examples/pose) - new example showing the basics of working with T265 tracking camera
+* [Automated Standards Enforcement](https://github.com/IntelRealSense/librealsense/pull/3265) - enforce basic project standards during CI
+* [C# & Unity updates](https://github.com/IntelRealSense/librealsense/pull/3285) - multiple changes to the .NET wrapper, including support for motion and pose frames, addressing [#2854](https://github.com/IntelRealSense/librealsense/pull/2854), [#3250](https://github.com/IntelRealSense/librealsense/pull/3250), [#3275](https://github.com/IntelRealSense/librealsense/pull/3275)
+* [Android Play-Store support](https://github.com/IntelRealSense/librealsense/blob/development/doc/android.md) - [#3083](https://github.com/IntelRealSense/librealsense/pull/3083), [#3317](https://github.com/IntelRealSense/librealsense/pull/3317), [#3337](https://github.com/IntelRealSense/librealsense/pull/3337), [#3366](https://github.com/IntelRealSense/librealsense/pull/3366): using peripheral RealSense cameras on Android no longer require the device to be rooted. This feature includes **basic** Java bindings, code samples and tools. 
+> :pushpin: The T265 tracking camera and the D435i depth camera are not yet supported on Android via librealsense. Support is planned to be added in a future release.
+* [T265 tracking camera support](https://github.com/IntelRealSense/librealsense/blob/v2.18.1/doc/imu_and_tracking_sensors.md) - [#3331](https://github.com/IntelRealSense/librealsense/pull/3331), [#3359](https://github.com/IntelRealSense/librealsense/pull/3359):
+> :pushpin: The T265 tracking camera is not yet supported on Android and Mac-OS via librealsense. Support is planned to be added in a future release.
+
+> :pushpin: Wheel-odometry is strongly recommended in order to achieve optimal tracking performance. [Learn More...](https://github.com/IntelRealSense/librealsense/pull/3324)
+
+> :pushpin: Additional examples, white-papers and tutorials on advanced topics including wheel-odometry and relocalization map loading will be published in the future
+* [Advanced T265 APIs](https://github.com/IntelRealSense/librealsense/pull/3324) - adding new sensors extensions allowing relocalization map load / store, static node set / get (coordinates transform between different maps) and wheel odometry input
+* [Ability to unload tracking camera module](https://github.com/IntelRealSense/librealsense/pull/3339) - for better ROS and [NCS](https://github.com/IntelRealSense/librealsense/issues/2924) compatibility
+* [Refactoring of options and filters API](https://github.com/IntelRealSense/librealsense/pull/3352) - allows different devices to advertise different post-processing capabilities.
+* [API for adding software device into existing context](https://github.com/IntelRealSense/librealsense/pull/3340) - for development of better converters and 3rd-party depth sources
+
+## Bug Fixes
+* [Added fstream dependency](https://github.com/IntelRealSense/librealsense/pull/3280) - contributed by [@RanoVeder](https://github.com/RanoVeder) addressing [#3279](https://github.com/IntelRealSense/librealsense/issues/3279) and DSO-12001
+* [Update python-rs400-advanced-mode-example.py](https://github.com/IntelRealSense/librealsense/pull/3347) - contributed by [@skylouis](https://github.com/skylouis)
+* [Replace vec2mat with reshape 2](https://github.com/IntelRealSense/librealsense/pull/3257) - contributed by [@changh95](https://github.com/changh95)
+* DSO-11755 - Viewer crash when fail to set advanced mode setting
+* [#3252](https://github.com/IntelRealSense/librealsense/issues/3252) - Cannot change AE mean intensity point in the Viewer
+* DSO-9820 - Cannot load JSON with RGB8 format in the Viewer
+* [#3297](https://github.com/IntelRealSense/librealsense/issues/3297) - rs-convert does not terminate execution
+* [#3214](https://github.com/IntelRealSense/librealsense/issues/3214) - rs-convert does not convert to PLY
+* [#3159](https://github.com/IntelRealSense/librealsense/issues/3159) - conditionally define `STRINGIFY` macro
+* [#3187](https://github.com/IntelRealSense/librealsense/issues/3187) - missing include in `example.hpp`
+* [#2844](https://github.com/IntelRealSense/librealsense/issues/2844) - `rs2_depth_frame_get_distance` doesn't work for software_device sensor
+* DSO-11903 - YUY in the Viewer produces white image
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2693](https://github.com/IntelRealSense/librealsense/issues/2693) - Error in reading rosbag files
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* [#2850](https://github.com/IntelRealSense/librealsense/issues/2850) / DSO-11696 - Linux Kernel 4.19 support
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+
 ## Release 2.18.1
 Feb 07, 2019
  
