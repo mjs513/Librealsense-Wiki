@@ -1,23 +1,34 @@
 ## Release 2.19.0
-Release Date: TBD
+Release Date: 05 March 2019
 
 ## API Changes
-TBD
+* [2.18.1 to 2.19.0](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-version-2181-to-2190)
 
 ### New Features & Improvements
-* [rs-pose](https://github.com/IntelRealSense/librealsense/tree/development/examples/pose) - new example showing the basics of working with T265 tracking camera
-* [Automated Standards Enforcement](https://github.com/IntelRealSense/librealsense/pull/3265) - enforce basic project standards during CI
-* [C# & Unity updates](https://github.com/IntelRealSense/librealsense/pull/3285) - multiple changes to the .NET wrapper, including support for motion and pose frames, addressing [#2854](https://github.com/IntelRealSense/librealsense/pull/2854), [#3250](https://github.com/IntelRealSense/librealsense/pull/3250), [#3275](https://github.com/IntelRealSense/librealsense/pull/3275)
-* [Android Play-Store support](https://github.com/IntelRealSense/librealsense/blob/development/doc/android.md) - [#3083](https://github.com/IntelRealSense/librealsense/pull/3083), [#3317](https://github.com/IntelRealSense/librealsense/pull/3317), [#3337](https://github.com/IntelRealSense/librealsense/pull/3337), [#3366](https://github.com/IntelRealSense/librealsense/pull/3366): using peripheral RealSense cameras on Android no longer require the device to be rooted. This feature includes **basic** Java bindings, code samples and tools. 
-> :pushpin: The T265 tracking camera and the D435i depth camera are not yet supported on Android via librealsense. Support is planned to be added in a future release.
+
+#### T265 Tracking Camera
+
 * [T265 tracking camera support](https://github.com/IntelRealSense/librealsense/blob/v2.18.1/doc/imu_and_tracking_sensors.md) - [#3331](https://github.com/IntelRealSense/librealsense/pull/3331), [#3359](https://github.com/IntelRealSense/librealsense/pull/3359):
 > :pushpin: The T265 tracking camera is not yet supported on Android and Mac-OS via librealsense. Support is planned to be added in a future release.
 
-> :pushpin: Wheel-odometry is strongly recommended in order to achieve optimal tracking performance. [Learn More...](https://github.com/IntelRealSense/librealsense/pull/3324)
+> :pushpin: Wheel-odometry is required to meet performance of <1% loop closure error on wheeled robots. [Learn More...](https://github.com/IntelRealSense/librealsense/pull/3324)
+
+> :pushpin: T265 map internal format will change in future releases
 
 > :pushpin: Additional examples, white-papers and tutorials on advanced topics including wheel-odometry and relocalization map loading will be published in the future
 * [Advanced T265 APIs](https://github.com/IntelRealSense/librealsense/pull/3324) - adding new sensors extensions allowing relocalization map load / store, static node set / get (coordinates transform between different maps) and wheel odometry input
 * [Ability to unload tracking camera module](https://github.com/IntelRealSense/librealsense/pull/3339) - for better ROS and [NCS](https://github.com/IntelRealSense/librealsense/issues/2924) compatibility
+* [rs-pose](https://github.com/IntelRealSense/librealsense/tree/development/examples/pose) - new example showing the basics of working with T265 tracking camera
+
+#### Android
+
+* [Android Play-Store support](https://github.com/IntelRealSense/librealsense/blob/development/doc/android.md) - [#3083](https://github.com/IntelRealSense/librealsense/pull/3083), [#3317](https://github.com/IntelRealSense/librealsense/pull/3317), [#3337](https://github.com/IntelRealSense/librealsense/pull/3337), [#3366](https://github.com/IntelRealSense/librealsense/pull/3366): using peripheral RealSense cameras on Android no longer require the device to be rooted. This feature includes **basic** Java bindings, code samples and tools. 
+> :pushpin: The T265 tracking camera and the D435i depth camera are not yet supported on Android via librealsense. Support is planned to be added in a future release.
+
+#### Other
+
+* [Automated Standards Enforcement](https://github.com/IntelRealSense/librealsense/pull/3265) - enforce basic project standards during CI
+* [C# & Unity updates](https://github.com/IntelRealSense/librealsense/pull/3285) - multiple changes to the .NET wrapper, including support for motion and pose frames, addressing [#2854](https://github.com/IntelRealSense/librealsense/pull/2854), [#3250](https://github.com/IntelRealSense/librealsense/pull/3250), [#3275](https://github.com/IntelRealSense/librealsense/pull/3275)
 * [Refactoring of options and filters API](https://github.com/IntelRealSense/librealsense/pull/3352) - allows different devices to advertise different post-processing capabilities.
 * [API for adding software device into existing context](https://github.com/IntelRealSense/librealsense/pull/3340) - for development of better converters and 3rd-party depth sources
 
