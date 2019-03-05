@@ -2,9 +2,9 @@
 
 ### Added
 #### Processing blocks/filters:
-1. [`rs2_get_recommended_processing_blocks`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L446) Retrieving an ordered list of processing blocks/filters that are recommended to be used for a specific sensor. For instance, for the Depth sensor the list may include (Decimation->Disparity->Spatial->Temporal->HoleFilling->Disparity``)
-2. [`rs2_get_recommended_processing_blocks_count`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L463) Retrieving the number of elements on processing blocks list
-3. [`rs2_get_processing_block` ](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L455) Extracting specific processing blocks from processing blocks list
+1. [`rs2_get_recommended_processing_blocks`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L446) Retrieving an ordered list of processing blocks/filters that are recommended to be used for a specific sensor. For instance, for the Depth sensor the list may include (Decimation->Disparity->Spatial->Temporal->HoleFilling->Disparity``) sequence.
+2. [`rs2_get_recommended_processing_blocks_count`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L463) Retrieving the number of elements on the processing blocks list
+3. [`rs2_get_processing_block` ](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L455) Extracting a specific processing block from the list
 4. [`rs2_delete_recommended_processing_blocks`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L469) Deleting the processing blocks list. The function shall be used in conjunction with `rs2_get_recommended_processing_blocks` mentioned above to explicitly release the allocated resources.
 5. [`rs2_supports_processing_block_info`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L254) Test for attribute availbility without throwing exception
 6. [`rs2_get_processing_block_info`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L245) Retrieve processing block attribute
@@ -13,11 +13,11 @@
 
 
 #### Options API:  
-9. [`rs2_get_options_list`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L146) Dynamic discovery of the options supported by a librealsense entity (sensor/processing_block/etc`)
-10. [`rs2_get_options_list_size`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L153) Retrieve the number of elements in the options list
-11. [`rs2_get_option_name`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L162) Returning human-readable option name
-12. [`rs2_get_option_from_list`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L169) Returning a list element
-13. [`rs2_delete_options_list`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L175) Deleting the processing blocks list. The function shall be used in conjunction with `rs2_get_options_list` explicitly release previously allocated resources.
+9. [`rs2_get_options_list`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L146) Dynamic discovery of the options supported by a librealsense entity (sensor/processing_block/etc`).
+10. [`rs2_get_options_list_size`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L153) Retrieve the number of elements in the options list.
+11. [`rs2_get_option_name`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L162) Return human-readable option's name attribute.
+12. [`rs2_get_option_from_list`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L169) Return an indexed element from the lsit
+13. [`rs2_delete_options_list`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L175) Deleting the processing blocks list. The function shall be used in conjunction with `rs2_get_options_list` to explicitly release previously allocated resources.
 14. Extending RS2_OPTIONS enumeration list with:  
 [`RS2_OPTION_ZERO_ORDER_POINT_X`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L71),
  [`RS2_OPTION_ZERO_ORDER_POINT_Y`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L72),
@@ -27,17 +27,17 @@
   
 #### Device management
 15. [`rs2_get_stereo_baseline`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L169) Retrieve Stereo-based Depth sensor baseline
-17. [`rs2_context_add_software_device`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_context.h#L64) Injection a software (mockup) device into the SDK context to be discoverable via `query_devices` API call
+17. [`rs2_context_add_software_device`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_context.h#L64) Inject a software (mockup) device into the SDK's context to be discoverable via `query_devices` API call.
 
 #### T265-specific APIs
-18. [`rs2_context_unload_tracking_module`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L169) Unload all perviously acquired T265 device instances. A device query for T265 will automatically take ownership of the connected device.
-This API would allow to release all quried devices so that they will be available for other running processes.
-19. [`rs2_import_localization_map`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L479) Advanced feature that allows to export the localization map for later reuse
-20. [`rs2_export_localization_map`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L489) Importing previously-obtained localization map into device
-21. [`rs2_set_static_node`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L500) Adding a positional bookmark for reference
-22. [`rs2_get_static_node`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L511) Retrieving previously stored bookmark position.
-23. [`rs2_load_wheel_odometry_config`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L517) Load the robot platform configuration and calibration data into device. THe data includes the rigid body transformation as well as calibration parameters
-24. [`rs2_send_wheel_odometry`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L525) Feed odometry data generated by a third-party sensor into the tracking device.
+18. [`rs2_context_unload_tracking_module`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L169) Unload all perviously acquired tracking device instances. A device query for T265 will automatically take ownership of the connected device.
+This new API allows to explicitely release the devices so that they will be available for use by external processes.
+19. [`rs2_import_localization_map`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L479) Advanced feature that allows to export the localization map for later reuse.
+20. [`rs2_export_localization_map`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L489) Import previously-obtained localization map into device
+21. [`rs2_set_static_node`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L500) Add a positional bookmark (name&location) for positional referencing.
+22. [`rs2_get_static_node`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L511) Retrieve previously stored bookmark position.
+23. [`rs2_load_wheel_odometry_config`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L517) Load the robot platform configuration and calibration data into device. The data includes the rigid body transformation as well as calibration parameters.
+24. [`rs2_send_wheel_odometry`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L525) Feed odometer data generated by a third-party sensor into the tracking device.
 
 ### To be deprecated
 1. `rs2_option_to_string` - For existing options it will return option name, but for future API additions the user should call rs2_get_option_name instead
