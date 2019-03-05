@@ -1,3 +1,22 @@
+## From version [2.18.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.18.0) to [2.19.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.19.0)
+
+### Added
+1. [`rs2_get_recommended_processing_blocks`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L446) Retrieving the list of recommended processing blocks for a specific sensor
+2. [`rs2_get_processing_block` ](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L455) Extracting specific processing blocks from processing blocks list
+3. [`rs2_get_recommended_processing_blocks_count`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L463) Retrieving the number of elements on processing blocks list
+4. [`rs2_delete_recommended_processing_blocks`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L469) Deleting the processing blocks list, being used in conjunction to rs2_get_recommended_processing_blocks
+5. [`rs2_get_options_list`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L146) Retrieving the list of supported options options by the options container
+6. [`rs2_get_option_name`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L162) Returning human-readable option name
+7. [`rs2_create_zero_order_invalidation_block`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L236) Adding zero order invalidation processing block
+8. [`RS2_OPTION_ZERO_ORDER_POINT_X`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L71) Adding RS2_OPTION_ZERO_ORDER_POINT_X to options enumeration
+9. [`RS2_OPTION_ZERO_ORDER_POINT_Y`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L72) Adding RS2_OPTION_ZERO_ORDER_POINT_Y to options enumeration
+10. [`RS2_OPTION_LLD_TEMPERATURE`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L73) adding RS2_OPTION_LLD_TEMPERATURE to options enumeration
+11. [`RS2_OPTION_MC_TEMPERATURE` ](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L74) Adding RS2_OPTION_MC_TEMPERATURE to options enumeration
+12. [`RS2_OPTION_MA_TEMPERATURE`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L75) Adding RS2_OPTION_MA_TEMPERATURE to options enumeration
+### To be deprecated
+1. `rs2_option_to_string` - For existing options it will return option name, but for future API additions the user should call rs2_get_option_name instead
+
+
 ## From version [2.17.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.17.0) to [2.18.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.18.0)
 
 ### Added
