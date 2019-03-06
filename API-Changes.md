@@ -31,9 +31,9 @@
 
 #### T265-specific APIs
 18. [`rs2_context_unload_tracking_module`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L169) Unload all perviously acquired tracking device instances. A device query for T265 will automatically take ownership of the connected device.
-This new API allows to explicitely release the devices so that they will be available for use by external processes.
-19. [`rs2_import_localization_map`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L479) Advanced feature that allows to export the localization map for later reuse.
-20. [`rs2_export_localization_map`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L489) Import previously-obtained localization map into device
+This new API allows to explicitly release the devices so that they will be available for use by external processes.
+19. [`rs2_export_localization_map`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L489) Advanced feature that allows to export the localization map for later reuse.
+20. [`rs2_import_localization_map`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L479) Import previously-obtained localization map into device.
 21. [`rs2_set_static_node`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L500) Add a positional bookmark (name&location) for positional referencing.
 22. [`rs2_get_static_node`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L511) Retrieve previously stored bookmark position.
 23. [`rs2_load_wheel_odometry_config`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L517) Load the robot platform configuration and calibration data into device. The data includes the rigid body transformation as well as calibration parameters.
