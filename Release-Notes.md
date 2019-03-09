@@ -1,3 +1,28 @@
+## Release 2.19.1
+Release Date: 10 March 2019
+
+## API Changes
+No API changes in this release
+
+### New Features & Improvements
+* Intel RealSense D430i support - [#3415](https://github.com/IntelRealSense/librealsense/pull/3415) and [#3424](https://github.com/IntelRealSense/librealsense/pull/3424) (requires firmware 5.11.6)
+* Adding [`pose-predict`](https://github.com/IntelRealSense/librealsense/tree/development/examples/pose-predict) example for the T265 tracking camera
+* **Preliminary** Mac-OS support for the T265 (see known issues)
+* Adding support for 848x100 resolution at 100 FPS (requires firmware 5.11.6)
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2693](https://github.com/IntelRealSense/librealsense/issues/2693) - Error in reading rosbag files
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* [#2850](https://github.com/IntelRealSense/librealsense/issues/2850) / DSO-11696 - Linux Kernel 4.19 support
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3435](https://github.com/IntelRealSense/librealsense/issues/3435) - multiple T265 cameras are not visualized correctly in the RealSense Viewer
+* [#3423](https://github.com/IntelRealSense/librealsense/issues/3423) - possible SEGFAULT when switching into Pose Info view in the RealSense Viewer
+
 ## Release 2.19.0
 Release Date: 05 March 2019
 
