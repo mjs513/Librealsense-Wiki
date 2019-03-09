@@ -1,3 +1,7 @@
+## From version [2.19.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.19.0) to [2.19.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.19.1)
+
+No API changes
+
 ## From version [2.18.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.18.0) to [2.19.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.19.0)
 
 ### Added
