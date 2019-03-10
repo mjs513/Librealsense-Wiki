@@ -9,6 +9,7 @@ No API changes in this release
 * Adding [`pose-predict`](https://github.com/IntelRealSense/librealsense/tree/development/examples/pose-predict) example for the T265 tracking camera
 * **Preliminary** Mac-OS support for the T265 (see known issues)
 * Adding support for 848x100 resolution at 100 FPS (requires firmware 5.11.6)
+* [#3425](https://github.com/IntelRealSense/librealsense/pull/3425) - improved Mac OS installation documentation (contributed by [@yousseb](https://github.com/yousseb))
 
 ### Known Issues
 * [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
