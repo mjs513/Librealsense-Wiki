@@ -1,7 +1,53 @@
+## Release 2.19.2
+Release Date: 27 March 2019
+
+### API Changes
+No API changes in this release
+
+### New Features & Improvements
+* SDK Examples Enhancements [#3548](https://github.com/IntelRealSense/librealsense/pull/3548)
+* [Android] Adding device query and firmware version checking [#3547](https://github.com/IntelRealSense/librealsense/pull/3547)
+* Use CASE macro consistently [#3539](https://github.com/IntelRealSense/librealsense/pull/3539) contributed by [@nussetorten](https://github.com/nussetorten)
+* [T265] Separate wheel-odometry tests [#3535](https://github.com/IntelRealSense/librealsense/pull/3535)
+* [T265] Enforce stream index for fisheye streams of the T265 [#3521](https://github.com/IntelRealSense/librealsense/pull/3521)
+* [T265] Adding Trajectory example [#3513](https://github.com/IntelRealSense/librealsense/pull/3513)
+* Improved comment on the post processing example [#3509](https://github.com/IntelRealSense/librealsense/pull/3509) contributed by [@Heidelberger](https://github.com/Heidelberger)
+* Fix typo in raspbian installation [#3484](https://github.com/IntelRealSense/librealsense/pull/3484) contributed by [yuta-imai](https://github.com/yuta-imai)
+* [T265] Get Motion Intrinsics [#3482](https://github.com/IntelRealSense/librealsense/pull/3482)
+* [#3478](https://github.com/IntelRealSense/librealsense/pull/3478) Add arguments for python threshold filter, contributed by [@codinglife001](https://github.com/codinglife001)
+* [T265] Don't raise a hardware event for relocalizations [#3477](https://github.com/IntelRealSense/librealsense/pull/3477)
+* [#3471](https://github.com/IntelRealSense/librealsense/pull/3471) `rs-enumerate-devices` enhancements
+* [#3462](https://github.com/IntelRealSense/librealsense/pull/3462) - Wheel odometry API: use translational velocity 
+* [#3459](https://github.com/IntelRealSense/librealsense/pull/3459) - Adding CMake option to generate python documentation
+* [T265] Use T265 system timestamps [#3453](https://github.com/IntelRealSense/librealsense/pull/3453)
+* [Linux] Adding minor version to the SONAME [#3449](https://github.com/IntelRealSense/librealsense/pull/3449) contributed by [@morxa](https://github.com/morxa)
+
+### Bug Fixes
+* [D435i][python] IMU FPS can't be changed in Python, tracked on DSO-12326, [#3578](https://github.com/IntelRealSense/librealsense/pull/3578)
+* [Matlab] Aligning colour to depth [#3577](https://github.com/IntelRealSense/librealsense/pull/3577) addressing [3338](https://github.com/IntelRealSense/librealsense/issues/3338)
+* [Viewer] Fixing SegFault on pose stream info [#3423](https://github.com/IntelRealSense/librealsense/issues/3423)
+* Fixing [3494](https://github.com/IntelRealSense/librealsense/issues/3494) - backward compatibility break for older ROS-bag recordings
+* [T265] Fix query_devices issue with the tracking camera [#3515](https://github.com/IntelRealSense/librealsense/pull/3515), addressing #3488, #3465, #3361, also related to #3437, #3434, tracked on: TM2-4235
+* [#3466](https://github.com/IntelRealSense/librealsense/pull/3466) - Fixing USB2 being identified as USB3 in some cases
+* [#3455](https://github.com/IntelRealSense/librealsense/pull/3455) - Trimming HID timestamps to 32-bit, tracked on: DSO-12084
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2693](https://github.com/IntelRealSense/librealsense/issues/2693) - Error in reading rosbag files
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* [#2850](https://github.com/IntelRealSense/librealsense/issues/2850) / DSO-11696 - Linux Kernel 4.19 support
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3435](https://github.com/IntelRealSense/librealsense/issues/3435) - multiple T265 cameras are not visualized correctly in the RealSense Viewer
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialised value(s)
+
 ## Release 2.19.1
 Release Date: 10 March 2019
 
-## API Changes
+### API Changes
 No API changes in this release
 
 ### New Features & Improvements
