@@ -1,7 +1,5 @@
 {
     "ignoreSAD": "0",
-    "param-censusenablereg-udiameter": "9",
-    "param-censusenablereg-vdiameter": "9",
     "param-censususize": "9",
     "param-censusvsize": "3",
     "param-depthclampmax": "65535",
