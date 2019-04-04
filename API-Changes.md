@@ -1,3 +1,12 @@
+## Version [2.19.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.19.0) to [2.20.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.20.0)
+
+New Lens distortion model support added for T265 optical sensors -  
+[RS2_DISTORTION_KANNALA_BRANDT4](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_types.h#L51).  
+The model is utilized in [Project/Deproject](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rsutil.h#L84) routines
+
+[rs2_send_wheel_odometry](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L525) - Wheel odometer API velocity type updated from angular to **linear**.
+
+
 ## From version [2.19.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.19.0) to [2.19.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.19.1)
 
 No API changes
