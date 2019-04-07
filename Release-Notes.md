@@ -1,3 +1,43 @@
+## Release 2.20.0
+Release Date: 4 April 2019
+
+### API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#from-version-2190-to-2200) from 2.19.x versions
+
+### New Features & Improvements
+* [#3522](https://github.com/IntelRealSense/librealsense/pull/3522) - Adding Pose&Image T265 example
+* [#3541](https://github.com/IntelRealSense/librealsense/pull/3541) - Implement T265 Fisheye camera intrinsics
+* [#3563](https://github.com/IntelRealSense/librealsense/pull/3563) - Implement T265 extrinsics
+* [#3571](https://github.com/IntelRealSense/librealsense/pull/3571) - Adding Roll-pitch-yaw T265 example
+* [#3593](https://github.com/IntelRealSense/librealsense/pull/3593) - Adding Basic Augmented Reality T265 example
+* [#3600](https://github.com/IntelRealSense/librealsense/pull/3600) - Updating Unity documentation
+* [#3602](https://github.com/IntelRealSense/librealsense/pull/3602) - C# development, adding [cookbook.md](https://github.com/ogoshen/librealsense/blob/4b7b6c9cbcc68e96f840e13255924ca2f8e426a7/wrappers/csharp/Documentation/cookbook.md) and addressing [#3418](https://github.com/IntelRealSense/librealsense/issues/3418), [#3419](https://github.com/IntelRealSense/librealsense/issues/3419), [#3557](https://github.com/IntelRealSense/librealsense/issues/3557)
+* [#3634](https://github.com/IntelRealSense/librealsense/pull/3634) - Adding pipeline callbacks API for python
+* [#3643](https://github.com/IntelRealSense/librealsense/pull/3643) - Simplified udev-rules installation script
+* [#3669](https://github.com/IntelRealSense/librealsense/pull/3669) - Integration of T265 firmware 0.0.18.5448, with better long-term stability and calibration APIs
+* [#3673](https://github.com/IntelRealSense/librealsense/pull/3673) - Adding documentation on update of Debian packages
+
+### Bug Fixes
+* [#3610](https://github.com/IntelRealSense/librealsense/pull/3610) - Fixing Raspbian documentation (contributed by [RitwikSaikia](https://github.com/RitwikSaikia))
+* [#3564](https://github.com/IntelRealSense/librealsense/pull/3564) - Fixing rs-convert crash (contributed by [@YangJiao1996](https://github.com/YangJiao1996))
+* [#3591](https://github.com/IntelRealSense/librealsense/pull/3591) - Fixing [#3435](https://github.com/IntelRealSense/librealsense/issues/3435), multi-T265 display in the RealSense Viewer
+* [#3641](https://github.com/IntelRealSense/librealsense/pull/3641) - Fixing [#3623](https://github.com/IntelRealSense/librealsense/issues/3623), broken CUDA optimization of color conversion
+* [#3646](https://github.com/IntelRealSense/librealsense/pull/3646) - Fixes to wheel-odometry unit-test
+* [#3666](https://github.com/IntelRealSense/librealsense/pull/3666) - Release GIL in `pipeline::wait_for_frames()` (contributed by [@landersson](https://github.com/landersson))
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets (DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2693](https://github.com/IntelRealSense/librealsense/issues/2693) - Error in reading rosbag files
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* [#2850](https://github.com/IntelRealSense/librealsense/issues/2850) / DSO-11696 - Linux Kernel 4.19 support
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3435](https://github.com/IntelRealSense/librealsense/issues/3435) - multiple T265 cameras are not visualized correctly in the RealSense Viewer
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialised value(s)
+
 ## Release 2.19.2
 Release Date: 27 March 2019
 
