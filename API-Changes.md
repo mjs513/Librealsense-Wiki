@@ -1,3 +1,15 @@
+## Version [2.20.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.20.0) to [2.21.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.21.0)
+
+New IR format introduced to D415 - `W10`:
+- Rectified, 10 bit per-pixels (packed) IR stream
+- FullHD configuration only 30 fps
+- Can be configured for use in conjunction with Depth stream (which is limited to 720p)
+- Available as:
+   - parsed 10 bit per pixel [RS2_FORMAT_Y10BPACK](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L77)
+   - Raw packed data (4pixel/5bytes) according to [V4L2-PIX-FMT-Y10BPACK](https://www.linuxtv.org/downloads/v4l-dvb-apis-old/V4L2-PIX-FMT-Y10BPACK.html) specification
+
+
+
 ## Version [2.19.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.19.0) to [2.20.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.20.0)
 
 New Lens distortion model support added for T265 optical sensors -  
