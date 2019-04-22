@@ -1,3 +1,42 @@
+## Release 2.21.0
+Release Date: 22 April 2019
+
+### API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2200-to-2210) from 2.20.x versions
+
+### New Features & Improvements
+* [#3778](https://github.com/IntelRealSense/librealsense/pull/3778) - T265 Firmware update to 0.0.18.5502 - re-localization and tracking stability enhancements
+* [#3775](https://github.com/IntelRealSense/librealsense/pull/3775) - T265 Wheel Odometer documentation updated.
+* [#3771](https://github.com/IntelRealSense/librealsense/pull/3771) - Android OS - add Visual Presets support. (DSO-12447)
+* [#3739](https://github.com/IntelRealSense/librealsense/pull/3739) - Python wrapper performance enhancement - release GIL during invocation of polling routines (DSO-12493)
+* [#3736](https://github.com/IntelRealSense/librealsense/pull/3736) - T265: Disable low power default mode.
+* [#3729](https://github.com/IntelRealSense/librealsense/pull/3729) - Streamline Linux installation instructions.  (contributed by [@pedrombmachado](https://github.com/pedrombmachado))
+* [#3647](https://github.com/IntelRealSense/librealsense/pull/3647) - CMake enhancements : Simplified T265 FW handling, disabling redundant downloads
+
+
+
+### Bug Fixes
+* [#3810](https://github.com/IntelRealSense/librealsense/pull/3810) - Fix typo in Raspbian documentation (contributed by [@jonherke](https://github.com/jonherke))
+* [#3807](https://github.com/IntelRealSense/librealsense/pull/3807) - Enable `rs-measure` with USB2 configurations
+* [#3777](https://github.com/IntelRealSense/librealsense/pull/3777) - Matlab installation build fix with T265 firmware.
+* [#3773](https://github.com/IntelRealSense/librealsense/pull/3773) - D435i: Fix D435i IMU timestamp precision (DSO-12084)
+* [#3760](https://github.com/IntelRealSense/librealsense/pull/3760) - Fix misalignment when generating 3D Pointcloud from Depth-Aligned-To-Color #3752. (DSO-12515)
+* [#3755](https://github.com/IntelRealSense/librealsense/pull/3755) - Fix "Elseif" statement in Matlab wrapper
+* [#3726](https://github.com/IntelRealSense/librealsense/pull/3726) - D435i: Fix HID Timestamp trimming. #3776, #3675, (DSO-12084)
+* [#3702](https://github.com/IntelRealSense/librealsense/pull/3702) - D435i: Fix Windows Metadata script for IMU-enabled SKUs.
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets #3781.(DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* [#2850](https://github.com/IntelRealSense/librealsense/issues/2850) / DSO-11696 - Linux Kernel 4.19 support
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialised value(s)
+
+
 ## Release 2.20.0
 Release Date: 4 April 2019
 
