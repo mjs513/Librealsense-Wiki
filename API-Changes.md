@@ -1,3 +1,24 @@
+## Version [2.22.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.22.0)
+
+* Global Camera Timestamp:
+ - Add `rs2_timestamp_domain::RS2_TIMESTAMP_DOMAIN_GLOBAL_TIME` [enumeration type](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_frame.h#L23) that will be used as default when the HW timestamp is available via the appropriate metadata attribute.
+ - Add `rs2_sensor* rs2_get_frame_sensor` [function](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_frame.h#L108)
+ - Add `RS2_OPTION_GLOBAL_TIME_ENABLED` [option](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L77)
+* Depth units transformation - Processing block
+ - `rs2_processing_block* rs2_create_units_transform` [function](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_processing.h#L69)
+ - Add `rs2_format::RS2_FORMAT_DISTANCE` synthetic stream [format](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L78)
+ - Add `units_transform` [class](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/hpp/rs_processing.hpp#L524)
+
+ - Add `rs2_error * rs2_create_error` [functionality](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_types.h#L240)
+ - Add `pose_stream_profile` [class](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/hpp/rs_frame.hpp#L284) to handle T265 pose sensor.
+ - Add `frame::get_sensor()` [functionality](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/hpp/rs_frame.hpp#L420)
+ - Add ` sensor_from_frame(frame f)`  [functionality](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/hpp/rs_sensor.hpp#L332)
+
+
+* GLSL Processing Blocks Module:
+ - New header files with new API for GLSL-supported modules are added to [include/librealsense2-gl](https://github.com/IntelRealSense/librealsense/tree/development/include/librealsense2-gl) directory
+
+
 ## Version [2.20.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.20.0) to [2.21.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.21.0)
 
 New IR format introduced to D415 - `W10`:
