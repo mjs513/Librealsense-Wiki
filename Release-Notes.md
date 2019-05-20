@@ -2,7 +2,7 @@
 Release Date: 20 May 2019
 
 ### API Changes
-[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2210-to-2220)
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2220)
 
 ### New Features & Improvements
 * [#3909](https://github.com/IntelRealSense/librealsense/pull/3909) - introducing Global Camera Timestamp. The feature is a prerequisite for inter-cam synchronization and requires frame metadata attributes.
