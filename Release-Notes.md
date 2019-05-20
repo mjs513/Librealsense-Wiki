@@ -1,3 +1,52 @@
+## Release 2.22.0
+Release Date: 20 May 2019
+
+### API Changes
+[API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2210-to-2220)
+
+### New Features & Improvements
+* [#3909](https://github.com/IntelRealSense/librealsense/pull/3909) - introducing Global Camera Timestamp. The feature is a prerequisite for inter-cam synchronization and requires frame metadata attributes.
+ The PR changes the default behavior of `frame.get_timestamp()` by returning the timestamp in `RS2_TIMESTAMP_DOMAIN_GLOBAL_TIME`. Follow the PR link for more details. Addresses #2922, #2188  (RS-3975). 
+* [#3654](https://github.com/IntelRealSense/librealsense/pull/3654) - New Module - GLSL Processing Blocks.
+This pull-request introduces auxiliary realsense2-gl module. It can be used to perform common SDK processing tasks on the GPU in a relatively generic way (vendor neutral, unlike CUDA) via GLSL shaders.
+In addition, it serves as a proof-of-concept for future SDK extensions beyond core API.(Follow the PR link for in-depth introduction)
+* [#3828](https://github.com/IntelRealSense/librealsense/pull/3828) - Adding common cross-platform USB back-end API. Initially, it will be used for cross-platform FW update API and tools(DSO-10947).
+In the future the infrastructure will allow unified implementation for UVC/HID/TM2 for all the supported operating systems.
+* [#3907](https://github.com/IntelRealSense/librealsense/pull/3907) - Promote TM2 Firmware 0.0.18.5715 - re-localization and tracking stability enhancements
+* [#3882](https://github.com/IntelRealSense/librealsense/pull/3882) - T265: Re-enabling re-localization reports.
+* [#3869](https://github.com/IntelRealSense/librealsense/pull/3869) - Android OS (Java): Add post-processing filters and demo.
+* [#3930](https://github.com/IntelRealSense/librealsense/pull/3930) - Add `realsense2-gl` Debian distribution packages to support PR3654.
+* [#3933](https://github.com/IntelRealSense/librealsense/pull/3933) - Adding `rs2_get_frame_sensor` function (DSO-12656)
+* [#3951](https://github.com/IntelRealSense/librealsense/pull/3951) - New T265 Example: Generate Depth map from T265 Stereo sensors with OpenCv.
+* [#3982](https://github.com/IntelRealSense/librealsense/pull/3982) - Add a processing block to generate depth frame in metric format (RS5-4269)
+* [#3993](https://github.com/IntelRealSense/librealsense/pull/3993) - Add comprehensive documentation to Python wrapper via Sphinx.
+* [#3956](https://github.com/IntelRealSense/librealsense/pull/3956) - Unreal Engine 4 wrapper supports v4.22.
+* [#3972](https://github.com/IntelRealSense/librealsense/pull/3972) - Adding `software_device` support to C# wrapper.
+* [#3820](https://github.com/IntelRealSense/librealsense/pull/3820) - RealSense depth viewer community example
+* [#3860](https://github.com/IntelRealSense/librealsense/pull/3860) - Python Documentation - sample code enhancement
+* [#3826](https://github.com/IntelRealSense/librealsense/pull/3826) - C#: Expose T265-specific APIs (Localization map, Static node).
+* [#3883](https://github.com/IntelRealSense/librealsense/pull/3883) - OpenCv: Fix missing `RS2_FORMAT_DISPARITY32` handler.
+
+### Bug Fixes
+* [#3884](https://github.com/IntelRealSense/librealsense/pull/3884) - T265: Pose record/playback to provide the required metadata attributes; Enable `rs-enumerate-devices` extract info from ROSBag record files. Addresses #3837 (TM2-4344)
+* [#3976](https://github.com/IntelRealSense/librealsense/pull/3976) - D435i: Rectify invalid RGB-Depth extrinsic calibration produced by FW versions 5.10.13+. Addresses #3474, #3788, #3201(DSO-12587)
+* [#3900](https://github.com/IntelRealSense/librealsense/pull/3900) - Fix extrinsic graph multiplications order.
+* [#3901](https://github.com/IntelRealSense/librealsense/pull/3901) - Fix D435i IMU extrinsic
+* [#3971](https://github.com/IntelRealSense/librealsense/pull/3971) - T265 FW: Fix potential issue with UNC paths and rc.exe.
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets #3781.(DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* [#2850](https://github.com/IntelRealSense/librealsense/issues/2850) / DSO-11696 - Linux Kernel 4.19 support
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialised value(s)
+
+
+
 ## Release 2.21.0
 Release Date: 22 April 2019
 
