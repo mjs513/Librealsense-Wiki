@@ -29,7 +29,7 @@ In the future the infrastructure will allow unified implementation for UVC/HID/T
 
 ### Bug Fixes
 * [#3884](https://github.com/IntelRealSense/librealsense/pull/3884) - T265: Pose record/playback to provide the required metadata attributes; Enable `rs-enumerate-devices` extract info from ROSBag record files. Addresses #3837 (TM2-4344)
-* [#3976](https://github.com/IntelRealSense/librealsense/pull/3976) - D435i: Rectify invalid RGB-Depth extrinsic calibration produced by FW versions 5.10.13+. Addresses #3474, #3788, #3201(DSO-12587)
+* [#3976](https://github.com/IntelRealSense/librealsense/pull/3976) - D435i: Rectify invalid RGB-Depth extrinsic calibration produced by FW versions 5.10.13+. Addresses #3474, #3788, #3201(DSO-12623)
 * [#3900](https://github.com/IntelRealSense/librealsense/pull/3900) - Fix extrinsic graph multiplications order.
 * [#3901](https://github.com/IntelRealSense/librealsense/pull/3901) - Fix D435i IMU extrinsic
 * [#3971](https://github.com/IntelRealSense/librealsense/pull/3971) - T265 FW: Fix potential issue with UNC paths and rc.exe.
