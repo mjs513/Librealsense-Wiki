@@ -1,3 +1,10 @@
+## Version [2.23.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.23.0)
+
+* Depth linearity enhancement - Mitigate the half-pixel disparity issue by adjusting the Amplitude factor in the modulation funciton ()
+- Adding getter/setter for the Half-disparity modulation function control [rs2_set_amp_factor/rs2_get_amp_factor](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94) into the Advanced-mode parameters block.
+* Adding a new temperature sensor [`RS2_OPTION_APD_TEMPERATURE`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_option.h#L78) option.
+* Enumerating Global Timer-supported sensors with explicit extension type [`RS2_EXTENSION_GLOBAL_TIMER`](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_types.h#L170).
+
 ## Version [2.22.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.22.0)
 
 * Global Camera Timestamp:
