@@ -5,7 +5,7 @@ Release Date: 10 Jun 2019
 [link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2230)
 
 ### New Features & Improvements
-* [#3998](https://github.com/IntelRealSense/librealsense/pull/3998) - Add comprehensive documentation to Python via sphinx - published via `intelrealsense.github.io` resource [link](https://intelrealsense.github.io/librealsense/python_docs/_generated/pyrealsense2.html#module-pyrealsense2)
+* [#3998](https://github.com/IntelRealSense/librealsense/pull/3998) - Add comprehensive documentation to Python via sphinx - published via `intelrealsense.github.io`[link](https://intelrealsense.github.io/librealsense/python_docs/_generated/pyrealsense2.html#module-pyrealsense2)
 * [#4100](https://github.com/IntelRealSense/librealsense/pull/4100),[#4162](https://github.com/IntelRealSense/librealsense/pull/4162) - Depth linearity enhancement - Mitigate the half-pixel disparity issue by adjusting the modulation amplitude. `rs2_set_amp_factor/rs2_get_amp_factor` Advanced-mode parameters functions.(DSO-12737)
 * [#3992](https://github.com/IntelRealSense/librealsense/pull/3992) - T265: Expose the Fisheye sensor manual exposure control.
 * [#4135](https://github.com/IntelRealSense/librealsense/pull/4135) - Propagating IMU HW timestamp via metadata API. Allows to retrieve IMU HW timestamp via the metadata API. Also add support for IMU metadata backend timestamps (DSO-12860).
