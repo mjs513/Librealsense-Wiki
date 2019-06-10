@@ -1,3 +1,44 @@
+## Release 2.23.0
+Release Date: 10 Jun 2019
+
+### API Changes
+[link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2230)
+
+### New Features & Improvements
+* [#3998](https://github.com/IntelRealSense/librealsense/pull/3998) - Add comprehensive documentation to Python via sphinx - published via `intelrealsense.github.io` resource [link](https://intelrealsense.github.io/librealsense/python_docs/_generated/pyrealsense2.html#module-pyrealsense2)
+* [#4100](https://github.com/IntelRealSense/librealsense/pull/4100),[#4162](https://github.com/IntelRealSense/librealsense/pull/4162) - Depth linearity enhancement - Mitigate the half-pixel disparity issue by adjusting the modulation amplitude. `rs2_set_amp_factor/rs2_get_amp_factor` Advanced-mode parameters functions.(DSO-12737)
+* [#3992](https://github.com/IntelRealSense/librealsense/pull/3992) - T265: Expose the Fisheye sensor manual exposure control.
+* [#4135](https://github.com/IntelRealSense/librealsense/pull/4135) - Propagating IMU HW timestamp via metadata API. Allows to retrieve IMU HW timestamp via the metadata API. Also add support for IMU metadata backend timestamps (DSO-12860).
+* [#4159](https://github.com/IntelRealSense/librealsense/pull/4159) - Retrofitting metadata quirks into the linux kerenel patches for additional SKUs.
+* [#4012](https://github.com/IntelRealSense/librealsense/pull/4012) - Add python 3.7 support (by @ClimbsRocks)
+* [#4133](https://github.com/IntelRealSense/librealsense/pull/4133) - Documentation enhancement (by @VasuAgrawal)
+* [#4094](https://github.com/IntelRealSense/librealsense/pull/4094) - CMake improvements 
+* [#4122](https://github.com/IntelRealSense/librealsense/pull/4122), [#4152](https://github.com/IntelRealSense/librealsense/pull/4152) - T265: Quiet Static Nodes
+* [#4078](https://github.com/IntelRealSense/librealsense/pull/4078) - Add support for D4xx SKUs (DSO-12649).
+* [#4149](https://github.com/IntelRealSense/librealsense/pull/4149), [#4119](https://github.com/IntelRealSense/librealsense/pull/4119) - SKU enhancements
+
+### Bug Fixes
+* [#4160](https://github.com/IntelRealSense/librealsense/pull/4160) - Revisited and updated RGB extrinsic calibration recovery routine that applies to D435i that underwent upgrade to v5.11.6.200. The changes are transparent to the end user.
+Addresses #3788, #3949, #4050. (DSO-12820, DSO-12623)
+* [#4117](https://github.com/IntelRealSense/librealsense/pull/4117) - Android examples fix with `config` object 
+* [#4093](https://github.com/IntelRealSense/librealsense/pull/4093) - Linux: Restore OpenMP support #4023 
+* [#4073](https://github.com/IntelRealSense/librealsense/pull/4073) - Fix GlobalTimer prevents enter power-saving mode (DSO-12794).
+* [#4032](https://github.com/IntelRealSense/librealsense/pull/4032) - Fix Android error handling flow.
+* [#4029](https://github.com/IntelRealSense/librealsense/pull/4029) - Fix RGB calibration recovery exceptions handling (DSO-12789)
+* [#4013](https://github.com/IntelRealSense/librealsense/pull/4013) - T265: Improve precision tolerance of Quaternion<=>Rotation transformation to remain within 6% off the norm.
+* [#4000](https://github.com/IntelRealSense/librealsense/pull/4000) - T265: Fix t265_rpy.py demo.
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets #3781.(DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* [#2850](https://github.com/IntelRealSense/librealsense/issues/2850) / DSO-11696 - Linux Kernel 4.19 support
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+
 ## Release 2.22.0
 Release Date: 20 May 2019
 
