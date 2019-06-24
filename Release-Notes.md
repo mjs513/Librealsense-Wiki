@@ -38,6 +38,8 @@ Addresses #3788, #3949, #4050. (DSO-12820, DSO-12623)
 * (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
 * [T265][Mac] - Start after stop is not working on Mac with the T265 camera
 * [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+* Global Timestamp: first 15 seconds of frames timestamps are unstable (DSO-12942)
+* IMU jitter and drops events [LRS] regression (DSO-12940)
 
 ## Release 2.22.0
 Release Date: 20 May 2019
