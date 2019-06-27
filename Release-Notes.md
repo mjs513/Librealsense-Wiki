@@ -1,8 +1,8 @@
-## Release 2.23.0
+## Release 2.24.0
 Release Date: 27 Jun 2019
 
 ### API Changes
-[v2.24 link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2240)
+TBD
 
 ### New Features & Improvements
 Streamlining Firmware Update for D400 and SR300 Depth Cameras:
