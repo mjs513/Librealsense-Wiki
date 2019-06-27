@@ -1,4 +1,46 @@
 ## Release 2.23.0
+Release Date: 27 Jun 2019
+
+### API Changes
+[v2.24 link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2240)
+
+### New Features & Improvements
+Streamlining Firmware Update for D400 and SR300 Depth Cameras:
+A new Cross-platform firmware update capability has been introduced to facilitate the camera maintenance.
+Platforms supported: Windows, Linux, Android, MacOS.
+The capability is integrated into `realsense-viewer` and a stand-alone `rs-fw-update` tools.
+For more info see
+* [#4267](https://github.com/IntelRealSense/librealsense/pull/4267) - Firmware Update Capability and `rs-fw-update` tool
+* [#4280](https://github.com/IntelRealSense/librealsense/pull/4280) - Firmware Update integration with Viewer
+* [#4304](https://github.com/IntelRealSense/librealsense/pull/4304) - Firmware Update in Android camera app
+Enhancements:
+* [#4265](https://github.com/IntelRealSense/librealsense/pull/4265) - Adding Ubuntu Kernel 4.18 support. Non-LTS Kernel 5.0 is also supported with manual installation.
+* [#4240](https://github.com/IntelRealSense/librealsense/pull/4240) - Contradictory Camera Axis Labels for T265 #4226
+* [#4237](https://github.com/IntelRealSense/librealsense/pull/4237) - Android - dynamic USB read buffer size #3612, #4091, #4215
+* [#4203](https://github.com/IntelRealSense/librealsense/pull/4203) - Nodejs support for windows build. Documentation update
+
+### Bug Fixes
+* [#4268](https://github.com/IntelRealSense/librealsense/pull/4268) - Viewer - fix variables name #4157
+* [#4264](https://github.com/IntelRealSense/librealsense/pull/4264) - Fix Kernel 4.19+ error #2850 (DSO-11696)
+* [#4251](https://github.com/IntelRealSense/librealsense/pull/51) -  `rs-terminal` improperly selects target in case of multiple devices connected
+* [#4246](https://github.com/IntelRealSense/librealsense/pull/4246) - Linux file descriptors are not released when device is plugged off. Can be related to #3538 (DSO-12768)
+* [#4219](https://github.com/IntelRealSense/librealsense/pull/4219) - Android l500 detection issue
+* [#4208](https://github.com/IntelRealSense/librealsense/pull/4208) - Matlab and Python wrappers updates. Fixes  #4034, #4146.
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets #3781.(DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+* Global Timestamp: first 15 seconds of frames timestamps are unstable (DSO-12942)
+* IMU jitter and drops events [LRS] regression (DSO-12940)
+
+
+## Release 2.23.0
 Release Date: 10 Jun 2019
 
 ### API Changes
