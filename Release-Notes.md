@@ -13,7 +13,8 @@ For more info see
 * [#4267](https://github.com/IntelRealSense/librealsense/pull/4267) - Firmware Update Capability and `rs-fw-update` tool
 * [#4280](https://github.com/IntelRealSense/librealsense/pull/4280) - Firmware Update integration with Viewer
 * [#4304](https://github.com/IntelRealSense/librealsense/pull/4304) - Firmware Update in Android camera app
-Enhancements:
+
+Enhancements
 * [#4265](https://github.com/IntelRealSense/librealsense/pull/4265) - Adding Ubuntu Kernel 4.18 support. Non-LTS Kernel 5.0 is also supported with manual installation.
 * [#4240](https://github.com/IntelRealSense/librealsense/pull/4240) - Contradictory Camera Axis Labels for T265 #4226
 * [#4237](https://github.com/IntelRealSense/librealsense/pull/4237) - Android - dynamic USB read buffer size #3612, #4091, #4215
