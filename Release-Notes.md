@@ -30,7 +30,7 @@ Enhancements
 
 ### Known Issues
 * Firmware Update on Windows with Realsense-Viewer halts at  (30-50)% progress. Troubleshoot this by disconnecting and reconnecting the camera, then rerun Firmware update process (DSO-13070)
-* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background (DSO-13078)
+* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background. Make sure to close any librealsense-based application during the Firmware Update routine (DSO-13078)
 * Firmware Update on Linux - backup procedure may takes up to two minutes (DSO-13072)
 * [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
 * [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets #3781.(DSO-9162)
