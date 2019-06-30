@@ -6,8 +6,8 @@ TBD
 
 ### New Features & Improvements
 Streamlining Firmware Update for D400 and SR300 Depth Cameras:
-A new Cross-platform firmware update capability has been introduced to facilitate the camera maintenance.
-Platforms supported: Windows, Linux, Android, MacOS.
+A new Cross-platform firmware update capability has been introduced to facilitate the camera maintenance.  
+Platforms supported: Windows(*), Linux, Android, MacOS. *Before updating device please review errata below.  
 The capability is integrated into `realsense-viewer` and a stand-alone `rs-fw-update` tools.
 For more info see
 * [#4267](https://github.com/IntelRealSense/librealsense/pull/4267) - Firmware Update Capability and `rs-fw-update` tool
@@ -29,6 +29,9 @@ Enhancements
 * [#4208](https://github.com/IntelRealSense/librealsense/pull/4208) - Matlab and Python wrappers updates. Fixes  #4034, #4146.
 
 ### Known Issues
+* Firmware Update on Windows with Realsense-Viewer halts at  (30-50)% progress. Troubleshoot this by disconnecting and reconnecting the camera, then rerun Firmware update process (DSO-13070)
+* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background (DSO-13078)
+* Firmware Update on Linux - backup procedure may takes up to two minutes (DSO-13072)
 * [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
 * [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets #3781.(DSO-9162)
 * Frame Drops when changing depth controls while depth streaming. (DSO-9065)
