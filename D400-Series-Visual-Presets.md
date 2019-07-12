@@ -32,11 +32,11 @@ The resolution range is:
 
 <br>Additional Presets not in the Viewer:
 
-| Preset Use case | JSON file |
-| ------------------------- | --------------- |
+| Preset Use case | JSON file | Notes
+| ------------------------- | --------------- | -- |
 | Vacuum Cleaner | [ShortRangePreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/ShortRangePreset.json) |
 | Body Scan | [BodyScanPreset.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/BodyScanPreset.json)|
-
+| Edge Map| [EdgeMapD435.json](https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/d400_presets/EdgeMapD435.json) | <p align="center"><b>Edges</b><br><img width=80% src="https://raw.githubusercontent.com/wiki/IntelRealSense/librealsense/res/edgemap.jpg" /></p>|
 
 ## Example Pictures
 Please refer to the example pictures below captured with the various presets. The depth presets are evaluated and compared based on:
