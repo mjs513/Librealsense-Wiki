@@ -2,8 +2,7 @@
 Release Date: 1 Aug 2019
 
 ### API Changes
-N/A
-
+TBD
 ### New Features & Improvements
 
 * [#4340](https://github.com/IntelRealSense/librealsense/pull/4340) - T265 Demo with Apriltag detection on host
