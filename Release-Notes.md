@@ -1,8 +1,63 @@
+## Release 2.25.0
+Release Date: 1 Aug 2019
+
+### API Changes
+N/A
+
+### New Features & Improvements
+
+* [#4340](https://github.com/IntelRealSense/librealsense/pull/4340) - T265 Demo with Apriltag detection on host
+* [#4327](https://github.com/IntelRealSense/librealsense/pull/4327) - T265 Tracking + Depth Example
+
+
+Enhancements
+* [#4544](https://github.com/IntelRealSense/librealsense/pull/4544) - RGB Distortion correction for the supported sensors types (DSO-8307) linked to [IntelRealSense/realsense-ros#779](https://github.com/IntelRealSense/realsense-ros/issues/779)
+* [#4321](https://github.com/IntelRealSense/librealsense/pull/4321) - T265 Mapping/Relocalization/Jumping Options
+* [#4511](https://github.com/IntelRealSense/librealsense/pull/4511) - T265 advanced options to the python wrapper:
+`enable_mapping`, `enable_pose_jumping`, and `enable_relocalization`. Follow up on [#4321](https://github.com/IntelRealSense/librealsense/pull/4321)
+* [#4478](https://github.com/IntelRealSense/librealsense/pull/4478) - Support new calibration command `RECPARAMSGET` for D400 series
+* [#4472](https://github.com/IntelRealSense/librealsense/pull/4472) - RGB Auto-Exposure ROI control for SR300
+* [#4448](https://github.com/IntelRealSense/librealsense/pull/4448) - T265 expose Frame timestamp metadata attribute
+* [#4438](https://github.com/IntelRealSense/librealsense/pull/4438) - T265 documentation update
+* [#4438](https://github.com/IntelRealSense/librealsense/pull/4438) - T265 to support GLOBAL_TIMESTAMP_DOMAIN (TM2-4496)
+* [#4438](https://github.com/IntelRealSense/librealsense/pull/4438) - Update for `realsense_device_manager.py` example by 
+@NicholasWon47
+* [#4389](https://github.com/IntelRealSense/librealsense/pull/4389) - IMU Support for D465.
+* [#4380](https://github.com/IntelRealSense/librealsense/pull/4380) - Update SR300 recommended fW version to 2.26.1.0
+* [#4389](https://github.com/IntelRealSense/librealsense/pull/4389) - Update 3rd-party `update stb_image_write.h` to v1.13 by @sailfish009
+* [#4365](https://github.com/IntelRealSense/librealsense/pull/4365) - Remove the default 2Mb limit for log file generation (RS5-4780)
+* [#4358](https://github.com/IntelRealSense/librealsense/pull/4358) - Silence OpenGL deprecation warnings on macos 10.14
+* [#4314](https://github.com/IntelRealSense/librealsense/pull/4314) - Firmware Update robustness enhancement
+
+
+### Bug Fixes
+* [#4377](https://github.com/IntelRealSense/librealsense/pull/4377) - OpenCV Kinfu example dependency fix by @peterhinson
+* [#4360](https://github.com/IntelRealSense/librealsense/pull/4360) - Fix for udev-rules validation routine (RS5-4780) addresses #4350
+* [#4329](https://github.com/IntelRealSense/librealsense/pull/4329) - Easy-logging bug fix
+* [#4313](https://github.com/IntelRealSense/librealsense/pull/4313) - Fix python readme by @kechako
+* Firmware Update on Windows with Realsense-Viewer halts at  (30-50)% progress. Troubleshoot this by disconnecting and reconnecting the camera, then rerun Firmware update process (DSO-13070)
+
+### Known Issues
+* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background. Make sure to close any librealsense-based application during the Firmware Update routine (DSO-13078)
+* Firmware Update on Linux - backup procedure may takes up to two minutes (DSO-13072)
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets #3781.(DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+* Global Timestamp: first 15 seconds of frames timestamps are unstable (DSO-12942)
+* IMU jitter and drops events [LRS] regression (DSO-12940)
+
+
+
 ## Release 2.24.0
 Release Date: 27 Jun 2019
 
 ### API Changes
-TBD
+N/A
 
 ### New Features & Improvements
 Streamlining Firmware Update for D400 and SR300 Depth Cameras:
