@@ -2,7 +2,8 @@
 Release Date: 1 Aug 2019
 
 ### API Changes
-TBD
+[link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2250)
+
 ### New Features & Improvements
 
 * [#4340](https://github.com/IntelRealSense/librealsense/pull/4340) - T265 Demo with Apriltag detection on host
@@ -56,7 +57,7 @@ Enhancements
 Release Date: 27 Jun 2019
 
 ### API Changes
-N/A
+[link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2240)
 
 ### New Features & Improvements
 Streamlining Firmware Update for D400 and SR300 Depth Cameras:
