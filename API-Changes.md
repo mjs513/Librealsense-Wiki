@@ -1,3 +1,13 @@
+## Version [2.24.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.24.0)
+
+* Firmware Update functionality
+- Switch SR300 and D400 camera into DFU (Firmware Update) mode [rs2_enter_update_state](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94).
+When applied, the D400 camera will disconnect from host and reconnect as boot-loader device with a different VID/PID. 
+- Perform Firmware Upgrade for D400/SR300 device [rs2_update_firmware](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94). The functionality requires a digitally-signed image to be provided as an input
+- Perform Firmware Upgrade for D400/SR300 device, report progress to user-provided callback [rs2_update_firmware_cpp](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94)
+- Generate a firmware image copy [rs2_create_flash_backup](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94). Note that the generated backup image format is different from the file required in `rs2_update_firmware/rs2_update_firmware_cpp` and cannot be used with these APIs.
+- Generate a firmware image copy, report progress to user-provided callback [rs2_create_flash_backup_cpp](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94). The limitations are similar to `rs2_create_flash_backup`
+
 ## Version [2.23.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.23.0)
 
 * Depth linearity enhancement - Mitigate the half-pixel disparity issue by adjusting the Amplitude factor in the modulation funciton ()
