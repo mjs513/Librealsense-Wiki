@@ -1,12 +1,21 @@
+## Version [2.25.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.25.0)
+
+Introduce [T265-specific](https://github.com/IntelRealSense/librealsense/blob/d19829788008b8e000870895a068f0c43d58895a/doc/t265.md#are-there-any-t265-specific-options) options
+- RS2_OPTION_ENABLE_MAPPING - Enable internal mapping generation required for location correction (feedback). Turning this option off will result in device running in an open loop.
+- RS2_OPTION_ENABLE_RELOCALIZATION - Allow the device ti utilize the internal/stored map to correct the current location based on previously recorded data.
+- RS2_OPTION_ENABLE_POSE_JUMPING - Allow the device to correct the location by making a discontinuous transformation (jump) 
+- RS2_OPTION_ENABLE_DYNAMIC_CALIBRATION 
+Read more in the above link
+
 ## Version [2.24.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.24.0)
 
 * Firmware Update functionality
-- Switch SR300 and D400 camera into DFU (Firmware Update) mode [rs2_enter_update_state](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94).
+- Switch SR300 and D400 camera into DFU (Firmware Update) mode [rs2_enter_update_state](https://github.com/IntelRealSense/librealsense/blob/f112ed78e3917df79047254f864157195d4488b0/include/librealsense2/h/rs_device.h#L196).
 When applied, the D400 camera will disconnect from host and reconnect as boot-loader device with a different VID/PID. 
-- Perform Firmware Upgrade for D400/SR300 device [rs2_update_firmware](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94). The functionality requires a digitally-signed image to be provided as an input
-- Perform Firmware Upgrade for D400/SR300 device, report progress to user-provided callback [rs2_update_firmware_cpp](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94)
-- Generate a firmware image copy [rs2_create_flash_backup](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94). Note that the generated backup image format is different from the file required in `rs2_update_firmware/rs2_update_firmware_cpp` and cannot be used with these APIs.
-- Generate a firmware image copy, report progress to user-provided callback [rs2_create_flash_backup_cpp](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/rs_advanced_mode.h#L91-L94). The limitations are similar to `rs2_create_flash_backup`
+- Perform Firmware Upgrade for D400/SR300 device [rs2_update_firmware](https://github.com/IntelRealSense/librealsense/blob/f112ed78e3917df79047254f864157195d4488b0/include/librealsense2/h/rs_device.h#L161-L170). The functionality requires a digitally-signed image to be provided as an input
+- Perform Firmware Upgrade for D400/SR300 device, report progress to user-provided callback [rs2_update_firmware_cpp](https://github.com/IntelRealSense/librealsense/blob/f112ed78e3917df79047254f864157195d4488b0/include/librealsense2/h/rs_device.h#L150-L158)
+- Generate a firmware image copy [rs2_create_flash_backup](https://github.com/IntelRealSense/librealsense/blob/f112ed78e3917df79047254f864157195d4488b0/include/librealsense2/h/rs_device.h#L182-L189). Note that the generated backup image format is different from the file required in `rs2_update_firmware/rs2_update_firmware_cpp` and cannot be used with these APIs.
+- Generate a firmware image copy, report progress to user-provided callback [rs2_create_flash_backup_cpp](https://github.com/IntelRealSense/librealsense/blob/f112ed78e3917df79047254f864157195d4488b0/include/librealsense2/h/rs_device.h#L173-L179). The limitations are similar to `rs2_create_flash_backup`
 
 ## Version [2.23.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.23.0)
 
