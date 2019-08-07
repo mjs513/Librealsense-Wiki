@@ -18,15 +18,14 @@ Enhancements
 * [#4478](https://github.com/IntelRealSense/librealsense/pull/4478) - Support new calibration command `RECPARAMSGET` for D400 series
 * [#4472](https://github.com/IntelRealSense/librealsense/pull/4472) - RGB Auto-Exposure ROI control for SR300
 * [#4448](https://github.com/IntelRealSense/librealsense/pull/4448) - T265 expose Frame timestamp metadata attribute
-* [#4438](https://github.com/IntelRealSense/librealsense/pull/4438) - T265 documentation update
-* [#4438](https://github.com/IntelRealSense/librealsense/pull/4438) - T265 to support GLOBAL_TIMESTAMP_DOMAIN (TM2-4496)
-* [#4438](https://github.com/IntelRealSense/librealsense/pull/4438) - Update for `realsense_device_manager.py` example by 
+* [#4403](https://github.com/IntelRealSense/librealsense/pull/4403) - T265 to support GLOBAL_TIMESTAMP_DOMAIN (TM2-4496)
+* [#4402](https://github.com/IntelRealSense/librealsense/pull/4402) - Update for `realsense_device_manager.py` example by 
 @NicholasWon47
 * [#4389](https://github.com/IntelRealSense/librealsense/pull/4389) - IMU Support for D465.
 * [#4380](https://github.com/IntelRealSense/librealsense/pull/4380) - Update SR300 recommended fW version to 2.26.1.0
-* [#4389](https://github.com/IntelRealSense/librealsense/pull/4389) - Update 3rd-party `update stb_image_write.h` to v1.13 by @sailfish009
+* [#4367](https://github.com/IntelRealSense/librealsense/pull/4367) - Update 3rd-party `update stb_image_write.h` to v1.13 by @sailfish009
 * [#4365](https://github.com/IntelRealSense/librealsense/pull/4365) - Remove the default 2Mb limit for log file generation (RS5-4780)
-* [#4358](https://github.com/IntelRealSense/librealsense/pull/4358) - Silence OpenGL deprecation warnings on macos 10.14
+* [#4358](https://github.com/IntelRealSense/librealsense/pull/4358) - Silence OpenGL deprecation warnings on MacOS 10.14
 * [#4314](https://github.com/IntelRealSense/librealsense/pull/4314) - Firmware Update robustness enhancement
 
 
