@@ -6,16 +6,42 @@ Release Date: 21 Aug 2019
 
 ### New Features & Improvements
 
-* [#4340](https://github.com/IntelRealSense/librealsense/pull/4340) - T265 Demo with Apriltag detection on host
-* [#4327](https://github.com/IntelRealSense/librealsense/pull/4327) - T265 Tracking + Depth Example
+* [#4658](https://github.com/IntelRealSense/librealsense/pull/4658) - D400 On-Chip Auto-calibration. Allows to recalibrate and therefore, improve depth quality using SDK-provided tools : `realsense-viewer` and `rs-depth-quality`. Note that this capability relies on FW version 5.13.x+ which is not yet publicly available at this stage. Follow the above link for more details.
+* [#4605](https://github.com/IntelRealSense/librealsense/pull/4605) - Cross platform IMU HID device. This PR brings a cross platform HID device (IMU), implemented above rsusb interface.
+435i IMU streaming is now enabled on Android platform. It is also available on non-X86 platforms, such as Arm with libuvc backend (e.g. Jetson TX2 amd Nano). (DSO-11944)
+* [#4433](https://github.com/IntelRealSense/librealsense/pull/4433) - Add support for Firmware Update using non-signed images
+* [#4492](https://github.com/IntelRealSense/librealsense/pull/4492) - Python: an Ethernet client-server example code for Realsense devices. Requires python 2.7.
 
 Enhancements
 * [#4677](https://github.com/IntelRealSense/librealsense/pull/4677) - Pointcloud 3D-view in Android. Addresses [#4601](https://github.com/IntelRealSense/librealsense/issues/4601)
 * [#4673](https://github.com/IntelRealSense/librealsense/pull/4673) - T265 Firmware Upgrade to version 0.1.0.242 to improve start and stop reliability, and overall stability, can have a positive effect on [#4592](https://github.com/IntelRealSense/librealsense/issues/4592), [#4518](https://github.com/IntelRealSense/librealsense/issues/4518).
 * [#4666](https://github.com/IntelRealSense/librealsense/pull/4666) - Synchronize wrappers options with the core SDK. (matlab, node.js, python) [#4288](https://github.com/IntelRealSense/librealsense/issues/4288)
+* [#4645](https://github.com/IntelRealSense/librealsense/pull/4645) - T265: auxillary function to print out motion intrinsic data
+* [#4638](https://github.com/IntelRealSense/librealsense/pull/4645) - T265 Documentation: fix python examples link
+* [#4622](https://github.com/IntelRealSense/librealsense/pull/4622) - Support for MJPEG stream for selected SKUs.
+* [#4620](https://github.com/IntelRealSense/librealsense/pull/4620) - Community Project: realsense with cyber update, by @mickeyouyou
+* [#4618](https://github.com/IntelRealSense/librealsense/pull/4618) - Windows7 : Drivers update to include support for the new and provisional model types, DFU mode. Digital certificate update as of Aug 2019.
+* [#4602](https://github.com/IntelRealSense/librealsense/pull/4602)  - T265: Increase internal queue size to mitigate frame drops
+* [#4583](https://github.com/IntelRealSense/librealsense/pull/4583)  - Android: SR300 firmware update improvements. (DSO-13360)
+* [#4587](https://github.com/IntelRealSense/librealsense/pull/4587)  - D400: fix IMU data rate configuration. (DSO-13325)
+* [#4582](https://github.com/IntelRealSense/librealsense/pull/4582)  - CMake enhancement, addresses [#3024](https://github.com/IntelRealSense/librealsense/issues/3024)
+* [#4546](https://github.com/IntelRealSense/librealsense/pull/4546) - Python: Add syncer support for sensor start method. (DSO-13062)
+* [#4545](https://github.com/IntelRealSense/librealsense/pull/4545) - `rs-enumerate-devices` robustness enhancement
+* [#4537](https://github.com/IntelRealSense/librealsense/pull/4537) - Conform to ROS name convention. [#1161](https://github.com/IntelRealSense/librealsense/issues/1161)
+* [#4248](https://github.com/IntelRealSense/librealsense/pull/4248) - Windows7 stability fixes and enhancements
 
 ### Bug Fixes
 * [#4678](https://github.com/IntelRealSense/librealsense/pull/4678) - Fix Out-of-Memory error - Android UVC. Addresses [#3612](https://github.com/IntelRealSense/librealsense/issues/3612), [#4091](https://github.com/IntelRealSense/librealsense/issues/4091), [#4215](https://github.com/IntelRealSense/librealsense/issues/4215)
+* [#4631](https://github.com/IntelRealSense/librealsense/pull/4631) - Fix default stream index for synthetic stream
+* [#4616](https://github.com/IntelRealSense/librealsense/pull/4616) - Fix matlab method syntax in points.m by @dpiskas
+dpiskas
+* [#4596](https://github.com/IntelRealSense/librealsense/pull/4596) - Fix memory leak in `rs-multi-cam` example
+* [#4562](https://github.com/IntelRealSense/librealsense/pull/4562) - DQT: fix plane and metric annotations when stream is paused. (RS5-3386)
+* [#4561](https://github.com/IntelRealSense/librealsense/pull/4561) - CMake: fix offline build with no FW image available
+* [#4560](https://github.com/IntelRealSense/librealsense/pull/4560) - Viewer - fix unresponsive UI on errors. (DSO-13146)
+* [#4535](https://github.com/IntelRealSense/librealsense/pull/4535) - Remove "Depth Visualization" tab under unrelated sensors in viewer. (DSO-12361)
+* [#4531](https://github.com/IntelRealSense/librealsense/pull/4531) - Use full GPG Key IDs for installing in linux by @miguelprada
+* [#4507](https://github.com/IntelRealSense/librealsense/pull/4507) - T265: Use the origin of the Pose frame as the baseline for sensor extrinsic
 
 
 ### Known Issues
