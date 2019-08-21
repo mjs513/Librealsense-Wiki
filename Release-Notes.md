@@ -1,3 +1,38 @@
+## Release 2.26.0
+Release Date: 21 Aug 2019
+
+### API Changes
+[link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2260)
+
+### New Features & Improvements
+
+* [#4340](https://github.com/IntelRealSense/librealsense/pull/4340) - T265 Demo with Apriltag detection on host
+* [#4327](https://github.com/IntelRealSense/librealsense/pull/4327) - T265 Tracking + Depth Example
+
+Enhancements
+* [#4677](https://github.com/IntelRealSense/librealsense/pull/4677) - Pointcloud 3D-view in Android. Addresses [#4601](https://github.com/IntelRealSense/librealsense/issues/4601)
+* [#4673](https://github.com/IntelRealSense/librealsense/pull/4673) - T265 Firmware Upgrade to version 0.1.0.242 to improve start and stop reliability, and overall stability, can have a positive effect on [#4592](https://github.com/IntelRealSense/librealsense/issues/4592), [#4518](https://github.com/IntelRealSense/librealsense/issues/4518).
+* [#4666](https://github.com/IntelRealSense/librealsense/pull/4666) - Synchronize wrappers options with the core SDK. (matlab, node.js, python) [#4288](https://github.com/IntelRealSense/librealsense/issues/4288)
+
+### Bug Fixes
+* [#4678](https://github.com/IntelRealSense/librealsense/pull/4678) - Fix Out-of-Memory error - Android UVC. Addresses [#3612](https://github.com/IntelRealSense/librealsense/issues/3612), [#4091](https://github.com/IntelRealSense/librealsense/issues/4091), [#4215](https://github.com/IntelRealSense/librealsense/issues/4215)
+
+
+### Known Issues
+* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background. Make sure to close any librealsense-based application during the Firmware Update routine (DSO-13078)
+* Firmware Update on Linux - backup procedure may takes up to two minutes (DSO-13072)
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* [MacOS] File-Open / File-Save dialogs are not available in the Viewer / DQT, preventing import of custom presets #3781.(DSO-9162)
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+* Global Timestamp: first 15 seconds of frames timestamps are unstable (DSO-12942)
+* IMU jitter and drops events [LRS] regression (DSO-12940)
+
+
 ## Release 2.25.0
 Release Date: 1 Aug 2019
 
