@@ -1,3 +1,13 @@
+## Version [2.26.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.26.0)
+
+Firmware Update with non Digitally-signed images:
+- [rs2_update_firmware_unsigned_cpp](https://github.com/IntelRealSense/librealsense/blob/v2.26.0/include/librealsense2/h/rs_device.h#L206) - Invoke Firmware Update flow using unsigned DFU image.
+- [rs2_update_firmware_unsigned](https://github.com/IntelRealSense/librealsense/blob/v2.26.0/include/librealsense2/h/rs_device.h#L220) - Same as above for C-code users
+- [rs2_get_frame_data_size](https://github.com/IntelRealSense/librealsense/blob/v2.26.0/include/librealsense2/h/rs_frame.h#L124) - The actual frame size may differ from the initially-negotiated max size. Required to properly support the compressed data streams, such as MJPEG.
+- [RS2_FORMAT_MJPEG](https://github.com/IntelRealSense/librealsense/blob/v2.26.0/include/librealsense2/h/rs_sensor.h#L81) - Adding SDK support for MJPEG compressed stream type
+- [RS2_OPTION_DEPTH_OFFSET](https://github.com/IntelRealSense/librealsense/blob/v2.26.0/include/librealsense2/h/rs_option.h#L83)- Provides the offset from the sensor to the depth origin for affected camera types.
+
+
 ## Version [2.25.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.25.0)
 
 Introduce [T265-specific](https://github.com/IntelRealSense/librealsense/blob/d19829788008b8e000870895a068f0c43d58895a/doc/t265.md#are-there-any-t265-specific-options) options
