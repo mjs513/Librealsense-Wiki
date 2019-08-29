@@ -1,3 +1,15 @@
+## Version [2.27.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.27.0)
+
+* **T265 Calibration Write APIs**: Allow custom calibration to be provided to the device and committed to device flash memory. There is also a mechanism to roll-back to factory calibration. Currently these APIs are only implemented for the T265, but similar scheme is likely to be used for other families
+  - [rs2_set_intrinsics](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L555) - set video stream profile intrinsic calibration
+  - [rs2_set_extrinsics](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L566) - set extrinsic calibration between two stream profiles
+  - [rs2_set_motion_device_intrinsics](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L575) - set motion stream profile intrinsics
+  - [rs2_reset_to_factory_calibration](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_device.h#L155) - Resets the device to factory calibration when available
+  - [rs2_write_calibration](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_device.h#L162) - Commit calibration changes to device flash memory
+
+* [rs2_clone_video_stream_profile](https://github.com/dorodnic/librealsense/blob/d98ab745c20ffeab9b23dd9ce30abd782c10fff2/include/librealsense2/h/rs_sensor.h#L372) - Utility function used when developing custom processing blocks that modify video stream resolution
+
+
 ## Version [2.26.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.26.0)
 
 Firmware Update with non Digitally-signed images:
