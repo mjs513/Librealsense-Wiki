@@ -1,3 +1,52 @@
+## Release 2.27.0
+Release Date: 29 Aug 2019
+
+### API Changes
+[link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2270)
+
+### New Features & Improvements
+
+* **T265 Calibration APIs**:
+  * [#4650](https://github.com/IntelRealSense/librealsense/pull/4650) - write calibration APIs
+  * [#4717](https://github.com/IntelRealSense/librealsense/pull/4717) - updating default T265 firmware to 0.1.0.279
+     * Expose the ability to modify the T265 calibration (w/ #4650)
+     * T265 tracking performance improvement
+     * Fixes #4700 T265 load/start/stop/load/start failure
+  * [#4739](https://github.com/IntelRealSense/librealsense/pull/4739) and [#4685](https://github.com/IntelRealSense/librealsense/pull/4685) - documentation enhancements
+* **New OpenCV example** - [#4733](https://github.com/IntelRealSense/librealsense/pull/4733) (Implementing ["Depth Map Improvements for Stereo-based
+Depth Cameras on Drones"](http://www.qwrt.de/pdf/Depth_Map_Improvements_for_Stereo_based_Depth_Cameras_on_Drones.pdf))
+* [#4721](https://github.com/IntelRealSense/librealsense/pull/4721) - Fix format-security warnings (contributed by [@morxa](https://github.com/morxa))
+* [#4706](https://github.com/IntelRealSense/librealsense/pull/4706) - [Viewer] Enable step forward and backward during playback
+
+### Bug Fixes
+* **On-Chip Calibration** enhancements ([#4735](https://github.com/IntelRealSense/librealsense/pull/4735)) - 
+  * Integration with firmware 5.11.14 (pre-release)
+  * Unlocking the feature for D435i (DSO-13538)
+  * Fixing Tare calibration units (DSO-13537)
+* [#4731](https://github.com/IntelRealSense/librealsense/pull/4731) - Fixing Java example (addressing issues [#4701](https://github.com/IntelRealSense/librealsense/issues/4701) and [#4693](https://github.com/IntelRealSense/librealsense/issues/4693))
+* [#4729](https://github.com/IntelRealSense/librealsense/pull/4729) - Fix Ubuntu 32bit compilation (addressing [#3448](https://github.com/IntelRealSense/librealsense/issues/3448) / DSO-12283)
+* [#4698](https://github.com/IntelRealSense/librealsense/pull/4698) - [Android] GLFrame resource release (addressing DSO-13120)
+
+### Known Issues
+* Firmware Update - owners of SR300 device shall not use firmware versions v3.27.xx as it overrides camera's product id (PID) and may render it non-recognizable with the client's code, especially with the legacy versions.
+A new compatibility enforcement policy that shall prevents accidental upgrades will be integrated in future releases.
+* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background. Make sure to close any librealsense-based application during the Firmware Update routine (DSO-13078)
+* Firmware Update on Linux - backup procedure may takes up to two minutes (DSO-13072)
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2472](https://github.com/IntelRealSense/librealsense/issues/2472) - Application hangs when trying to close file replay pipeline (DSO-10749)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+* Global Timestamp: first 15 seconds of frames timestamps are unstable (DSO-12942)
+* IMU jitter and drops events [LRS] regression (DSO-12940)
+* (DSO-13541) - On-Chip Calibration stuck at 0% when in USB2 mode
+* (DSO-13540) - On-Chip Calibration with D415 and blank wall target may return "Calibration didn't converge! (EDGE_TO_CLOSE) please retry in different lighting conditions". (Note: w/a is using textured target)
+* (DSO-13539) - [Android] Camera disconnected after streaming some duration with Android Camera Sample
+* (DSO-13525) - 3D viewer moved when sliding the tare calibration sliders
+* (DSO-13524) - Viewer crash when running Update Unsigned FW with signed FW image (unlocked units only)
+
 ## Release 2.26.0
 Release Date: 21 Aug 2019
 
@@ -12,7 +61,8 @@ Release Date: 21 Aug 2019
 * [#4433](https://github.com/IntelRealSense/librealsense/pull/4433) - Add support for Firmware Update using non-signed images
 * [#4492](https://github.com/IntelRealSense/librealsense/pull/4492) - Python: an Ethernet client-server example code for Realsense devices. Requires python 2.7.
 
-Enhancements
+### Enhancements
+
 * [#4677](https://github.com/IntelRealSense/librealsense/pull/4677) - Pointcloud 3D-view in Android. Addresses [#4601](https://github.com/IntelRealSense/librealsense/issues/4601)
 * [#4673](https://github.com/IntelRealSense/librealsense/pull/4673) - T265 Firmware Upgrade to version 0.1.0.242 to improve start and stop reliability, and overall stability, can have a positive effect on [#4592](https://github.com/IntelRealSense/librealsense/issues/4592), [#4518](https://github.com/IntelRealSense/librealsense/issues/4518).
 * [#4666](https://github.com/IntelRealSense/librealsense/pull/4666) - Synchronize wrappers options with the core SDK. (matlab, node.js, python) [#4288](https://github.com/IntelRealSense/librealsense/issues/4288)
