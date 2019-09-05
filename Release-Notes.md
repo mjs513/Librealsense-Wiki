@@ -2,7 +2,7 @@
 Release Date: 5 Sep 2019
 
 ### API Changes
-[Link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2280)
+N/A
 
 ### New Features & Improvements
 * [#4786](https://github.com/IntelRealSense/librealsense/pull/4786) - [Realsense-Viewer] Set Decimation off by default for 
