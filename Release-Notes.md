@@ -1,3 +1,45 @@
+## Release 2.28.0
+Release Date: 5 Sep 2019
+
+### API Changes
+[Link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2280)
+
+### New Features & Improvements
+* [#4786](https://github.com/IntelRealSense/librealsense/pull/4786) - [Realsense-Viewer] Set Decimation off by default for 
+RGB streams (DSO-13570)
+* [#4746](https://github.com/IntelRealSense/librealsense/pull/4746) - [Realsense-Viewer] Adding option to use Pre-Release firmware for D400 devices.
+* [#4749](https://github.com/IntelRealSense/librealsense/pull/4749) - [Python] Code refactoring, minor fixes
+
+### Bug Fixes
+* [#4788](https://github.com/IntelRealSense/librealsense/pull/4788) - Fix Frame Validation (RS5-5244)
+* [#4787](https://github.com/IntelRealSense/librealsense/pull/4787) - Fix Jupyter Notebook. #4142, #4579
+* [#4785](https://github.com/IntelRealSense/librealsense/pull/4785) - Fix a potential out-of-order initialization for A-factor (DSO-13560)
+* [#4774](https://github.com/IntelRealSense/librealsense/pull/4774) - [Kernel Patches] Adjust Ubuntu LTS track branches for kernel sources
+* [#4772](https://github.com/IntelRealSense/librealsense/pull/4772) - [Realsense-Viewer] Fixing basic threading issues within on-chip calibration UI.
+* [#4759](https://github.com/IntelRealSense/librealsense/pull/4759) - MSVC2019 compilation fix by @UnaNancyOwen
+* [#4758](https://github.com/IntelRealSense/librealsense/pull/4758) - Fix deadlock on pipeline.stop() with playback device in realtime=false mode
+* [#4752](https://github.com/IntelRealSense/librealsense/pull/4752) - [Android] Streaming got stuck with camera APP (DSO-13453)
+
+
+### Known Issues
+* Firmware Update - owners of SR300 device shall not use firmware versions v3.27.xx as it overrides camera's product id (PID) and may render it non-recognizable with the client's code, especially with the legacy versions.
+A new compatibility enforcement policy that shall prevents accidental upgrades will be integrated in future releases.
+* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background. Make sure to close any librealsense-based application during the Firmware Update routine (DSO-13078)
+* Firmware Update on Linux - backup procedure may takes up to two minutes (DSO-13072)
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+* Global Timestamp: first 15 seconds of frames timestamps are unstable (DSO-12942)
+* IMU jitter and drops events [LRS] regression (DSO-12940)
+* (DSO-13541) - On-Chip Calibration stuck at 0% when in USB2 mode
+* (DSO-13540) - On-Chip Calibration with D415 and blank wall target may return "Calibration didn't converge! (EDGE_TO_CLOSE) please retry in different lighting conditions". (Note: w/a is using textured target)
+* (DSO-13539) - [Android] Camera disconnected after streaming some duration with Android Camera Sample
+* (DSO-13525) - 3D viewer moved when sliding the tare calibration sliders
+* (DSO-13524) - Viewer crash when running Update Unsigned FW with signed FW image (unlocked units only)
+
 ## Release 2.27.0
 Release Date: 29 Aug 2019
 
