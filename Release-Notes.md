@@ -7,7 +7,6 @@ N/A
 ### New Features & Improvements
 * [#4786](https://github.com/IntelRealSense/librealsense/pull/4786) - [Realsense-Viewer] Set Decimation off by default for 
 RGB streams (DSO-13570)
-* [#4746](https://github.com/IntelRealSense/librealsense/pull/4746) - [Realsense-Viewer] Adding option to use Pre-Release firmware for D400 devices.
 * [#4749](https://github.com/IntelRealSense/librealsense/pull/4749) - [Python] Code refactoring, minor fixes
 
 ### Bug Fixes
