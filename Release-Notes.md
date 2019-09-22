@@ -8,7 +8,7 @@ No API changes - a maintenance release.
 * [#4808](https://github.com/IntelRealSense/librealsense/pull/4786) - [Realsense-Viewer] Set Decimation off by default for 
 RGB streams (DSO-13570)
 * [#4826](https://github.com/IntelRealSense/librealsense/pull/4826) - [rs-fw-logger] support extended XML scheme for dedicated SKUs.(RS5-5315)
-* [#4836](https://github.com/IntelRealSense/librealsense/pull/4836) - [Android] Add sensor ROI support to the wrapper.
+* [#4836](https://github.com/IntelRealSense/librealsense/pull/4836) - [Android] Add sensor ROI support to the wrapper. (DSO-13473)
 * [#4863](https://github.com/IntelRealSense/librealsense/pull/4863) - Change Depth Invalidation default to false.
 
 
