@@ -1,3 +1,46 @@
+## Release 2.28.1
+Release Date: 22 Sep 2019
+
+### API Changes
+No API changes - a maintenance release. 
+
+### New Features & Improvements
+* [#4808](https://github.com/IntelRealSense/librealsense/pull/4786) - [Realsense-Viewer] Set Decimation off by default for 
+RGB streams (DSO-13570)
+* [#4826](https://github.com/IntelRealSense/librealsense/pull/4826) - [rs-fw-logger] support extended XML scheme for dedicated SKUs.(RS5-5315)
+* [#4836](https://github.com/IntelRealSense/librealsense/pull/4836) - [Android] Add sensor ROI support to the wrapper.
+* [#4863](https://github.com/IntelRealSense/librealsense/pull/4863) - Change Depth Invalidation default to false.
+
+
+### Bug Fixes
+* [#4808](https://github.com/IntelRealSense/librealsense/pull/4808) - [Python] Fix A-factor access in the wrapper. Addresses [#4807](https://github.com/IntelRealSense/librealsense/issues/4807)
+* [#4809](https://github.com/IntelRealSense/librealsense/pull/4809) - Fixes for `save_single_frameset`. Related to [#4801](https://github.com/IntelRealSense/librealsense/issues/4801), [#4020](https://github.com/IntelRealSense/librealsense/issues/4020), [#3704](https://github.com/IntelRealSense/librealsense/issues/3704), [#3671](https://github.com/IntelRealSense/librealsense/issues/3671), [#2588](https://github.com/IntelRealSense/librealsense/issues/2588).
+* [#4830](https://github.com/IntelRealSense/librealsense/pull/4830) - Wheel odometry unit-test fix.
+* [#4851](https://github.com/IntelRealSense/librealsense/pull/4851) - [Python] Fix typo in `align-depth2color.py` example by  @BenDavisson.
+* [#4866](https://github.com/IntelRealSense/librealsense/pull/4866) - Fix RGB distortion coefficients assignment (RS5-5354).
+* [#4867](https://github.com/IntelRealSense/librealsense/pull/4867) - On-Chip Calibration adjustments
+
+
+### Known Issues
+* Firmware Update - owners of SR300 device shall not use firmware versions v3.27.xx as it overrides camera's product id (PID) and may render it non-recognizable with the client's code, especially with the legacy versions.
+A new compatibility enforcement policy that shall prevents accidental upgrades will be integrated in future releases.
+* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background. Make sure to close any librealsense-based application during the Firmware Update routine (DSO-13078)
+* Firmware Update on Linux - backup procedure may takes up to two minutes (DSO-13072)
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+* Global Timestamp: first 15 seconds of frames timestamps are unstable (DSO-12942)
+* IMU jitter and drops events [LRS] regression (DSO-12940)
+* (DSO-13541) - On-Chip Calibration stuck at 0% when in USB2 mode
+* (DSO-13540) - On-Chip Calibration with D415 and blank wall target may return "Calibration didn't converge! (EDGE_TO_CLOSE) please retry in different lighting conditions". (Note: w/a is using textured target)
+* (DSO-13539) - [Android] Camera disconnected after streaming some duration with Android Camera Sample
+* (DSO-13525) - 3D viewer moved when sliding the tare calibration sliders
+* (DSO-13524) - Viewer crash when running Update Unsigned FW with signed FW image (unlocked units only)
+* (DSO-13418) - Global Timestamps wrong after long use [#4505](https://github.com/IntelRealSense/librealsense/issues/4505).
+
 ## Release 2.28.0
 Release Date: 5 Sep 2019
 
