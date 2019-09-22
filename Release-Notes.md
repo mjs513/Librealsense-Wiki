@@ -10,6 +10,8 @@ RGB streams (DSO-13570)
 * [#4826](https://github.com/IntelRealSense/librealsense/pull/4826) - [rs-fw-logger] support extended XML scheme for dedicated SKUs.(RS5-5315)
 * [#4836](https://github.com/IntelRealSense/librealsense/pull/4836) - [Android] Add sensor ROI support to the wrapper. (DSO-13473)
 * [#4863](https://github.com/IntelRealSense/librealsense/pull/4863) - Change Depth Invalidation default to false.
+* [#4773](https://github.com/IntelRealSense/librealsense/pull/4773) - Allow `frame_queue` to automatically keep frames
+instead of requesting the user code to call `frame.keep()` explicitly for each required frame.
 
 
 ### Bug Fixes
