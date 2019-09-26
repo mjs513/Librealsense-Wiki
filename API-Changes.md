@@ -1,3 +1,8 @@
+## Version [2.29.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.29.0)
+
+Changed enum RS2_CAMERA_INFO_FIRMWARE_UPDATE_SERIAL_NUMBER to [RS2_CAMERA_INFO_FIRMWARE_UPDATE_ID]
+(https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L35)
+
 ## Version [2.27.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.27.0)
 
 * **T265 Calibration Write APIs**: Allow custom calibration to be provided to the device and committed to device flash memory. There is also a mechanism to roll-back to factory calibration. Currently these APIs are only implemented for the T265, but similar scheme is likely to be used for other families
