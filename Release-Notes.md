@@ -1,3 +1,33 @@
+## Release 2.29.0
+Release Date: 26 Sep 2019
+
+### API Changes
+[link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2290)
+
+### Bug Fixes
+* [#4886](https://github.com/IntelRealSense/librealsense/pull/4886) - [Pcl] Fix typo in documentation by @fburakk. 
+* [#4909](https://github.com/IntelRealSense/librealsense/pull/4909) - Fixed bug on record-playback. (RS5-3373)
+* [#4925](https://github.com/IntelRealSense/librealsense/pull/4925) - [Realsense-Viewer] Fix Tare-Calibration UI. (DSO-13537) 
+* [#4927](https://github.com/IntelRealSense/librealsense/pull/4927) - Update doxygen of pose_sensor.
+
+
+### Known Issues
+* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background. Make sure to close any librealsense-based application during the Firmware Update routine (DSO-13078)
+* Firmware Update on Linux - backup procedure may takes up to two minutes (DSO-13072)
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+* Global Timestamp: first 15 seconds of frames timestamps are unstable (DSO-12942)
+* IMU jitter and drops events [LRS] regression (DSO-12940)
+* (DSO-13541) - On-Chip Calibration stuck at 0% when in USB2 mode
+* (DSO-13539) - [Android] Camera disconnected after streaming some duration with Android Camera Sample
+* (DSO-13525) - 3D viewer moved when sliding the tare calibration sliders
+* (DSO-13524) - Viewer crash when running Update Unsigned FW with signed FW image (unlocked units only)
+* (DSO-13418) - Global Timestamps wrong after long use [#4505](https://github.com/IntelRealSense/librealsense/issues/4505).
+
 ## Release 2.28.1
 Release Date: 22 Sep 2019
 
