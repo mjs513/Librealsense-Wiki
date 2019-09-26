@@ -1,7 +1,6 @@
 ## Version [2.29.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.29.0)
 
-Changed enum RS2_CAMERA_INFO_FIRMWARE_UPDATE_SERIAL_NUMBER to [RS2_CAMERA_INFO_FIRMWARE_UPDATE_ID]
-(https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L35)
+Changed enum RS2_CAMERA_INFO_FIRMWARE_UPDATE_SERIAL_NUMBER to [RS2_CAMERA_INFO_FIRMWARE_UPDATE_ID](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L35)
 
 ## Version [2.27.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.27.0)
 
