@@ -1,3 +1,69 @@
+## Release 2.30.0
+Release Date: 4 Nov 2019
+
+### API Changes
+[link](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2300)
+
+### New Features & Improvements
+* [#4975](https://github.com/IntelRealSense/librealsense/pull/4975) - New Cross-platform user-space backend implementation for supported USB protocols names `rsusb`. The PR replaces multiple implementation of UVC device for each platform (Windows, Unix, Android) with a single cross platform implementation.
+  The new Implementation employs `rsusb` API to communicate with the device.
+  In order to support the UVC device requirements, some modification were introduced into `rsusb` API, mainly adding asynchronous API to the USB messenger.
+
+  Core Features:
+  - Asynchronous API added to `rsusb` (USB request).
+  - Multiple implementations of libuvc (Win7 / Linux / Android) replaced with single implementation
+  - HID device modified to work with the new asynchronous API.
+
+  Impact:
+  - A new CMake option named `FORCE_RSUSB_BACKEND` added replaces the `FORCE_LIBUVC` and `FORCE_WINUSB_UVC` flags are now marked as deprecated. 
+  - An update to WinUSB driver was implemented. The new driver must be applied in order to use librealsnese 2.30.0 or newer SDK version on Windows 7. Installation of the new driver is performed via librealsense Windows 7 installer.
+
+* [#5169](https://github.com/IntelRealSense/librealsense/pull/5169) - [T265] Firmware Upgrade to 0.2.0.857:
+   - Add Mask API to convey image locations to avoid when detecting features
+   - Cross-device localization maps
+   - Numerical stability improvements
+   - 2.5x lower latency for relocalizations
+* [#5109](https://github.com/IntelRealSense/librealsense/pull/5109) - [T265] display USB port chain in physical port info. by @BriceRenaudeau
+* [#4966](https://github.com/IntelRealSense/librealsense/pull/4966) - Introducing new face anti-spoofing demo exhibiting machine learning algorithms with DLIB (DSO-13630)
+* [#4889](https://github.com/IntelRealSense/librealsense/pull/4889) - [T265] Wheel Odometry python sample
+* [#4953](https://github.com/IntelRealSense/librealsense/pull/4953) - A link to community project that builds Android 
+application with librealsense. @cabelo 
+* [#4907](https://github.com/IntelRealSense/librealsense/pull/4907) - [Realsense-Viewer] User notification improvement when the rendering format is not supported.
+
+### Bug Fixes
+* [#5157](https://github.com/IntelRealSense/librealsense/pull/5157) - Prevent hex formatting contamination.
+* [#5106](https://github.com/IntelRealSense/librealsense/pull/5106) - Acquire depth units from intrinsic. (RS5-5486)
+* [#5077](https://github.com/IntelRealSense/librealsense/pull/5077) - On-chip calibration crash fix
+* [#5066](https://github.com/IntelRealSense/librealsense/pull/5066) - [rosbag-inspector] Crash fix. (DSO-13665). Addresses #4704, #4932
+* [#5065](https://github.com/IntelRealSense/librealsense/pull/5065) - Memory leak in hid sensor (DSO-1380). Fixes #4332
+* [#5025](https://github.com/IntelRealSense/librealsense/pull/5025) - Raspbian Buster build fix. Fix IMU streams handling. Addresses #4986, related to #4950, #4818.
+* [#5028](https://github.com/IntelRealSense/librealsense/pull/5028) - [Realsense-Viewer] Configuration file default path with white spaces was not handled properly. Fixes #3779
+* [#5028](https://github.com/IntelRealSense/librealsense/pull/5028) - Rename `foreach` to `foreach_rs` to avoid namespace collisions with QT foreach macro. #4461. Proposed by @cgpadwick's
+* [#4981](https://github.com/IntelRealSense/librealsense/pull/4981) - Fix min Z offset for disparity domain colorization mode by @TetsuriSonoda
+* [#4967](https://github.com/IntelRealSense/librealsense/pull/4967) - [Depth Quality Tool/Viewer] Metrics record fixes and 
+improvements. Fixes #4913, #4948
+* [#4945](https://github.com/IntelRealSense/librealsense/pull/4945) - [rs-ar-basic] Fix extrinsic pose to camera transformation
+* [#4914](https://github.com/IntelRealSense/librealsense/pull/4914) - Fix WB control for Rolling shutter sensor. Generate UV-map test artifacts.
+* [#4910](https://github.com/IntelRealSense/librealsense/pull/4910) - Robustness improvement: `get_distance` to verify user-provided pixel indexes. #4877
+
+### Known Issues
+* Firmware Update with `rs-fw-update` tool. The firmware update process may fail when additional librealsense application runs in background. Make sure to close any librealsense-based application during the Firmware Update routine (DSO-13078)
+* Firmware Update on Linux - backup procedure may takes up to two minutes (DSO-13072)
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block
+* Frame Drops when changing depth controls while depth streaming. (DSO-9065)
+* [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
+* (Python) [#2356](https://github.com/IntelRealSense/librealsense/issues/2356) / DSO-10681 - missing python example of alignment with post-processing
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized value(s)
+* Global Timestamp: first 15 seconds of frames timestamps are unstable (DSO-12942)
+* IMU jitter and drops events [LRS] regression (DSO-12940)
+* (DSO-13541) - On-Chip Calibration stuck at 0% when in USB2 mode
+* (DSO-13539) - [Android] Camera disconnected after streaming some duration with Android Camera Sample
+* (DSO-13525) - 3D viewer moved when sliding the tare calibration sliders
+* (DSO-13524) - Viewer crash when running Update Unsigned FW with signed FW image (unlocked units only)
+* (DSO-13418) - Global Timestamps wrong after long use [#4505](https://github.com/IntelRealSense/librealsense/issues/4505).
+
+
 ## Release 2.29.0
 Release Date: 26 Sep 2019
 
