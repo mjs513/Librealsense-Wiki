@@ -30,17 +30,17 @@ application with librealsense. @cabelo
 * [#5157](https://github.com/IntelRealSense/librealsense/pull/5157) - Prevent hex formatting contamination.
 * [#5106](https://github.com/IntelRealSense/librealsense/pull/5106) - Acquire depth units from intrinsic. (RS5-5486)
 * [#5077](https://github.com/IntelRealSense/librealsense/pull/5077) - On-chip calibration crash fix
-* [#5066](https://github.com/IntelRealSense/librealsense/pull/5066) - [rosbag-inspector] Crash fix. (DSO-13665, DSO-13562). Addresses #4704, #4932
-* [#5065](https://github.com/IntelRealSense/librealsense/pull/5065) - Memory leak in hid sensor (DSO-13080, DSO-13712, DSO-13639). Fixes #4332
-* [#5025](https://github.com/IntelRealSense/librealsense/pull/5025) - Raspbian Buster build fix. Fix IMU streams handling. Addresses #4986, #4979, #4950, #4818.
-* [#5028](https://github.com/IntelRealSense/librealsense/pull/5028) - [Realsense-Viewer] Configuration file default path with white spaces was not handled properly (DSO-13701). Fixes #3779
-* [#4987](https://github.com/IntelRealSense/librealsense/pull/4987) - Rename `foreach` to `foreach_rs` to avoid namespace collisions with QT's "foreach" macro. #4461. Proposed by @cgpadwick's
+* [#5066](https://github.com/IntelRealSense/librealsense/pull/5066) - [rosbag-inspector] Crash fix. (DSO-13665, DSO-13562). Addresses [#4704](https://github.com/IntelRealSense/librealsense/issues/4704), [#4932](https://github.com/IntelRealSense/librealsense/issues/4932)
+* [#5065](https://github.com/IntelRealSense/librealsense/pull/5065) - Memory leak in hid sensor (DSO-13080, DSO-13712, DSO-13639). Fixes [#4332](https://github.com/IntelRealSense/librealsense/issues/4332)
+* [#5025](https://github.com/IntelRealSense/librealsense/pull/5025) - Raspbian Buster build fix. Fix IMU streams handling. Addresses [#4986](https://github.com/IntelRealSense/librealsense/issues/4986), [#4979](https://github.com/IntelRealSense/librealsense/issues/4979), [#4950](https://github.com/IntelRealSense/librealsense/issues/4950), [#4818](https://github.com/IntelRealSense/librealsense/issues/4818).
+* [#5028](https://github.com/IntelRealSense/librealsense/pull/5028) - [Realsense-Viewer] Configuration file default path with white spaces was not handled properly (DSO-13701). Fixes [#3779](https://github.com/IntelRealSense/librealsense/issues/3779)
+* [#4987](https://github.com/IntelRealSense/librealsense/pull/4987) - Rename `foreach` to `foreach_rs` to avoid namespace collisions with QT's "foreach" macro. [#4461](https://github.com/IntelRealSense/librealsense/issues/4461). Proposed by @cgpadwick's
 * [#4981](https://github.com/IntelRealSense/librealsense/pull/4981) - Fix min Z offset for disparity domain colorization mode by @TetsuriSonoda
 * [#4967](https://github.com/IntelRealSense/librealsense/pull/4967) - [Depth Quality Tool/Viewer] Metrics record fixes and 
-improvements. Fixes #4913, #4948
+improvements. Fixes [#4913](https://github.com/IntelRealSense/librealsense/issues/4913), [#4948](https://github.com/IntelRealSense/librealsense/issues/4948)
 * [#4945](https://github.com/IntelRealSense/librealsense/pull/4945) - [rs-ar-basic] Fix extrinsic pose to camera transformation
 * [#4914](https://github.com/IntelRealSense/librealsense/pull/4914) - Fix White Balance control for Rolling shutter sensor.
-* [#4910](https://github.com/IntelRealSense/librealsense/pull/4910) - Robustness improvement: `get_distance` to verify user-provided pixel indexes. #4877
+* [#4910](https://github.com/IntelRealSense/librealsense/pull/4910) - Robustness improvement: `get_distance` to verify user-provided pixel indexes. [#4877](https://github.com/IntelRealSense/librealsense/issues/4877)
 
 ### Known Issues
 * [#2809](https://github.com/IntelRealSense/librealsense/issues/2809) - Advanced C# examples bug
