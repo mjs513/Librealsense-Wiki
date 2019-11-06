@@ -17,7 +17,7 @@ Release Date: 4 Nov 2019
 
 * [#5169](https://github.com/IntelRealSense/librealsense/pull/5169) - [T265] Firmware Upgrade to 0.2.0.857:
    - Numerical stability improvements in various NaN pose scenarios, can have positive effect on issues [#4518](https://github.com/IntelRealSense/librealsense/issues/4518), [#5101](https://github.com/IntelRealSense/librealsense/issues/5101), [realsense-ros #955](https://github.com/IntelRealSense/realsense-ros/issues/955)
-   - o	Minor relocalization improvements (including better cross-device map compatibility), toward upcoming greater relocalization update.
+   - Minor relocalization improvements (including better cross-device map compatibility), toward upcoming greater relocalization update.
 * [#4936 ](https://github.com/IntelRealSense/librealsense/pull/4936 ) -	[T265] New notification category.(RS2_NOTIFICATION_CATEGORY_POSE_RELOCALIZATION), produced on first relocalization to an imported map
 * [#5109](https://github.com/IntelRealSense/librealsense/pull/5109) - [T265] display USB port chain in physical port info. by @BriceRenaudeau
 * [#4966](https://github.com/IntelRealSense/librealsense/pull/4966) - New face detection and depth-enabled anti-spoofing demo exhibiting machine learning algorithms with [DLIB](http://dlib.net/) toolkit (DSO-13630).
@@ -50,7 +50,7 @@ improvements. Fixes [#4913](https://github.com/IntelRealSense/librealsense/issue
 * [#4297](https://github.com/IntelRealSense/librealsense/issues/4297) - [Windows] Multi-camera IMU Mix up. (DSO-13711)
 * [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
 * [#4505](https://github.com/IntelRealSense/librealsense/issues/4505). - Global Timestamps wrong after long use. (DSO-13418)
-* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the recorder tool, and attach a link to it in the github issue, to assist our resolution.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
 * [T265][Mac] - Start after stop is not working on Mac with the T265 camera
 * (DSO-9065)  - Frame Drops when changing depth controls while depth streaming.
 * (DSO-12940) - IMU jitters and drops events
