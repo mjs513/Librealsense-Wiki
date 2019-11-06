@@ -1,6 +1,6 @@
 ## Version [2.30.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.30.0)
 
-  - [RS2_NOTIFICATION_CATEGORY_POSE_RELOCALIZATION](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L566) - category added to `rs2_notification_category`. The notification designates T265 performing relocalization event, i.e. finding a match betweenthe current position and a previously recorded map.
+  - [RS2_NOTIFICATION_CATEGORY_POSE_RELOCALIZATION](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L566) - category added to `rs2_notification_category`. The notification designates T265 performing relocalization event, i.e. finding a match between the current position and a previously recorded map.
 
 
 ## Version [2.29.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.29.0)
