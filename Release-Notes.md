@@ -16,7 +16,7 @@ Release Date: 4 Nov 2019
   - An update to WinUSB driver was implemented. **Important** - The new driver must be installed in order to use librealsense 2.30.0 or newer SDK version on Windows 7. Installation of the new driver is performed via [librealsense Windows 7 installer](https://github.com/IntelRealSense/librealsense/releases/download/v2.30.0/Intel.RealSense.SDK-WIN7-2.30.0.1174.exe).
 
 * [#5169](https://github.com/IntelRealSense/librealsense/pull/5169) - [T265] Firmware Upgrade to 0.2.0.857:
-   - Numerical stability improvements in various NaN pose scenarios, can have positive effect on issues #4518, #5101, realsense-ros #955
+   - Numerical stability improvements in various NaN pose scenarios, can have positive effect on issues [#4518](https://github.com/IntelRealSense/librealsense/issues/4518), [#5101](https://github.com/IntelRealSense/librealsense/issues/5101), [realsense-ros #955](https://github.com/IntelRealSense/realsense-ros/issues/955)
    - o	Minor relocalization improvements (including better cross-device map compatibility), toward upcoming greater relocalization update.
 * [#4936 ](https://github.com/IntelRealSense/librealsense/pull/4936 ) -	[T265] New notification category.(RS2_NOTIFICATION_CATEGORY_POSE_RELOCALIZATION), produced on first relocalization to an imported map
 * [#5109](https://github.com/IntelRealSense/librealsense/pull/5109) - [T265] display USB port chain in physical port info. by @BriceRenaudeau
