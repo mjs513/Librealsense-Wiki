@@ -13,7 +13,7 @@ Release Date: 4 Nov 2019
   - HID device modified to work with the new asynchronous API.
   Impact:
   - A new CMake option named `FORCE_RSUSB_BACKEND` added replaces the `FORCE_LIBUVC` and `FORCE_WINUSB_UVC` flags are now marked as deprecated. 
-  - An update to WinUSB driver was implemented. The new driver must be applied in order to use librealsense 2.30.0 or newer SDK version on Windows 7. Installation of the new driver is performed via librealsense Windows 7 installer.
+  - An update to WinUSB driver was implemented. **Important** - The new driver must be installed in order to use librealsense 2.30.0 or newer SDK version on Windows 7. Installation of the new driver is performed via [librealsense Windows 7 installer](https://github.com/IntelRealSense/librealsense/releases/download/v2.30.0/Intel.RealSense.SDK-WIN7-2.30.0.1174.exe).
 
 * [#5169](https://github.com/IntelRealSense/librealsense/pull/5169) - [T265] Firmware Upgrade to 0.2.0.857:
    - Numerical stability improvements in various NaN pose scenarios, can have positive effect on issues #4518, #5101, realsense-ros #955
