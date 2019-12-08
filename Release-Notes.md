@@ -4,6 +4,8 @@ Release Date: 9 Dec 2019
 ### API Changes
 TBD
 
+### Bug-fixes and Enhancements
+
 * [#5402](https://github.com/IntelRealSense/librealsense/pull/5402) - *Promote recommended D400 firmware to 5.12.1.0* contributed by [@ev-mp](https://github.com/ev-mp)
 * [#5360](https://github.com/IntelRealSense/librealsense/pull/5360) - *Add rs-dnn-vino sample* (rs-dnn-vino
 This example demonstrates OpenVINO™ toolkit integration with object detection, using
