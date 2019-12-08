@@ -1,3 +1,63 @@
+## Release 2.31.0
+Release Date: 9 Dec 2019
+
+### API Changes
+TBD
+
+* [#5402](https://github.com/IntelRealSense/librealsense/pull/5402) - *Promote recommended D400 firmware to 5.12.1.0* contributed by [@ev-mp](https://github.com/ev-mp)
+* [#5360](https://github.com/IntelRealSense/librealsense/pull/5360) - *Add rs-dnn-vino sample* (rs-dnn-vino
+This example demonstrates OpenVINO™ toolkit integration with object detection, using
+basic depth information to approximate distance) contributed by [@maloel](https://github.com/maloel)
+* [#5377](https://github.com/IntelRealSense/librealsense/pull/5377) - *Change default RGB resolution* (Default change to HD 30) contributed by [@arilowen](https://github.com/arilowen)
+* [#5386](https://github.com/IntelRealSense/librealsense/pull/5386) - *Warning fixes* (Fixes a few minor warnings encountered on macOS) contributed by [@bfulkers-i](https://github.com/bfulkers-i)
+* [#5399](https://github.com/IntelRealSense/librealsense/pull/5399) - *Fix xhci_build flags handling* (Limit the xhci_patch to LTS v4.4 only, improve robustness. The bug fix resolved in v4.18 is being actively back-ported by Ubuntu, e.g 4.4.0-170. Assume that this may occur for other kernel branches as well) contributed by [@ev-mp](https://github.com/ev-mp)
+* [#5380](https://github.com/IntelRealSense/librealsense/pull/5380) - *fix openni2 wrapper convertDepthToColorCoordinates* (Оnly intrinsics are used in the function `Rs2Stream::convertDepthToColorCoordinates`, which leads to a small error due to the fact that the depth and color cameras are offset relative to each other) contributed by [@DarkCon](https://github.com/DarkCon)
+* [#5325](https://github.com/IntelRealSense/librealsense/pull/5325) - *Update t265_rpy.py* (Reverting regression regarding negative signs introduced with last commit to this PR. The negation of z and y is required in order to obtain similarity to the previous sample code (used in the ArduPilot project)) contributed by [@neilyoung](https://github.com/neilyoung)
+* [#5208](https://github.com/IntelRealSense/librealsense/pull/5208) - *Option to preserve T265 maps in memory for subsequent starts* contributed by [@radfordi](https://github.com/radfordi)
+* [#5370](https://github.com/IntelRealSense/librealsense/pull/5370) - *Update tinyfiledialog to v3.4.1 and set map extension* (The version of tinyfiledialog we have doesn't allow by extension file selection on macOS (see [#5245](https://github.com/IntelRealSense/librealsense/issues/5245) and [#5196](https://github.com/IntelRealSense/librealsense/issues/5196)). Even the newest version doesn't seem to allow `*.*` selection, so this PR introduces the `.map` extension of T265 localization maps) contributed by [@bfulkers-i](https://github.com/bfulkers-i)
+* [#5283](https://github.com/IntelRealSense/librealsense/pull/5283) - *Openvino sample* (This example demonstrates OpenVINO™ toolkit integration with facial detection, using
+basic depth information to approximate distance) contributed by [@maloel](https://github.com/maloel)
+* [#5346](https://github.com/IntelRealSense/librealsense/pull/5346) - *Added API for depth auto calibration.* (Added auto_calibrated_device extension for on-chip (plane fit RMS) and tare calibration (absolute distance). Use this API in viewer and added example on python for auto calibration. Fixed viewer to put the default resolution on top and fixed default resolution in D435) contributed by [@aangerma](https://github.com/aangerma)
+* [#5344](https://github.com/IntelRealSense/librealsense/pull/5344) - *Android add pipeline profile partial support* (Only get device function is supported for now) contributed by [@arilowen](https://github.com/arilowen)
+* [#5352](https://github.com/IntelRealSense/librealsense/pull/5352) - *Version compatibility enhancement*. Relax version compatibility constrain from strict identity to the standardized convention: 
+  1. The versions are compatible when the majors align and the version minors hold (lib_ver >= exe_ver) 
+  2. Patch number version does not affect compatibility. 
+* [#5353](https://github.com/IntelRealSense/librealsense/pull/5353) - *Synchronize D400 devices using timestamp by default, and not frame counter* contributed by [@arilowen](https://github.com/arilowen)
+* [#5234](https://github.com/IntelRealSense/librealsense/pull/5234) - *Upgrade T265 firmware to 0.2.0.879*  contributed by [@radfordi](https://github.com/radfordi)
+  1. Double map size. 
+  2. Fix loading maps with a previously loaded map that hadn't relocalized [#4593](https://github.com/IntelRealSense/librealsense/issues/4593) 
+  3. Improve time to relocalization
+* [#4275](https://github.com/IntelRealSense/librealsense/pull/4275) - *Fixed inconsistent return type* (Fixes the following error (GNU Make 4.2.1): `error: inconsistent types 'bool' and 'int' deduced for lambda return type`) contributed by [@battlecry231](https://github.com/battlecry231)
+* [#5331](https://github.com/IntelRealSense/librealsense/pull/5331) - *Fix global timestamp domain query crash* (DSO-13980 - Add missing global timestamp case to timestamp domain enum.) contributed by [@arilowen](https://github.com/arilowen)
+* [#5334](https://github.com/IntelRealSense/librealsense/pull/5334) - *Fix a minor bug in sorting streams* (Assumes the ordering should be by format first, then index, then
+stream number.) contributed by [@bfulkers-i](https://github.com/bfulkers-i)
+* [#5336](https://github.com/IntelRealSense/librealsense/pull/5336) - *Fix save_to_ply symbols in python* (The core issue is that `static const` members are not instantiated anywhere python can access, so taking a reference to them doesn't work. Fix that by creating lambdas that return the value) contributed by [@bfulkers-i](https://github.com/bfulkers-i)
+* [#5337](https://github.com/IntelRealSense/librealsense/pull/5337) - *Add __version__ to python wrapper*  contributed by [@bfulkers-i](https://github.com/bfulkers-i)
+* [#5312](https://github.com/IntelRealSense/librealsense/pull/5312) - *Android multicam example* (- GLSurface cleans its view before each frame arrives. a. Extend wrapper API. b. Add support for multi cameras. c. Add multicamera example) contributed by [@arilowen](https://github.com/arilowen)
+* [#5170](https://github.com/IntelRealSense/librealsense/pull/5170) - *.NET Development* (fix for [#5054](https://github.com/IntelRealSense/librealsense/issues/5054), [#5071](https://github.com/IntelRealSense/librealsense/issues/5071). Revert some c# sensor API changes back to non-generic) contributed by [@ogoshen](https://github.com/ogoshen)
+* [#5200](https://github.com/IntelRealSense/librealsense/pull/5200) - *Add new functions to Python wrapper, update some more documentation* (Addresses [#5173](https://github.com/IntelRealSense/librealsense/issues/5173)) contributed by [@lramati](https://github.com/lramati)
+* [#4720](https://github.com/IntelRealSense/librealsense/pull/4720) - *Automatically set supported profiles in viewer* (Added functionality to the realsense viewer: when the user picks a value (resolution / fps / format / stream) that isn't compatible with the current configuration, a new configuration that supports the chosen value is set) contributed by [@AnnaRomanov](https://github.com/AnnaRomanov)
+* [#4396](https://github.com/IntelRealSense/librealsense/pull/4396) - *Smooth GlobalTimeStamp's corrections.* (prevents cases where, due to jumps in sampling, global timestamps difference is much greater then the original hw timestamp difference) contributed by [@doronhi](https://github.com/doronhi)
+* [#5198](https://github.com/IntelRealSense/librealsense/pull/5198) - *Alternative, possibly simpler approach for obtaining pitch, roll and yaw from T265 pose in python* contributed by [@neilyoung](https://github.com/neilyoung)
+* [#5244](https://github.com/IntelRealSense/librealsense/pull/5244) - *Wheeled Odometry Calibration Setup Examples* (Added basic wheeled odometry description / sample drawings/json to T265 documentation. ) contributed by [@krazycoder2k](https://github.com/krazycoder2k)
+* [#5278](https://github.com/IntelRealSense/librealsense/pull/5278) - *Fix SR300 enumeration on linux* (DSO-13973, 
+[#5230](https://github.com/IntelRealSense/librealsense/issues/5230), [#5233](https://github.com/IntelRealSense/librealsense/issues/5233), [#5219](https://github.com/IntelRealSense/librealsense/issues/5219)) contributed by [@matkatz](https://github.com/matkatz)
+* [#5053](https://github.com/IntelRealSense/librealsense/pull/5053) - *Adding Support-Matrix and updating Jetson docs*. This PR introduces two new documentation enhancements: 
+  1. Rewrite of [installation_jetson.md](https://github.com/dorodnic/librealsense/blob/jetson_doc/doc/installation_jetson.md) 
+  2. Addition of [support-matrix.md](https://github.com/dorodnic/librealsense/blob/jetson_doc/doc/support-matrix.md) trying to capture the big picture of what features are available on which platforms)
+* [#5111](https://github.com/IntelRealSense/librealsense/pull/5111) - *Sensor refactoring* (DSO-13626) 
+  contributed by [@arilowen](https://github.com/arilowen)
+  - Add Synthetic Sensor class.
+  - Replace unpackers with processing blocks.
+  - Add composite processing blocks
+* [#5110](https://github.com/IntelRealSense/librealsense/pull/5110) - *Enhanced PLY exporter* contributed by [@AnnaRomanov](https://github.com/AnnaRomanov)
+* [#5205](https://github.com/IntelRealSense/librealsense/pull/5205) - *Kernel patch adjustment for 4.4 branch* (The patch provides a new option to incorporate additional 4.13-upstreamed patches for usbcore and xhci-hcd modules on top of the basic patches suite. The additional patch is a retrofit of [patchwork.kernel.org/patch/11095737](https://patchwork.kernel.org/patch/11095737/). The patches allow to avoid sporadic errors reproduced during stress start/stop tests that can affect certain SKUs. Tracked on: RS-5440) contributed by [@ev-mp](https://github.com/ev-mp)
+* [#5204](https://github.com/IntelRealSense/librealsense/pull/5204) - *Zero the high 32 bit of 64 bit imu timestamp.* contributed by [@aangerma](https://github.com/aangerma)
+* [#5202](https://github.com/IntelRealSense/librealsense/pull/5202) - *Disable GLOBAL_TIME option* (Disable global timestamp by default for specific SKU) contributed by [@aangerma](https://github.com/aangerma)
+* [#5179](https://github.com/IntelRealSense/librealsense/pull/5179) - *Include USB Host license* contributed by [@matkatz](https://github.com/matkatz)
+* [#5190](https://github.com/IntelRealSense/librealsense/pull/5190) - *Fix link in t265.md* contributed by [@levingerdes](https://github.com/levingerdes)
+* [#5306](https://github.com/IntelRealSense/librealsense/pull/5306) - *UE4 wrapper 4.24 update and Linux build* contributed by [@gaborpapp](https://github.com/gaborpapp)
+
 ## Release 2.30.0
 Release Date: 4 Nov 2019
 
