@@ -26,7 +26,8 @@ basic depth information to approximate distance) contributed by [@maloel](https:
 * [#5234](https://github.com/IntelRealSense/librealsense/pull/5234) - *Upgrade T265 firmware to 0.2.0.879*  contributed by [@radfordi](https://github.com/radfordi)
   1. Double map size. 
   2. Fix loading maps with a previously loaded map that hadn't relocalized [#4593](https://github.com/IntelRealSense/librealsense/issues/4593) 
-  3. Improve time to relocalization
+  3. Relocalization significantly improved for areas up to 50 sq. m: testing indicates fast (< 5 seconds) relocalization for typical environments and usage with non-static T265 device.
+  4. Addressing [#4593](https://github.com/IntelRealSense/librealsense/issues/4593) – [T265] Map corruption after repeated export and import
 * [#4275](https://github.com/IntelRealSense/librealsense/pull/4275) - *Fixed inconsistent return type* (Fixes the following error (GNU Make 4.2.1): `error: inconsistent types 'bool' and 'int' deduced for lambda return type`) contributed by [@battlecry231](https://github.com/battlecry231)
 * [#5331](https://github.com/IntelRealSense/librealsense/pull/5331) - *Fix global timestamp domain query crash* (DSO-13980 - Add missing global timestamp case to timestamp domain enum.) contributed by [@arilowen](https://github.com/arilowen)
 * [#5334](https://github.com/IntelRealSense/librealsense/pull/5334) - *Fix a minor bug in sorting streams* (Assumes the ordering should be by format first, then index, then
