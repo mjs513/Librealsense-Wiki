@@ -6,6 +6,9 @@ Release Date: 23 Jan 2020
 [#5678](https://github.com/IntelRealSense/librealsense/pull/5678) - **Enable metadata with a single click on Windows**
 UVC frame metadata on Windows is causing a lot of questions and confusion, adding a single click solution that would be applicable from within the Viewer.  contributed by [@dorodnic](https://github.com/dorodnic)
 
+[#5700](https://github.com/IntelRealSense/librealsense/pull/5700) - **Upgrade D4XX firmware to 5.12.2.100** 
+- Maintenance update: performance and stability improvements
+
 [#5687](https://github.com/IntelRealSense/librealsense/pull/5687) - **Upgrade T265 firmware to 0.2.0.926** 
 - Fix map load hangs
 - Fix USB serial number (remove trailing zeros)
@@ -15,7 +18,7 @@ UVC frame metadata on Windows is causing a lot of questions and confusion, addin
 - Fix export without import or start
 - Allow export of imported but not started maps
 
-[#5213](https://github.com/IntelRealSense/librealsense/pull/5213) - **Replace libtm with direct communication with T265**  (This PR removes libtm completely and makes T265 a first class driver in librealsense. In more detail, it:
+[#5213](https://github.com/IntelRealSense/librealsense/pull/5213) - **Replace libtm with direct communication with T265**  This PR removes libtm completely and makes T265 a first class driver in librealsense. In more detail, it:
 - Removes libtm and remnants of older products and directly communicates with T265
 - Uses the librealsense usb abstraction for booting T265 and communicating with it
 - Unifies firmware download into common/fw
