@@ -1,3 +1,141 @@
+## Release 2.32.1
+Release Date: 23 Jan 2020
+
+### Enhancements
+
+[#5678](https://github.com/IntelRealSense/librealsense/pull/5678) - **Enable metadata with a single click on Windows**
+UVC frame metadata on Windows is causing a lot of questions and confusion, adding a single click solution that would be applicable from within the Viewer.  contributed by [@dorodnic](https://github.com/dorodnic)
+
+[#5687](https://github.com/IntelRealSense/librealsense/pull/5687) - **Upgrade T265 firmware to 0.2.0.926** 
+- Fix map load hangs
+- Fix USB serial number (remove trailing zeros)
+- Support for `remove_static_node`
+- Fix map export hangs based on map sizes ([#5394](https://github.com/IntelRealSense/librealsense/issues/5394))
+- Fix immediate NaNs based due to a specific initial condition
+- Fix export without import or start
+- Allow export of imported but not started maps
+
+[#5213](https://github.com/IntelRealSense/librealsense/pull/5213) - **Replace libtm with direct communication with T265**  (This PR removes libtm completely and makes T265 a first class driver in librealsense. In more detail, it:
+- Removes libtm and remnants of older products and directly communicates with T265
+- Uses the librealsense usb abstraction for booting T265 and communicating with it
+- Unifies firmware download into common/fw
+- Fixes many issues on macOS
+- Fixes multi-process issues caused by libtm greedily claiming the device
+- Adds hardware reset support
+- Allows export of map while running
+- Logs an error when the user tries to stream video data over USB 2 connections
+- Fixes the pipeline resolution bug mentioned in [#4506](https://github.com/IntelRealSense/librealsense/issues/4506)
+
+Contributed by [@bfulkers-i](https://github.com/bfulkers-i)
+
+[#5356](https://github.com/IntelRealSense/librealsense/pull/5356) - **T2XX sample: new `ar-advanced` sample to show map import/export and get/set static node APIs**  
+* Import localization map from raw data file before starting T2xx tracking.
+* Export localization map to raw data file after T2xx tracking ended.
+* Command line options to specify raw data file paths for the above map import/export.
+* Set up a callback to receive relocalization event from the device and action after the event.
+* Get static node from imported localization map after relocalization event detected.
+* Set static node before localization map exported.
+
+Contributed by [@honpong](https://github.com/honpong)
+
+[#5468](https://github.com/IntelRealSense/librealsense/pull/5468) - **Add sensor extensions** 
+Add color_sensor, motion_sensor and fisheye_sensor extensions.
+Enable the option to `dev.first<rs2::color_sensor>()` or `sensor.is<rs2::color_sensor>()` etc. Contributed by [@doronhi](https://github.com/doronhi)
+
+[#5529](https://github.com/IntelRealSense/librealsense/pull/5529) - **.NET VideoStreamProfile.Clone added**  
+Cloning a profile is sometimes needed when writing custom processing blocks. Contributed by [@ogoshen](https://github.com/ogoshen)
+
+[#5419](https://github.com/IntelRealSense/librealsense/pull/5419) - **Merge Android development branch** 
+Adds the following features:
+- Terminal
+- FW Logger
+- FW Backup
+- Extend stream stats
+- Basic Controls tab - Emitter mode only for now
+
+Fixes issues:
+- Pipeline memory leak
+- Recordings functionality
+- Permissions issues
+
+### Bug Fixes
+
+[#5691](https://github.com/IntelRealSense/librealsense/pull/5691) - **Fix possible bug in device-hid detection**
+Comparison to capacity(), which can be greater than size(), can lead to wrong logic contributed by [@maloel](https://github.com/maloel)
+
+[#5639](https://github.com/IntelRealSense/librealsense/pull/5639) - **T265 time sync: filter outliers**
+Global timestamp will show deviation due to global timestamp base adjustment every 500ms, contributed by [@cchen6](https://github.com/cchen6)
+
+[#5597](https://github.com/IntelRealSense/librealsense/pull/5597) - **VAAPI HEVC Main10 hardware depth encoding example** contributed by [@bmegli](https://github.com/bmegli)
+
+[#5586](https://github.com/IntelRealSense/librealsense/pull/5586) - **Add support for POWER9 CPUs on Linux**
+Tested on a Raptor Computing Blackbird motherboard with an IBM POWER9 CPU, running Void Linux PPC. Contributed by [@AlbertoGP](https://github.com/AlbertoGP)
+
+[#5626](https://github.com/IntelRealSense/librealsense/pull/5626) - **Adding links to community projects**
+* Linking to [Raspberry Pi Handheld 3D Scanner](https://eleccelerator.com/pi-handheld-3d-scanner/) blog-post by @frank26080115
+* Linking to  [Erwhi Hedgehog](https://gbr1.github.io/erwhi_hedgehog.html) by @gbr1
+
+[#5589](https://github.com/IntelRealSense/librealsense/pull/5589) - **L500 duplicated IR frame fix**  
+IR frame was processed from both IR-id and from zero order processing blocks.
+Now IR frame is not passed-through by default when zero order is disabled
+Tracked-on: RS5-6159
+
+[#5677](https://github.com/IntelRealSense/librealsense/pull/5677) - **Prevent UVC frame overflow with v4l**  Add heuristic to drop UVC overflow frames with v4l kernel prior to v4.16
+Handle GCC pedantic
+Tracked on: DSO-14370
+
+[#5627](https://github.com/IntelRealSense/librealsense/pull/5627) - **Remove Accelerometer 50Hz profile**  (Tracked-on: RS5-5473)
+
+[#5636](https://github.com/IntelRealSense/librealsense/pull/5636) - **Fix for memory overrun when parsing metadata** 
+Trim frame size when the metadata is present but invalid
+Add heuristics to validate metadata existence. (assume d4xx format)
+Tracked on : DSO-14292
+
+[#5637](https://github.com/IntelRealSense/librealsense/pull/5637) - **Include stddef in usbhost.h** 
+`usbhost.h` uses `size_t`, which is defined in `stddef.h`. This change includes `stddef.h` header. Contributed by [@jonberling](https://github.com/jonberling)
+
+[#5534](https://github.com/IntelRealSense/librealsense/pull/5534) - **Fix motion and motion correction routines**  
+- Fix reported HID frame size required for unpacker
+- Motion correction and handling:
+- Query motion correction option at run-time
+- Assign the intrinsic data to the processing block and switch to cached data
+- Fix data flow management
+- Move exception handling to initialization
+- Assign default MM axis rotation for unsupported SKUs
+Addresses  [#5515](https://github.com/IntelRealSense/librealsense/issues/5515), possibly [#5496](https://github.com/IntelRealSense/librealsense/issues/5496), [#5498](https://github.com/IntelRealSense/librealsense/issues/5498)) contributed by [@ev-mp](https://github.com/ev-mp)
+
+[#5574](https://github.com/IntelRealSense/librealsense/pull/5574) - **Added action_delayer and remove gamma correction control.**  
+1. Added action_delayer to enable delayed action
+2. Remove gamma correction control from RGB sensor
+
+[#5264](https://github.com/IntelRealSense/librealsense/pull/5264) - **Update installation_osx.md**  (Make it work on Catalina) contributed by [@neilyoung](https://github.com/neilyoung)
+
+[#5155](https://github.com/IntelRealSense/librealsense/pull/5155) - **update pyglet to 1.4.x** 
+The pyglet class pyglet.clock.ClockDisplay has removed in 1.4.x. Use pyglet.window.FPSDisplay instead. Addresses [#255](https://github.com/los-cocos/cocos/issues/255). Apply the changes from [#3887](https://github.com/IntelRealSense/librealsense/issues/3887)
+Contributed by [@mengyui](https://github.com/mengyui)
+
+[#5387](https://github.com/IntelRealSense/librealsense/pull/5387) - **polling_device_watcher: fix race between construction and start**
+Device watchers do not notify for devices that already exist when they are constructed (e.g. `win_event_device_watcher`), but polling_device_watcher was also not notifying if devices were added between construction and start. This aligns polling_device_watcher with `win_event_device_watcher`.
+Contributed by [@bfulkers-i](https://github.com/bfulkers-i)
+
+[#5444](https://github.com/IntelRealSense/librealsense/pull/5444) - **CMake: unix_config, set CMAKE_POSITION_INDEPENDENT_CODE**  
+And remove manually set `fPIC`. `CMAKE_POSITION_INDEPENDENT_CODE` properly sets `fPIC` for libraries and `fPIE` for executables.
+Contributed by [@jirislaby](https://github.com/jirislaby)
+
+[#5443](https://github.com/IntelRealSense/librealsense/pull/5443) - **common: fw-update-helper, don't compare addresses**  
+`create_default_fw_table` tries to compare `""` with another string. But both are addresses. Use `strlen` in that case. Issue: [#5525](https://github.com/IntelRealSense/librealsense/issues/5525), Contributed by [@tylerjw](https://github.com/tylerjw)
+
+[#5521](https://github.com/IntelRealSense/librealsense/pull/5521) - **Fix extrinsics commutativity**  
+Manually create a new stream profile for every clone needed by the sensor while initializing the stream profiles, instead of cloning via the raw profile. Cloning the profiles caused extrinsic registration with incomplete profiles.
+Addresses [#5451](https://github.com/IntelRealSense/librealsense/issues/5451)
+
+[#5522](https://github.com/IntelRealSense/librealsense/pull/5522) - **Fix recording crash** 
+Recording unsubscribe signal was not called properly, causing sensor hooks to be called even after the record device object was destroyed.
+
+[#5421](https://github.com/IntelRealSense/librealsense/pull/5421) - **Typo removed**  
+Contributed by [@neilyoung](https://github.com/neilyoung)
+
+
 ## Release 2.31.0
 Release Date: 9 Dec 2019
 
