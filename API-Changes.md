@@ -1,3 +1,39 @@
+## Version [2.33.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.33.1)
+### Configuration Serialization:
+ - [rs2_serialize_json](https://github.com/IntelRealSense/librealsense/blob/v2.32.1/include/librealsense2/h/rs_sensor.h#L547) - Serialize JSON content, returns ASCII-serialized JSON string on success
+ - [rs2_load_json](https://github.com/IntelRealSense/librealsense/blob/v2.32.1/include/librealsense2/h/rs_sensor.h#L547) - Load JSON and apply advanced-mode controls
+ 
+### Logging enhancement:
+ - [rs2_log_to_callback](https://github.com/IntelRealSense/librealsense/blob/v2.33.1/include/librealsense2/rs.h#L90) - Propagate SDK-generated logs to user-provided callback function
+ - [rs2_log_to_callback_cpp](https://github.com/IntelRealSense/librealsense/blob/v2.33.1/include/librealsense2/rs.h#L78) - Propagate SDK-generated logs using c++ callback object
+ - [rs2_get_log_message_line_number](https://github.com/IntelRealSense/librealsense/blob/v2.33.1/include/librealsense2/rs.h#L83) - Retrieve the logged line number
+ - [rs2_get_log_message_filename](https://github.com/IntelRealSense/librealsense/blob/v2.33.1/include/librealsense2/rs.h#L84) - Retrieve the logged file name
+ - [rs2_get_raw_log_message](https://github.com/IntelRealSense/librealsense/blob/v2.33.1/include/librealsense2/rs.h#L85)
+ - [rs2_get_full_log_message](https://github.com/IntelRealSense/librealsense/blob/v2.33.1/include/librealsense2/rs.h#L86)
+ 
+### L500-specific:
+Controls:
+ - [RS2_OPTION_FREEFALL_DETECTION_ENABLED](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L87) - Toggle sensor free-fall protection mechanism (on by default)
+ - [RS2_OPTION_AVALANCHE_PHOTO_DIODE](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L88) - Set the exposure interval for the receiver's APD
+ - [RS2_OPTION_POST_PROCESSING_SHARPENING](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L89) - Set the sharpening level in post-processed phase  
+ - [RS2_OPTION_PRE_PROCESSING_SHARPENING](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L90) - Set the sharpening level in pre-processed phase  
+ - [RS2_OPTION_NOISE_FILTERING](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L91) - Control the edge thresholds for the noise filtering
+ - [RS2_OPTION_INVALIDATION_BYPASS](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L92) - Toggle pixels invalidation processing  
+ - [RS2_OPTION_AMBIENT_LIGHT](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L93) - Select the ambient light settings  
+ - [RS2_OPTION_SENSOR_MODE](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L94) - Preset the scanning mode resolution
+ 
+Presets:
+	/** \brief For L500 devices: provides optimized settings (presets) for specific types of usage. */
+ - [rs2_l500_visual_preset](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L134) - Provides optimized settings for specific types of usage
+
+Option characterization:
+ - [rs2_sensor_mode](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L147) - utilized by `RS2_OPTION_SENSOR_MODE`
+ - [rs2_ambient_light](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L156) - utilized by `RS2_OPTION_AMBIENT_LIGHT`
+
+Enum to string convenience APIs
+ - [rs2_l500_visual_preset_to_string](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L144)
+ - [rs2_sensor_mode_to_string](https://github.com/IntelRealSense/librealsense/blob/2.33.1/include/librealsense2/h/rs_option.h#L153)
+
 ## Version [2.32.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.32.1)
  - [rs2_remove_static_node](https://github.com/IntelRealSense/librealsense/blob/v2.32.1/include/librealsense2/h/rs_sensor.h#L547) - T265: Remove a named location tag
  - [rs2_create_huffman_depth_decompress_block](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L566) - Generates a processing block dedicated for decoding `Z16H` compressed depth format.
@@ -7,6 +43,40 @@
 RS2_EXTENSION_MOTION_SENSOR,  
 RS2_EXTENSION_FISHEYE_SENSOR,  
 RS2_EXTENSION_DEPTH_HUFFMAN_DECODER](https://github.com/IntelRealSense/librealsense/blob/v2.32.1/include/librealsense2/h/rs_types.h#L177-L180) - Extension types used for class instance identification/affiliation.
+
+## Version [2.31.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.31.0)
+D4xx Calibration routines:
+https://github.com/IntelRealSense/librealsense/commit/e89e4d6477e619291789d5b2be141e55303687e5
+ - [rs2_run_on_chip_calibration_cpp](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_device.h#L264) - Invoke built-in target-less calibration routine (with progress report)
+ - [rs2_run_tare_calibration_cpp](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_device.h#L311) - Adjust camera distance w.r.t. flat target. Requires known ground-truth plane (with progress report)
+ - [rs2_run_on_chip_calibration](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_device.h#L287) - Invoke built-in calibration routine
+ - [rs2_run_tare_calibration](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_device.h#L336) - Adjust camera distance w.r.t. flat target. Requires known ground-truth plane  
+ - [rs2_get_calibration_table](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_device.h#L342) - Read calibration table from device Flash
+ - [rs2_set_calibration_table](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_device.h#L348) - Write calibration table to the device Flash
+
+Metadata attributes:
+ - `RS2_FRAME_METADATA_FRAME_LASER_POWER_MODE` has been superseded and will be gradually replaced by [RS2_FRAME_METADATA_FRAME_EMITTER_MODE](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_frame.h#L61) attribute
+ - [RS2_FRAME_METADATA_FRAME_LED_POWER](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_frame.h#L62) value support has been added for selected SKUs.
+
+Options:
+ - [RS2_OPTION_LED_POWER](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_option.h#L84) - LED Power settings (mW)
+ - [RS2_OPTION_ZERO_ORDER_ENABLED](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_option.h#L85) - L500-specific Depth post=processing filter control (on by default)
+ - [RS2_OPTION_ENABLE_MAP_PRESERVATION](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_option.h#L86) - T265: Preserve previous map when starting
+         
+Raw Streaming Formats:
+ - [RS2_FORMAT_Y8I](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_sensor.h#L83) - 8-bit per pixel interleaved. 8-bit left, 8-bit right
+ - [RS2_FORMAT_Y12I](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_sensor.h#L84) - up to 12-bit intensity date per pixel, interleaved, packed into 24-bit word (little-endian)
+ - [RS2_FORMAT_INZI](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_sensor.h#L85) - Multi-planar Depth 16bit + IR 10bit (SR3xx)
+ - [RS2_FORMAT_INVI](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_sensor.h#L86) - 8-bit intensity stream (SR3xx)
+ - [RS2_FORMAT_W10](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_sensor.h#L87) - 10 bit per pixel intensity data. Y10BPACK-complient [8,8,8,8,[2,2,2,2]]
+	
+ - [RS2_EXTENSION_AUTO_CALIBRATED_DEVICE](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_types.h#L176) - Enabled for D4xx devices that support auto-calibration
+	
+PLY Exporter customization
+ - [OPTION_PLY_MESH](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/hpp/rs_export.hpp#L47) - Store Depth as Pointcloud/Polygons (Mesh) selector.
+ - [OPTION_PLY_BINARY](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/hpp/rs_export.hpp#L48) - Selec ASCII/Binary representation
+ - [OPTION_PLY_NORMALS](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/hpp/rs_export.hpp#L49) - Generate normals per polygon vertex (applicable Mesh only)
+ - [OPTION_PLY_THRESHOLD](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/hpp/rs_export.hpp#L50) - Set the threshold for polygon generation
 
 
 ## Version [2.30.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.30.0)
