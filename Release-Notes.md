@@ -1,3 +1,115 @@
+## Release 2.33.1
+Release Date: 1 Mar 2020
+
+### Enhancements
+
+* [#5946](https://github.com/IntelRealSense/librealsense/pull/5946) - **FW 5.12.3.0 for D4xx Devices**  Stability and Power Management fixes and enhancements
+
+* [#5741](https://github.com/IntelRealSense/librealsense/pull/5741) - **Visual presets and new options for L500** (RS5-6455):  
+        **Options:**  
+        - confidence,  
+        - post_processing_sharpness ,  
+        - pre_processing_sharpness ,  
+        - noise_filtering ,
+        - avalanche_photo_diode,  
+        - laser_gain,  
+        - min_distance,
+        - invalidation_bypass,  
+        - ambient_light  
+        **Presets:**  
+        - RS2_L500_VISUAL_PRESET_NO_AMBIENT,  
+        - RS2_L500_VISUAL_PRESET_LOW_AMBIENT,  
+        - RS2_L500_VISUAL_PRESET_MAX_RANGE,  
+        - RS2_L500_VISUAL_PRESET_SHORT_RANGE  
+        **Serialization support:**  
+        - save and load options/presets with JSON.
+
+* [#5584](https://github.com/IntelRealSense/librealsense/pull/5584) - **log_to_callback + unit-tests**:  
+Fixes OpenVino test-cases in static (non-shared) builds.  
+Fixes some of the warnings repeatedly given (from headers) during compilation.  
+Travis "Linux - cpp" build is now "Linux - cpp - static" and uses static (non-shared; BUILD_SHARED_LIBS is off) compilation.  
+Added unit-testing mechanism:
+  - Any test-\*.cpp (and, in future, test-*.py, etc.) under unit-tests/ is a unit-test
+  - Tests can be nested inside directories
+  - Each test creates its own project (in Visual Studio under Unit-Tests, with same nested structure)   and thus its own executable
+  - A script (unit-tests/run-unit-tests.py) runs all unit-tests and exits with status 1 or 0
+  - Unit-tests can be specifically shared or static
+- Unit-tests are now run in Travis, in both shared and static builds
+- BUILD_SHARED_LIBS is now a compiler definition, too
+- Added rs2::log_to_callback, rs2_log_to_callback, rs2_log_to_callback_cpp
+  - Minimum level can be set for a callback (e.g., warnings and above)
+  - Added RS2_LOG_SEVERITY_ALL, same as _DEBUG, so it's easier to say "log all messages"
+  - 21 unit-tests under unit-tests/log/
+
+* [#5751](https://github.com/IntelRealSense/librealsense/pull/5751) - **Linux Kernel 5 and 5.3 fixes and enhancements** (DSO-14299):  
+ - Fixes:
+    - UVC and metadata node matching shall use non-lexicographic sort in v4l. Applicable for kernels 4.16+.  
+   - Enforce Video/Metadata sync by using two-stage blocking calls. This replaces I/O multiplexing to ensure the pairing of video and meta nodes payloads.  
+   - Check libusb return value to prevent null de-referencing and segfault.  
+   - Enforce Metadata  polling is performed when invalid video buffer is encountered to ensure Video/Metadata node sync.
+   - Fix hardware fps calculation when the frame number being reset internally by the FW, such as in `SCP Overflow` case.  
+ - Enhancements:
+   - Make unified kernel patches for LTS v5.0 and v5.3.
+   - Re-enable unattended patch by overriding `patch --merge` inconsistency with try/apply. Github [#5710](https://github.com/IntelRealSense/librealsense/issues/5710)
+   - Adjust metadata validation heuristics in SKU-neutral manner to allow for D400, SR300 and L500 md payloads.
+   - Check  Metadata/Video nodes buffers synchronization by comparing the kernel sequence buffers
+- Addresses [#5319](https://github.com/IntelRealSense/librealsense/issues/5319), [#4543](https://github.com/IntelRealSense/librealsense/issues/4543). Relevant for the following ROS issues [1024](https://github.com/IntelRealSense/realsense-ros/issues/1024), [1047](https://github.com/IntelRealSense/realsense-ros/issues/1047), [1060](https://github.com/IntelRealSense/realsense-ros/issues/1060), [492](https://github.com/IntelRealSense/realsense-ros/issues/492).
+
+* [LabVIEW Package](https://realsense-hw-public.s3-eu-west-1.amazonaws.com/Releases/RS4xx/Windows/labview_2_33_0.zip) ** update with SDK v2.33.0**  
+
+* [#5796](https://github.com/IntelRealSense/librealsense/pull/5796) - **Syncer to bypass IMU frames for L515** (RS5-5558):  
+  - Added composite_identity_matcher that passes frames to callback without synchronize them.
+
+* [#5792](https://github.com/IntelRealSense/librealsense/pull/5792) - **Android streamer start time increase fix** (DS5U-4538, DSO-14302):
+   -   (Autoclosable try added for getting device into Updatable - bug was only in the Android wrapper.
+
+* [#5789](https://github.com/IntelRealSense/librealsense/pull/5789) - **Android multicam fix** (DSO-14133):
+  - Start/stop multicam application fixed
+
+* [#5780](https://github.com/IntelRealSense/librealsense/pull/5780) - **RS2_OPTION_FREEFALL_DETECTION_ENABLED** (RS5-6461):
+  - When an L500 camera experiences free-fall (is dropped) a safety mechanism is triggered and turns off the depth sensor to protect moving parts inside the camera.
+
+* [#5698](https://github.com/IntelRealSense/librealsense/pull/5698) - **#4297 Multicamera IMU data mix up** (DSO-13711):  
+  - HID devices now use the unique-ID assigned to their parent node (which is the USB node), letting them be properly associated with the proper composite device.  
+  - Multiple HID cameras should be identified correctly.
+  - Addresses [#4297](https://github.com/IntelRealSense/librealsense/issues/4297)
+
+* [#5801](https://github.com/IntelRealSense/librealsense/pull/5801) - **rs-fw-logger - regression fix** (DSO-14405) 
+
+* [#5716](https://github.com/IntelRealSense/librealsense/pull/5716) - **rs-enumerate-devices fixes and enhancements** (DSO-14190):  
+ Revert `-s` option to invoke a one-line description per device.  
+ Add `-S` to provide the device node data (used to be `-s`)  
+ Addresses [#5423](https://github.com/IntelRealSense/librealsense/issues/5423)  
+ 
+* [#5768](https://github.com/IntelRealSense/librealsense/pull/5768) - **On-Chip and Tare Calibration Fixes**:  
+Minor fixes and quality of life improvements for OCC and Tare features
+  
+* [#5791](https://github.com/IntelRealSense/librealsense/pull/5791) - **Disable all L515 depth processing blocks except for the Temporal Gilter**
+
+* [#5785](https://github.com/IntelRealSense/librealsense/pull/5785) - **Fix typo**  (apriltag_pose_destory -> apriltag_pose_destroy) contributed by [@pjessesco](https://github.com/pjessesco)
+* [#5645](https://github.com/IntelRealSense/librealsense/pull/5645) - **T265 Serial Number Compatability**:  
+  Keep the serial number of the T265 compatible with the `libtm` format (`8XXXXXXXXXXX` rather than `00008XXXXXXXXXXX`).  By [@radfordi](https://github.com/radfordi)
+* [#5889](https://github.com/IntelRealSense/librealsense/pull/5889) - **Fix memory leak** in v4l2 backend with kernel 4.16+. 
+* [#5923](https://github.com/IntelRealSense/librealsense/pull/5923) - **License for  Windows INF file** update.  Addresses [#5809](https://github.com/IntelRealSense/librealsense/issues/5809)
+
+
+**Community Contribution**:  
+* [#5750](https://github.com/IntelRealSense/librealsense/pull/5750) - **Ill-defined for loop fix**. by [@JTrantow](https://github.com/JTrantow)
+* [#5769](https://github.com/IntelRealSense/librealsense/pull/5769) - **Update camera renderer**:  
+ Make SR305 and L500 appear correctly in the 3D view.
+
+ * [#5623](https://github.com/IntelRealSense/librealsense/pull/5623) - **One Viewer Context**:  
+Avoid creating multiple unused `rs2::context`s.
+* [#5747](https://github.com/IntelRealSense/librealsense/pull/5747) - **Remove the std::move() on const. See Issue5746.**:  
+  Resolves [#5746](https://github.com/IntelRealSense/librealsense/issues/5746)) contributed by [@JTrantow](https://github.com/JTrantow)
+* [#5702](https://github.com/IntelRealSense/librealsense/pull/5702) - **Fix for conversion from RGB to BGR in the OpenCV wrapper helpers file**:  
+  Related to [#5701](https://github.com/IntelRealSense/librealsense/issues/5701).  
+  Without converting to a seperate `cv::Mat` object, the conversion would not happen on my machine. This seems to be the case for other users, see [this example.](https://answers.opencv.org/question/199603/problem-with-intel-realsense-sdk-20-and-cvcvtcolor/)). Contributed by [@cedriclmenard](https://github.com/cedriclmenard)
+* [#5724](https://github.com/IntelRealSense/librealsense/pull/5724) - **Fix typos**.  Contributed by [@ruffsl](https://github.com/ruffsl)
+* [#5734](https://github.com/IntelRealSense/librealsense/pull/5734) - **Fix what appears to be a copy/paste redundant code problem**:  
+Addresses [#5733](https://github.com/IntelRealSense/librealsense/issues/5733) - Change second conditional to test values_ir.size(). By [@JTrantow](https://github.com/JTrantow)
+
+
 ## Release 2.32.1
 Release Date: 23 Jan 2020
 
