@@ -38,7 +38,7 @@ Enum to string convenience APIs
  - [rs2_remove_static_node](https://github.com/IntelRealSense/librealsense/blob/v2.32.1/include/librealsense2/h/rs_sensor.h#L547) - T265: Remove a named location tag
  - [rs2_create_huffman_depth_decompress_block](https://github.com/IntelRealSense/librealsense/blob/development/include/librealsense2/h/rs_sensor.h#L566) - Generates a processing block dedicated for decoding `Z16H` compressed depth format.
  - [RS2_FORMAT_Z16H](https://github.com/IntelRealSense/librealsense/blob/v2.32.1/include/librealsense2/h/rs_sensor.h#L88) - Provision for `Z16H` format. A variable-length compression dedicated for 16-bit depth values using customized Huffman code implementation.
- - [RS2_FRAME_METADATA_RAW_FRAME_SIZE](https://github.com/IntelRealSense/librealsense/blob/v2.32.1/include/librealsense2/h/rs_frame.h#L63) - Metadata attribute for the size in bytes of the transmitted frame payload (w/o metadata header). For non-compressed video streams is equal to Width*Height*BytesPerPixel.
+ - [RS2_FRAME_METADATA_RAW_FRAME_SIZE](https://github.com/IntelRealSense/librealsense/blob/v2.32.1/include/librealsense2/h/rs_frame.h#L63) - Metadata attribute for the size in bytes of the transmitted frame payload (w/o metadata header). For non-compressed video streams is equal to Width\*Height\*BytesPerPixel.
  - [RS2_EXTENSION_COLOR_SENSOR,  
 RS2_EXTENSION_MOTION_SENSOR,  
 RS2_EXTENSION_FISHEYE_SENSOR,  
@@ -60,7 +60,7 @@ Metadata attributes:
 
 Options:
  - [RS2_OPTION_LED_POWER](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_option.h#L84) - LED Power settings (mW)
- - [RS2_OPTION_ZERO_ORDER_ENABLED](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_option.h#L85) - L500-specific Depth post=processing filter control (on by default)
+ - [RS2_OPTION_ZERO_ORDER_ENABLED](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_option.h#L85) - L500-specific Depth post-processing filter control (on by default)
  - [RS2_OPTION_ENABLE_MAP_PRESERVATION](https://github.com/IntelRealSense/librealsense/blob/v2.31.0/include/librealsense2/h/rs_option.h#L86) - T265: Preserve previous map when starting
          
 Raw Streaming Formats:
