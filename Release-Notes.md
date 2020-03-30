@@ -1,3 +1,84 @@
+## Release 2.34.0
+Release Date: 31 Mar 2020
+
+### API Changes
+link
+
+### New Features and Enhancements
+* [#6136](https://github.com/IntelRealSense/librealsense/pull/6136) - **RealSense Device over Ethernet**  (from [#5999](https://github.com/IntelRealSense/librealsense/issues/5999)) (CAMOE-11)
+  - A new extension module `realsense2-net` is introduced to encapsulate depth camera streamings and managing over IP. Configured with `BUILD_NETWORK_DEVICE` Cmake flag.
+  - Compression libraries are used to mitigate IP bandwidth issues.
+  - `rs-server` tool is a stand-alone application for streaming Depth and RGB sensors.
+  - `realsense-viewer` is provisioned with IP client functionality to connect to a remote host.
+* [#6026](https://github.com/IntelRealSense/librealsense/pull/6026) - **OpenVINO face detection** toolkit is integrated into `realsense-viewer` (DSO-13910)
+* [#6097](https://github.com/IntelRealSense/librealsense/pull/6097) - **On-Chip Calibration (OCC) fine-tuning** (DSO-14650):  
+  - OCC health check error for values <0  is now based on error magnitude.
+  - OCC More Options, White Wall is set as default for D415.
+  - Tare-cal, The Avg step default values when you hover on the name are now compatible with the number shown (20).
+  - Tare is set to last value the user typed.
+  - Error messages is shifted slightly to the left and the box is bigger.
+  - Progress bar during Tare is updated.
+* [#6118](https://github.com/IntelRealSense/librealsense/pull/6118) - [Software Device] **Add API to break circular dependency with Active Object**  
+  - The new `rs2_software_sensor_detach` function should be called on all instances of `rs2::software_sensor` stored inside the Active Object.
+* [#6000](https://github.com/IntelRealSense/librealsense/pull/6000) - [L515] **Add HW Sync Enable control** (RS5-6978)
+* [#6109](https://github.com/IntelRealSense/librealsense/pull/6109) - [rs-fw-logger] **Parse parametric floating point input** (RS5-7008)
+* [#6098](https://github.com/IntelRealSense/librealsense/pull/6098) - [CMake] **Make firmware URL overrideable**  (as proposed in [5114](https://github.com/IntelRealSense/librealsense/issues/5114) by [@mikepurvis](https://github.com/mikepurvis))  
+  - Permits the firmware binaries to be mirrored on-site for more restrictive CI environments that do not permit external network access at build time.  
+* [#5996](https://github.com/IntelRealSense/librealsense/pull/5996) - [API] **Add depth_frame::get_units()**  convenience API  
+* [#5997](https://github.com/IntelRealSense/librealsense/pull/5997) - [SR305] **Fix device designation** (DSO-14170) 
+* [#6006](https://github.com/IntelRealSense/librealsense/pull/6006) - [D400] **Added emmitter always on option** (DSO-14265)  
+* [#5879](https://github.com/IntelRealSense/librealsense/pull/5879) - [Core] **Establish 0x0B5B, 0xB5C SKUs** (DSO-14577)  
+* [#5961](https://github.com/IntelRealSense/librealsense/pull/5961) - [API] Add **rs2_allocate_synthetic_motion_frame** (DSO-14645)  
+
+ ### Bug Fixes and Improvements
+* [#6149](https://github.com/IntelRealSense/librealsense/pull/6149) - [Software Device] **invoke pixels deleter**.  Make sure frame deleter is called even if no streaming is active.
+* [#6151](https://github.com/IntelRealSense/librealsense/pull/6151) - [Python] **revert save_to_ply options to properties** (using properties with getter functions fixes static compilation)
+* [#6137](https://github.com/IntelRealSense/librealsense/pull/6137) - [EasyLogging] **Fix logger activation** (Fix typo)
+* [#6133](https://github.com/IntelRealSense/librealsense/pull/6133) - [MSVC] **Visual Studio 2019 compilation fix**
+* [#6040](https://github.com/IntelRealSense/librealsense/pull/6040) - [RaspberryPi4] **Update installation script for Raspbian Buster**
+* [#6043](https://github.com/IntelRealSense/librealsense/pull/6043) - [Global Time] **Handle get_device_time delay**  (occasionally the may takes up to ~250 ms resulting in frame drops).
+* [#6037](https://github.com/IntelRealSense/librealsense/pull/6037) - [Metadata] **Fix time domain handling** (DSO-13182, DSO-14314) 
+  - (Track and update metadata presence continuously to handle cases where v4l driver produces zeros
+* [#6083](https://github.com/IntelRealSense/librealsense/pull/6083) - **Fix 100% CPU usage when using libusb**  
+  - Replace broken dispatcher with a thread to fix 100% CPU usage. Addresses [#5783](https://github.com/IntelRealSense/librealsense/issues/5783), [#6062](https://github.com/IntelRealSense/librealsense/issues/6062).
+* [#6029](https://github.com/IntelRealSense/librealsense/pull/6029) - [D435i] **Fix imu motion correction**  
+  - Motion Correction is calculated and to be applied in the same CS as the depth sensor
+* [#6022](https://github.com/IntelRealSense/librealsense/pull/6022) - **Odroid kernel patch scripts update** contributed by [@chlakshminarayana](https://github.com/chlakshminarayana)
+* [#5991](https://github.com/IntelRealSense/librealsense/pull/5991) - [Android]**Fix for USB disconnect-recovery flow** (DSO-14132)
+* [#6064](https://github.com/IntelRealSense/librealsense/pull/6064) - []API **Fix Emitter_On option** (DSO-14265)
+* [#6044](https://github.com/IntelRealSense/librealsense/pull/6044) - [Matlab] **Fix broken include in wrapper**
+* [#6021](https://github.com/IntelRealSense/librealsense/pull/6021) - [Python] **Add missing cpp file into CMakeLists**
+* [#5922](https://github.com/IntelRealSense/librealsense/pull/5922) - [C++] **Dynamic cast compatibility** contributed by [@militaryCoder](https://github.com/militaryCoder)
+* [#5970](https://github.com/IntelRealSense/librealsense/pull/5970) - [Matlab] **Matlab bindings fixes**  (Address [#5906](https://github.com/IntelRealSense/librealsense/issues/5906), [#4453](https://github.com/IntelRealSense/librealsense/issues/4453), [#5236](https://github.com/IntelRealSense/librealsense/issues/5236) (DSO-14313)
+* [#5977](https://github.com/IntelRealSense/librealsense/pull/5977) - [Metadata] **Minor fixes and enhancements**  
+  - Fix the behavior of "Enable Metadata" button on Windows
+  - Add horizontal and vertical FOV to `rs-enumerate-devices`
+* [#5988](https://github.com/IntelRealSense/librealsense/pull/5988) - [T265] **Fix default USB permissions for T265 (Android)**  contributed by [@smartynenko](https://github.com/smartynenko)
+* [#5622](https://github.com/IntelRealSense/librealsense/pull/5622) - [C#] **C# Wrapper Reference Counting for Sensor/Device**.  Fixes [#5369](https://github.com/IntelRealSense/librealsense/issues/5369), contributed by [@JBBee](https://github.com/JBBee)
+* [#5333](https://github.com/IntelRealSense/librealsense/pull/5333) - [Software Device] **Enhancement**  Fix python wrapper FW update callback (DSO-14348)
+* [#5579](https://github.com/IntelRealSense/librealsense/pull/5579) - [T265] **Updated T parameters in rotated camera odometry example.** contributed by [@krazycoder2k](https://github.com/krazycoder2k)
+* [#5483](https://github.com/IntelRealSense/librealsense/pull/5483) - [ROS] **remove rosdep 'linux-headers-generic'**  contributed by [@christian-rauch](https://github.com/christian-rauch)
+* [#5665](https://github.com/IntelRealSense/librealsense/pull/5665) - [C++] **notification registration route to base sensor**.  Fixes [#5479](https://github.com/IntelRealSense/librealsense/issues/5479)  
+* [#5853](https://github.com/IntelRealSense/librealsense/pull/5853) - [C#] **Add the missing  distortion fisheye model**  contributed by [@mengyui](https://github.com/mengyui)  
+* [#5910](https://github.com/IntelRealSense/librealsense/pull/5910) - [Android] **Handle Resources deallocation**  
+* [#5921](https://github.com/IntelRealSense/librealsense/pull/5921) - [Core] **Downgrade UVC warning messages**  
+* [#5929](https://github.com/IntelRealSense/librealsense/pull/5929) - [Core] **Typo in `rs-ar-advanced.cpp`**  contributed by [@pjessesco](https://github.com/pjessesco)
+
+
+### Documentation
+* [#6158](https://github.com/IntelRealSense/librealsense/pull/6158) - **Depth cameras support matrix**  migrated to https://dev.intelrealsense.com/docs/sdk-knowledge-base
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13524) - Viewer crash when running Update Unsigned FW with signed FW image (unlocked units only)
+* (DSO-13525) - 3D viewer moved when sliding the tare calibration sliders
+
+
 ## Release 2.33.1
 Release Date: 1 Mar 2020
 
