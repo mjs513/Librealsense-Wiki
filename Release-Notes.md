@@ -8,7 +8,7 @@ link
 * [#6136](https://github.com/IntelRealSense/librealsense/pull/6136) - **RealSense Device over Ethernet**  (from [#5999](https://github.com/IntelRealSense/librealsense/pull/5999)) (CAMOE-11) *Alpha*
   - `rs-server` tool is a stand-alone application for streaming Depth and RGB sensors. Currently the server provides partial functionality for D415 and D435 cameras, on Linux only. 
   - A new extension module `realsense2-net` was introduced to encapsulate depth camera streaming and management over network. Configured with `BUILD_NETWORK_DEVICE` Cmake flag, currently limited to Linux and Windows OS. 
-* [#6026](https://github.com/IntelRealSense/librealsense/pull/6026) - **OpenVINO Face Detection** toolkit is integrated into `realsense-viewer` (DSO-13910) - Requires SDK Installer, not included in the standalone viewer. 
+* [#6026](https://github.com/IntelRealSense/librealsense/pull/6026) - **OpenVINO Face Detection** toolkit is integrated into `realsense-viewer` (DSO-13910) - Requires Windows SDK Installer, not included in the standalone viewer. 
 * [#6097](https://github.com/IntelRealSense/librealsense/pull/6097) - **On-Chip Calibration (OCC) fine-tuning** (DSO-14650):  
   - OCC health check error for values <0  is now based on error magnitude.
   - OCC More Options, White Wall is set as default for D415.
