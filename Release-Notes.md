@@ -5,12 +5,10 @@ Release Date: 31 Mar 2020
 link
 
 ### New Features and Enhancements
-* [#6136](https://github.com/IntelRealSense/librealsense/pull/6136) - **RealSense Device over Ethernet**  (from [#5999](https://github.com/IntelRealSense/librealsense/issues/5999)) (CAMOE-11)
-  - A new extension module `realsense2-net` is introduced to encapsulate depth camera streamings and managing over IP. Configured with `BUILD_NETWORK_DEVICE` Cmake flag.
-  - Compression libraries are used to mitigate IP bandwidth issues.
-  - `rs-server` tool is a stand-alone application for streaming Depth and RGB sensors.
-  - `realsense-viewer` is provisioned with IP client functionality to connect to a remote host.
-* [#6026](https://github.com/IntelRealSense/librealsense/pull/6026) - **OpenVINO face detection** toolkit is integrated into `realsense-viewer` (DSO-13910)
+* [#6136](https://github.com/IntelRealSense/librealsense/pull/6136) - **RealSense Device over Ethernet**  (from [#5999](https://github.com/IntelRealSense/librealsense/pull/5999)) (CAMOE-11) *Alpha*
+  - `rs-server` tool is a stand-alone application for streaming Depth and RGB sensors. Currently the server provides partial functionality for D415 and D435 cameras, on Linux only. 
+  - A new extension module `realsense2-net` was introduced to encapsulate depth camera streaming and management over network. Configured with `BUILD_NETWORK_DEVICE` Cmake flag, currently limited to Linux and Windows OS. 
+* [#6026](https://github.com/IntelRealSense/librealsense/pull/6026) - **OpenVINO Face Detection** toolkit is integrated into `realsense-viewer` (DSO-13910) - Requires SDK Installer, not included in the standalone viewer. 
 * [#6097](https://github.com/IntelRealSense/librealsense/pull/6097) - **On-Chip Calibration (OCC) fine-tuning** (DSO-14650):  
   - OCC health check error for values <0  is now based on error magnitude.
   - OCC More Options, White Wall is set as default for D415.
@@ -51,7 +49,7 @@ link
 * [#5922](https://github.com/IntelRealSense/librealsense/pull/5922) - [C++] **Dynamic cast compatibility** contributed by [@militaryCoder](https://github.com/militaryCoder)
 * [#5970](https://github.com/IntelRealSense/librealsense/pull/5970) - [Matlab] **Matlab bindings fixes**  (Address [#5906](https://github.com/IntelRealSense/librealsense/issues/5906), [#4453](https://github.com/IntelRealSense/librealsense/issues/4453), [#5236](https://github.com/IntelRealSense/librealsense/issues/5236) (DSO-14313)
 * [#5977](https://github.com/IntelRealSense/librealsense/pull/5977) - [Metadata] **Minor fixes and enhancements**  
-  - Fix the behavior of "Enable Metadata" button on Windows
+  - Fix the behaviour of "Enable Metadata" button on Windows
   - Add horizontal and vertical FOV to `rs-enumerate-devices`
 * [#5988](https://github.com/IntelRealSense/librealsense/pull/5988) - [T265] **Fix default USB permissions for T265 (Android)**  contributed by [@smartynenko](https://github.com/smartynenko)
 * [#5622](https://github.com/IntelRealSense/librealsense/pull/5622) - [C#] **C# Wrapper Reference Counting for Sensor/Device**.  Fixes [#5369](https://github.com/IntelRealSense/librealsense/issues/5369), contributed by [@JBBee](https://github.com/JBBee)
