@@ -2,7 +2,7 @@
 Release Date: 31 Mar 2020
 
 ### API Changes
-link
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2340
 
 ### New Features and Enhancements
 * [#6136](https://github.com/IntelRealSense/librealsense/pull/6136) - **RealSense Device over Ethernet**  (from [#5999](https://github.com/IntelRealSense/librealsense/pull/5999)) (CAMOE-11) *Alpha*
@@ -29,6 +29,7 @@ link
 * [#5961](https://github.com/IntelRealSense/librealsense/pull/5961) - [API] Add **rs2_allocate_synthetic_motion_frame** (DSO-14645)  
 
  ### Bug Fixes and Improvements
+* [#6161](https://github.com/IntelRealSense/librealsense/pull/6161) - [Video4Linux] **Fix broken activation of custom deleter in RAII**.  Ensure custom deleter is called by passing non-null pointer in ctor. Contributed by [@anmelleSlamcore ](https://github.com/anmelleSlamcore).
 * [#6149](https://github.com/IntelRealSense/librealsense/pull/6149) - [Software Device] **invoke pixels deleter**.  Make sure frame deleter is called even if no streaming is active.
 * [#6151](https://github.com/IntelRealSense/librealsense/pull/6151) - [Python] **revert save_to_ply options to properties** (using properties with getter functions fixes static compilation)
 * [#6137](https://github.com/IntelRealSense/librealsense/pull/6137) - [EasyLogging] **Fix logger activation** (Fix typo)
