@@ -20,7 +20,7 @@
  - [rs2_software_sensor_detach](https://github.com/IntelRealSense/librealsense/blob/v2.34.0/include/librealsense2/h/rs_internal.h#L348) - Disconnect the lifetime of `software_sensor` from the embodied `software_device` in order to release the circular dependency. Follow the link for more details.
  - [rs2_software_notification](https://github.com/IntelRealSense/librealsense/blob/v2.34.0/include/librealsense2/h/rs_internal.h#L115) - used to pass user-defined data into the SDK's notifications mechanism.
 
-### D400-Global Shutter Options
+### Depth Camera
  - [rs2_depth_frame_get_units](https://github.com/IntelRealSense/librealsense/blob/v2.34.0/include/librealsense2/h/rs_frame.h#L157) - Retrieves the Raw Depth -> Metric Depth scaling factor that was previously availabel only via the depth sensor's API.
  - [RS2_OPTION_EMITTER_ALWAYS_ON](https://github.com/IntelRealSense/librealsense/blob/v2.34.0/include/librealsense2/h/rs_option.h#L95) - Enable the projector to remain constantly on. Applies to D400 Global Shutter models (D43x) only.
 
