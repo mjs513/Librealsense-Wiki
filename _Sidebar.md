@@ -13,16 +13,16 @@
 - [[D400 Series Visual Presets]]
 - [[Projection in RealSense SDK 2.0]]
 - [API Documentation](http://intelrealsense.github.io/librealsense/doxygen/annotated.html)
-- [About Android Support](https://github.com/IntelRealSense/librealsense/blob/master/doc/android/Android.md)
+- [About Android Support](https://github.com/IntelRealSense/librealsense/blob/master/doc/android.md)
 - [RealSense with Raspberry Pi 3](https://github.com/IntelRealSense/librealsense/blob/master/doc/RaspberryPi3.md)
+- [RealSense with Raspberry Pi 4](https://dev.intelrealsense.com/docs/open-source-ethernet-networking-for-intel-realsense-depth-cameras)
 - [RealSense with NVidia Jetson](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md)
 - [Using Two Cameras with ROS](https://github.com/intel-ros/realsense/wiki/Showcase-of-using-2-cameras)
 - [Frame Buffering Management](https://github.com/IntelRealSense/librealsense/wiki/Frame-Buffering-Management-in-RealSense-SDK-2.0)
 - [Supported Matrix](https://github.com/IntelRealSense/librealsense/blob/master/doc/support-matrix.md)
 ### Help
 - [Closed GitHub Issues](https://github.com/IntelRealSense/librealsense/issues?utf8=%E2%9C%93&q=is%3Aclosed)
-- [Community](https://communities.intel.com/community/tech/realsense) 
-- [Support](https://www.intel.com/content/www/us/en/support/emerging-technologies/intel-realsense-technology.html)
+- [Support](https://support.intelrealsense.com)
 - [Open a new GitHub issue](https://github.com/IntelRealSense/librealsense/issues/new)
 
 
