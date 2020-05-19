@@ -75,7 +75,7 @@ Related issues:  [Issue #303](https://github.com/IntelRealSense/librealsense/iss
 
 When working on Windows 8.1, make sure you have [KB3075872](https://support.microsoft.com/en-us/kb/3075872) and [KB2919355](https://support.microsoft.com/en-us/kb/2919355) installed. 
 
-These patches address issues with Windows 8.1 video drivers. They should be resolved in Windows 10.
+These patches address issues with Windows 8.1 video drivers. These issues are resolved in Windows 10 and no additional patches are required when using Windows 10. 
 
 
 
