@@ -1,3 +1,64 @@
+## Release 2.35.0
+Release Date: 31 May 2020
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2350
+
+### New Features
+* [#6480](https://github.com/IntelRealSense/librealsense/pull/6480) - **D4xx**: Firmware version 5.12.5.0**
+* [#6176](https://github.com/IntelRealSense/librealsense/pull/6176) - **T265**: Firmware version 0.2.0.951.
+   - Make initial yaw consistent when starting forward, backward, up and down.
+   - Fix intermittent descriptor/imu corruption
+* [#6205](https://github.com/IntelRealSense/librealsense/pull/6205) - **Extended cam sync mode to support full slave and genlock modes**
+
+### Bug Fixes and Improvements
+* [#6470](https://github.com/IntelRealSense/librealsense/pull/6470) - **Android**: Detach event was generated instead of Attach event. Addresses [#6452](https://github.com/IntelRealSense/librealsense/issues/6452), (DSO-15065,DSO-14493).
+* [#6318](https://github.com/IntelRealSense/librealsense/pull/6318) - **MATLAB**: Add missing mapping for depth_frame::get_units()  contributed by [@mengyui](https://github.com/mengyui).
+* [#6321](https://github.com/IntelRealSense/librealsense/pull/6321) - **Linux**: Fix aarch64/arm detection. Depending on the compiler, `-dumpmachine` can output any `aarch64-*` or `arm-*`, such as `aarch64-suse-linux` or `arm-suse-linux-gnueabi`, not only `aarch64-linux-gnu` or `arm-linux-gnueabihf`.) contributed by [@ggardet](https://github.com/ggardet).
+* [#6434](https://github.com/IntelRealSense/librealsense/pull/6434) - **DQT**: UI fixes and enhancements (DSO-14283).
+   - Fix UI units.
+   - Log Plane Fit RMS % error metric) 
+* [#6429](https://github.com/IntelRealSense/librealsense/pull/6429) - **Support FW Flash scheme 106**  (Required for FW v5.12.4.+).
+* [#6308](https://github.com/IntelRealSense/librealsense/pull/6308) - **rs-convert** rework 
+   - Switch to sensor callback API (except for ply export)
+   - Assign file names based on frame timestamp (instead of frame number)
+   - Generate metadata text file per frame
+* [#6427](https://github.com/IntelRealSense/librealsense/pull/6427) - **Fix dead-lock on multi-threaded log invocations**  Addresses [#6231](https://github.com/IntelRealSense/librealsense/issues/6231), [#6393](https://github.com/IntelRealSense/librealsense/issues/6393) (DSO-15016).
+* [#6420](https://github.com/IntelRealSense/librealsense/pull/6420) - **LRS Network Extensions**: Live555 3rd party compilation fix.
+* [#6417](https://github.com/IntelRealSense/librealsense/pull/6417) - **Memleak fix in frame-validator PB** (RS5-7715)
+* [#6375](https://github.com/IntelRealSense/librealsense/pull/6375) - **Fix Syncer Memory Leak**  (Fix for [#6337](https://github.com/IntelRealSense/librealsense/issues/6337) contributed by [@MojamojaK](https://github.com/MojamojaK)
+* [#6350](https://github.com/IntelRealSense/librealsense/pull/6350) - **Thermal Compensation** option. Applicable for 0x0B5B/C SKUs. Requires FW v5.12.4.0+ (DSO-14980).
+* [#6355](https://github.com/IntelRealSense/librealsense/pull/6355) - **Manual gain setting to override AE** (changing gain manually with Auto-Exposure on should disable AE instead of error), addresses [#5952](https://github.com/IntelRealSense/librealsense/issues/5952) 
+(DSO- 14638).
+* [#6328](https://github.com/IntelRealSense/librealsense/pull/6328) - **LRS Network Extensions**: Hot Fix.
+* [#6315](https://github.com/IntelRealSense/librealsense/pull/6315) - **Disable creation of unnecessary log files** Configure filename for logging ONLY if it was requested, in which case `minimum_file_severity` is different than `RS2_LOG_SEVERITY_NONE`.) contributed by [@AndrejOrsula](https://github.com/AndrejOrsula).
+* [#6299](https://github.com/IntelRealSense/librealsense/pull/6299) - **GlSL occlusion**  (implement occlusion removal on gpu with glsl.
+* [#6305](https://github.com/IntelRealSense/librealsense/pull/6305) - **Add notification for L500 corrupted frames**.
+* [#6143](https://github.com/IntelRealSense/librealsense/pull/6143) - **Android**: Fix YUYV preview for the RGB stream in camera app on android.
+* [#6288](https://github.com/IntelRealSense/librealsense/pull/6288) - **Set depth invalidation enabled by CMake flag**
+* [#6290](https://github.com/IntelRealSense/librealsense/pull/6290) - **Win metadata script** fix
+(DSO-14805, DSO-14653).
+* [#6188](https://github.com/IntelRealSense/librealsense/pull/6188) - **LRS Network Extensions**: Hot Fix.
+* [#6203](https://github.com/IntelRealSense/librealsense/pull/6203) - **Fix RSUSB messaging takes 20 msec**  (fix signalling in concurrency.h invoke_and_wait function. Was waiting until timeout and missing the signal, Addresses [#6206](https://github.com/IntelRealSense/librealsense/issues/6206).
+* [#6198](https://github.com/IntelRealSense/librealsense/pull/6198) - **Python: add log_to_callback** add rs2::log_message, rs2::log_to_callback() and rs2::log() to python wrapper.
+
+
+### Documentation
+* [#6450](https://github.com/IntelRealSense/librealsense/pull/6450) - **Update rs_frame.hpp**  (Clarify get_timestamp()'s behavior.) contributed by [@krazycoder2k](https://github.com/krazycoder2k).
+* [#6263](https://github.com/IntelRealSense/librealsense/pull/6263) - **Fixes Typos**  () contributed by [@himanshugarg](https://github.com/himanshugarg).
+* [#6200](https://github.com/IntelRealSense/librealsense/pull/6200) - **Fixed minor comment typo**. Resolves  [#5872](https://github.com/IntelRealSense/librealsense/issues/5872) contributed by [@krazycoder2k](https://github.com/krazycoder2k).
+
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13524) - Viewer crash when running Update Unsigned FW with signed FW image (unlocked units only)
+* (DSO-13525) - 3D viewer moved when sliding the tare calibration sliders
+
 ## Release 2.34.0
 Release Date: 31 Mar 2020
 
