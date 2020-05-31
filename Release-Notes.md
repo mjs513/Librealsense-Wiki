@@ -5,7 +5,7 @@ Release Date: 31 May 2020
 https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2350
 
 ### New Features
-* [#6480](https://github.com/IntelRealSense/librealsense/pull/6480) - **D4xx**: Firmware version 5.12.5.0**
+* [#6480](https://github.com/IntelRealSense/librealsense/pull/6480) - **D4xx**: Firmware version 5.12.5.0.
 * [#6176](https://github.com/IntelRealSense/librealsense/pull/6176) - **T265**: Firmware version 0.2.0.951.
    - Make initial yaw consistent when starting forward, backward, up and down.
    - Fix intermittent descriptor/imu corruption
@@ -25,7 +25,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2350
    - Generate metadata text file per frame
 * [#6427](https://github.com/IntelRealSense/librealsense/pull/6427) - **Fix dead-lock on multi-threaded log invocations**  Addresses [#6231](https://github.com/IntelRealSense/librealsense/issues/6231), [#6393](https://github.com/IntelRealSense/librealsense/issues/6393) (DSO-15016).
 * [#6420](https://github.com/IntelRealSense/librealsense/pull/6420) - **LRS Network Extensions**: Live555 3rd party compilation fix.
-* [#6417](https://github.com/IntelRealSense/librealsense/pull/6417) - **Memleak fix in frame-validator PB** (RS5-7715)
+* [#6417](https://github.com/IntelRealSense/librealsense/pull/6417) - **Fix Memory Leak in frame-validator PB** (RS5-7715)
 * [#6375](https://github.com/IntelRealSense/librealsense/pull/6375) - **Fix Syncer Memory Leak**  (Fix for [#6337](https://github.com/IntelRealSense/librealsense/issues/6337) contributed by [@MojamojaK](https://github.com/MojamojaK)
 * [#6350](https://github.com/IntelRealSense/librealsense/pull/6350) - **Thermal Compensation** option provisioning (DSO-14980).
 * [#6355](https://github.com/IntelRealSense/librealsense/pull/6355) - **Manual gain setting to override AE** (changing gain manually with Auto-Exposure on should disable AE instead of error), addresses [#5952](https://github.com/IntelRealSense/librealsense/issues/5952) 
@@ -34,8 +34,8 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2350
 * [#6315](https://github.com/IntelRealSense/librealsense/pull/6315) - **Disable creation of unnecessary log files** Configure filename for logging ONLY if it was requested, in which case `minimum_file_severity` is different than `RS2_LOG_SEVERITY_NONE`.) contributed by [@AndrejOrsula](https://github.com/AndrejOrsula).
 * [#6299](https://github.com/IntelRealSense/librealsense/pull/6299) - **GlSL occlusion**  (implement occlusion removal on gpu with glsl.
 * [#6305](https://github.com/IntelRealSense/librealsense/pull/6305) - **Add notification for L500 corrupted frames**.
-* [#6143](https://github.com/IntelRealSense/librealsense/pull/6143) - **Android**: Fix YUYV preview for the RGB stream in camera app on android.
-* [#6288](https://github.com/IntelRealSense/librealsense/pull/6288) - **Set depth invalidation enabled by CMake flag**
+* [#6143](https://github.com/IntelRealSense/librealsense/pull/6143) - **Android**: Fix YUYV preview for the RGB stream in camera app.
+* [#6288](https://github.com/IntelRealSense/librealsense/pull/6288) - **CMake** Set depth invalidation enabled by default.
 * [#6290](https://github.com/IntelRealSense/librealsense/pull/6290) - **Win metadata script** fix
 (DSO-14805, DSO-14653).
 * [#6203](https://github.com/IntelRealSense/librealsense/pull/6203) - **Fix RSUSB messaging takes 20 msec**  (fix signalling in concurrency.h invoke_and_wait function. Was waiting until timeout and missing the signal, Addresses [#6206](https://github.com/IntelRealSense/librealsense/issues/6206).
