@@ -1,3 +1,8 @@
+## Version [2.35.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.35.0)
+
+### D400
+ - [RS2_OPTION_THERMAL_COMPENSATION](https://github.com/IntelRealSense/librealsense/blob/v2.35.0/include/librealsense2/h/rs_option.h#L96) - Provisioning for Thermal Compensation mechanism for selected SKUs.
+
 ## Version [2.34.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.34.0)
 
 ### Device over Ethernet:
