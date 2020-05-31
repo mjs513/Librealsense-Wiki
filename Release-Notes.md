@@ -27,10 +27,10 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2350
 * [#6420](https://github.com/IntelRealSense/librealsense/pull/6420) - **LRS Network Extensions**: Live555 3rd party compilation fix.
 * [#6417](https://github.com/IntelRealSense/librealsense/pull/6417) - **Memleak fix in frame-validator PB** (RS5-7715)
 * [#6375](https://github.com/IntelRealSense/librealsense/pull/6375) - **Fix Syncer Memory Leak**  (Fix for [#6337](https://github.com/IntelRealSense/librealsense/issues/6337) contributed by [@MojamojaK](https://github.com/MojamojaK)
-* [#6350](https://github.com/IntelRealSense/librealsense/pull/6350) - **Thermal Compensation** option. Applicable for 0x0B5B/C SKUs. Requires FW v5.12.4.0+ (DSO-14980).
+* [#6350](https://github.com/IntelRealSense/librealsense/pull/6350) - **Thermal Compensation** option provisioning (DSO-14980).
 * [#6355](https://github.com/IntelRealSense/librealsense/pull/6355) - **Manual gain setting to override AE** (changing gain manually with Auto-Exposure on should disable AE instead of error), addresses [#5952](https://github.com/IntelRealSense/librealsense/issues/5952) 
 (DSO- 14638).
-* [#6328](https://github.com/IntelRealSense/librealsense/pull/6328) - **LRS Network Extensions**: Hot Fix.
+* [#6328](https://github.com/IntelRealSense/librealsense/pull/6328), [#6188](https://github.com/IntelRealSense/librealsense/pull/6188) - **LRS Network Extensions**: Hot Fixes.
 * [#6315](https://github.com/IntelRealSense/librealsense/pull/6315) - **Disable creation of unnecessary log files** Configure filename for logging ONLY if it was requested, in which case `minimum_file_severity` is different than `RS2_LOG_SEVERITY_NONE`.) contributed by [@AndrejOrsula](https://github.com/AndrejOrsula).
 * [#6299](https://github.com/IntelRealSense/librealsense/pull/6299) - **GlSL occlusion**  (implement occlusion removal on gpu with glsl.
 * [#6305](https://github.com/IntelRealSense/librealsense/pull/6305) - **Add notification for L500 corrupted frames**.
@@ -38,7 +38,6 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2350
 * [#6288](https://github.com/IntelRealSense/librealsense/pull/6288) - **Set depth invalidation enabled by CMake flag**
 * [#6290](https://github.com/IntelRealSense/librealsense/pull/6290) - **Win metadata script** fix
 (DSO-14805, DSO-14653).
-* [#6188](https://github.com/IntelRealSense/librealsense/pull/6188) - **LRS Network Extensions**: Hot Fix.
 * [#6203](https://github.com/IntelRealSense/librealsense/pull/6203) - **Fix RSUSB messaging takes 20 msec**  (fix signalling in concurrency.h invoke_and_wait function. Was waiting until timeout and missing the signal, Addresses [#6206](https://github.com/IntelRealSense/librealsense/issues/6206).
 * [#6198](https://github.com/IntelRealSense/librealsense/pull/6198) - **Python: add log_to_callback** add rs2::log_message, rs2::log_to_callback() and rs2::log() to python wrapper.
 
