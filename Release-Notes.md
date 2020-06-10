@@ -7,6 +7,8 @@ N/A
 ### New Features
 * [#6487](https://github.com/IntelRealSense/librealsense/pull/6487) - **Introduce L515 Depth Camera** official support. 
 * [#6480](https://github.com/IntelRealSense/librealsense/pull/6480) - **L515**: Firmware version 1.4.1.0.  
+   - Fix Horizontal shift of depth map. 
+   - Recommended firmware with this release.  
 * [#6423](https://github.com/IntelRealSense/librealsense/pull/6423) - **Viewer** 3D view enhancements:
    - 3D interactive measurements
    - Shading with Diffuse Light mode
