@@ -36,11 +36,10 @@ N/A
 * [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
 * [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
 * [T265][Mac] - Start after stop is not working on Mac with the T265 camera
-* (DSO-13524) - Viewer crash when running Update Unsigned FW with signed FW image (unlocked units only)
-* (DSO-13525) - 3D viewer moved when sliding the tare calibration sliders
-* (RS5-7374) - 	Error after performing HW reset
-* (RS5-6586) - Corrupted Depth and IR  
-* (DSO-15118) - Viewer is closed forcibly with cycling start/stop streaming in 3D view.
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+* (RS5-7374) - [L515] Error after performing HW reset
+* (RS5-6586) - [L515] Corrupted Depth and IR  
+* (DSO-15118) - [D400] Viewer is closed forcibly with cycling start/stop streaming in 3D view.
 
 ## Release 2.35.0
 Release Date: 31 May 2020
