@@ -122,7 +122,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2340
   - Progress bar during Tare is updated.
 * [#6118](https://github.com/IntelRealSense/librealsense/pull/6118) - [Software Device] **Add API to break circular dependency with Active Object**  
   - The new `rs2_software_sensor_detach` function should be called on all instances of `rs2::software_sensor` stored inside the Active Object.
-* [#6000](https://github.com/IntelRealSense/librealsense/pull/6000) - [L515] **Add HW Sync Enable control** (RS5-6978)
+* [#6000](https://github.com/IntelRealSense/librealsense/pull/6000) - [L500] **Add HW Sync Enable control** (RS5-6978)
 * [#6109](https://github.com/IntelRealSense/librealsense/pull/6109) - [rs-fw-logger] **Parse parametric floating point input** (RS5-7008)
 * [#6098](https://github.com/IntelRealSense/librealsense/pull/6098) - [CMake] **Make firmware URL overrideable**  (as proposed in [5114](https://github.com/IntelRealSense/librealsense/issues/5114) by [@mikepurvis](https://github.com/mikepurvis))  
   - Permits the firmware binaries to be mirrored on-site for more restrictive CI environments that do not permit external network access at build time.  
@@ -241,7 +241,7 @@ Added unit-testing mechanism:
 
 * [LabVIEW Package](https://realsense-hw-public.s3-eu-west-1.amazonaws.com/Releases/RS4xx/Windows/labview_2_33_0.zip) ** update with SDK v2.33.0**  
 
-* [#5796](https://github.com/IntelRealSense/librealsense/pull/5796) - **Syncer to bypass IMU frames for L515** (RS5-5558):  
+* [#5796](https://github.com/IntelRealSense/librealsense/pull/5796) - **Syncer to bypass IMU frames for L500** (RS5-5558):  
   - Added composite_identity_matcher that passes frames to callback without synchronize them.
 
 * [#5792](https://github.com/IntelRealSense/librealsense/pull/5792) - **Android streamer start time increase fix** (DS5U-4538, DSO-14302):
@@ -268,7 +268,7 @@ Added unit-testing mechanism:
 * [#5768](https://github.com/IntelRealSense/librealsense/pull/5768) - **On-Chip and Tare Calibration Fixes**:  
 Minor fixes and quality of life improvements for OCC and Tare features
   
-* [#5791](https://github.com/IntelRealSense/librealsense/pull/5791) - **Disable all L515 depth processing blocks except for the Temporal Gilter**
+* [#5791](https://github.com/IntelRealSense/librealsense/pull/5791) - **Disable all L500 depth processing blocks except for the Temporal Gilter**
 
 * [#5785](https://github.com/IntelRealSense/librealsense/pull/5785) - **Fix typo**  (apriltag_pose_destory -> apriltag_pose_destroy) contributed by [@pjessesco](https://github.com/pjessesco)
 * [#5645](https://github.com/IntelRealSense/librealsense/pull/5645) - **T265 Serial Number Compatability**:  
