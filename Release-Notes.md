@@ -1,3 +1,47 @@
+## Release 2.35.2
+Release Date: 10 Jun 2020
+
+### API Changes
+N/A
+
+### New Features
+* [#6487](https://github.com/IntelRealSense/librealsense/pull/6487) - **Introduce L515 Depth Camera** official support. 
+* [#6480](https://github.com/IntelRealSense/librealsense/pull/6480) - **L515**: Firmware version 1.4.1.0.  
+* [#6423](https://github.com/IntelRealSense/librealsense/pull/6423) - **Viewer** 3D view enhancements:
+   - 3D interactive measurements
+   - Shading with Diffuse Light mode
+   - Updated UI
+* [#6457](https://github.com/IntelRealSense/librealsense/pull/6457), [#6548](https://github.com/IntelRealSense/librealsense/pull/6548) - **Viewer**: Add check-for-updates capability to streamline SW updates. The feature would provide notification in case of software changes/new version releases (RS5-7674).
+
+
+### Bug Fixes and Improvements
+* [#6488](https://github.com/IntelRealSense/librealsense/pull/6488) - **Linux**: Remove libusb warning on device removal.
+* [#6484](https://github.com/IntelRealSense/librealsense/pull/6484) - **Core**: fix memory leak in occlusion-filter. (RS5-7793).
+* [#6467](https://github.com/IntelRealSense/librealsense/pull/6467) - **Core**: Fix Multi-camera behavior with RSUSB backend. Follow up on [5615](https://github.com/IntelRealSense/librealsense/pull/5615).  Should address [#5614](https://github.com/IntelRealSense/librealsense/issues/5614), [#5935](https://github.com/IntelRealSense/librealsense/issues/5935), [#6084](https://github.com/IntelRealSense/librealsense/issues/6084).
+* [#6487](https://github.com/IntelRealSense/librealsense/pull/6487) - **L515** Fixes and enhancements:
+   - PID update + enable metadata support.
+   - Remove unnecessary froms from `validator` (RS5-7628)
+   - Fix memory leak in `validator` (RS5-7715)   
+   - Fix playback crash (RS5-7726)  
+* [#6492](https://github.com/IntelRealSense/librealsense/pull/6492) - **L515**: Viewer to include recommended FW for the said SKU (RS5-7866).
+* [#6492](https://github.com/IntelRealSense/librealsense/pull/6492) - **L515**: Adjust projector power default mode  (RS5-7780).
+* [#6500](https://github.com/IntelRealSense/librealsense/pull/6500) - **L515**: IMU Calibration script to support said SKU. (RS5-7793).
+* [#6503](https://github.com/IntelRealSense/librealsense/pull/6503) - **Linux**: Adjust fix for build with GCC 5.3.
+* [#6539](https://github.com/IntelRealSense/librealsense/pull/6539) - **Libcurl**: Fix for non-default build configurations.
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13524) - Viewer crash when running Update Unsigned FW with signed FW image (unlocked units only)
+* (DSO-13525) - 3D viewer moved when sliding the tare calibration sliders
+* (RS5-7374) - 	Error after performing HW reset
+* (RS5-6586) - Corrupted Depth and IR  
+* (DSO-15118) - Viewer is closed forcibly with cycling start/stop streaming in 3D view.
+
 ## Release 2.35.0
 Release Date: 31 May 2020
 
