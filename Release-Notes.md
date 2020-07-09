@@ -4,14 +4,14 @@ Release Date: 9 Jul 2020
 ### API Changes
 https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2360
 
+
 ### New Features
 * [#6782](https://github.com/IntelRealSense/librealsense/pull/6782) - **New 4xx FW v5.12.6.0** - Stability and performance enhancements
 * [#6694](https://github.com/IntelRealSense/librealsense/pull/6694) - **New L515 FW v1.4.1.2** - Stability and performance enhancements  
   - * (RS5-6586) - [L515] Corrupted Depth and IR  
-* [#6679](https://github.com/IntelRealSense/librealsense/pull/6679) - **RealSense-Viewer Enhancements**  
-  - 3D Distance and Area measurements in live 3D View
-  - Firmware logs window to streamline profyling and debugging
-  - Terminal for Firmware commands and calibration data window
+* [#6679](https://github.com/IntelRealSense/librealsense/pull/6679),[#6623](https://github.com/IntelRealSense/librealsense/pull/6623),[#6666](https://github.com/IntelRealSense/librealsense/pull/6666),[#6743](https://github.com/IntelRealSense/librealsense/pull/6743) - **RealSense-Viewer Enhancements**  
+  - Firmware logs window to streamline profyling and debugging (DSO-14959)
+  - Terminal for Firmware commands and calibration data window (DSO-15212)
 * [#6587](https://github.com/IntelRealSense/librealsense/pull/6587) - **[L515] Add IMU Calibration and Motion Correction support**
   - Support L515 IMU calibration and motion correction
   - Updated L515 extrinsic
@@ -25,10 +25,8 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2360
 Resolves [#4580](https://github.com/IntelRealSense/librealsense/issues/4580) (DSO-14957) 
 
 ### Bug Fixes and Improvements
-* [#6743](https://github.com/IntelRealSense/librealsense/pull/6743) - **Fw logs and terminal parser api fix, wrappers android and C#**  (PR triggered by jira ticket DSO-15212.
-Fw logs in the android wrapper are now based on the fw logs API which has been recently implemented.) contributed by [@remibettan](https://github.com/remibettan)
 * [#6680](https://github.com/IntelRealSense/librealsense/pull/6680) - **[C#] Add L500 preset enum**   -Add enum similar to `Rs400VisualPreset` to easily set `Option.VisualPreset` for L500 devices. contributed by [@jangernert](https://github.com/jangernert)
-* [#6733](https://github.com/IntelRealSense/librealsense/pull/6733) - **RGB persistency**  - Write RGB calibration to table 0x310 in FW, and allow reset by going back to factory calibration.  
+ 
 * [#6615](https://github.com/IntelRealSense/librealsense/pull/6615) - **[C#] fix L500 intrinsic initialization**. Addresses [#6609](https://github.com/IntelRealSense/librealsense/issues/6609) contributed by [@jangernert](https://github.com/jangernert)
 * [#6709](https://github.com/IntelRealSense/librealsense/pull/6709) - **[Linux] Update patch-arch.sh**   - Fix for on Manjaro Linux. Extending the patch for Depth Metadata. contributed by [@puzzlepaint](https://github.com/puzzlepaint)
 * [#6727](https://github.com/IntelRealSense/librealsense/pull/6727) - **[L515] NUM_OF_DEPTH_RESOLUTIONS reverted."**  (return NUM_OF_DEPTH_RESOLUTIONS to 2 for backward compatibility. 
@@ -46,7 +44,6 @@ Fw logs in the android wrapper are now based on the fw logs API which has been r
   - unused variables
   - excessive #define usage
 * [#6668](https://github.com/IntelRealSense/librealsense/pull/6668) - **[L515] Provision for additional streaming profiles** - USB2 mode.  (RS5-7992)
-* [#6666](https://github.com/IntelRealSense/librealsense/pull/6666) - **[SDK Core] Fw logs**     - FW logs and flash logs support via libRS API, for for D4XX, L5XX and SR3XX. (DSO-14959)
 * [#6644](https://github.com/IntelRealSense/librealsense/pull/6644) - **[Unity] Fix the value of RS2_OPTION_FILTER_MAGNITUDE**  contributed by [@mengyui](https://github.com/mengyui)
 * [#6654](https://github.com/IntelRealSense/librealsense/pull/6654) - **Linux Updates and Fixes**
   - Fix streaming CNF4 with kernel 4.19+
@@ -63,7 +60,6 @@ Resolves [#6124](https://github.com/IntelRealSense/librealsense/issues/6124). co
 * [#6639](https://github.com/IntelRealSense/librealsense/pull/6639) - **[Viewer] Fix UI crash when disabling measurement**  (On the viewer/depth quality tool if a user pressed on "Measure" button while a measurement is active, the application crashed.
 * [#6629](https://github.com/IntelRealSense/librealsense/pull/6629) - **[SDK Core] Hexify helper method name in test changed to char2hex**  (Same name of helper function in global namespace lead to failure in linkage.)
 * [#6625](https://github.com/IntelRealSense/librealsense/pull/6625) - **[L515] UI Adjustments**  Cosmetic changes for l515 (RS5-7661)
-* [#6623](https://github.com/IntelRealSense/librealsense/pull/6623) - **[SDK Core] - Terminal Parser API**  (Adding terminal parser capability to API (DSO-14959)
 * [#6621](https://github.com/IntelRealSense/librealsense/pull/6621) - **[Viewer]: Fix Depth ROI button for D4xx**  (DSO-15009)
 * [#6593](https://github.com/IntelRealSense/librealsense/pull/6593) - **Add capability to override the official SW update server url** - Debugging Capability
 * [#6581](https://github.com/IntelRealSense/librealsense/pull/6581) - **[CUDA] Fix broken compilation**  (Fix gcc-pedantic remarks). Resolves [#6573](https://github.com/IntelRealSense/librealsense/issues/6573) (DSO-15134)
