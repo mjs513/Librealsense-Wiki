@@ -1,3 +1,96 @@
+## Release 2.36.0
+Release Date: 9 Jul 2020
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2360
+
+
+### New Features
+* [#6782](https://github.com/IntelRealSense/librealsense/pull/6782) - **New 4xx FW v5.12.6.0** - Stability and performance enhancements
+* [#6694](https://github.com/IntelRealSense/librealsense/pull/6694) - **New L515 FW v1.4.1.2** - Stability and performance enhancements  
+* [#6679](https://github.com/IntelRealSense/librealsense/pull/6679) - **RealSense-Viewer Enhancements**  
+  - 3D Distance and Area measurements in live 3D View
+  - Firmware logs window to streamline profyling and debugging
+  - Terminal for Firmware commands and calibration data window
+* [#6587](https://github.com/IntelRealSense/librealsense/pull/6587) - **[L515] Add IMU Calibration and Motion Correction support**
+  - Support L515 IMU calibration and motion correction
+  - Updated L515 extrinsic
+  - Keep lazy design, use default intrinsic in case valid calibration data is not available on device
+  - Calibration instruction aligned for all D400 and L515 devices with IMU  
+(RS5-7834)
+* [#6594](https://github.com/IntelRealSense/librealsense/pull/6594) - **Android intrisics extrinsics added to wrapper**  (Adding Intrisic and Extrinsic libRS API to the Android wrapper)  
+  - rs2_get_extrinsics
+  - rs2_get_video_stream_intrinsics
+  - rs2_get_motion_intrinsics  
+Resolves [#4580](https://github.com/IntelRealSense/librealsense/issues/4580) (DSO-14957) 
+
+### Bug Fixes and Improvements
+* [#6743](https://github.com/IntelRealSense/librealsense/pull/6743) - **Fw logs and terminal parser api fix, wrappers android and C#**  (PR triggered by jira ticket DSO-15212.
+Fw logs in the android wrapper are now based on the fw logs API which has been recently implemented.) contributed by [@remibettan](https://github.com/remibettan)
+* [#6680](https://github.com/IntelRealSense/librealsense/pull/6680) - **[C#] Add L500 preset enum**   -Add enum similar to `Rs400VisualPreset` to easily set `Option.VisualPreset` for L500 devices. contributed by [@jangernert](https://github.com/jangernert)
+* [#6733](https://github.com/IntelRealSense/librealsense/pull/6733) - **RGB persistency**  - Write RGB calibration to table 0x310 in FW, and allow reset by going back to factory calibration.  
+* [#6615](https://github.com/IntelRealSense/librealsense/pull/6615) - **[C#] fix L500 intrinsic initialization**. Addresses [#6609](https://github.com/IntelRealSense/librealsense/issues/6609) contributed by [@jangernert](https://github.com/jangernert)
+* [#6709](https://github.com/IntelRealSense/librealsense/pull/6709) - **[Linux] Update patch-arch.sh**   - Fix for on Manjaro Linux. Extending the patch for Depth Metadata. contributed by [@puzzlepaint](https://github.com/puzzlepaint)
+* [#6727](https://github.com/IntelRealSense/librealsense/pull/6727) - **[L515] NUM_OF_DEPTH_RESOLUTIONS reverted."**  (return NUM_OF_DEPTH_RESOLUTIONS to 2 for backward compatibility. 
+* [#6722](https://github.com/IntelRealSense/librealsense/pull/6722) - **[MacOS] Fix imGui Font, habdle LLVM warnings**:
+  - Adding new imGui font results in artifact similar to [#4558](https://github.com/IntelRealSense/librealsense/issues/4558);  
+  - remove unused variables; 
+  - re-order ctor init lists to rectify potential out-of order value initialization
+* [#6723](https://github.com/IntelRealSense/librealsense/pull/6723) - **[L515] Resolutions alignment and Algo recording**
+  - Update the num of resolutions.
+  - Separate the dir of  algo recording from files names
+* [#6700](https://github.com/IntelRealSense/librealsense/pull/6700) - **[L515] Fix Confidence Stream handling**  (Enabling confidence stream causes missing depth frames)
+* [#6699](https://github.com/IntelRealSense/librealsense/pull/6699), [#6693](https://github.com/IntelRealSense/librealsense/pull/6693) - **[Android] WaitForFrames timeout adjustment for L515**  (switched to 5sec default)
+* [#6622](https://github.com/IntelRealSense/librealsense/pull/6622) - **MSVC screening** 
+  - static casts
+  - unused variables
+  - excessive #define usage
+* [#6668](https://github.com/IntelRealSense/librealsense/pull/6668) - **[L515] Provision for additional streaming profiles** - USB2 mode.  (RS5-7992)
+* [#6666](https://github.com/IntelRealSense/librealsense/pull/6666) - **[SDK Core] Fw logs**     - FW logs and flash logs support via libRS API, for for D4XX, L5XX and SR3XX. (DSO-14959)
+* [#6644](https://github.com/IntelRealSense/librealsense/pull/6644) - **[Unity] Fix the value of RS2_OPTION_FILTER_MAGNITUDE**  contributed by [@mengyui](https://github.com/mengyui)
+* [#6654](https://github.com/IntelRealSense/librealsense/pull/6654) - **Linux Updates and Fixes**
+  - Fix streaming CNF4 with kernel 4.19+
+  - Add patches for kernel 5.4 LTS (Bionic)
+  - Retrofit FG/INZC/PAIR/Z16H FourCC into patches to eliminate irrelevant warnings.
+  - Patches script - fix Ubuntu tag selection to filter 4-digit kernel versions.
+  - Fix patches for the deprecated Bionic/4.18 branch.  
+(RS5-8037)
+* [#6672](https://github.com/IntelRealSense/librealsense/pull/6672) - **[Android] fix stability issue on strea.stop**  (fix invoke_and_wait regression (caused by https://github.com/IntelRealSense/librealsense/pull/6203).  
+(RS5-7999), (DSO-15084)
+* [#6220](https://github.com/IntelRealSense/librealsense/pull/6220) - **[Python] Move bindings into separate cmake target**  (* Move python bindings into a separate cmake target so we can install them separately. Also install the python bindings into python's sitearch, not in `/usr/lib64` (or `/usr/local/lib64`)  
+Resolves [#6124](https://github.com/IntelRealSense/librealsense/issues/6124). contributed by [@morxa](https://github.com/morxa)
+* [#6617](https://github.com/IntelRealSense/librealsense/pull/6617) - **[L500] Block return to Default Preset + cancel max_range on stream start**  (**System requirement** - Trying to return to visual preset "Default" should generate an error on the viewer + exception on the API. (RS5-7898)
+* [#6639](https://github.com/IntelRealSense/librealsense/pull/6639) - **[Viewer] Fix UI crash when disabling measurement**  (On the viewer/depth quality tool if a user pressed on "Measure" button while a measurement is active, the application crashed.
+* [#6629](https://github.com/IntelRealSense/librealsense/pull/6629) - **[SDK Core] Hexify helper method name in test changed to char2hex**  (Same name of helper function in global namespace lead to failure in linkage.)
+* [#6625](https://github.com/IntelRealSense/librealsense/pull/6625) - **[L515] UI Adjustments**  Cosmetic changes for l515 (RS5-7661)
+* [#6623](https://github.com/IntelRealSense/librealsense/pull/6623) - **[SDK Core] - Terminal Parser API**  (Adding terminal parser capability to API (DSO-14959)
+* [#6621](https://github.com/IntelRealSense/librealsense/pull/6621) - **[Viewer]: Fix Depth ROI button for D4xx**  (DSO-15009)
+* [#6593](https://github.com/IntelRealSense/librealsense/pull/6593) - **Add capability to override the official SW update server url** - Debugging Capability
+* [#6581](https://github.com/IntelRealSense/librealsense/pull/6581) - **[CUDA] Fix broken compilation**  (Fix gcc-pedantic remarks). Resolves [#6573](https://github.com/IntelRealSense/librealsense/issues/6573) (DSO-15134)
+* [#6405](https://github.com/IntelRealSense/librealsense/pull/6405) - **[Core SDK] Move to Catch2 version 2.12.1**  (Only affects unit-testing)  
+  - Catch2 changes the way we do approximate-equals comparisons, and we now define our own approx() (rather than the Catch Approx()) for customizability.
+  - Also fixed some warnings.
+* [#6595](https://github.com/IntelRealSense/librealsense/pull/6595) - **[CI] Travis update nodeJs version to  10.15.3**  (regression on travis-cs nodeJs build)
+  - Mocha latest verison no longer support NodeJs version 6 https://github.com/mochajs/mocha/releases [#4164](https://github.com/IntelRealSense/librealsense/issues/4164):
+  - Mocha v8.0.0 now requires Node.js v10.0.0 or newer. Mocha no longer supports the Node.js v8.x line ("Carbon"), which entered End-of-Life at the end of 2019)
+
+## Documentation
+* [#6747](https://github.com/IntelRealSense/librealsense/pull/6747) - **monitor the dmesg change**   contributed by [@wwppyy](https://github.com/wwppyy)
+* [#6678](https://github.com/IntelRealSense/librealsense/pull/6678) - **Fixed "depth" typo**  (L110: depht -> depth) contributed by [@AndreiCostinescu](https://github.com/AndreiCostinescu)
+* [#6592](https://github.com/IntelRealSense/librealsense/pull/6592) - **Fixed typo in examples/cmake/readme.md**  (applicatoin -> application) contributed by [@AndreiCostinescu](https://github.com/AndreiCostinescu)
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+* (RS5-7374) - [L515] Error after performing HW reset
+* (RS5-6586) - [L515] Corrupted Depth and IR  
+* (DSO-15118) - [D400] Viewer is closed forcibly with cycling start/stop streaming in 3D view.
+
 ## Release 2.35.2
 Release Date: 10 Jun 2020
 
