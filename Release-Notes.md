@@ -40,9 +40,7 @@ Resolves [#4580](https://github.com/IntelRealSense/librealsense/issues/4580) (DS
 * [#6700](https://github.com/IntelRealSense/librealsense/pull/6700) - **[L515] Fix Confidence Stream handling**  (Enabling confidence stream causes missing depth frames)
 * [#6699](https://github.com/IntelRealSense/librealsense/pull/6699), [#6693](https://github.com/IntelRealSense/librealsense/pull/6693) - **[Android] WaitForFrames timeout adjustment for L515**  (switched to 5sec default)
 * [#6622](https://github.com/IntelRealSense/librealsense/pull/6622) - **MSVC screening** 
-  - static casts
-  - unused variables
-  - excessive #define usage
+  - static casts; unused variables; excessive #define usage
 * [#6668](https://github.com/IntelRealSense/librealsense/pull/6668) - **[L515] Provision for additional streaming profiles** - USB2 mode.  (RS5-7992)
 * [#6644](https://github.com/IntelRealSense/librealsense/pull/6644) - **[Unity] Fix the value of RS2_OPTION_FILTER_MAGNITUDE**  contributed by [@mengyui](https://github.com/mengyui)
 * [#6654](https://github.com/IntelRealSense/librealsense/pull/6654) - **Linux Updates and Fixes**
@@ -85,8 +83,9 @@ Resolves [#6124](https://github.com/IntelRealSense/librealsense/issues/6124). co
 * (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
 * (RS5-7374) - [L515] Error after performing HW reset
 * (DSO-15118) - [D400] Viewer is closed forcibly with cycling start/stop streaming in 3D view.
-* (DSO-15250) - Viewer with OpenVINO stops the RGB stream when IMU is activated
-* (RS5-8167) - Viewer  - Firmware Update process may generate unnecessary warning/popup message that must be clicked to proceeds
+* (DSO-15250) - [Viewer] with OpenVINO stops the RGB stream when IMU is activated
+* (RS5-8167) - [Viewer] Firmware Update process may generate unnecessary warning/popup message that must be clicked to proceeds
+* (RS5-8011) - [Android] L515 looses connection under stress streaming.
 
 ## Release 2.35.2
 Release Date: 10 Jun 2020
