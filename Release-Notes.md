@@ -4,13 +4,13 @@ Release Date: 9 Jul 2020
 ### API Changes
 https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2360
 
-
 ### New Features
 * [#6782](https://github.com/IntelRealSense/librealsense/pull/6782) - **New 4xx FW v5.12.6.0** - Stability and performance enhancements
 * [#6694](https://github.com/IntelRealSense/librealsense/pull/6694) - **New L515 FW v1.4.1.2** - Stability and performance enhancements  
+  - * (RS5-6586) - [L515] Corrupted Depth and IR  
 * [#6679](https://github.com/IntelRealSense/librealsense/pull/6679) - **RealSense-Viewer Enhancements**  
   - 3D Distance and Area measurements in live 3D View
-  - Firmware logs window to streamline profiling and debugging
+  - Firmware logs window to streamline profyling and debugging
   - Terminal for Firmware commands and calibration data window
 * [#6587](https://github.com/IntelRealSense/librealsense/pull/6587) - **[L515] Add IMU Calibration and Motion Correction support**
   - Support L515 IMU calibration and motion correction
@@ -88,8 +88,9 @@ Resolves [#6124](https://github.com/IntelRealSense/librealsense/issues/6124). co
 * [T265][Mac] - Start after stop is not working on Mac with the T265 camera
 * (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
 * (RS5-7374) - [L515] Error after performing HW reset
-* (RS5-6586) - [L515] Corrupted Depth and IR  
 * (DSO-15118) - [D400] Viewer is closed forcibly with cycling start/stop streaming in 3D view.
+* (DSO-15250) - Viewer with OpenVINO stops the RGB stream when IMU is activated
+* (RS5-8167) - Viewer  - Firmware Update process may generate unnecessary warning/popup message that must be clicked to proceeds
 
 ## Release 2.35.2
 Release Date: 10 Jun 2020
