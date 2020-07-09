@@ -21,8 +21,8 @@ Alternatively, use `cmake-gui` utility to configure and generate your build file
 |DOTNET_VERSION_LIBRARY|Select .NET framework version to be used for .NET wrapper|`3.5`|
 |ENABLE_CCACHE|Enable building the SDK with CCache|`true`|
 |BUILD_UNITY_BINDINGS|Build Unity sample scene using the SDK. See [wrapper page](https://github.com/IntelRealSense/librealsense/tree/master/wrappers/unity) for more information|`false`|
-|FORCE_LIBUVC|Setting this flag to true will configure the underlying backend to use `libuvc`. This backend is default for Mac OS, but can be configured on other OS-s as well. `libuvc` can serve as a more robust alternative to the native backend, however, it has well known limitations and is not recommended to be used in end-products|`false`|
-|FORCE_WINUSB_UVC|Setting this will configure librealsense to use Windows backend based on WinUSB rewrite of the UVC protocol, instead of Media Foundation. Requires installation of a special driver provided inside the [Win7 SDK installer](https://github.com/IntelRealSense/librealsense/releases/download/v2.17.1/Intel.RealSense.SDK.win7.exe)|`false`|
+|FORCE_LIBUVC|Setting this flag to true will configure the underlying backend to use `libuvc`. This backend is default for Mac OS, but can be configured on other OS-s as well. `libuvc` can serve as a more robust alternative to the native backend, however, it has well known limitations and is not recommended to be used in end-products (please use `FORCE_RSUSB_BACKEND` cmake flag instead)|`false`|
+|FORCE_WINUSB_UVC|Setting this will configure librealsense to use Windows backend based on WinUSB rewrite of the UVC protocol, instead of Media Foundation. Requires installation of a special driver provided inside the [Win7 SDK installer](https://github.com/IntelRealSense/librealsense/releases/download/v2.17.1/Intel.RealSense.SDK.win7.exe) (use `FORCE_RSUSB_BACKEND` instead)|`false`|
 |TRACE_API|When this flag is enabled, all API-calls will be written to the log at `INFO` severity. This will include any errors, duration, input and output parameters as well as the return value. Entry and exit from API calls will be documented as well at `DEBUG` severity. Enabling this feature will result in severe performance penalty|`false`|
 |HWM_OVER_XU|When this option is enabled, hardware commands will be dispatched through extension-unit (XU) transfer protocol. When disabled (and assuming the hardware supports it) the SDK will talk to the hardware directly using `libusb` / `WinUSB`|`true`|
 |BUILD_SHARED_LIBS| When enabled the output of the library will be a dynamic link library (DLL) or a shared object (SO). When disabled the output will be a static library (LIB/A)|`true`|
@@ -38,5 +38,6 @@ Alternatively, use `cmake-gui` utility to configure and generate your build file
 |BUILD_GLSL_EXTENSIONS|Build OpenGL Shading Language extensions API|`true`|
 |BUILD_INTERNAL_UNIT_TESTS|Build test package for components under `librealsense` namespace, requires `BUILD_SHARED_LIBS`=`OFF` and `BUILD_UNIT_TESTS`=`ON`|`false`|
 |BUILD_PYTHON_DOCS|Build Documentation for Python bindings|`false`|
-|ANDROID_USB_HOST_UVC|Build UVC backend for Android|`false`|
+|ANDROID_USB_HOST_UVC|Build UVC backend for Android (use `FORCE_RSUSB_BACKEND` instead)|`false`|
+|FORCE_RSUSB_BACKEND|Equivalent to FORCE_LIBUVC, ANDROID_USB_HOST_UVC and FORCE_WINUSB_UVC. Renamed for consistency across platforms|`false`|
 |IMPORT_DEPTH_CAM_FW|Download the latest firmware for the depth cameras|`true`|
