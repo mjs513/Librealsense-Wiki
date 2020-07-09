@@ -1,3 +1,55 @@
+## Version [2.36.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.36.0)
+
+### Calibration APIs
+ 
+ Types:
+ - [rs2_calibration_type](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L318-L322) - [Enum] Supported Calibration ypes
+ - [rs2_calibration_status](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L328-L344) - [Enum]  Calibration result
+ - [rs2_calibration_change_callback](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L347) - [Struct] Calibration Change
+ - [RS2_OPTION_TRIGGER_CAMERA_ACCURACY_HEALTH](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_option.h#L97)[RS2_OPTION_RESET_CAMERA_ACCURACY_HEALTH](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_option.h#L98) - [Option] Provisions for Camera Accuracy Health routine.
+ - [rs2_dsm_params](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_types.h#L73-L86) - [Struct] DSM (Digital Sync Module) calibration parameters
+ - [rs2_dsm_correction_model](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_types.h#L88-L94) - [Enum] Supported DSM model
+ - [RS2_EXTENSION_FW_LOGGER](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_types.h#L209) - Device interface for accessing hardware logs
+   [RS2_EXTENSION_AUTO_CALIBRATION_FILTER](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_types.h#L210) - Calibration Utility Interface
+   [RS2_EXTENSION_DEVICE_CALIBRATION](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_types.h#L211) - Calibration Extension Interface
+   [RS2_EXTENSION_CALIBRATED_SENSOR](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_types.h#L212) - Sensor Calibration Interface
+ 
+API Calls:
+- [rs2_register_calibration_change_callback](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L357) - C-Callback to be invoked upon calibration completion .
+ - [rs2_register_calibration_change_callback_cpp](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L365) - CPP-Callback to be invoked upon calibration completion.
+ - [rs2_trigger_device_calibration](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L373) - Start calibration process.
+
+
+ 
+  - [rs2_override_extrinsics](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_sensor.h#L476) - Replace existing extrinsic.
+  - [rs2_override_intrinsics](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_sensor.h#L602) - Replace sensor's intrinsic. 
+  - [rs2_get_dsm_params](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_sensor.h#L621) - Retrieve DSM parameters structure.
+  - [rs2_override_dsm_params](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_sensor.h#L631) - Replace sensor's DSM parameters.
+  - [rs2_reset_sensor_calibration](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_sensor.h#L639) - Reset sensor's DSM parameters.
+  - [rs2_calibration_type_to_string](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L323),[rs2_calibration_status_to_string](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L345) - Utility functions.
+  - [rs2_create_fw_log_message](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L357) - Allocate resources to hold FW log entry.
+  - [rs2_get_fw_log](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L366) - Retrieve the most recent FW log message.
+  - [rs2_get_flash_log](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L375) - Flash logs store data collected during the latest power cycle. The API retrieves a single message from that log stored on Flash.
+  - [rs2_delete_fw_log_message](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L381) - Deallocate existing FW log entry.
+  - [rs2_fw_log_message_data](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L389) - Retrieve the text message stored in a single FW log entry.
+  - [rs2_fw_log_message_size](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L397) - Get size in bytes of the relevant FW log message.
+  - [rs2_fw_log_message_timestamp](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L406)  - Get FW-assigned timestamp of the relevant FW log message.
+  - [rs2_fw_log_message_severity](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L414) - Retrieve FW log severety level.
+  - [rs2_init_fw_log_parser](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L423) - Initialize and load FW log parser with XML dictionary.
+  - [rs2_create_fw_log_parsed_message](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L432) - Allocate resources to store and proceed a single FW log message.
+  - [rs2_delete_fw_log_parsed_message](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L438) - Dealocate parsed message resources.
+  - [rs2_parse_firmware_log](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L449) - Convert raw FW log message to human-readable format.
+  - [rs2_get_fw_log_parsed_message](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L457) - Extract the core text from the parsed FW log message.
+  - [rs2_get_fw_log_parsed_file_name](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L465) - Extract file name of the message's origin.
+  - [rs2_get_fw_log_parsed_thread_name](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L473) - Get thread id. of the message's origin.
+  - [rs2_get_fw_log_parsed_severity](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L481) - Read FW log's severety level.
+  - [rs2_get_fw_log_parsed_line](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L489) - Retrieve the line number of the message's origin.
+  - [rs2_get_fw_log_parsed_timestamp](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L497) - FW-assigned timestamp of the FW log entry.
+  - [rs2_create_terminal_parser](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L505) - Create Terminal Command parser.
+  - [rs2_delete_terminal_parser](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L511) - Delete Terminal object instance.
+  - [rs2_terminal_parse_command](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L521) - Convert Terminal-generated command into binary format compatible with HW-monitor interface.
+  - [rs2_terminal_parse_response](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L534) - Convert results obtained from FW into human-readable format.
+
 ## Version [2.35.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.35.0)
 
 ### D400
