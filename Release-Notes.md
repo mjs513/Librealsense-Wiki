@@ -10,7 +10,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2360
 * [#6694](https://github.com/IntelRealSense/librealsense/pull/6694) - **New L515 FW v1.4.1.2** - Stability and performance enhancements  
 * [#6679](https://github.com/IntelRealSense/librealsense/pull/6679) - **RealSense-Viewer Enhancements**  
   - 3D Distance and Area measurements in live 3D View
-  - Firmware logs window to streamline profyling and debugging
+  - Firmware logs window to streamline profiling and debugging
   - Terminal for Firmware commands and calibration data window
 * [#6587](https://github.com/IntelRealSense/librealsense/pull/6587) - **[L515] Add IMU Calibration and Motion Correction support**
   - Support L515 IMU calibration and motion correction
