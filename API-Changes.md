@@ -3,9 +3,9 @@
 ### Calibration APIs
  
  Types:
- - [rs2_calibration_type](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L318-L322) - [Enum] Supported Calibration ypes
- - [rs2_calibration_status](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L328-L344) - [Enum]  Calibration result
- - [rs2_calibration_change_callback](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L347) - [Struct] Calibration Change
+ - [rs2_calibration_type](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L318-L322) - [Enum] Supported Calibration ypes
+ - [rs2_calibration_status](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L328-L344) - [Enum]  Calibration result
+ - [rs2_calibration_change_callback](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L347) - [Struct] Calibration Change
  - [RS2_OPTION_TRIGGER_CAMERA_ACCURACY_HEALTH](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_option.h#L97)[RS2_OPTION_RESET_CAMERA_ACCURACY_HEALTH](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_option.h#L98) - [Option] Provisions for Camera Accuracy Health routine.
  - [rs2_dsm_params](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_types.h#L73-L86) - [Struct] DSM (Digital Sync Module) calibration parameters
  - [rs2_dsm_correction_model](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_types.h#L88-L94) - [Enum] Supported DSM model
@@ -15,12 +15,9 @@
    [RS2_EXTENSION_CALIBRATED_SENSOR](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_types.h#L212) - Sensor Calibration Interface
  
 API Calls:
-- [rs2_register_calibration_change_callback](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L357) - C-Callback to be invoked upon calibration completion .
- - [rs2_register_calibration_change_callback_cpp](https://github.com/IntelRealSense/librealsense/blob/ac/include/librealsense2/h/rs_device.h#L365) - CPP-Callback to be invoked upon calibration completion.
+- [rs2_register_calibration_change_callback](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L357) - C-Callback to be invoked upon calibration completion .
+ - [rs2_register_calibration_change_callback_cpp](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L365) - CPP-Callback to be invoked upon calibration completion.
  - [rs2_trigger_device_calibration](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L373) - Start calibration process.
-
-
- 
   - [rs2_override_extrinsics](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_sensor.h#L476) - Replace existing extrinsic.
   - [rs2_override_intrinsics](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_sensor.h#L602) - Replace sensor's intrinsic. 
   - [rs2_get_dsm_params](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_sensor.h#L621) - Retrieve DSM parameters structure.
@@ -49,6 +46,7 @@ API Calls:
   - [rs2_delete_terminal_parser](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L511) - Delete Terminal object instance.
   - [rs2_terminal_parse_command](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L521) - Convert Terminal-generated command into binary format compatible with HW-monitor interface.
   - [rs2_terminal_parse_response](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_internal.h#L534) - Convert results obtained from FW into human-readable format.
+
 
 ## Version [2.35.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.35.0)
 
