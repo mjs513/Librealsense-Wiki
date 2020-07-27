@@ -1,3 +1,23 @@
+## Pre-Release 2.37.0
+Release Date: 27 Jul 2020
+
+* [#6872](https://github.com/IntelRealSense/librealsense/pull/6872) - *Adjusting Unity package to work with L515 out of the box* (This PR is introducing couple of small changes with regards to IR stream indexing to ensure Unity sample works with both D400 and L500 families of cameras. Following-up on [#6579](https://github.com/IntelRealSense/librealsense/issues/6579) and [#6859](https://github.com/IntelRealSense/librealsense/issues/6859) 
+* [#6891](https://github.com/IntelRealSense/librealsense/pull/6891) - *Adjust windows cmake build to v3.6+*
+* [#6848](https://github.com/IntelRealSense/librealsense/pull/6848) - *pointcloud::calculate add const specifier* contributed by [@ohadmen](https://github.com/ohadmen)
+* [#6884](https://github.com/IntelRealSense/librealsense/pull/6884) - *Pyrealsense2-net wrapper* (follow-up on https://github.com/IntelRealSense/librealsense/pull/6171 by @lramati. Adds `pyrealsense2-net` wrapper for `realsense2-net` extension module)
+* [#6889](https://github.com/IntelRealSense/librealsense/pull/6889) - *Re-enable Thermal Compensation loop* (Requires FW v5.12.7+
+Tracked on:DSO-14980)
+* [#6645](https://github.com/IntelRealSense/librealsense/pull/6645) - *Fix rs-tracking-and-depth with T265* contributed by [@pjessesco](https://github.com/pjessesco)
+* [#5800](https://github.com/IntelRealSense/librealsense/pull/5800) - Fix a bug concerning connection to multiple cameras by several threads or processes with V4L2 backend (Linux). Tracked on: DSO-13745
+* [#6880](https://github.com/IntelRealSense/librealsense/pull/6880) - *Adding GPIOs state to metadata* (Field added in metadata in order to support GPIO Input Data. Triggered by jira ticket: DSO-15379)
+* [#6793](https://github.com/IntelRealSense/librealsense/pull/6793) - *Controls emitter options list changed to dynamic* (Triggered by jira ticket: DSO-15273. In android camera application, the relevant values for the emitter options are now dynamic. This implements also the requirements due to jira ticket: RS5-8168)
+* [#6818](https://github.com/IntelRealSense/librealsense/pull/6818) - Android Wrapper - Projection API functions added. Triggered by jira ticket: DSO-15199
+* [#6858](https://github.com/IntelRealSense/librealsense/pull/6858) - *Improved Error Handling for SDK tools* (On Windows, the Viewer & DQT could silently fail in certain situations, now all errors will be reported with an option to submit as a new GitHub ticket)
+* [#6786](https://github.com/IntelRealSense/librealsense/pull/6786) - *Fix the return value of poll_for_frames in MATLAB wrapper*  contributed by [@mengyui](https://github.com/mengyui)
+* [#6809](https://github.com/IntelRealSense/librealsense/pull/6809) - *remove rs_terminal_parser.h - obsolete file*
+* [#6779](https://github.com/IntelRealSense/librealsense/pull/6779) - *Auto-exposure Priority Mode tooltip text corrected* (Tooltip text corrected so that the user would understand the implications of turning ON/OFF the Auto Exposure Priority button in realsense viewer.
+Tracked on: DSO-13683)
+
 ## Release 2.36.0
 Release Date: 9 Jul 2020
 
