@@ -51,9 +51,7 @@ This PR increase the logs to 100 in order to display a peek of logs.)
 (DSO-13589) 
 * [#6950](https://github.com/IntelRealSense/librealsense/pull/6950) - **Fix viewer error while trying to replay a bag file with confidence stream**  
 * [#6929](https://github.com/IntelRealSense/librealsense/pull/6929) - **Remove dependency on fts.h**  (`fts.h` is included in these two backend-v4l2 files but not actually used.) contributed by [@dbolkensteyn](https://github.com/dbolkensteyn)
-* [#6954](https://github.com/IntelRealSense/librealsense/pull/6954) - **Fix extrinsics related log_warnings while recording on L515**  (Fix a log warning when recording RGB / Confidence streams on L515 devices
-![image](https://user-images.githubusercontent.com/64067618/88639749-ca562780-d0c5-11ea-8697-2e42e82c0814.png)
-) 
+* [#6954](https://github.com/IntelRealSense/librealsense/pull/6954) - **Fix extrinsics related log_warnings while recording on L515**  (Fix a log warning when recording RGB / Confidence streams on L515 devices) 
 * [#6998](https://github.com/IntelRealSense/librealsense/pull/6998) - **Set L500 Depth Invalidation flag to false by default**  
 * [#6999](https://github.com/IntelRealSense/librealsense/pull/6999) - **Remove Y8I conditional invocation for USB2**  (DSO-15468)
 * [#7007](https://github.com/IntelRealSense/librealsense/pull/7007) - **Add missing string to rs_sensor_mode enum**
