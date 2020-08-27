@@ -8,11 +8,11 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2381
 * [#6970](https://github.com/IntelRealSense/librealsense/pull/6970) - **D4xx Firmware - v5.12.7.100**
 * [#6997](https://github.com/IntelRealSense/librealsense/pull/6997) - **L515 Firmware -  v1.5.0.0**  
 
-  - Control and Stability fixes
+  - Controls and stability improvements
   
 
 ### Bug Fixes and Enhancements
-* [#6150](https://github.com/IntelRealSense/librealsense/pull/6150) - **global_timestamp_reader: no blocking.**.  Prevent calls for get_device_time_ms from frame thread. ontinue system_time-hw_time equation through time loop.
+* [#6150](https://github.com/IntelRealSense/librealsense/pull/6150) - **global_timestamp_reader: no blocking.**.  Prevent calls for get_device_time_ms from frame thread. Continue system_time-hw_time equation through time loop.
 * [#7017](https://github.com/IntelRealSense/librealsense/pull/7017) - **Fix reporting distance with SW device**  (DSO-15441)
 * [#6933](https://github.com/IntelRealSense/librealsense/pull/6933) - **Release CComPtr cause to access violation** 
 * [#6926](https://github.com/IntelRealSense/librealsense/pull/6926) - **Fw logger bug fix**.  Fixing timestamp in new fw logger message (DSO-15394) 
@@ -57,19 +57,13 @@ This PR increase the logs to 100 in order to display a peek of logs.)
 * [#6998](https://github.com/IntelRealSense/librealsense/pull/6998) - **Set L500 Depth Invalidation flag to false by default**  
 * [#6999](https://github.com/IntelRealSense/librealsense/pull/6999) - **Remove Y8I conditional invocation for USB2**  (DSO-15468)
 * [#7007](https://github.com/IntelRealSense/librealsense/pull/7007) - **Add missing string to rs_sensor_mode enum**
-
+* [#7046](https://github.com/IntelRealSense/librealsense/pull/7046) - **Always open IR stream with depth on L515**
+* [#7004](https://github.com/IntelRealSense/librealsense/pull/7004) - **Disable CAH buttons on viewer device menu** 
 
 
 ### Documentation
 * [#7034](https://github.com/IntelRealSense/librealsense/pull/7034) - **Link fix**  () contributed by [@fburak](https://github.com/fburak)
 * [#7011](https://github.com/IntelRealSense/librealsense/pull/7011) - **Update imu calibration white paper public web link**  (The latest IMU white paper refresh was published to a different web link than previously documented in read.md. This change is to update the link. No impact to calibration script or user.)
-
-### L515
-* [#6969](https://github.com/IntelRealSense/librealsense/pull/6969) - **AC2.1** 
-* [#7035](https://github.com/IntelRealSense/librealsense/pull/7035) - **Enable AC by default**
-* [#7046](https://github.com/IntelRealSense/librealsense/pull/7046) - **Always open IR stream with depth on L515**
-* [#7026](https://github.com/IntelRealSense/librealsense/pull/7026) - **AC2.1 update + NEST**
-* [#7004](https://github.com/IntelRealSense/librealsense/pull/7004) - **Disable CAH buttons on viewer device menu** 
 
 
 ## Pre-Release 2.37.0
