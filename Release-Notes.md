@@ -1,3 +1,77 @@
+## Release 2.38.1
+Release Date: 27 Aug 2020
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2381
+
+### New Features
+* [#6970](https://github.com/IntelRealSense/librealsense/pull/6970) - **D4xx Firmware - v5.12.7.100**
+* [#6997](https://github.com/IntelRealSense/librealsense/pull/6997) - **L515 Firmware -  v1.5.0.0**  
+
+  - Control and Stability fixes
+  
+
+### Bug Fixes and Enhancements
+* [#6150](https://github.com/IntelRealSense/librealsense/pull/6150) - **global_timestamp_reader: no blocking.**.  Prevent calls for get_device_time_ms from frame thread. ontinue system_time-hw_time equation through time loop.
+* [#7017](https://github.com/IntelRealSense/librealsense/pull/7017) - **Fix reporting distance with SW device**  (DSO-15441)
+* [#6933](https://github.com/IntelRealSense/librealsense/pull/6933) - **Release CComPtr cause to access violation** 
+* [#6926](https://github.com/IntelRealSense/librealsense/pull/6926) - **Fw logger bug fix**.  Fixing timestamp in new fw logger message (DSO-15394) 
+* [#6945](https://github.com/IntelRealSense/librealsense/pull/6945) - **Android stability fixes** -  Camera app performance/stability issues:
+1. fix pipe.stop() issues
+   a) problem: null pointer segfault
+       cause: thread synchronization in dispatcher
+       fix: add additional lock in invoke_and_wait.
+  b) problem: invalid address segfault in uvc_streamer, active_object, dispatcher flows
+      cause: double release of memory in destructors due to synchronization issue in watchdog, active_object, dispatcher, and primarily uvc_streamer.
+      fix: add additional state check and synchronization.
+  c) problem: invalid address segfault in pipeline flows
+     cause: double release of memory in pipeline destructor to stop pipeline twice, the extra stop come from JNI code when handle is deleted and invokes destructor which tries to run stop() again.
+     fix: do shared pointer reset when profile active (also this is when they are initialized).
+   d) problem: invalid address segfault at various points depends on workload
+      cause: uvc_streamer shared pointers cleared at the wrong time, not cleared when stream stopped, so it tries to stop the streamer a second time during destruction
+      fix: destroy uvc_streamers after stream is stopped and no active profiles
+   e) problem: invalid address segfault in device info destructor through JNI stack
+       cause: appears to be double releasing as JNI stack references the pointer
+       fix: avoid delete in JNI, need to confirm it's released on native stack.
+2. problem: invalid address segfault related to stream profiles
+   cause: profile data array copy in JNI, jlong is 64-bit but pointer could be 32-bit, should not xcopy the entire buffer
+   fix: copy array elements
+3. problem: invalid address segfault related to query sensors
+   cause: sensor data array copy in JNI, jlong is 64-bit but pointer could be 32-bit, should not xcopy the entire buffer
+   fix: copy array elements
+4. problem: camera app performance degradation and stability issues after repeated device disconnect/connect
+   app cannot recover if device disconnected in middle of starting streaming
+   cause: activity operations executed multiple times due to activity instances and sequence issue
+   fix: create single activity instance, manage its creation and destruction, and correct sequence.  
+(RS5-8219, DSO-15293, DSO-15294, DSO-15358, DS5U-4588)
+* [#7008](https://github.com/IntelRealSense/librealsense/pull/7008) - **Query Projector capability from FW**  (DSO-15453)
+* [#7000](https://github.com/IntelRealSense/librealsense/pull/7000) - **Increase logs queue size on viewer**  (The current queue is at default size of 10, that means that at a viewer cycle when the logs queue is full after 10 logs the output window will miss logs.
+This PR increase the logs to 100 in order to display a peek of logs.) 
+* [#6567](https://github.com/IntelRealSense/librealsense/pull/6567) - **Viewer starts without Documents directory**.  Fixes [#5707](https://github.com/IntelRealSense/librealsense/issues/5707)
+(DSO-13589) 
+* [#6950](https://github.com/IntelRealSense/librealsense/pull/6950) - **Fix viewer error while trying to replay a bag file with confidence stream**  
+* [#6929](https://github.com/IntelRealSense/librealsense/pull/6929) - **Remove dependency on fts.h**  (`fts.h` is included in these two backend-v4l2 files but not actually used.) contributed by [@dbolkensteyn](https://github.com/dbolkensteyn)
+* [#6954](https://github.com/IntelRealSense/librealsense/pull/6954) - **Fix extrinsics related log_warnings while recording on L515**  (Fix a log warning when recording RGB / Confidence streams on L515 devices
+![image](https://user-images.githubusercontent.com/64067618/88639749-ca562780-d0c5-11ea-8697-2e42e82c0814.png)
+) 
+* [#6998](https://github.com/IntelRealSense/librealsense/pull/6998) - **Set L500 Depth Invalidation flag to false by default**  
+* [#6999](https://github.com/IntelRealSense/librealsense/pull/6999) - **Remove Y8I conditional invocation for USB2**  (DSO-15468)
+* [#7007](https://github.com/IntelRealSense/librealsense/pull/7007) - **Add missing string to rs_sensor_mode enum**
+
+
+
+### Documentation
+* [#7034](https://github.com/IntelRealSense/librealsense/pull/7034) - **Link fix**  () contributed by [@fburak](https://github.com/fburak)
+* [#7011](https://github.com/IntelRealSense/librealsense/pull/7011) - **Update imu calibration white paper public web link**  (The latest IMU white paper refresh was published to a different web link than previously documented in read.md. This change is to update the link. No impact to calibration script or user.)
+
+### L515
+* [#6969](https://github.com/IntelRealSense/librealsense/pull/6969) - **AC2.1** 
+* [#7035](https://github.com/IntelRealSense/librealsense/pull/7035) - **Enable AC by default**
+* [#7046](https://github.com/IntelRealSense/librealsense/pull/7046) - **Always open IR stream with depth on L515**
+* [#7026](https://github.com/IntelRealSense/librealsense/pull/7026) - **AC2.1 update + NEST**
+* [#7004](https://github.com/IntelRealSense/librealsense/pull/7004) - **Disable CAH buttons on viewer device menu** 
+
+
 ## Pre-Release 2.37.0
 Release Date: 27 Jul 2020
 
