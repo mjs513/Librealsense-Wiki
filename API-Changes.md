@@ -1,3 +1,16 @@
+ ## Version [2.38.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.38.1)
+ ### Calibration APIs
+
+ - [rs2_cah_trigger_to_string](https://github.com/IntelRealSense/librealsense/blob/v2.38.1/include/librealsense2/h/rs_option.h#L176) - Utility function
+ - [rs2_cah_trigger](https://github.com/IntelRealSense/librealsense/blob/v2.38.1/include/librealsense2/h/rs_option.h#L169-L175) - enumeration. L515-specific
+
+ ## Version [2.37.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.37.0)
+ 
+  - [RS2_FRAME_METADATA_GPIO_INPUT_DATA](https://github.com/IntelRealSense/librealsense/blob/v2.37.0/include/librealsense2/h/rs_frame.h#L64) - Metadata attribute for GPIO state. Applicable for selected SKUs.
+ - [points pointcloud::calculate(frame depth) const](
+https://github.com/IntelRealSense/librealsense/blob/v2.37.0/include/librealsense2/hpp/rs_processing.hpp#L431) - to use const modifier.
+
+
 ## Version [2.36.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.36.0)
 
 ### Calibration APIs
