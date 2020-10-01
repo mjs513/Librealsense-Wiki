@@ -21,9 +21,9 @@ Enable L515 android stability workaround. Current USB buffer settings in device 
 Workaround is enabled by default for all android platforms. Requires additional firmware command support in new firmware release.
 (RS5-8011)
 * [#7354](https://github.com/IntelRealSense/librealsense/pull/7354) - **Depth HDR Functionality (Alpha Release)** 
-A new Depth enhancement feature implemented in both Host and the Device Firmware that allows to improve depth fill frame in adverse light conditions by merging data from consequtive frames.
-At its core the feature allows to configure and run Depth and IR stream with per-frame specified exposure and gain values (sequence of 2 frames). Dedicate metadata attributes allow to associate the arriving frames with the configuration established by user.  
-When arrived on host a specially-designed `Merge` processing block can be utilized to fuse the depth data from consequtive frames.
+A new Depth enhancement feature implemented in both Host and the Device Firmware that allows to improve Depth data in adverse light conditions by merging data from consecutive frames.
+At its core the feature allows to configure and run Depth and IR stream with per-frame specified exposure and gain values (sequence of 2 frames). Dedicated metadata attributes allow to associate the arriving frames with the configuration established by user.  
+When arrived on host a specially-designed `Merge` processing block shall be utilized to fuse depth data from the incoming frames.
 Additionally a `Filtered Id` processing block is provided that allows to forward Depth and IR frames that correspond to even/odd frames of the sequence.  
 The feature is integrated with `Realsense-Viewer` application via a set of dedicated controls and post-processing blocks.  
 It is an Alpha release, and will be followed by a White Paper for in-depth presentation and usage guidance.  
