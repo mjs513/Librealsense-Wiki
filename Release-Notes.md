@@ -1,3 +1,119 @@
+## Release 2.39.0
+Release Date: 1 Oct 2020
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2390
+
+
+### New Features
+* [#7453](https://github.com/IntelRealSense/librealsense/pull/7453) - **D4xx Firmware - v5.12.8.200** 
+  - **Important: the firmware is intended to be used with SDK v2.39.0(+) and is not compatible with the previous Librealsense releases**
+  - Add RGB stream from Left IR imager (D455).
+  - HDR Functionality for D400 Depth sensors
+* [#7466](https://github.com/IntelRealSense/librealsense/pull/7466) - **L515 Firmware -  v1.5.1.3**  
+  - Support for USB2
+  - Support QVGA resolution
+  - Controls and stability improvements
+
+* [#6916](https://github.com/IntelRealSense/librealsense/pull/6916) - **[D455] Add synthetic RGB from left imager**
+* [#7205](https://github.com/IntelRealSense/librealsense/pull/7205) - **[Android] Enable USB weak host workaround to improve android stability**  
+Enable L515 android stability workaround. Current USB buffer settings in device require large number of small USB transactions from device to USB host controller, some hosts with relatively weak host cannot handle this many transactions quickly, results in stability issues, camera disappear from os enumeration or one of the streams dies during stream, etc. This workaround uses larger buffer settings to reduce the number of transaction and improve performance and stability.
+Workaround is enabled by default for all android platforms. Requires additional firmware command support in new firmware release.
+(RS5-8011)
+* [#7354](https://github.com/IntelRealSense/librealsense/pull/7354) - **Depth HDR Functionality (Alpha Release)** 
+A new Depth enhancement feature implemented in both Host and the Device Firmware that allows to improve depth fill frame in adverse light conditions by merging data from consequtive frames.
+At its core the feature allows to configure and run Depth and IR stream with per-frame specified exposure and gain values (sequence of 2 frames). Dedicate metadata attributes allow to associate the arriving frames with the configuration established by user.  
+When arrived on host a specially-designed `Merge` processing block can be utilized to fuse the depth data from consequtive frames.
+Additionally a `Filtered Id` processing block is provided that allows to forward Depth and IR frames that correspond to even/odd frames of the sequence.  
+The feature is integrated with `Realsense-Viewer` application via a set of dedicated controls and post-processing blocks.  
+It is an Alpha release, and will be followed by a White Paper for in-depth presentation and usage guidance.  
+(DSO-15603)  
+Complementary PRs:   
+    * [#7257](https://github.com/IntelRealSense/librealsense/pull/7257) - **[HDR] Split/Merge processing blocks infrastructure**  
+    * [#7354](https://github.com/IntelRealSense/librealsense/pull/7354) - **[HDR] Support for sub-preset configuration**
+    * [#7397](https://github.com/IntelRealSense/librealsense/pull/7397) - **[HDR] Adjust metadata names**  
+    * [#7404](https://github.com/IntelRealSense/librealsense/pull/7404) - **[HDR] Update metadata sequence id**  
+* [#7385](https://github.com/IntelRealSense/librealsense/pull/7385) - **[Network-device] support for D455 and L515, update list of supported streaming configurations**
+
+### Bug Fixes and Enhancements
+* [#7409](https://github.com/IntelRealSense/librealsense/pull/7409) - **[Python] Reverting the parametrized get_depth_frame**
+* [#7403](https://github.com/IntelRealSense/librealsense/pull/7403) - **[Windows] Fix crash on stop sensors**  Use auto reset event instead of manual event (RS5-8921)
+* [#7368](https://github.com/IntelRealSense/librealsense/pull/7368) - **[Android] Correct  the order in the extensions list**  Change in `rs_extension` had been done while the new enums were added out of order.
+* [#6564](https://github.com/IntelRealSense/librealsense/pull/6564) - **[Core] Min Distance can't get higher value than the Max Distance**   Affects Threshold Filter and Depth Visualization (DSO-12346, DSO-12163)
+* [#7344](https://github.com/IntelRealSense/librealsense/pull/7344) - **[L515] Disable unsigned FW update for unlocked units**
+* [#7330](https://github.com/IntelRealSense/librealsense/pull/7330) - **Refactor error polling with shared/weak ptr instead of unique_ptr.**  (Switch to shared/weak ptr model for active object handler. Follow up on [#7272](https://github.com/IntelRealSense/librealsense/issues/7272). (DSO-15542)
+* [#7334](https://github.com/IntelRealSense/librealsense/pull/7334) - **[L515] Fix DFU crash**  DFU update on L515 is generating an exception and fails the update process. The Asic serial number structure retrieved from the DFU FW has reversed bytes order then expected. This PR address this issue and treat the data at the real FW implementation order.
+(RS5-8843)
+* [#7323](https://github.com/IntelRealSense/librealsense/pull/7323) - **[Viewer] Fix SW update crash**  (When connecting a device, the SW Update checks whether a new version is available.
+  - Use a weak ptr for the SW update detached thread
+  - Reduce the DB download tried to 1 (still 5 seconds timeout)
+(RS5-8694)
+* [#7325](https://github.com/IntelRealSense/librealsense/pull/7325) - **[L515] Remove SW limitation of noise filter range**  (Previous SW min limit=2 for noise filter option) 
+* [#7272](https://github.com/IntelRealSense/librealsense/pull/7272) - **Stability enhancemets** Follow up on [#7330](https://github.com/IntelRealSense/librealsense/pull/7330).
+* [#7246](https://github.com/IntelRealSense/librealsense/pull/7246) - **[L515] Callback receives depth+infrared when only depth is requested**  (Add test: "test-depth-only" - checks that if depth is the only profile specified when opening a sensor, the callback given at sensor.start() will be called for depth frames only)
+* [#7294](https://github.com/IntelRealSense/librealsense/pull/7294) - **[Viewer] SW Updates - Fix UI issue + allow use of local DB file**  
+  - Overcome `ImGui` issue that cause an error pop_up closing the updates window. (always force open it unless no need)
+ -Allow local version's DB file use. (Treat "file://" prefix as local file path)
+* [#7269](https://github.com/IntelRealSense/librealsense/pull/7269) - **[L515] Filter IR frames if were not requested by the user**  (RS5-8734)
+* [#7203](https://github.com/IntelRealSense/librealsense/pull/7203) - **[L515] Fix GVD fields for S.N. & lock statuses**  (RS5-8550)
+* [#7293](https://github.com/IntelRealSense/librealsense/pull/7293) - **[L515] Fix crash when connecting L515 device to the Viewer application**  
+   - Addresses issue caused on [PR 7126](https://github.com/IntelRealSense/librealsense/pull/7126/files) caused by a virtual function call from inside L515 ctor -- replaced with a member variable.
+* [#7278](https://github.com/IntelRealSense/librealsense/pull/7278) - **Report reason for stream stop (HW errors)**  (RS5-7657)
+* [#7259](https://github.com/IntelRealSense/librealsense/pull/7259) - **[Linux] named_mutex: release if exception occurs while locking.**  (Addresses deadlock in viewer when unplugging camera while streaming and then plugging it back
+ Add to unit-tests (multicam_streaming test) - test streaming of depth only due to known issues with alternate streaming of color. (DSO-15623)
+* [#7248](https://github.com/IntelRealSense/librealsense/pull/7248) - **[Tools] Print FW logs with host clock**  () contributed by [@ashrafabuesba](https://github.com/ashrafabuesba)
+* [#7241](https://github.com/IntelRealSense/librealsense/pull/7241) - **Bundled firmware update no longer fail if backup step fail**  (The flash backup was a mandatory step at the firmware update. At this PR we allow to proceed with the update even if the backup step fail. (DSO-15599)
+* [#7213](https://github.com/IntelRealSense/librealsense/pull/7213) - **Fix a wrong argument in "CreateEvent" call** contributed by [@libdavid](https://github.com/libdavid)
+* [#7238](https://github.com/IntelRealSense/librealsense/pull/7238) - **Add rs2_cah_trigger_to_string to realsense.def** 
+* [#6304](https://github.com/IntelRealSense/librealsense/pull/6304) - **BUILD_EASYLOGGING = OFF **  (compiles with -DBUILD_EASYLOGGINGPP=OFF and unit_tests pass. Addresses [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) 
+* [#7207](https://github.com/IntelRealSense/librealsense/pull/7207) - **[Viewer] Fix crash on Fw update**  enhancement over PR7165. (DSO-15554)
+* [#7186](https://github.com/IntelRealSense/librealsense/pull/7186) - **[Viewer] Prevent imGui state corruption in Viewer**  by encapsulating exception handling. (DSO-15542)
+* [#7184](https://github.com/IntelRealSense/librealsense/pull/7184) - **Fix SW update links**  (The SW Update links filling were mistakenly comment out on a LLVM unused variable warning fix This PR undo it and removed the unused variables.)
+* [#7158](https://github.com/IntelRealSense/librealsense/pull/7158) - **[L515] Remove depth invalidation option** 
+* [#7165](https://github.com/IntelRealSense/librealsense/pull/7165) - **[Viewer] Disable click on fw update buttons when streaming**  (DSO-15554)
+* [#7171](https://github.com/IntelRealSense/librealsense/pull/7171) - **Uncomment "message" call**  (Call to message(STATUS "Checking internet connection...") was commented.) contributed by [@libdavid](https://github.com/libdavid)
+* [#7161](https://github.com/IntelRealSense/librealsense/pull/7161) - **Fix backward button issue with viewer.**  (the function rs2_playback_seek behind the playback::seek function can't receive negative timestamps. (DSO-15533)
+* [#7164](https://github.com/IntelRealSense/librealsense/pull/7164) - **Add OpenCV license to NOTICE** 
+* [#7147](https://github.com/IntelRealSense/librealsense/pull/7147) - **[L515] Fix CAH unit-tests file separators in Linux**
+* [#7148](https://github.com/IntelRealSense/librealsense/pull/7148) - **added 'using std::abs' in types.h to avoid Linux bug**  (This fixes a bug where compilation occurs on Ubuntu 16, where GCC decides to use abs(int) and this obviously causes bad results. The global ::abs() should really never be used, but I found no good way of removing it.
+(RS5-8641)
+* [#7133](https://github.com/IntelRealSense/librealsense/pull/7133) - **[Viewer] Fix ctrl+Num keys not rendering on viewer terminal**  
+  - Viewer application does not support special keys like '_' (all of shift + Num keys) as inputs. The code that was removed on this PR is the reason. It was inserted as part of the terminal feature to allow copy-paste capabillity.
+* [#7131](https://github.com/IntelRealSense/librealsense/pull/7131) - **Occlusion bug fix**  Addresses [#6990](https://github.com/IntelRealSense/librealsense/issues/6990). (RS5-8522)
+* [#7126](https://github.com/IntelRealSense/librealsense/pull/7126) - **[L515] Update tagged profiles for USB2**  
+  - Remove raw resolutions processing blocks
+  - Update L515 tagged profiles to support USB2 resolutions
+  - Remove viewer resolutions + FPS constrains for USB 2 (behavior stayed the same due to tagged profiles)
+(RS5-8384)
+* [#7097](https://github.com/IntelRealSense/librealsense/pull/7097) - **Fix sensor mode exception on QVGA resolution (USB2)**
+  - Sensor default mode change from XGA to [USB3 -> VGA], [USB2 -> QVGA]. (RS5-8352)
+* [#7105](https://github.com/IntelRealSense/librealsense/pull/7105) - **[L515] Fixed bug on manual trigger:**  (movement_from_last_success is always true in manual trigger.) 
+* [#7094](https://github.com/IntelRealSense/librealsense/pull/7094) - **[L515] Handle dynamic number of intrinsic tables for USB2 support**  On L515 device we get 2 depth resolutions on USB3 and 1 on USB2.
+This PR replace sharing the FW raw data vector with a physical preallocated full size buffer (Support up to 5 resolutions)
+Same change apply for depth and color intrinsic tables handling.
+* [#7072](https://github.com/IntelRealSense/librealsense/pull/7072) - **[L515] Set default values for color sensor controls for calibration**  (For better results the CAH process require default values to some of the RGB sensor controls.
+When the CAH process need to open the color sensor, it will check and set the sensor controls to it's default values if needed.
+When the CAH need to stop the color sensor or if the user will open the sensor while CAH opened it, it will restore the values to it's previous ones if needed.
+)
+* [#7092](https://github.com/IntelRealSense/librealsense/pull/7092) - **Call to callback from optimize() and optimize_p(), also on non debug mode.**  (Call to callback from optimize() and optimize_p() also on non debug mode, to enable stop in time if needed)
+* [#7075](https://github.com/IntelRealSense/librealsense/pull/7075) - **Small optimization in CAH plus removal of two annoying repetitive messages in Viewer**
+* [#7074](https://github.com/IntelRealSense/librealsense/pull/7074) - **[L515] New CAH limiters & handling per VAL request**
+* [#7076](https://github.com/IntelRealSense/librealsense/pull/7076) - **[Python] Fix GIL locks in calibrated_sensor APIs which can cause frame drops**
+* [#7071](https://github.com/IntelRealSense/librealsense/pull/7071) - **[L515] Disable auto CAH by default and update bundled L515 FW version to 1.4.1.2**
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+* (RS5-7374) - [L515] Error after performing HW reset
+* (DSO-15118) - [D400] Viewer is closed forcibly with cycling start/stop streaming in 3D view.
+* (DSO-15250) - [Viewer] with OpenVINO stops the RGB stream when IMU is activated
+
+
 ## Release 2.38.1
 Release Date: 27 Aug 2020
 
