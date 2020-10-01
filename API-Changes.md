@@ -1,3 +1,25 @@
+ ## Version [2.39.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.39.0)
+Functions:
+ - [rs2_create_hdr_merge_processing_block](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_processing.h#L259) - Depth HDR Post-processing module (Alpha).
+ - [rs2_create_sequence_id_filter](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_processing.h#L266) - Processing module that filters frame according to metadata attributes. (Alpha)
+ - [rs2_host_perf_mode_to_string](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_option.h#L191)  - Utility function  
+
+Options:
+- [RS2_OPTION_HOST_PERFORMANCE](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_option.h#L99) - Presets low-level USB transactions sizes for selected devices (L515).
+- [RS2_OPTION_HDR_ENABLED](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_option.h#L100) - Toggles Depth HDR functionality for supported devices (D400 with FW 5.12.8.200+)
+- [RS2_OPTION_SEQUENCE_NAME](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_option.h#L101) - Sets Sequence ID to identify the HDR preset configuration
+- [RS2_OPTION_SEQUENCE_SIZE](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_option.h#L102) - Controls the HDR configuration size (currently preset to 2)
+- [RS2_OPTION_SEQUENCE_ID](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_option.h#L103) - Specifies the active configuration item for querying/setting values for HDR preset
+
+Enumerations:
+- [rs2_host_perf_mode](https://github.com/IntelRealSense/librealsense/blob/51/include/librealsense2/h/rs_option.h#L184-L191) - Host/Device configuration mode that modifies USB transactions size of transport layer. Allows to optimize traffic balance and improve frame drops on low-end hosts
+- [RS2_FRAME_METADATA_SEQUENCE_NAME,\nRS2_FRAME_METADATA_SEQUENCE_ID, \nRS2_FRAME_METADATA_SEQUENCE_SIZE](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_frame.h#L65-L67) - Metadata attributes utilized in HDR preset mode, supported by D400/FW 5.12.8.200+.
+
+Extension types:
+- [RS2_EXTENSION_HDR_MERGE, RS2_EXTENSION_SEQUENCE_ID_FILTER,](https://github.com/IntelRealSense/librealsense/blob/51/include/librealsense2/h/rs_types.h#L213-L214) - New Processing Block types registration
+
+
+
  ## Version [2.38.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.38.1)
  ### Calibration APIs
 
@@ -16,7 +38,7 @@ https://github.com/IntelRealSense/librealsense/blob/v2.37.0/include/librealsense
 ### Calibration APIs
  
  Types:
- - [rs2_calibration_type](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L318-L322) - [Enum] Supported Calibration ypes
+ - [rs2_calibration_type](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L318-L322) - [Enum] Supported Calibration types
  - [rs2_calibration_status](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L328-L344) - [Enum]  Calibration result
  - [rs2_calibration_change_callback](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_device.h#L347) - [Struct] Calibration Change
  - [RS2_OPTION_TRIGGER_CAMERA_ACCURACY_HEALTH](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_option.h#L97)[RS2_OPTION_RESET_CAMERA_ACCURACY_HEALTH](https://github.com/IntelRealSense/librealsense/blob/v2.36.0/include/librealsense2/h/rs_option.h#L98) - [Option] Provisions for Camera Accuracy Health routine.
