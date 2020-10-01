@@ -36,7 +36,7 @@ Complementary PRs:
 * [#7385](https://github.com/IntelRealSense/librealsense/pull/7385) - **[Network-device] support for D455 and L515, update list of supported streaming configurations**
 
 ### Bug Fixes and Enhancements
-* [#7409](https://github.com/IntelRealSense/librealsense/pull/7409) - **[Python] Reverting the parametrized get_depth_frame**
+* [#7409](https://github.com/IntelRealSense/librealsense/pull/7409) - **[Python] Reverting the parametrized `get_depth_frame`**
 * [#7403](https://github.com/IntelRealSense/librealsense/pull/7403) - **[Windows] Fix crash on stop sensors**  Use auto reset event instead of manual event (RS5-8921)
 * [#7368](https://github.com/IntelRealSense/librealsense/pull/7368) - **[Android] Correct  the order in the extensions list**  Change in `rs_extension` had been done while the new enums were added out of order.
 * [#6564](https://github.com/IntelRealSense/librealsense/pull/6564) - **[Core] Min Distance can't get higher value than the Max Distance**   Affects Threshold Filter and Depth Visualization (DSO-12346, DSO-12163)
