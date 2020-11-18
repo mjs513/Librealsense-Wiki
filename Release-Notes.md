@@ -1,3 +1,225 @@
+## Release 2.40.0
+Release Date: 18 Nov 2020
+
+**Ubuntu 20 LTS and Ubuntu 18 LTS with kernel 5 known issue**:  
+We encountered high level of frame drops with several consecutive, compared to Ubuntu16/Kernel 4.  
+Streaming Librealsense with Kernel 5 results in a higher frame drop rate that is intensified by consecutive frame drops, mostly between 2-4 frames in a row, reaching 7 frames in certain cases.  
+The recurrence rate at which the drops appear is affected by CPU and resources utilization:  
+-	For streaming Depth at VGA resolution, the frame drops may occur in intervals of 5-30 min.  
+-	Streaming Depth+IR+RGB+IMU the frame drops will appear within 1-3 minutes.  
+Kernel 5 is currently the backbone of Ubuntu 18 and Ubuntu20, thus the issue would affect most users of those versions.  
+Note that the frame drops issue is confirmed in Ubuntu LTS 18 and 20, and it does not affect Ubuntu16 with LTS kernel 4.4.  
+
+<ins>Mitigation Plan and Alternatives</ins>  
+Realsense support team is working to resolve the issue on OS and kernel levels, and while the investigation is ongoing, one recommended method to mitigate this is by compiling and running Librealsense SDK with RSUSB backend - 
+(`cmake .. 0DFORCE_RSUSB_BACKEND`).  
+The main limitation of RSUSB backend is that it is not suited for multi-cam scenarios. But whenever applicable - using RSUSB backend allows to bypass the Video4Linux kernel APIs and communicate with the device using generic USB driver.  
+Switching to RSUSB backend provides a mitigating for sequential frame drops.  
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2400
+
+
+### New Features
+* [#7802](https://github.com/IntelRealSense/librealsense/pull/7802) - **[D400] FW Update - 5.12.9.0**
+    - Bug fixes
+    - Suppportfor DFU counter reset
+* [#7808](https://github.com/IntelRealSense/librealsense/pull/7808) - **[L515] FW Update - 1.5.2.0**
+    - Bug fixes
+    - Alternate IR option
+
+* [#7675](https://github.com/IntelRealSense/librealsense/pull/7675) - **[L500] Add reflectivity estimator to Depth Quality Tool**  
+    Calculates and provides LiDAR reflectivity estimation.
+    - Add "RS2_NOISE_ESTIMATION" option  
+    - Add "RS2_ENABLE_IR_REFLECTIVITY" option  
+    - Add reflectivity algorithm class  
+    - Add display at the DQT application  
+    - Current calculations for display occurs at frame rate  
+    _Note: This PR does not contain all logical conditions for activating IR Reflectivity_
+    (RS5-9263)  
+* [#7672](https://github.com/IntelRealSense/librealsense/pull/7672) - **[L500] Add Alternate IR**  
+    Requires firmware_version 1.5.2.0+. (RS5-9266);
+
+* [#7637](https://github.com/IntelRealSense/librealsense/pull/7637) - **[L500] Add Max Usable Range feature**   
+    Max Usable Range calculates the maximum range of the camera given the amount of ambient light in the scene.
+    - Added to Viewer + LibRS API (not DQT)
+    - New option : RS2_OPTION_MAX_USABLE_RANGE
+    - New LibRS API function "rs2_get_max_usable_range"
+    - Add sensor extension "RS2_EXTENSION_MAX_USABLE_RANGE_SENSOR"
+    - Wrappers handling (tested on C#, Python, C++)
+    - Requires FW version >= 1.5.0.0 (added NEST (Noise-Estimation) value to temperatures)  
+    (RS5-9263)   
+
+* [#7692](https://github.com/IntelRealSense/librealsense/pull/7692) - **Ubuntu 20 (Focal) Support**  
+    Alpha level - see above note.  
+    Update the patches list with Ubuntu Focal configuration. (DSO-16026)
+* [#7518](https://github.com/IntelRealSense/librealsense/pull/7518) - **Add support for Jetson Xavier**  
+    Adding kernel patches for V4L driver for Jetson with Ubuntu18, tested with L4T version 4.2.3, 4.3 and 4.4 Jetson installation guide update.  
+    (DSO-15132)
+* [#7470](https://github.com/IntelRealSense/librealsense/pull/7470) - **Tensorflow Examples**  (DSO-15262)
+
+
+### Bug Fixes and Enhancements
+* [#7706](https://github.com/IntelRealSense/librealsense/pull/7706) - **[L500] Add Reflectivity option restrictions**
+    - When changing resolution (sensor mode) during streaming and Enable IR Reflectivity on , IR reflectivity will be disabled (With no error pop up window)
+    - ROI restriction is not addressed on this PR  
+    (RS5-8358)  
+* [#7724](https://github.com/IntelRealSense/librealsense/pull/7724) - **[L500] Disable AC if Alt IR is on.** Throw exception when "Alt IR" is on and user asks for AC.
+* [#7718](https://github.com/IntelRealSense/librealsense/pull/7718) - **Trim newlines utility function**  
+* [#7635](https://github.com/IntelRealSense/librealsense/pull/7635) - **Udev rules power down**  (On kernel 5.x.x.x there is an issue with iio sensors - some of them does not reduce power consumption after connection.
+    This udev-rules correction disables the sensor after it's initial connection.
+    (DSO-15863)  
+* [#7548](https://github.com/IntelRealSense/librealsense/pull/7548) - **Update rsutil.h**  (In order to remove a warning generated by Rust bindgen) contributed by [@neilyoung](https://github.com/neilyoung)  
+* [#7693](https://github.com/IntelRealSense/librealsense/pull/7693) - **Fix Platform Camera streaming  and controls**  
+    - Reenable Webcam streaming, with YUYV/2 and MJPEG formats.  
+    - Present USB type field.  
+    - Extract UVC Header timestamp (metadata) when applicable.  
+* [#7687](https://github.com/IntelRealSense/librealsense/pull/7687) - **Fix `Resource deadlock avoided` exception on thread join**  (It's illegal to call **_thread->join();** in capture_loop().
+    Setting **_is_capturing = false** breaks to outer while loop, and the thread should be terminated.) contributed by [@Domos](https://github.com/Domos)
+ * [#7689](https://github.com/IntelRealSense/librealsense/pull/7689) - **Colorizer - fix division by zero**  (RS5-8689)  
+* [#7698](https://github.com/IntelRealSense/librealsense/pull/7698) - **[Viewer] Fix out-of order resources deallocation**  Continued from [#7647](https://github.com/IntelRealSense/librealsense/issues/7647). (DSO-15827)  
+* [#7700](https://github.com/IntelRealSense/librealsense/pull/7700) - **[Viewer] Fix playback Resuming in 3D viewer**  (Fixed :
+    - Resuming of playback  and 3D viewer are now coupled , when resuming playback - 3D automatically promoted from pause to to play.
+    - Stop uploading texture when playback is running and 3D viewer is resumed.  
+    (DSO-12584)
+* [#7673](https://github.com/IntelRealSense/librealsense/pull/7673) -  **[D400] Skip enabling HDR if already enabled**  (DSO-15909)  
+* [#7697](https://github.com/IntelRealSense/librealsense/pull/7697) - **[Java] Fix syntax error on Option.java.**
+* [#7674](https://github.com/IntelRealSense/librealsense/pull/7674) - **ROS dependencies update**
+    Remove some dependencies to be build dependencies. (DSO-15133)
+* [#7558](https://github.com/IntelRealSense/librealsense/pull/7558) - **[D400] HDR-merge and sequence-id-filter proc blocks
+    Also add ROS recorder read/write (DSO-15980)  
+* [#7619](https://github.com/IntelRealSense/librealsense/pull/7619) - **Fw logger tool adding sleep**  
+    Adding a sleep between each fw log polling. Default value is hardcoded in the tool's code. Can be passed from command line with -s <sleep_in_ms> flag
+    (DSO-15939)  
+* [#7645](https://github.com/IntelRealSense/librealsense/pull/7645) - **Fix colorizer - Get depth units from depth_sensor API.**  
+    Get depth units from depth_sensor API instead of disparity_info to support also l500.
+[[#7089](https://github.com/IntelRealSense/librealsense/issues/7089)](https://github.com/IntelRealSense/librealsense/issues/7089)  
+    Disabling histogram equalization leads depth map to void. (RS5-8868)  
+* [#7668](https://github.com/IntelRealSense/librealsense/pull/7668) - **[Python] Fix Python API backwards compatibility for "lld_temperature"**  
+    Python API to support both lld_temperature and ldd_temperature. (RS5-9334)  
+* [#7543](https://github.com/IntelRealSense/librealsense/pull/7543) - **[D400] HDR live tests update** 
+    Checking lrs version, FW support options and metadata available.  
+* [#7649](https://github.com/IntelRealSense/librealsense/pull/7649) - **[Viewer] Improve IR stream footer text.**  
+    Remove the equal mark from IR stream footer text on mouse picking. (DSO-15449)
+* [#7301](https://github.com/IntelRealSense/librealsense/pull/7301) - **[MacOS] define SQLITE_HAVE_ISNAN so xcode 10 will compile**  
+    When trying to build librealsense using xcode 10 on macOS 10.14 I ran into the following build error: "SQLite will not work correctly with the -ffast-math option of GCC.   
+    The following stackoverflow post suggests defining SQLITE_HAVE_ISNAN in order to fix that error:  https://stackoverflow.com/questions/48917320/getting-gcc-error-when-using-sqlite-and-fast-math-sqlite-will-not-work-correct .  
+    contributed by [@robtherich](https://github.com/robtherich)
+* [#7573](https://github.com/IntelRealSense/librealsense/pull/7573) - **[NodeJS] Resolve errors and deprecated warnings when build wrapper on nodejs 12**  
+    - Updated jsdoc to 3.6.6 to support nodejs 12, but it drop compatibility with nodejs 6.  
+    - Update nan for latest version.  
+    contributed by [@whsol](https://github.com/whsol)
+* [#7648](https://github.com/IntelRealSense/librealsense/pull/7648) - **[Viewer] Remove dots from some of the controls tool tip.**  (DSO-15513)  
+* [#7650](https://github.com/IntelRealSense/librealsense/pull/7650) - **[L500] Spelling fix for LDD option**  
+    Fixed spelling mistake of LDD Temperature option on get_string(),   The enum value cannot be changed due to backward compatibility. (RS5-8371 )  
+* [#7653](https://github.com/IntelRealSense/librealsense/pull/7653) - **Improve the description of alternating_emitter_option.**  (DSO-15512)
+* [#7367](https://github.com/IntelRealSense/librealsense/pull/7367) - **rs-convert tool supports extracting frame\time ranges** (DSO-11742) 
+* [#7613](https://github.com/IntelRealSense/librealsense/pull/7613) - **[cmake] Add MULTITHREADED/APARTMENTTHREADED selector flag.**  
+    Sets the param passed to CoInitializeEx call (Windows only) (DSO-15197)  
+* [#7625](https://github.com/IntelRealSense/librealsense/pull/7625) - **[Unity] Adapting wrapper to Unity 2018-2020**  
+    - Deleted GUI Layer from some scenes  
+    - Added AR Background Resitrictions for  prevent using old classes in Unity 2020)  
+    contributed by [@SergeySPF](https://github.com/SergeySPF)  
+* [#7632](https://github.com/IntelRealSense/librealsense/pull/7632) - **[NodeJS] Add missing enums to nodejs wrapper and python script for check enums**  
+    contributed by [@whsol](https://github.com/whsol)  
+* [#7604](https://github.com/IntelRealSense/librealsense/pull/7604) - **Handle exception in uvc_sensor::acquire_power**  
+    Reduce the reference counter in case that exception throws in acquire_power (RS5-9071)  
+* [#7627](https://github.com/IntelRealSense/librealsense/pull/7627) - **Filter only intel product line on DQT tool**  
+    DQT recognizes platform camera when no Realsense  device connected. (DSO-15662)  
+* [#7600](https://github.com/IntelRealSense/librealsense/pull/7600) - **[L515] - Add temperature fetcher thread**  
+    Periodic read of temperatures and noise estimation values once depth sensor is on.  
+    Precondition for reflectivity tool + max range  
+    *Description:*
+    - A new temperature fetcher thread is created on depth sensor start and closed on stop.
+    - All of temperature clients get it from a "get_temperatures" new function 
+    - get_temperatures function return the protected fetcher values or read directly from the FW is no fresh values from the thread
+    - N-Est values are exposed only with FW ver 1.5.0.0+
+    (RS5-9263)  
+* [#7610](https://github.com/IntelRealSense/librealsense/pull/7610) - **[Viewer] FW update error popup fix**  (DSO-15557)  
+* [#7563](https://github.com/IntelRealSense/librealsense/pull/7563) - **[L515] Add digital gain option that replaces ambient light option** 
+    * Add digital gain option at same option value as ambient light.  
+    * Add comment on LRS API option ambient light that it is deprecated.  
+    * Replace ambient light option registration with digital gain option (same value for both) from L515 depth sensor  
+    * Add it to all wrappers  
+    * Add special case for python wrapper for dealing with 2 options with the same value  
+    * no ambient == high gain  
+    (RS5-9152)
+* [#7598](https://github.com/IntelRealSense/librealsense/pull/7598) - **Fix humidity option compilation**  (Fix for PR [7474](https://github.com/IntelRealSense/librealsense/pull/7474) compilation issue)
+* [#7474](https://github.com/IntelRealSense/librealsense/pull/7474) - **Add description to l500-options**  (RS5-8665)
+* [#7572](https://github.com/IntelRealSense/librealsense/pull/7572) - **Added default ctor and initialized valid**  
+    Added a default constructor for thermal_calibration_table class, and in non-default constructor added an initialization of _header.valid.
+* [#7554](https://github.com/IntelRealSense/librealsense/pull/7554) - **Enable BUILD_EASYLOGGINGPP=OFF**  contributed by [@hsuys](https://github.com/hsuys)
+* [#7452](https://github.com/IntelRealSense/librealsense/pull/7452) - **Add time utility classes + UT**  
+    * Add a space for common utility classes.  
+    * Take timer helper functions from rendering.h , refactor + add functionality and place on timer.h utility file  
+    * Replace all time functions usage with new classes  
+    * Add unit tests for 3 new classes)  
+* [#7551](https://github.com/IntelRealSense/librealsense/pull/7551) - **[L500] Pick K_th fixes**  
+* [#7542](https://github.com/IntelRealSense/librealsense/pull/7542) - **[HDR] Return nullptr instead of throwing exception**
+* [#7437](https://github.com/IntelRealSense/librealsense/pull/7437) - **Identify L515 USB2 DFU mode**  
+    L515 Units with old payload 0 on the device connected with USB2 is identify as D4xx device on DFU mode.
+    This PR use the DFU version to determine is the DFU device is L515 or D4xx.
+    (RS5-8812)
+* [#7493](https://github.com/IntelRealSense/librealsense/pull/7493) - **Fix Viewer GUI freeze due to DFU and SW update pop ups interference**  
+    Both processes try to open a popup modal from the same popup tree level, which
+is not supported in ImGui.  
+    - Handle error message during SW update process (Do not allow pop up from inside a pop up).  
+    - Display SW update popup only when no other expended notification is being displayed.  
+    (RS5-8934)  
+* [#7500](https://github.com/IntelRealSense/librealsense/pull/7500) - **Fix sporadic spinning bug in rs-motion.cpp**
+    If the first gyro frame is received before the first accel frame the "first" flag is cleared and the timestamp value is incorrect. This separates the flags to be method specific.  
+    Addresses [#4915](https://github.com/IntelRealSense/librealsense/issues/4915))   
+* [#7512](https://github.com/IntelRealSense/librealsense/pull/7512) - **Fix error poller method.**  
+    - Support graceful sensors closure on switching to DFU mode.  
+    - Minor formatting and wording corrections.  
+    (RS5-8661)  
+* [#7522](https://github.com/IntelRealSense/librealsense/pull/7522) - **[HDR]  Enhancements**  
+    Replace exceptions with log writing when accessing affected controls while in HDR mode.  
+    Adding HDR unit-tests suite.  
+    (DSO-15603), (DSO-15592)
+* [#7514](https://github.com/IntelRealSense/librealsense/pull/7514) - **[L500] Fix GlobalTimer**  
+    Fix FW clock readings. Addresses [#7508](https://github.com/IntelRealSense/librealsense/issues/7508) (RS5-9117)  
+* [#7023](https://github.com/IntelRealSense/librealsense/pull/7023) - **Fix warning C4005 macro redefinition**  
+    ex: warning C4005: 'WIN32_LEAN_AND_MEAN': macro redefinition. contributed by [@chadbramwell](https://github.com/chadbramwell)  
+* [#7515](https://github.com/IntelRealSense/librealsense/pull/7515) - **Fix black pixel at upper left corner** 
+    Remove setting upper left pixel on viewer to 0,0,0 (Black) (RS5-8960)
+* [#7501](https://github.com/IntelRealSense/librealsense/pull/7501) - **[Python] Add D455 product id to python-rs400-advanced-mode-example.py**  
+    Even though a hardcoded list of magic numbers is a bad practice, the example should work with the new D455 sensor. contributed by [@Petrox](https://github.com/Petrox)
+* [#7440](https://github.com/IntelRealSense/librealsense/pull/7440) - **[Viewer] make snapshots for IMU and pose frames.**  (RS5-8691)  
+* [#7490](https://github.com/IntelRealSense/librealsense/pull/7490) - **Add L515 humidity temperature option**  (RS5-9069)
+* [#7468](https://github.com/IntelRealSense/librealsense/pull/7468) - **Fix depth stream freeze in post-processing**
+    Use streams_origin to find out the origin ID of stream in case the frame is after some post-processing.  
+* [#7451](https://github.com/IntelRealSense/librealsense/pull/7451) - **Fix stuck depth scene in texture mapping** (RS5-8690)  
+ [#7413](https://github.com/IntelRealSense/librealsense/pull/7413) - **Improve the message at the end of the recording** (RS5-8698) 
+* [#7297](https://github.com/IntelRealSense/librealsense/pull/7297) - **[L500] Krgb-thermal support**  
+    Reading k-thermal table from FW and use it to correct k-rgb according to current humidity temp, the k-rgb that written to FW is without the thermal correct ,but user will get the corrected one.  
+* [#7438](https://github.com/IntelRealSense/librealsense/pull/7438) - **added CMake error when BUILD_WITH_TM2 is on but IMPORT_DEPTH_CAM_FW is off**  (RS5-8833)  
+* [#7412](https://github.com/IntelRealSense/librealsense/pull/7412) - **Improve error message**  
+    Improve the error message in custom preset when sensor_mode is incompatible with requested resolution. (RS5-8797 )  
+
+ ### Documentation
+* [#7725](https://github.com/IntelRealSense/librealsense/pull/7725) - **update installation.md for Udev rules power down**  
+    add "at" installation to installation.md
+* [#7061](https://github.com/IntelRealSense/librealsense/pull/7061) - **Document the order of the coefficients in rs2_intrinsics::coeffs**  
+    I could not find the order of the distortion coefficients in the Realsense documentation so I am adding them to it. I am assuming that they follow the order that is used in OpenCV for its distortion coefficients. contributed by [@foohyfooh](https://github.com/foohyfooh)
+* [#7329](https://github.com/IntelRealSense/librealsense/pull/7329) - **Fix documentation in C API examples**  
+    Fix some comments in the documentation of C API examples. contributed by [@gsaponaro](https://github.com/gsaponaro)  
+* [#7382](https://github.com/IntelRealSense/librealsense/pull/7382) - **Fixed Typos in Documentation**  contributed by [@harshmittal2210](https://github.com/harshmittal2210)
+
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+* (RS5-7374) - [L515] Error after performing HW reset
+* (DSO-15118) - [D400] Viewer is closed forcibly with cycling start/stop streaming in 3D view.
+* (DSO-15250) - [Viewer] with OpenVINO stops the RGB stream when IMU is activated
+
+
 ## Release 2.39.0
 Release Date: 1 Oct 2020
 
