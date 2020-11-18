@@ -12,7 +12,7 @@ Note that the frame drops issue is confirmed in Ubuntu LTS 18 and 20, and it doe
 
 <ins>Mitigation Plan and Alternatives</ins>  
 Realsense support team is working to resolve the issue on SDK and OS levels, and while the investigation is ongoing, one recommended method to mitigate this is by compiling and running Librealsense SDK with RSUSB backend - 
-(`cmake .. 0DFORCE_RSUSB_BACKEND`).  
+(`cmake .. -DFORCE_RSUSB_BACKEND`).  
 The main limitation of RSUSB backend is that it is not suited for multi-cam scenarios. But whenever applicable - using RSUSB backend allows to bypass the Video4Linux kernel APIs and communicate with the device using generic USB driver.  
 Switching to RSUSB backend provides a mitigating for sequential frame drops.  
 
