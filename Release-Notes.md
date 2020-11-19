@@ -7,6 +7,7 @@ Streaming Librealsense with Kernel 5 results in a higher frame drop rate that is
 The recurrence rate at which the drops appear is affected by CPU and resources utilization:  
 -	For streaming Depth at VGA resolution, the frame drops may occur in intervals of 5-30 min.  
 -	Streaming Depth+IR+RGB+IMU the frame drops will appear within 1-3 minutes.  
+-	IMU-enabled devices, such as D435i, D455 and L515 encounter higher rate of frame drops compared to D415 and D435.
 Kernel 5 is currently the backbone of Ubuntu 18 and Ubuntu20, thus the issue would affect most users of those versions.  
 Note that the frame drops issue is confirmed in Ubuntu LTS 18 and 20, and it does not affect Ubuntu16 with LTS kernel 4.4.  
 
