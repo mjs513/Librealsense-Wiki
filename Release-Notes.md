@@ -1,3 +1,93 @@
+## Release 2.41.0
+Release Date: 27 Dec 2020
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2410
+
+
+### New Features
+* [#7802](https://github.com/IntelRealSense/librealsense/pull/7802) - **[D400] FW Update - 5.12.10.0**
+    - Bug fixes and improvements
+* [#7808](https://github.com/IntelRealSense/librealsense/pull/7808) - **[L515] FW Update - 1.5.3.0**
+    - Bug fixes
+* [#7851](https://github.com/IntelRealSense/librealsense/pull/7851) - **[OpenVINO]** Compatibility to both 2019/2020 versions of the openVINO was added.
+  Compatibility for 2019 and 2020 versions of the openVINO for the openVINO wrapper examles and realsense-viewer has been added. Addresses [6127](https://github.com/IntelRealSense/librealsense/issues/6127).  
+
+### Bug Fixes and Enhancements
+* [#7983](https://github.com/IntelRealSense/librealsense/pull/7983) - **[Linux]** Kernel 5 improvements:  
+  Changes in v4l backend implementation applicable for Kernels 4.16+ only:
+  - v4l backend - use multiplexing to handle metadata and video payloads
+  - Modify UVC_URBs from 5 to 16 to mitigate frame drops in uvcvideo
+  - Minor enhancement in manual patching script
+  - Frame drops unit-test refactoring  
+* [#8005](https://github.com/IntelRealSense/librealsense/pull/8005) - **[Linux]** Fix for video buffers guard
+* [#7993](https://github.com/IntelRealSense/librealsense/pull/7993) - **[Network Device]** Update rs-server to the latest Live555.
+* [#7977](https://github.com/IntelRealSense/librealsense/pull/7977) - **[Android]** Enabled advanced mode is not supported  
+  Display the advanced mode option only when it's actually supported. (RS5-8619)
+* [#7911](https://github.com/IntelRealSense/librealsense/pull/7911) - **[D400]** Emitter On /Off and Emitter Always On enabling together avoided (DSO-16064)
+* [#7938](https://github.com/IntelRealSense/librealsense/pull/7938) - **[D400]** On-Chip Calibration  - Focal Length Enhancements  
+* [#7915](https://github.com/IntelRealSense/librealsense/pull/7915) - **[D400]** On-Chip Calibration support for csharp wrapper
+  Add on-chip calibration call in csharp wrapper.) contributed by [@mengyui](https://github.com/mengyui)
+* [#7535](https://github.com/IntelRealSense/librealsense/pull/7535) - **[D400]** On-Chip Calibration - Focal Length calibration and merged Tare Ground Truth.
+  Added on-chip focal length calibration and merged tare ground truth
+* [#7872](https://github.com/IntelRealSense/librealsense/pull/7872) - **[L515]** IR Reflectivity report at 15% resolution  
+  IR Reflectivity resolution changes to 15% increments.
+  Add `stabilized_value` utility class and use it to smooth low-rate changes to the output value. (RS5-9611)  
+* [#7759](https://github.com/IntelRealSense/librealsense/pull/7759) **[SDK]** Convert frame to frameset in post processing filters. Make allocations consistent for all processing blocks. (DSO-15250)
+* [#7339](https://github.com/IntelRealSense/librealsense/pull/7339) - **[Linux]** Update packages error.  
+  A solution to issue [#5092](https://github.com/IntelRealSense/librealsense/issues/5092).   
+  error : E: Unable to locate package libdrm-amdgpu1-dbg
+  I ran `apt-cache search libdrm-amdgpu1-dbg` and it returned libdrm-amdgpu1-dbgsym and libdrm-amdgpu1.  
+  Contributed by [@bestaps](https://github.com/bestaps)
+* [#7774](https://github.com/IntelRealSense/librealsense/pull/7774) - **[SDK]** input to `try_parse` ROS record method updated** (DSO-16068)  
+* [#7931](https://github.com/IntelRealSense/librealsense/pull/7931) - **[MacOS]** IMU was temporarily switched off on Mac OS  Processing of IMU data was temporarily switched off in case of Mac OS usage to prevent the viewer and examples applications crash. Contributed by [@sokolov19830711](https://github.com/sokolov19830711)
+* [#7878](https://github.com/IntelRealSense/librealsense/pull/7878) - **[PCL]** Fixes  
+  Introduce cmake flag.  
+  Add try-catch for main function of pcl-color example.
+  Contributed by [@manson](https://github.com/manson)
+* [#7876](https://github.com/IntelRealSense/librealsense/pull/7876) - **[PCL]** Fix wrapper building
+  Searching procedure for headers and libs of the GLFW libriary was modified for using with the internal version of GLFW. Contributed by [@sokolov19830711](https://github.com/sokolov19830711)
+* [#7885](https://github.com/IntelRealSense/librealsense/pull/7885) - **[L515]** Fix error during AC when alt-IR isn't available
+* [#7887](https://github.com/IntelRealSense/librealsense/pull/7887) - **[OpenCV]** rotate point cloud example was added. Contributed by [@Allius27](https://github.com/Allius27)
+* [#7881](https://github.com/IntelRealSense/librealsense/pull/7881) - **[libusb]** Work-around for libusb breaking changes in Master branch (v1.0.24)
+* [#7836](https://github.com/IntelRealSense/librealsense/pull/7836) - **[Python]** Add `run-unit-tests.py` ability to run tests by name  
+* [#7842](https://github.com/IntelRealSense/librealsense/pull/7842) - **[Network Device]** Fix for the API usage removed bythe new version of Live555. 
+* [#7854](https://github.com/IntelRealSense/librealsense/pull/7854) - **[L515]** Parse additional HW error types.  
+  Added additional "Fatal Errors" 18-24. (RS5-9443)
+* [#7741](https://github.com/IntelRealSense/librealsense/pull/7741) - **[L515]** Added unitests for alt-IR:
+    - Sanity test.
+    - Check that AC fails if AltIR was enable before stream start.
+    - Check that AC fails if AltIR was enable after stream start.)(RS5-9423)
+* [#7812](https://github.com/IntelRealSense/librealsense/pull/7812) - **[Python]** pybind linux - Fix missing debug symbols in RelWithDebug mode.
+  The output binary .so file of building pyrealsense2 on Linux and on configuration RelWithDebInfo do not contain debug symbols.
+  It was caused due to a known issue with pybind11 version 2.2.1 that is used in librealsense SDK.
+  The issue was fixed at [PR1892](https://github.com/pybind/pybind11/pull/1892/files) at pybind11 repo.  
+  Linux python 2.7 wheel size before this changes is : ~10 [MB]  
+  Linux python 2.7 wheel size after this changes is : ~70 [MB]  
+* [#7835](https://github.com/IntelRealSense/librealsense/pull/7835) - **[Python]** stream_profile stream/format output now uses to_string()  
+* [#7794](https://github.com/IntelRealSense/librealsense/pull/7794) - **[Unity]** For the L515 device, disabled processing blocks in the `PointCloudProcessingBlocks` scene, except for Temporaral Filter) contributed by [@SergeySPF](https://github.com/SergeySPF)
+* [#7840](https://github.com/IntelRealSense/librealsense/pull/7840) - **Fix get_stream_profiles()**
+* [#7833](https://github.com/IntelRealSense/librealsense/pull/7833) - **[Java]** Download firmware image file for l500  
+  Add missing enum to Java wrapper (RS5-9606)
+* [#7832](https://github.com/IntelRealSense/librealsense/pull/7832) - **[Git]** fix merge issue  
+  Fix merge from `master` issue of duplicate code
+* [#7818](https://github.com/IntelRealSense/librealsense/pull/7818) - **[Git]** Retrofit Development branch with 2.40.0 changes  
+* [#7796](https://github.com/IntelRealSense/librealsense/pull/7796) - **L500]** Support for `FG` with debug_stream_sensor    Added API function `get_debug_stream_profiles()` that returns the list of debug formats  (FG).
+  The debug format will not be available through the `sensor::get_stream_profiles()` API.
+  Added support for python wrapper.
+  Added unit tests on python.
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+* (RS5-7374) - [L515] Error after performing HW reset
+* (DSO-15118) - [D400] Viewer is closed forcibly with cycling start/stop streaming in 3D view.
+
 ## Release 2.40.0
 Release Date: 18 Nov 2020
 
