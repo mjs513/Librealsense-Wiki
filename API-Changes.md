@@ -1,11 +1,19 @@
- ## Version [2.40.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.40.0)
+ ## Version [2.41.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.41.0)
+Functions:
+ - [rs2_get_debug_stream_profiles](https://github.com/IntelRealSense/librealsense/blob/53/include/librealsense2/h/rs_sensor.h#L334) - Retrieve list of debug stream profiles that given sub-device can provide.
+Types:
+ - [RS2_FORMAT_FG](https://github.com/IntelRealSense/librealsense/blob/53/include/librealsense2/h/rs_sensor.h#L90) - **[L515]** 16-bit per-pixel Frame Grabber format.
+ - [RS2_EXTENSION_DEBUG_STREAM_SENSOR](https://github.com/IntelRealSense/librealsense/blob/53/include/librealsense2/h/rs_types.h#L216) - Auxiliary type
+
+ 
+## Version [2.40.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.40.0)
 Functions:
  - [rs2_get_number_of_fw_logs](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_internal.h#L457) - Returns number of fw logs already polled from device waiting to be parsed by user.
  - [rs2_get_fw_log_parsed_sequence_id](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_internal.h#L457) - Read logger's sequence id - a cyclic number set by FW in [0..15] range
  
   - [rs2_get_max_usable_depth_range](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_sensor.h#L655) - **[L515]** Assess the maximum range of the camera given the amount of ambient light in the scene
 
-Primitives:
+Types:
  - [RS2_OPTION_DIGITAL_GAIN](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L94) - **[L515]** The option tag `RS2_OPTION_AMBIENT_LIGHT` is deprecated for L515 and replaced by the mentioned enum. The previous value is left intact for back-compatibility
  - [RS2_OPTION_HUMIDITY_TEMPERATURE](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L94),  
  - [RS2_OPTION_HUMIDITY_TEMPERATURE](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L105) - **[L515]** Humidity sensor temperature reading 
