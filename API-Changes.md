@@ -1,3 +1,22 @@
+ ## Version [2.40.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.40.0)
+Functions:
+ - [rs2_get_number_of_fw_logs](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_internal.h#L457) - Returns number of fw logs already polled from device waiting to be parsed by user.
+ - [rs2_get_fw_log_parsed_sequence_id](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_internal.h#L457) - Read logger's sequence id - a cyclic number set by FW in [0..15] range
+ 
+  - [rs2_get_max_usable_depth_range](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_sensor.h#L655) - **[L515]** Assess the maximum range of the camera given the amount of ambient light in the scene
+
+Primitives:
+ - [RS2_OPTION_DIGITAL_GAIN](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L94) - **[L515]** The option tag `RS2_OPTION_AMBIENT_LIGHT` is deprecated for L515 and replaced by the mentioned enum. The previous value is left intact for back-compatibility
+ - [RS2_OPTION_HUMIDITY_TEMPERATURE](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L94),  
+ - [RS2_OPTION_HUMIDITY_TEMPERATURE](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L105) - **[L515]** Humidity sensor temperature reading 
+ - [RS2_OPTION_ENABLE_MAX_USABLE_RANGE](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L106) - **[L515]** Turn on/off the maximum usable depth sensor range given the amount of ambient light in the scene
+ - [RS2_OPTION_ALTERNATE_IR](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L107) - **[L515]** Toggle the alternate IR, When enabling alternate IR, the IR image is holding the amplitude of the depth correlation.
+ - [RS2_OPTION_NOISE_ESTIMATION](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L108) - **[L515]** Indicates the noise level in the IR image.
+ - [RS2_OPTION_ENABLE_IR_REFLECTIVITY](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L109) - **[L515]** Enables data collection for calculating IR pixel reflectivity.
+- [rs2_digital_gain](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L180-L185) enumeration - provides the range of values applicable for `RS2_OPTION_DIGITAL_GAIN.
+ - [RS2_EXTENSION_MAX_USABLE_RANGE_SENSOR](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_types.h#L215) - **[L515]** Auxiliary type
+
+
  ## Version [2.39.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.39.0)
 Functions:
  - [rs2_create_hdr_merge_processing_block](https://github.com/IntelRealSense/librealsense/blob/v2.39.0/include/librealsense2/h/rs_processing.h#L259) - Depth HDR Post-processing module (Alpha).
