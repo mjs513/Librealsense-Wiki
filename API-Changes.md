@@ -15,7 +15,6 @@ Functions:
 
 Types:
  - [RS2_OPTION_DIGITAL_GAIN](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L94) - **[L515]** The option tag `RS2_OPTION_AMBIENT_LIGHT` is deprecated for L515 and replaced by the mentioned enum. The previous value is left intact for back-compatibility
- - [RS2_OPTION_HUMIDITY_TEMPERATURE](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L94),  
  - [RS2_OPTION_HUMIDITY_TEMPERATURE](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L105) - **[L515]** Humidity sensor temperature reading 
  - [RS2_OPTION_ENABLE_MAX_USABLE_RANGE](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L106) - **[L515]** Turn on/off the maximum usable depth sensor range given the amount of ambient light in the scene
  - [RS2_OPTION_ALTERNATE_IR](https://github.com/IntelRealSense/librealsense/blob/v2.40.0/include/librealsense2/h/rs_option.h#L107) - **[L515]** Toggle the alternate IR, When enabling alternate IR, the IR image is holding the amplitude of the depth correlation.
