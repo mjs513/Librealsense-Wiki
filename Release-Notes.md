@@ -33,7 +33,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2410
 * [#7872](https://github.com/IntelRealSense/librealsense/pull/7872) - **[L515]** IR Reflectivity report at 15% resolution  
   IR Reflectivity resolution changes to 15% increments.
   Add `stabilized_value` utility class and use it to smooth low-rate changes to the output value. (RS5-9611)  
-* [#7759](https://github.com/IntelRealSense/librealsense/pull/7759) **[SDK]** Convert frame to frameset in post processing filters. Make allocations consistent for all processing blocks. (DSO-15250)
+* [#7759](https://github.com/IntelRealSense/librealsense/pull/7759) **[SDK]** Convert frame to frameset in post processing filters. Make allocations consistent for all processing blocks. Addresses [#7584](https://github.com/IntelRealSense/librealsense/issues/7584) (DSO-15250)
 * [#7339](https://github.com/IntelRealSense/librealsense/pull/7339) - **[Linux]** Update packages error.  
   A solution to issue [#5092](https://github.com/IntelRealSense/librealsense/issues/5092).   
   error : E: Unable to locate package libdrm-amdgpu1-dbg
