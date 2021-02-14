@@ -1,4 +1,14 @@
- ## Version [2.41.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.41.0)
+## Version [2.42.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.42.0)
+Functions:
+ - [rs2_reset_logger](https://github.com/IntelRealSense/librealsense/blob/master/include/librealsense2/rs.h#L83) - Cleanup logger selection.
+ - [rs2_enable_rolling_log_file](https://github.com/IntelRealSense/librealsense/blob/master/include/librealsense2/rs.h#L83) - Upon reaching a certain limit close and remove the old log and start writing to a new file.
+   Requires permissions to remove/rename files in log file directory.
+
+Options:
+ - [RS2_OPTION_AUTO_EXPOSURE_LIMIT](https://github.com/IntelRealSense/librealsense/blob/53/include/librealsense2/h/rs_sensor.h#L90) - **[D400]** Limit maximal exposure used in Auto-Exposure to preserve FPS.
+ - [RS2_OPTION_AUTO_GAIN_LIMIT](https://github.com/IntelRealSense/librealsense/blob/53/include/librealsense2/h/rs_types.h#L216) - **[D400]** Limit maximal digital gain value used in Auto-Exposure.
+
+## Version [2.41.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.41.0)
 Functions:
  - [rs2_get_debug_stream_profiles](https://github.com/IntelRealSense/librealsense/blob/53/include/librealsense2/h/rs_sensor.h#L334) - Retrieve list of debug stream profiles that given sub-device can provide.
 Types:
