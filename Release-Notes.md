@@ -9,7 +9,7 @@ The Android Distribution Center has been transferred from `bintray.com` to `jfro
 The [previously available server](https://dl.bintray.com/intel-realsense/librealsense) is not accessible since Jan 24th.
 The official releases of the Android apk and Java library can be browsed with `https://egiintel.jfrog.io/artifactory/librealsense/com/intel/realsense/librealsense`  
 See [#8280](https://github.com/IntelRealSense/librealsense/pull/8280) for details.  
-Note that with the new server is hosting SDK releases v2.41.0+ only. Transfer of older releases is envisioned but not prioritized.
+Note that the new server currently is hosting SDK releases v2.41.0+ only. Transfer of older releases is envisioned but not prioritized.
 
 ### New Features
 * [#8350](https://github.com/IntelRealSense/librealsense/pull/8350) - **[L515] FW update v1.5.4.1**  (RS5-10444) 
