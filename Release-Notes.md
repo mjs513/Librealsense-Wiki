@@ -44,7 +44,7 @@ In custom mode we need to update the sensor with sensor mode before start.
 * [#8072](https://github.com/IntelRealSense/librealsense/pull/8072) - **[Unity] using SafeHandle in Context class**  
 Context class with CriticalFinalizerObject and CER implementation.  
 (DSO-13740)
-* [#8002](https://github.com/IntelRealSense/librealsense/pull/8002) - **[L515] Remove default preset**  
+* [#8002](https://github.com/IntelRealSense/librealsense/pull/8002) - **[L515] Remove default preset**  (RS5-8999)
    1. **Remove default preset**
       -  on LRS start up we calculate if we are in one of the presets and if not we are on custom
       - when loading old Json file if the preset is default the preset will be custom
@@ -60,8 +60,14 @@ Context class with CriticalFinalizerObject and CER implementation.
       - set gain according to preset
       - read the default values 
       - set default values to currents
-      - set laser according to preset  
-(RS5-8999)
+      - set laser according to preset
+
+   NOTE: When starting to stream, librealsense may raise an exception:
+   > sensor mode (VGA) with RS2_L500_VISUAL_PRESET_CUSTOM is incompatible with the requested profile resolution (XGA)
+
+   This is caused when the visual preset is CUSTOM and the value in RS2_OPTION_SENSOR_MODE does not match the resolution from the profile. Either make 
+   sure the preset is one of the predefined ones or set the SENSOR_MODE to match the profile.
+   This exception has since been removed, see PR [#8338](https://github.com/IntelRealSense/librealsense/pull/8338).
 * [#8261](https://github.com/IntelRealSense/librealsense/pull/8261) - **[Android] Remove (L515) Confidence stream from settings**  (RS5-8989)
 * [#8262](https://github.com/IntelRealSense/librealsense/pull/8262) - **[L515] Deprecate Zero-Order option** (RS5-10182) 
 * [#8252](https://github.com/IntelRealSense/librealsense/pull/8252) - **[Core] Fix GCC 5 error/warnings in HDR demo**  
