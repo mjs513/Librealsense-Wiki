@@ -1,3 +1,167 @@
+## Release 2.43.0
+Release Date: 21 Mar 2021
+
+### Debian Distribution PPA Change - User Notification
+The Debian Distribution PPA is being transferred and redirected to use new URL with Secure Access - **HTTPS** instead of ~~HTTP~~  
+The new addresses shall start with `https://librealsense.intel.com`  
+The users who use seamless Ubuntu update shall modify the server's list according to the [updated documentation](https://github.com/IntelRealSense/librealsense/blob/development/doc/distribution_linux.md#installing-the-packages).   
+Relates to [#8414](https://github.com/IntelRealSense/librealsense/pull/8414)
+
+### NVidia Jetson - User Notification
+With the release of Jetpack 4.4.1 support for RealSense Devices D415,D435(i) has been integrated into the L4T kernel, thus the owners/developers for that platform (Jetson AGX/Nano) that use those devices do not need to apply kernel patches anymore in order to receive the extended functionality and features, such as metadata.
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2430
+
+### New Features
+* [#8622](https://github.com/IntelRealSense/librealsense/pull/8622) - **[D400] Fw version v5.12.12.100**  
+* [#8605](https://github.com/IntelRealSense/librealsense/pull/8605) - **[L515] FW version 1.5.5.0**  
+
+* [#7169](https://github.com/IntelRealSense/librealsense/pull/7169), [#8568](https://github.com/IntelRealSense/librealsense/pull/8568),[#8543](https://github.com/IntelRealSense/librealsense/pull/8543),[#8542](https://github.com/IntelRealSense/librealsense/pull/8542)  - **[D455] Thermal Compensation**  
+D455 introduces a compensation mechanism intended to mitigate the effect of thermal propagation in optics.  
+When active (default = On) it will track and adjust Depth and RGB calibration parameters automatically.  
+(DSO-15579, DSO-16548,DSO-16745)
+* [#8405](https://github.com/IntelRealSense/librealsense/pull/8405) - **[Python] Generate wheels for Python 3.8 + 3.9**
+Package classifiers updated to support python 3.8 + 3.9 (DSO-16485)  
+* [#8366](https://github.com/IntelRealSense/librealsense/pull/8366) - **[NVidia JetPack]**
+Adding support for Jetpack 4.4.1+4.5 (32.4.4 + 32.5)
+  - Manage separate kernel patches for formats and metadata since L4T 4.4.1
+  - Modify script to avoid redundant patches that have been introduced inL4T 4.4.1
+  - Rename 4.9 patches into 4.4/4.4.1 to follow the JetPack baseline version
+  - Minor adjustments to script to handle with Git/Kernel variants  
+ Addresses [#8254](https://github.com/IntelRealSense/librealsense/issues/8254) ) (DSO-16259)
+* [#8298](https://github.com/IntelRealSense/librealsense/pull/8298) - **[Android] Support for Android 11**  
+Added changes needed by Android Studio and the gradle build system for supporting the latest version of the Android SDK (30).
+The changes were tested to be working on a Pixel device with Android version 11
+
+### Bug Fixes and Enhancements
+* [#8473](https://github.com/IntelRealSense/librealsense/pull/8473) - **[Core] Video profile eq**  (video_stream_profile class is missing operator==
+This cause 2 video_stream_profile objects to use the stream_profile::operator== instead which gives false results.  
+(DSO-16565)
+* [#8524](https://github.com/IntelRealSense/librealsense/pull/8524) - **[Core] Fix include in src/sensor.h**  
+* [#8487](https://github.com/IntelRealSense/librealsense/pull/8487) - **[Unit-tests] FW update test**  
+* [#8518](https://github.com/IntelRealSense/librealsense/pull/8518) - **[Unit-tests] Negative number of assertions**  
+* [#8494](https://github.com/IntelRealSense/librealsense/pull/8494) - **[Unit-tests] Memory Leak  test fix**  
+Fixed internal unit test : "Extrinsic memory leak detection"
+Fix: accepting first arrived frame in each iteration regardless of its frame number 
+(DSO-16625)
+* [#8495](https://github.com/IntelRealSense/librealsense/pull/8495) - **[Android] FW Update message correction**  
+Avoid suggesting the user to update the recommended fw if already there  (DSO-15522)
+* [#8365](https://github.com/IntelRealSense/librealsense/pull/8365) - **[Core] Add support for SKU B5B**  (DSO-16440)
+* [#8490](https://github.com/IntelRealSense/librealsense/pull/8490) - **[Unit-tests] Misc run-unit-tests attempts at better stability**   Including work in set-options
+* [#8461](https://github.com/IntelRealSense/librealsense/pull/8461) - **[Core] Fix for IMU drops on playback**  
+Addresses issue [#7908](https://github.com/IntelRealSense/librealsense/issues/7908).  
+Adding log for manitenance (DSO-12379)
+* [#8488](https://github.com/IntelRealSense/librealsense/pull/8488) - **[Windows] LRS examples from Windows installer does not build**
+Split example.hpp ImGui related code into a new file example-imgui.hpp  
+Fix examples includes  
+Fix examples warnings (RS5-10360)  
+* [#8463](https://github.com/IntelRealSense/librealsense/pull/8463) - **[3rd Party] Libcurl update - SSL support**  
+Update libcurl third-party to version 7.75  
+Build libcurl with SSL  
+Change online versions DB link to https link  (DSO-16463)
+* [#8056](https://github.com/IntelRealSense/librealsense/pull/8056) - **[L500] Add MUR and reflectivity unit tests**  
+(RS5-9400)
+* [#8462](https://github.com/IntelRealSense/librealsense/pull/8462) - **[Playback] Slider show milliseconds**  
+(DSO-12379)
+* [#8477](https://github.com/IntelRealSense/librealsense/pull/8477) - **[Unit-Tests] fixes**
+Fix missing unit-tests test:device & better debug output  
+Add rspy.log.debug_indent()  
+Add rspy.test.print_separator()  
+Fix some weird behavior with rspy.log color output   
+[#8475](https://github.com/IntelRealSense/librealsense/pull/8475) - **[L500] Fixed AC-triggers test**  
+* [#8468](https://github.com/IntelRealSense/librealsense/pull/8468) - **[Unit-Tests] Added tag directive**  
+* [#8444](https://github.com/IntelRealSense/librealsense/pull/8444) - **[Unit-Tests]**
+Fix run-unit-tests issue with finding acroname  
+* [#8443](https://github.com/IntelRealSense/librealsense/pull/8443) - **[Unit-Tests]**
+Added priority option to config  
+* [#8440](https://github.com/IntelRealSense/librealsense/pull/8440) - **[Unit-Tests]**
+Added configuration for c/cpp tests  
+* [#7859](https://github.com/IntelRealSense/librealsense/pull/7859) - **[Unit-Tests]**
+Added unit tests for hw-errors handling  
+Error handling sanity, in and out of streaming
+(RS5-9659)
+* [#8406](https://github.com/IntelRealSense/librealsense/pull/8406) - **[Unit-Tests] fixes**
+run-unit-tests.py no longer requires pyrealsense2.pyd  
+* [#8432](https://github.com/IntelRealSense/librealsense/pull/8432) - **[Core] Change to C style cast**  
+Fixes [#8431](https://github.com/IntelRealSense/librealsense/issues/8431) contributed by [@surban](https://github.com/surban)
+* [#8410](https://github.com/IntelRealSense/librealsense/pull/8410) - **[Core] Log to output file instead of console**  
+Adding option for printing the fw logs in an output file
+* [#8414](https://github.com/IntelRealSense/librealsense/pull/8414) - **[Linux Distribution] Update Repository Server URL**  
+Replacing URLs:  
+  - ~~realsense-hw-public.s3.amazonaws.com~~  
+  - ~~realsense-hw-publics3-eu-west-1.amazonaws.com~~  
+with `librealsense.intel.com`
+Installation tested on Ubuntu 16.04, 18.04, 20.04
+(DSO-16482)
+* [#8420](https://github.com/IntelRealSense/librealsense/pull/8420) - **[L500] Update MUR limits and resolution**  
+(RS5-9580)
+* [#8378](https://github.com/IntelRealSense/librealsense/pull/8378) - **[Core] Syncer Fix**  
+Fix syncer bug causing wrong frame order:  
+  - Fix l500 matcher hierarchy (remove timestamp_composite_matcher as root above device-generated matcher)
+  - Add mutex to protect try_dequeue and calling to callback
+  - Add log parameter to syncer (RS5-10200)
+
+* [#8403](https://github.com/IntelRealSense/librealsense/pull/8403) - **[Unit-Tests]**  
+Fix small issues with devices.py
+* [#8387](https://github.com/IntelRealSense/librealsense/pull/8387) - **[Core] Use standard cast syntax to cast to float**  
+This change was supposedly done to reduce / remove the number of warnings, but ended up breaking our Rust bindings to librealsense2 (bindgen is expecting an expression which isn't there). See [our realsense-rust fork](https://github.com/Tangram-Vision/realsense-rust).  
+If you're looking for the specific error when building against the official 2.42 release.) contributed by [@ThatGeoGuy](https://github.com/ThatGeoGuy)
+* [#6653](https://github.com/IntelRealSense/librealsense/pull/6653) - **[Linux] add patch scripts for debian 10 and linux vanilla**  
+L515 working on Debian 10. contributed by [@andrewhodel](https://github.com/andrewhodel)
+
+* [#7751](https://github.com/IntelRealSense/librealsense/pull/7751) - **[Unit-Tests]**  
+Encapsulate the content of internal-tests-linux.cpp with ```#ifdef __linux__```   
+* [#8380](https://github.com/IntelRealSense/librealsense/pull/8380) - **[Android] switch HTTP to HTTPS**  
+...  in camera `app gradle.build`  (DSO-16528)
+* [#8336](https://github.com/IntelRealSense/librealsense/pull/8336) - **[Unit-Tests] - HDR** 
+Move HDR tests from live tests to dedicated folder** (DSO-16532)
+* [#8370](https://github.com/IntelRealSense/librealsense/pull/8370) - **[Unit-Tests]**
+Additional unit-testing fixes  
+* [#8359](https://github.com/IntelRealSense/librealsense/pull/8359) - **[Unit-Tests]** 
+  - Test:device acroname control (for py only)  
+  - Separated log functionality into `rspy.log` module
+  - Use `devices` module from run-unit-tests.py
+  - Changed python subprocess invocation to `sys.executable`
+  - HWM cmd `SET_AGE` -> `UNIT_AGE_SET`, to fit XML
+* [#8328](https://github.com/IntelRealSense/librealsense/pull/8328) - **[Viewer]** OpenVINO filter fix **  
+  - Disable OpenVINO filter while streaming single frames (when IMU is ON) and returning it back when IMU is disabled
+  - Enable frameset streaming after IMU is disabled   
+  Addresses [#8074](https://github.com/IntelRealSense/librealsense/issues/8074)   (DSO-15250)
+* [#8351](https://github.com/IntelRealSense/librealsense/pull/8351) - **[Python Examples]**
+Adjust python examples to support L515 device (RS5-10333)
+* [#8338](https://github.com/IntelRealSense/librealsense/pull/8338) - **[L500] Mode check remove**  
+Remove the sensor mode check on start stream on custom: profile resolution now trumps sensor_mode  
+Added test to check it
+* [#8335](https://github.com/IntelRealSense/librealsense/pull/8335) - **[Core] Add const to a couple of HW monitor APIs**
+* [#8331](https://github.com/IntelRealSense/librealsense/pull/8331) - **[Tenssor Flow]**
+Rename `camera_simulation.py` to `example5-denoised.py` in part 5)  
+* [#8304](https://github.com/IntelRealSense/librealsense/pull/8304) - **[D400] DFU updates**
+Version 107 added, version 106 corrected (DSO-16507)
+* [#8285](https://github.com/IntelRealSense/librealsense/pull/8285) - **[Android] Fix Permisisons** 
+Camera permission skipped in OS versions < 8 (DSO-16060)
+* [#8282](https://github.com/IntelRealSense/librealsense/pull/8282) - **[3rd Party]Live555 version freeze**
+* [#8297](https://github.com/IntelRealSense/librealsense/pull/8297) - **[Unit-Tests]**  
+Fixed preset unit-test issues
+* [#8214](https://github.com/IntelRealSense/librealsense/pull/8214) - **[Unit-Tests]**  
+Pipe unit test for first frame delay issue  
+Tested on D435i and L515, USB3 (DSO-16305)
+
+### Documentation
+* [#8286](https://github.com/IntelRealSense/librealsense/pull/8286) - **[Doc]**  Add Android releases artifactory link  (DSO-16496)
+
+### Known Issues
+* (RS5-10755) - [Android] Significant slowness when working with Viewer App and L515  
+* (DSO-16751) - [Android] Apk record cannot work with Android 11
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+
+
 ## Release 2.42.0
 Release Date: 14 Feb 2021
 
