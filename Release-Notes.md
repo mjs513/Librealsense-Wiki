@@ -4,7 +4,7 @@ Release Date: 21 Mar 2021
 ### Debian Distribution PPA Change - User Notification
 The Debian Distribution PPA is being transferred and redirected to use new URL with Secure Access - **HTTPS** instead of ~~HTTP~~  
 The new addresses shall start with `https://librealsense.intel.com`  
-The users who use seamless Ubuntu update shall modify the server's list according to the [updated documentation](https://github.com/IntelRealSense/librealsense/blob/development/doc/distribution_linux.md#installing-the-packages).   
+The users who use seamless Ubuntu update shall modify the server's list according to the [updated documentation](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md#installing-the-packages).   
 Relates to [#8414](https://github.com/IntelRealSense/librealsense/pull/8414)
 
 ### NVidia Jetson - User Notification
