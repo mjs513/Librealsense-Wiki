@@ -1,3 +1,14 @@
+## Version [2.43.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.43.0)
+Class:
+ - [calibration_change_device](https://github.com/IntelRealSense/librealsense/blob/v2.43.0/include/librealsense2/hpp/rs_device.hpp#L572) - is the new base class that separates calibration updates observer and calibration invocation.
+Casting `device` to the type allows to utilize the extension interface and register to thermal adjustment notifications.
+- [video_stream_profile](https://github.com/IntelRealSense/librealsense/blob/v2.43.0/include/librealsense2/hpp/rs_frame.hpp#L247-L252) - Adding comparison operator for `video_profile` that takes into account stream resolution
+
+Types:
+ - [RS2_CALIBRATION_THERMAL](https://github.com/IntelRealSense/librealsense/blob/v2.43.0/include/librealsense2/h/rs_device.h#L348) - **[D400]** Calibration type supported by selected Realsense Stereo devices.
+ - [RS2_EXTENSION_CALIBRATION_CHANGE_DEVICE](https://github.com/IntelRealSense/librealsense/blob/v2.43.0/include/librealsense2/h/rs_types.h#L223)
+**[D400]** - Extension API allowing to register user-defined callbacks for notifications of Thermal adjustments invocation. These callbacks are informative in their nature and can be used for environmental monitoring.
+
 ## Version [2.42.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.42.0)
 Functions:
  - [rs2_reset_logger](https://github.com/IntelRealSense/librealsense/blob/master/include/librealsense2/rs.h#L83) - Cleanup logger selection.
