@@ -1,3 +1,130 @@
+## Release 2.44.0
+Release Date: 1st Apr 2021
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2440
+
+### New Features
+* [#8633](https://github.com/IntelRealSense/librealsense/pull/8633) - **[NodeJs]**
+Support for NodeJs14.  
+Fix Nodejs14 cameras autoconfiguration new glfw 
+
+### Bug Fixes and Enhancements
+* [#7997](https://github.com/IntelRealSense/librealsense/pull/7997) - **[D400] Added rs2_get_target_size_on_frame and updated python wrapper to use it.**  
+API `rs2_get_target_size_on_frame` is created and exposed in the Python wrapper.
+* [#8671](https://github.com/IntelRealSense/librealsense/pull/8671) - **[D400] Tare calibration fix**  
+Fix issues in `if` statements  (DSO-16782).  
+* [#8519](https://github.com/IntelRealSense/librealsense/pull/8519) - **[D400] Auto Exposure Limit : range value setting limitation**  
+When setting Auto Exposure value outside the fixed limit, error will be printed to the log and AE value will remain as previous valid value (DSO-16596).
+* [#8428](https://github.com/IntelRealSense/librealsense/pull/8428) - **[C#] Fix colorizer/Software Object bundle**  
+Addresses [#8407](https://github.com/IntelRealSense/librealsense/issues/8407)
+* [#8018](https://github.com/IntelRealSense/librealsense/pull/8018) - **[Core] FW update exception interception**  
+When FW update runs, the device disconnects when it switches to DFU. 
+Exception is thrown when FW update calls query devices while device still connected (not switch to DFU already.  
+In this fix, after sending the command of switching device to DFU, I checked when device is disconnected then continue to next step of querying devices.
+(DSO-16069)
+* [#8489](https://github.com/IntelRealSense/librealsense/pull/8489) - **[Android]  Redesigning presets activity to dialog**  
+(DSO-15649, DSO-15651)
+* [#8658](https://github.com/IntelRealSense/librealsense/pull/8658) - **[Core] Add FW version and locked status to device string**  (RS5-10771)
+
+* [#8561](https://github.com/IntelRealSense/librealsense/pull/8561) - **[T265]  Fix for race condition during pipeline stop.**  
+This PR is effectively the suggested fix in the GH issue below. Thank you @ankyur.
+https://github.com/IntelRealSense/librealsense/issues/7276 
+I've validated the fix works using the following code:
+    ```cpp
+    // Reproduces T265 Hand on Exit.
+    int main(int, char**)
+    {
+        constexpr std::chrono::seconds timeout{ 1 };
+        while (true)
+        {
+            // Start
+            rs2::config config;
+            rs2::pipeline pipeline;
+
+            std::cout << "Entering pipeline.start()" << std::endl;
+            pipeline.start();
+            std::cout << "Exiting pipeline.start()" << std::endl;
+
+            std::cout << "Sleeping for 1 second..." << std::endl;
+            std::this_thread::sleep_for(timeout);
+            
+            std::cout << "Entering pipeline.stop()" << std::endl;
+            pipeline.stop();
+            std::cout << "Exiting pipeline.stop()" << std::endl;
+        }
+        return 0;
+    }
+    ```
+    Suspect this fix potentially addresses the following open T265 issues as well:
+[#7553](https://github.com/IntelRealSense/librealsense/issues/7553),
+[#5807](https://github.com/IntelRealSense/librealsense/issues/5807),
+[#6272](https://github.com/IntelRealSense/librealsense/issues/6272),
+[#7555](https://github.com/IntelRealSense/librealsense/issues/7555),
+[#7750](https://github.com/IntelRealSense/librealsense/issues/7750)
+* [#8594](https://github.com/IntelRealSense/librealsense/pull/8594) - **[Core] FW Update fortification**  
+Adding size check for signed & unsigned firmware  (DSO-13524)
+* [#8624](https://github.com/IntelRealSense/librealsense/pull/8624) - **[D400] Baseline computing corrected**  (DSO-16780)  
+
+* [#8623](https://github.com/IntelRealSense/librealsense/pull/8623) - **[D400]**
+Checking `supports` API before calling get or set to emitter option**  (DSO-16782) 
+* [#8640](https://github.com/IntelRealSense/librealsense/pull/8640) - **[Core]**
+Disable_stream() fix when running `enable_all_streams()`
+Fix `disable_stream()` to actually stopping disabled streams from arriving.
+Reported issue: [#3919](https://github.com/IntelRealSense/librealsense/issues/3919)
+(DSO-13705)
+* [#8625](https://github.com/IntelRealSense/librealsense/pull/8625) - **[Core]**
+Fix deadlock on pipeline.stop() with playback device in non realtime  
+  - Add `stop` to syncer to avoid deadlock in case of blocking enqueue.
+(DSO-15157)
+* [#8593](https://github.com/IntelRealSense/librealsense/pull/8593) - **[L515]** 
+Keep USB power on when multiple HWM calls made.  
+Reduce L515 device creation and sensor open/start calls time by keeping the USB power on when multiple access are made.
+(RS5-8208)
+* [#7880](https://github.com/IntelRealSense/librealsense/pull/7880) - **[MATLAB]**
+Use case extension draft
+* [#8600](https://github.com/IntelRealSense/librealsense/pull/8600) - **[NodeJs]** Make `RSPointCloud.mapTo` compatible with `rs_processing.hpp map_to``  
+Related to [#5057](https://github.com/IntelRealSense/librealsense/issues/5057), [#6223](https://github.com/IntelRealSense/librealsense/issues/6223)
+RSPointCloud.mapTo should repeat same behavior as rs_processing.hpp [map_to](https://github.com/IntelRealSense/librealsense/blob/master/include/librealsense2/hpp/rs_processing.hpp#L452) which was changed by [commit](https://github.com/IntelRealSense/librealsense/commit/6850677e0473bd01a2078ef6e0398a617539cf56#diff-0657358b7a274211507c5de54e211fe5915712beb08733d0c1dac831bbc32a5cL318), contributed by [@whsol](https://github.com/whsol)
+* [#8555](https://github.com/IntelRealSense/librealsense/pull/8555) - **C# tutorial 1 fixes**  
+Example fix: `cs-tutorial-1-depth`.  
+Checked against cameras: D415, D435, SR300, L515 and USB2/USB3 .NET 4.8, dotnet 5.0, mono.
+* [#8559](https://github.com/IntelRealSense/librealsense/pull/8559) - **[C#] tutorial 2 fixes**  
+Example fix: `cs-tutorial-2-capture`.  
+Checked against cameras: D415, D435, SR300, L515 and USB2/USB3 .NET 4.8, dotnet 5.0
+* [#8560](https://github.com/IntelRealSense/librealsense/pull/8560) - **[C#] Tutorial 3 fixes**  
+Example fix: `cs-tutorial-3-processing`.  
+Verified for D415, D435, SR300, L515 and USB2/USB3 .NET 4.8, dotnet 5.0
+* [#8552](https://github.com/IntelRealSense/librealsense/pull/8552) - **C# tutorial 4 fixes** 
+Example fix: `cs-tutorial-4-software-dev`.  
+Verified for D415, D435, SR300, L515 and USB2/USB3 .NET 4.8, dotnet 5.0.
+* [#8576](https://github.com/IntelRealSense/librealsense/pull/8576) - **[Python] Update pybind11 version to 2.6.2**  
+Apply fixes for python 3.8 + 3.9 support, align to the latest version. (RS5-10670)
+* [#8575](https://github.com/IntelRealSense/librealsense/pull/8575) - **[Android] Fix record for Android 11**  (DSO-16751)
+* [#8573](https://github.com/IntelRealSense/librealsense/pull/8573) - **[Core] Syncer to produce frameset (always)**  
+Solve the playback with syncer bug added on [#8378](https://github.com/IntelRealSense/librealsense/issues/8378) and pipeline with single stream bug.
+The old code expected syncer output to always be a frameset.
+* [#8574](https://github.com/IntelRealSense/librealsense/pull/8574) - **[Python] Fix auto calibration python example**  (DSO-16768)
+* [#8570](https://github.com/IntelRealSense/librealsense/pull/8570) - **[Python] Fix pyrealsense2 crash when importing other pybind11 created modules**  
+Pybind's ABI is made up of compiler type among other things, but not compiler version -- so two modules with pybind compiled with VS 2019 and VS 2015 would generate the same ABI and pybind will try to share resources, crashing Python.
+(see https://github.com/pybind/pybind11/issues/2898). The change forces a unique ABI version to be created and loaded that won't be shared with pybind instances. (RS5-10582)
+* [#8553](https://github.com/IntelRealSense/librealsense/pull/8553) - **[Viewer] Depth color map ruler show wrong values**  
+Fix Viewer depth units ruler's ranges on the right side (RS5-10658)
+
+### Documentation
+* [#8613](https://github.com/IntelRealSense/librealsense/pull/8613) - **[HDR] link correction**  
+Changed Gif address to the Gif in the development branch instead of the previous (private github link))
+
+### Known Issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+
+
 ## Release 2.43.0
 Release Date: 21 Mar 2021
 
