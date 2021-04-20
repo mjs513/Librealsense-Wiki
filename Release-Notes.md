@@ -143,11 +143,6 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2430
 ### New Features
 * [#8622](https://github.com/IntelRealSense/librealsense/pull/8622) - **[D400] Fw version v5.12.12.100**  
 * [#8605](https://github.com/IntelRealSense/librealsense/pull/8605) - **[L515] FW version 1.5.5.0**  
-
-* [#7169](https://github.com/IntelRealSense/librealsense/pull/7169), [#8568](https://github.com/IntelRealSense/librealsense/pull/8568),[#8543](https://github.com/IntelRealSense/librealsense/pull/8543),[#8542](https://github.com/IntelRealSense/librealsense/pull/8542)  - **[D455] Thermal Compensation**  
-D455 introduces a compensation mechanism intended to mitigate the effect of thermal propagation in optics.  
-When active (default = On) it will track and adjust Depth and RGB calibration parameters automatically.  
-(DSO-15579, DSO-16548,DSO-16745)
 * [#8405](https://github.com/IntelRealSense/librealsense/pull/8405) - **[Python] Generate wheels for Python 3.8 + 3.9**
 Package classifiers updated to support python 3.8 + 3.9 (DSO-16485)  
 * [#8366](https://github.com/IntelRealSense/librealsense/pull/8366) - **[NVidia JetPack]**
