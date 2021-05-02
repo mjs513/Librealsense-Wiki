@@ -1,3 +1,73 @@
+## Release 2.45.0
+Release Date: 2nd May 2021
+
+### API Changes
+N/A
+### Bug Fixes and Enhancements
+* [#8925](https://github.com/IntelRealSense/librealsense/pull/8925) - **[D400] Fw version 5.12.13.50** 
+   Fixes and stability improvements
+* [#8790](https://github.com/IntelRealSense/librealsense/pull/8790) - **[D400] Make intercam_sync option read-only while streaming**  (DSO-16833)
+* [#8791](https://github.com/IntelRealSense/librealsense/pull/8791) - **[L515] Brown-Conrady forward/backword distortion , deproject impl (GitHub #7335)**  (RS5-9995)
+* [#8759](https://github.com/IntelRealSense/librealsense/pull/8759) - **[Core] Implementation of Brown-Conrady model on SSE , CUDA and GLSL**  
+  * Implementation of Brown-Conrady transformation on `deproject_pixel_to_point_cuda()`.
+  * Fix of Inverse-Brown-Conrady transformation on `deproject_pixel_to_point_cuda()`.
+  * Implementation of Brown-Conrady transformation on `get_texture_map_sse()`.
+  * Added unit tests for sse code (Inverse and Forward Brown-Conrady)..
+  * Added unit tests for cuda code (Inverse and Forward Brown-Conrady).
+  * Implementation of Brown-Conrady transformation on GLSL.
+* [#8784](https://github.com/IntelRealSense/librealsense/pull/8784) - **[Core] Allow physical port retrieval from recovery devices**
+* [#8787](https://github.com/IntelRealSense/librealsense/pull/8787) - **[Linux] Kernel patches for LTS 5.8 and SKU 0x0aa3 and 0x0b68**  
+  * Add support for Ubuntu `focal`/5.8 kernel.  
+  * Register PIDs for metadata support.  
+  * Apply to LTS kernel patches 4.4-5.4.  
+  * Fix kernel application for bionic legacy 5.0/5.3.
+  * Apply Tegra patches for 32.2.3 and 32.5.1 releases.  
+  * Minor refactoring and improvements in manual patching flow.  
+    (DSO-16720, RS5-10737)
+* [#8536](https://github.com/IntelRealSense/librealsense/pull/8536) - **[Viewer] Adjust error report for out of boundary in viewer**  (DSO-13749)
+* [#8606](https://github.com/IntelRealSense/librealsense/pull/8606) - **[Core] SKU 0x0B5B - fine tunings in viewer**  (DSO-16440)
+* [#8775](https://github.com/IntelRealSense/librealsense/pull/8775) - **[Windows] Catch exception on shutdown, release resources**  (DSO-15821)
+* [#8713](https://github.com/IntelRealSense/librealsense/pull/8713) - **[SR300] Adding SR300 derivative into SDK core**  
+   The following tools are functioning in SR300-like device :
+    - rs-enumerate-devices
+    - Realsense-viewer streaming
+    - Realsense-viewer controls  
+    (DSO-16719)
+* [#8777](https://github.com/IntelRealSense/librealsense/pull/8777) - **[Python] update examples to python 3**  
+Tests work using python 3 (does not include: box_dimensioner_multicam, ethernet_client_server, t265_wheel_odometry).  
+(RS5-10433)
+* [#8709](https://github.com/IntelRealSense/librealsense/pull/8709) - **[D400] Added genlock features to extend the option RS2_OPTION_INTER_CAM_SYNC**  
+Replacing old pull request #8584 for adding genlock features to extend the option RS2_OPTION_INTER_CAM_SYN_MODE.  
+(DSO-16833)
+* [#8751](https://github.com/IntelRealSense/librealsense/pull/8751) - **[LRS-Net] Fix connecting to network device with realsense-viewer**  
+There was changes introduced in Feb 15 in model-views.cpp that breaks connections to network devices from realsense-viewer. This PR fixes this.
+Addresses [#8675](https://github.com/IntelRealSense/librealsense/issues/8675)
+* [#8748](https://github.com/IntelRealSense/librealsense/pull/8748) - **[Viewer] Resize drop-down box size to fit the text**  (DSO-12348)
+* [#8724](https://github.com/IntelRealSense/librealsense/pull/8724) - **[Viewer] Updated OCC part of the RS Viewer**  (DSO-16841.)
+* [#8690](https://github.com/IntelRealSense/librealsense/pull/8690) - **[Core] Fix LibRS compilation with ELPP disabled**  (RS5-10758)
+* [#8696](https://github.com/IntelRealSense/librealsense/pull/8696) - **[CI] Travis-CI - update OSX image  + decrease builds runtime**  (Travis-CI build fails when using MacOs < 10.13.
+  * Update xcode_image to 12.2 (latest)
+  * Remove CHECK_FOR_UPDATE flag for windows build to shorten build time
+  * Remove UT run on Windows first build
+  * Remove building UT on Linux build
+* [#8693](https://github.com/IntelRealSense/librealsense/pull/8693) - **[Viewer] Fix DQT + Viewer crash when minimized when running on Debug**  (When running on Debug configuration, minimizing the DQT / Viewer windows cause the application to crash.
+On this PR I add protection against illegal inputs to open-gl functions.  
+(RS5-10796)
+### Documentation
+* [#8768](https://github.com/IntelRealSense/librealsense/pull/8768) - **[D400] OCC Documentation Update**  
+Replaced one missing "OCC All" with "OCC Extended".  
+(DSO-16841)
+
+### Known issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+
+
 ## Release 2.44.0
 Release Date: 1st Apr 2021
 
