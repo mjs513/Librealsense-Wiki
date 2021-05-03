@@ -7,7 +7,7 @@ N/A
 * [#8925](https://github.com/IntelRealSense/librealsense/pull/8925) - **[D400] Fw version 5.12.13.50** 
    Fixes and stability improvements
 * [#8790](https://github.com/IntelRealSense/librealsense/pull/8790) - **[D400] Make intercam_sync option read-only while streaming**  (DSO-16833)
-* [#8791](https://github.com/IntelRealSense/librealsense/pull/8791) - **[L515] Brown-Conrady forward/backword distortion , deproject impl (GitHub #7335)**  (RS5-9995)
+* [#8791](https://github.com/IntelRealSense/librealsense/pull/8791) - **[L515] Brown-Conrady forward/backward distortion, deproject impl (GitHub #7335)**  (RS5-9995)
 * [#8759](https://github.com/IntelRealSense/librealsense/pull/8759) - **[Core] Implementation of Brown-Conrady model on SSE , CUDA and GLSL**  
   * Implementation of Brown-Conrady transformation on `deproject_pixel_to_point_cuda()`.
   * Fix of Inverse-Brown-Conrady transformation on `deproject_pixel_to_point_cuda()`.
