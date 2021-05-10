@@ -4,6 +4,11 @@ Release Date: 2nd May 2021
 ### API Changes
 N/A
 ### Bug Fixes and Enhancements
+* [#8672](https://github.com/IntelRealSense/librealsense/pull/8672) - **Add recommended on-line updates**
+  * The Viewer now checks (by default) online for SDK and/or FW recommended updates whenever a new device is detected (previously, it only checked for essential updates)
+  * The "Install Recommended Firmware" button (press More next to your device) was replaced with "Check For Updates", which will also look online
+  * If an update is available, a notification will be displayed (same as before)
+  * NOTE: If the notification was previously dismissed, it may not show up! To reset this, go into settings and, under the General tab, "Restore Defaults"
 * [#8925](https://github.com/IntelRealSense/librealsense/pull/8925) - **[D400] Fw version 5.12.13.50** 
    Fixes and stability improvements
 * [#8790](https://github.com/IntelRealSense/librealsense/pull/8790) - **[D400] Make intercam_sync option read-only while streaming**  (DSO-16833)
