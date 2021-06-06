@@ -8,7 +8,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2470
 * [#9167](https://github.com/IntelRealSense/librealsense/pull/9167) - **[L515] FW version 1.5.8.1**
 * [#9165](https://github.com/IntelRealSense/librealsense/pull/9165) - **[D4xx] FW version 5.12.14.50**  
  - Disparity Modulation enhancements (DSO-17067)
- - Handle pattern under strong light in `Slave` mode. (DSO-17022)
+ - Handle pattern under strong light in `Slave` mode. (DSO-17022).  
    Fixes and stability improvements
 * [#8948](https://github.com/IntelRealSense/librealsense/pull/8948) - **[Core]** Firmware Compatibility check as part of Firmware Update  
   Check and verify the FW image prior to the firmware update to prevent loss of functionality and/or physical damage to the device.
@@ -25,8 +25,8 @@ Support IMU and Pose serialization into csv format  (DSO-16987).
  Reset notification delays when user click on check for updates
  (RS5-11310)
  * [#9051](https://github.com/IntelRealSense/librealsense/pull/9051) - **[Viewer]** No 3D image on playback  
-  Point cloud image are ignored during playback / DQT 3D streaming
- Thw fix allowa the pointcloud frames to be uploaded to the rendering window
+  Point cloud frames are ignored during playback / DQT 3D streaming
+ The fix allows the Point cloud frames to be uploaded to the rendering window
  (RS5-11334)
 * [#8967](https://github.com/IntelRealSense/librealsense/pull/8967) - **[Viewer]** Software Update enhancements
  (DSO-16893)
@@ -42,13 +42,13 @@ Add test for memory issue using valgrind and a fix.(DSO-16885)
 (cherry picked from commit 9d58316dba78e93ad89aeeace5670c915be2435e))
 * [#9021](https://github.com/IntelRealSense/librealsense/pull/9021) - **[Unity]** Modified editor script for Unity on Linux  
  Changed `BuildAllAssetBundles` method for use in Unity on Linux
-* [#8876](https://github.com/IntelRealSense/librealsense/pull/8876) - **[SR300]** Fix sr3xx firmware image size and recovery checks.  
+* [#8876](https://github.com/IntelRealSense/librealsense/pull/8876) - **[SR300]** Fix SR3xx firmware image size and recovery checks.  
  Adjust recognized FW sizes for SR3xx.  
- Modify SR3xx recovery device condition for Win10 1909. (DSO-16985)
+ Modify SR3xx recovery device condition for Win10 build 1909. (DSO-16985)
 * [#8749](https://github.com/IntelRealSense/librealsense/pull/8749) - **[SR300]** Enabling LRS examples/tutorials on SR306  (DSO-16721)
-* [#9003](https://github.com/IntelRealSense/librealsense/pull/9003) - **[L515]** Add Transmitter frequency control
+* [#9003](https://github.com/IntelRealSense/librealsense/pull/9003) - **[L515]** Add Transmitter Frequency control
  Enable receiver sensitivity according to ambient light, bounded by the Receiver Gain control.  
-Fix removal of Max Useful Range and IR Reflectivity. (RS5-11278)  
+ Fix removal of Max Useful Range and IR Reflectivity. (RS5-11278)  
 * [#8921](https://github.com/IntelRealSense/librealsense/pull/8921) - **[L515]** Metadata display negative brightness and hue (DSO-14036)
 * [#8952](https://github.com/IntelRealSense/librealsense/pull/8952) - **[L5xx]** Support for new options.  
 - Create 0x0b68 hw_options class for options.
@@ -64,8 +64,10 @@ Interfaces like `calibrated_sensor` are still there, but no longer in use.
 
 * [#8896](https://github.com/IntelRealSense/librealsense/pull/8896) - **[CUDA]** Fix unpack from sr300 cuda implementation  
 This PR fixes a bug with incorrect depth image on the SR300 series cameras when librealsense is built with CUDA. Addresses [#8897](https://github.com/IntelRealSense/librealsense/issues/8897)].
-The functions `unpack_z16_y8_from_sr300_inzi` and `unpack_z16_y16_from_sr300_inzi` use the source data pointer (`in`) - the first half of the data is bit-shifted and stored in `dest[1]`, the second half is directly copied to `dest[0]`. In the CPU version, the pointer is moved in a loop and after its execution it points to `in + count` - so the copying works as it should. In the CUDA version, the pointer is never moved, so bad data is copied to `dest[0]`, resulting in an incorrect depth image. Simply moving the pointer to the right place fixes the problem. ) contributed by [@andrusza2](https://github.com/andrusza2)
-
+The functions `unpack_z16_y8_from_sr300_inzi` and `unpack_z16_y16_from_sr300_inzi` use the source data pointer (`in`) - the first half of the data is bit-shifted and stored in `dest[1]`, the second half is directly copied to `dest[0]`.  
+In the CPU version, the pointer is moved in a loop and after its execution it points to `in + count` - so the copying works as it should.  
+In the `CUDA` version, the pointer is never moved, so bad data is copied to `dest[0]`, resulting in an incorrect depth image.  
+Simply moving the pointer to the right place fixes the problem. ) contributed by [@andrusza2](https://github.com/andrusza2)
 * [#8910](https://github.com/IntelRealSense/librealsense/pull/8910) - **[Core]** Signed Firmware image check before updating.  
 Throw a informative exception message when trying to update signed firmware image if its corrupted or unsupported by the specific device. (DSO-16641)
 * [#8946](https://github.com/IntelRealSense/librealsense/pull/8946) - **[D4xx]** Depth Units default value added  (DSO-16963)
@@ -81,7 +83,7 @@ This partly reverts PR [#8018](https://github.com/IntelRealSense/librealsense/is
   DB file parsing will now support 3 fields version (as release versions are represented). i.e "version": "1.5.4".  
   Before the fix the regex supported 3 fields only with an ending period.
   i.e.  "version: 1.5.4."
-* [#8867](https://github.com/IntelRealSense/librealsense/pull/8867) - **[Viewer]** Stop fw logs with button  (DSO-16977)
+* [#8867](https://github.com/IntelRealSense/librealsense/pull/8867) - **[Viewer]** Stop FW logs with button  (DSO-16977)
 * [#8903](https://github.com/IntelRealSense/librealsense/pull/8903) - **[Viewer]** crash when close app (RS5-10427)
 * [#8869](https://github.com/IntelRealSense/librealsense/pull/8869) - **[Python]** Add GIL release to enter_update_state() function
 `enter_update_state()` can take ~2.5 seconds and need to release the GIL for other function to get CPU time
