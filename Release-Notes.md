@@ -1,3 +1,134 @@
+## Release 2.47.0
+Release Date: 6th June 2021
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2470
+
+### New Features
+* [#9167](https://github.com/IntelRealSense/librealsense/pull/9167) - **[L515] FW version 1.5.8.1**
+* [#9165](https://github.com/IntelRealSense/librealsense/pull/9165) - **[D4xx] FW version 5.12.14.50**  
+ - Disparity Modulation enhancements (DSO-17067)
+ - Handle pattern under strong light in `Slave` mode. (DSO-17022)
+   Fixes and stability improvements
+* [#8948](https://github.com/IntelRealSense/librealsense/pull/8948) - **[Core]** Firmware Compatibility check as part of Firmware Update  
+  Check and verify the FW image prior to the firmware update to prevent loss of functionality and/or physical damage to the device.
+  (DSO-16958)  
+* [#8977](https://github.com/IntelRealSense/librealsense/pull/8977),[#8906](https://github.com/IntelRealSense/librealsense/pull/8906) - **[Tools]** `rs-convert` enhancements.  
+Support IMU and Pose serialization into csv format  (DSO-16987).
+* Support for Ubuntu20/Kernel 5.8 DKMS package (v1.3.18)
+
+### Bug Fixes and Enhancements
+* [#9060](https://github.com/IntelRealSense/librealsense/pull/9060) - **[Linux]** Memory leak with option query  
+* [#9008](https://github.com/IntelRealSense/librealsense/pull/9008) - **[Viewer]**
+ Online updates  
+ Add up to date notification  
+ Reset notification delays when user click on check for updates
+ (RS5-11310)
+ * [#9051](https://github.com/IntelRealSense/librealsense/pull/9051) - **[Viewer]** No 3D image on playback  
+  Point cloud image are ignored during playback / DQT 3D streaming
+ Thw fix allowa the pointcloud frames to be uploaded to the rendering window
+ (RS5-11334)
+* [#8967](https://github.com/IntelRealSense/librealsense/pull/8967) - **[Viewer]** Software Update enhancements
+ (DSO-16893)
+* [#9019](https://github.com/IntelRealSense/librealsense/pull/9019) - **[D4xx]** Remove IR pattern for relevant devices  (DSO-17102)
+* [#9017](https://github.com/IntelRealSense/librealsense/pull/9017) - **[D4xx]** Remove emitter-on-off support from 0x0B5B  (DSO-17048)
+* [#9041](https://github.com/IntelRealSense/librealsense/pull/9041) - **[SR300]** Support for alternative 0x0AA2 PID  (DSO-17101)
+* [#9034](https://github.com/IntelRealSense/librealsense/pull/9034) - **[L515]** HWM_OVER_XU logic rework
+* [#8804](https://github.com/IntelRealSense/librealsense/pull/8804) - **[Core]** Validate Range on controls change  (DSO-13749)
+* [#8875](https://github.com/IntelRealSense/librealsense/pull/8875) - **[Linux/v4l]** Memory leak test sensor option.    
+Add test for memory issue using valgrind and a fix.(DSO-16885)
+* [#9035](https://github.com/IntelRealSense/librealsense/pull/9035) - **[3rd party]** change libjpeg-turbo branch to 'main' 
+`master`... branch was renamed to `main`
+(cherry picked from commit 9d58316dba78e93ad89aeeace5670c915be2435e))
+* [#9021](https://github.com/IntelRealSense/librealsense/pull/9021) - **[Unity]** Modified editor script for Unity on Linux  
+ Changed `BuildAllAssetBundles` method for use in Unity on Linux
+* [#8876](https://github.com/IntelRealSense/librealsense/pull/8876) - **[SR300]** Fix sr3xx firmware image size and recovery checks.  
+ Adjust recognized FW sizes for SR3xx.  
+ Modify SR3xx recovery device condition for Win10 1909. (DSO-16985)
+* [#8749](https://github.com/IntelRealSense/librealsense/pull/8749) - **[SR300]** Enabling LRS examples/tutorials on SR306  (DSO-16721)
+* [#9003](https://github.com/IntelRealSense/librealsense/pull/9003) - **[L515]** Add Transmitter frequency control
+ Enable receiver sensitivity according to ambient light, bounded by the Receiver Gain control.  
+Fix removal of Max Useful Range and IR Reflectivity. (RS5-11278)  
+* [#8921](https://github.com/IntelRealSense/librealsense/pull/8921) - **[L515]** Metadata display negative brightness and hue (DSO-14036)
+* [#8952](https://github.com/IntelRealSense/librealsense/pull/8952) - **[L5xx]** Support for new options.  
+- Create 0x0b68 hw_options class for options.
+- Remove option RS2_OPTION_DIGITAL_GAIN not applicable for 0x0b68 .  
+- Add option RS2_OPTION_RX_SENSITIVITY.  
+- Remove all preset values (except custom) for now - until we will have declaration of presets for 0x0b68.  
+- Remove options RS2_OPTION_ENABLE_MAX_USABLE_RANGE and RS2_OPTION_ENABLE_IR_REFLECTIVITY -for now until we will have declaration of them for 0x0b68.  
+* [#8979](https://github.com/IntelRealSense/librealsense/pull/8979) - **[L515]** Remove AC.    
+Backwards-compatibility is maintained at the level of the C runtime, but not the wrappers or C/C++ compilations:
+`rs2_cah_trigger`, for example, was removed -- code using it will not compile.
+Likewise, the options for TRIGGER and RESET are still there, but nothing supports them and so they have been removed from most wrappers.
+Interfaces like `calibrated_sensor` are still there, but no longer in use.
+
+* [#8896](https://github.com/IntelRealSense/librealsense/pull/8896) - **[CUDA]** Fix unpack from sr300 cuda implementation  
+This PR fixes a bug with incorrect depth image on the SR300 series cameras when librealsense is built with CUDA. Addresses [#8897](https://github.com/IntelRealSense/librealsense/issues/8897)].
+The functions `unpack_z16_y8_from_sr300_inzi` and `unpack_z16_y16_from_sr300_inzi` use the source data pointer (`in`) - the first half of the data is bit-shifted and stored in `dest[1]`, the second half is directly copied to `dest[0]`. In the CPU version, the pointer is moved in a loop and after its execution it points to `in + count` - so the copying works as it should. In the CUDA version, the pointer is never moved, so bad data is copied to `dest[0]`, resulting in an incorrect depth image. Simply moving the pointer to the right place fixes the problem. ) contributed by [@andrusza2](https://github.com/andrusza2)
+
+* [#8910](https://github.com/IntelRealSense/librealsense/pull/8910) - **[Core]** Signed Firmware image check before updating.  
+Throw a informative exception message when trying to update signed firmware image if its corrupted or unsupported by the specific device. (DSO-16641)
+* [#8946](https://github.com/IntelRealSense/librealsense/pull/8946) - **[D4xx]** Depth Units default value added  (DSO-16963)
+* [#8950](https://github.com/IntelRealSense/librealsense/pull/8950) - **[D4xx]** Fix preset setting when not streaming  (DSO-15585)
+* [#8913](https://github.com/IntelRealSense/librealsense/pull/8913) - **[Core]** Replace GVD queries with device update notification
+ ..to verify device removal during DFU.    
+Add a ~6 seconds maximum loop to verify the device is disconnected after the DFU command (replacing HWM calls)
+This partly reverts PR [#8018](https://github.com/IntelRealSense/librealsense/issues/8018) which caused freezes after DFUs. (RS5-11058)
+* [#8920](https://github.com/IntelRealSense/librealsense/pull/8920) - **[CMake]** Flag to control AVX for OpenVINO  
+ Add LRS CMake flag `BUILD_WITH_CPU_EXTENSIONS` [default=ON]. Will affect LRS use of CPU extensions in the future.  
+ If `BUILD_WITH_CPU_EXTENSIONS` == OFF => disable AVX support for OpenVINO.
+* [#8912](https://github.com/IntelRealSense/librealsense/pull/8912) - **[Viewer]** SW update - support 3-field version.  
+  DB file parsing will now support 3 fields version (as release versions are represented). i.e "version": "1.5.4".  
+  Before the fix the regex supported 3 fields only with an ending period.
+  i.e.  "version: 1.5.4."
+* [#8867](https://github.com/IntelRealSense/librealsense/pull/8867) - **[Viewer]** Stop fw logs with button  (DSO-16977)
+* [#8903](https://github.com/IntelRealSense/librealsense/pull/8903) - **[Viewer]** crash when close app (RS5-10427)
+* [#8869](https://github.com/IntelRealSense/librealsense/pull/8869) - **[Python]** Add GIL release to enter_update_state() function
+`enter_update_state()` can take ~2.5 seconds and need to release the GIL for other function to get CPU time
+* [#8820](https://github.com/IntelRealSense/librealsense/pull/8820) - **[Core]** Protect illegal access on types.h floats**  (Fix CppCheck warning on types.h
+i.e: src\types.h:585:24: warning: The address of local variable 'x' might be accessed at non-zero index. [objectIndex] return (&x)[i];) 
+* [#8861](https://github.com/IntelRealSense/librealsense/pull/8861) - **[Android]** Android Camera app - Update settings UI to ExpandableListView
+Fix an issue where not all settings items are accessible at landscape view (RS5-8610)
+* [#8821](https://github.com/IntelRealSense/librealsense/pull/8821) - **[Core]** Realsense2 warnings fixed.   
+* [#8856](https://github.com/IntelRealSense/librealsense/pull/8856) - **[Viewer]** Fixed frameset handling on viewer
+Open the frameset on `viewer_model::handle_ready_frames` and save the frames on `last_frames`, so if one of the frames missing we will take the last frame saved.
+(DSO-16419)
+* [#8525](https://github.com/IntelRealSense/librealsense/pull/8525) - **[ImGui] Clamp slider rounding operations to keep ranged values**  
+ImGUI floating point interpolations and rounding operations do not ensure min/max range on results.
+The PR fixes it to avoid overriding user-defined min/max slider boundaries.
+(DSO-15067)
+* [#8805](https://github.com/IntelRealSense/librealsense/pull/8805) - **[Core]** Fix warnings in sensor.cpp.
+* [#8822](https://github.com/IntelRealSense/librealsense/pull/8822) - **[CMake]** Make `BUILD_GRAPHICAL_EXAMPLES` depend on `BUILD_EXAMPLES`
+* [#8817](https://github.com/IntelRealSense/librealsense/pull/8817) - **[Viewer]** Increase updates windows stability on multiple updates  (**Changes:**
+- Fix Download & Install button missing on multiple update processes (DSO-16891)
+- Use typedef to version to info map
+- Inhibit updates popup when updates windows is on - even when only recommended available (Can occur after updating essential update)
+- Break "check_for_updates" to several functions for simplicity.
+* [#8802](https://github.com/IntelRealSense/librealsense/pull/8802) - **[CMake]** Add BUILD_TOOLS flag to CMake  
+`BUILD_TOOLS` is `ON` by default!
+NOTE: this may break some builds that have disabled `BUILD_EXAMPLES` (therefore tools weren't built) but that will now automatically get `BUILD_TOOLS` so their tools will build (perhaps with errors).
+* [#8816](https://github.com/IntelRealSense/librealsense/pull/8816) - **[Viewer]** Inhibit checking for updates on playback device (Part of RS5-8604)
+* [#8811](https://github.com/IntelRealSense/librealsense/pull/8811) - **[DQT]** Remove online updates
+* [#8807](https://github.com/IntelRealSense/librealsense/pull/8807) - **[Viewer]** Recommended update pop up hot fix.  
+Display updates window only on essential updates.  
+If no essential updates, recommended updates will show as a pop up.  
+The fix adds a version check for getting the SW/FW updates.   
+
+### Documentation
+* [#8986](https://github.com/IntelRealSense/librealsense/pull/8986) - **Update post-processing-filters.md**.  
+I am not sure if it was supposed to be dec_filter or decimation_filter (same for spatial_filter) contributed by [@c-flew](https://github.com/c-flew)
+* [#8935](https://github.com/IntelRealSense/librealsense/pull/8935) - **No more distinction for different Ubuntu required**  (=> Use bash for codename) contributed by [@tkazik](https://github.com/tkazik)
+
+### Known issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+
+
 ## Release 2.45.0
 Release Date: 2nd May 2021
 
