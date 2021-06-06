@@ -55,14 +55,14 @@ Add test for memory issue using valgrind and a fix.(DSO-16885)
 - Remove option RS2_OPTION_DIGITAL_GAIN not applicable for 0x0b68 .  
 - Add option RS2_OPTION_RX_SENSITIVITY.  
 - Remove all preset values (except custom) for now - until we will have declaration of presets for 0x0b68.  
-- Remove options RS2_OPTION_ENABLE_MAX_USABLE_RANGE and RS2_OPTION_ENABLE_IR_REFLECTIVITY -for now until we will have declaration of them for 0x0b68.  
+- Remove options `RS2_OPTION_ENABLE_MAX_USABLE_RANGE` and `RS2_OPTION_ENABLE_IR_REFLECTIVITY` - for now until we will have declaration of them for 0x0b68.  
 * [#8979](https://github.com/IntelRealSense/librealsense/pull/8979) - **[L515]** Remove AC.    
 Backwards-compatibility is maintained at the level of the C runtime, but not the wrappers or C/C++ compilations:
 `rs2_cah_trigger`, for example, was removed -- code using it will not compile.
 Likewise, the options for TRIGGER and RESET are still there, but nothing supports them and so they have been removed from most wrappers.
 Interfaces like `calibrated_sensor` are still there, but no longer in use.
 
-* [#8896](https://github.com/IntelRealSense/librealsense/pull/8896) - **[CUDA]** Fix unpack from sr300 cuda implementation  
+* [#8896](https://github.com/IntelRealSense/librealsense/pull/8896) - **[CUDA]** Fix unpack from sr300 `CUDA` implementation  
 This PR fixes a bug with incorrect depth image on the SR300 series cameras when librealsense is built with CUDA. Addresses [#8897](https://github.com/IntelRealSense/librealsense/issues/8897)].
 The functions `unpack_z16_y8_from_sr300_inzi` and `unpack_z16_y16_from_sr300_inzi` use the source data pointer (`in`) - the first half of the data is bit-shifted and stored in `dest[1]`, the second half is directly copied to `dest[0]`.  
 In the CPU version, the pointer is moved in a loop and after its execution it points to `in + count` - so the copying works as it should.  
