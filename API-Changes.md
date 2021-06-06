@@ -1,3 +1,23 @@
+## Version [2.47.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.47.0)
+Functionality:
+- [rs2_check_firmware_compatibility](https://github.com/IntelRealSense/librealsense/blob/v2.47.0/include/librealsense2/h/rs_device.h#L223-L231) - Check the FW image provided by the users and the target device. Prevent flashing devices with incompatible FW images to prevent bricking and malfunctioning. In case of incompatible match a user warning is issued and the DFU process is interrupted.
+Note that the protection is not invoked to devices that were originally enumerated in recovery (DFU) mode
+
+New options:
+ - [RS2_OPTION_AUTO_RX_SENSITIVITY,RS2_OPTION_TRANSMITTER_FREQUENCY](https://github.com/IntelRealSense/librealsense/blob/v2.47.0/include/librealsense2/h/rs_option.h#L112-L113) - L515-specific options.
+- Enable receiver sensitivity according to ambient light, bounded by the Receiver Gain control
+- Changes the transmitter frequencies increasing effective range over sharpness
+Experimental options deprecated:
+ Options:
+ - [RS2_OPTION_TRIGGER_CAMERA_ACCURACY_HEALTH,RS2_OPTION_RESET_CAMERA_ACCURACY_HEALTH](https://github.com/IntelRealSense/librealsense/blob/v2.47.0/include/librealsense2/h/rs_option.h#L98-L99) - L515-specific.
+The two options are rendered not functional as of v2.46.0 of the SDK.
+ Enum: `rs2_cah_trigger`
+ Function: `rs2_cah_trigger_to_string`
+
+
+## Version [2.45.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0)
+Documentation updates only
+
 ## Version [2.43.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.43.0)
 Class:
  - [calibration_change_device](https://github.com/IntelRealSense/librealsense/blob/v2.43.0/include/librealsense2/hpp/rs_device.hpp#L572) - is the new base class that separates calibration updates observer and calibration invocation.
