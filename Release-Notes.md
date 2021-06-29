@@ -1,3 +1,79 @@
+## Release 2.48.0
+Release Date: 29th June 2021
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2480
+
+### New Features
+* [#8905](https://github.com/IntelRealSense/librealsense/pull/8905) - **Android** - Support Sensor API for streaming  
+    - Add sensor open/close/start/stop with callbacks
+    - Add callbacks to pipeline API with default and custom configurations
+    - Demo apps to use the new apis
+    - Impact to existing API (these are bugs in current implementation and the change should not impact existing apps):
+    -  Extend Java class FrameSet from Frame so the frame from pipeline callback can be cast to a set of frames.
+    - Add deleter to Java Sensor API with content from old close.  
+(DSO-16739, DSO-16740)
+* [#8860](https://github.com/IntelRealSense/librealsense/pull/8860) - **[C#]** Example for Pose type stream for T265 device
+
+
+### Bug Fixes and Enhancements
+* [#9219](https://github.com/IntelRealSense/librealsense/pull/9219),[#9159](https://github.com/IntelRealSense/librealsense/issues/9159),[#9210](https://github.com/IntelRealSense/librealsense/issues/9210) - **[Core]**  Concurrency & Syncer rework    Following the deadlock that Nir experienced, reworked some stuff (and not all because of the deadlock:
+> * split off dispatcher code into dispatcher.cpp
+> * syncer (timestamp) inactive stream handling moved into skip_missing_stream
+> * syncer identity_matcher names now include the stream index
+> * single_consumer_queue::_mutex is now mutable; size() and empty() const
+> * revised logic inside single_consumer_queue
+> * revised logic inside dispatcher
+> * cancellable_time::try_sleep() is now templated, requires actual chrono duration (and not just its ::Rep)
+> * syncer stop() calls now percolate recursively to shut down all queues; new syncs do nothing if syncer was stopped
+> * add actual matchers to playback device
+> * live-test issues with playback
+> * added !mayfail to frame-number syncing test for stability
+> * added waiting_on<> in utilities/time/waiting-on.h, with unit-test
+> * rework dispatcher::flush()  
+DSO-16888
+* [#9221](https://github.com/IntelRealSense/librealsense/pull/9221) - **[Core]** Fix Memory leak on IMU sensor query (DSO-17238, DSO-17239 )
+* [#9210](https://github.com/IntelRealSense/librealsense/pull/9210) - **[Core]** Fix Composite frame with playback device
+  Add actual matchers to playback device
+* live-test issues with playback
+* added !mayfail to frame-number syncing test for stability
+* added waiting_on<> in utilities/time/waiting-on.h, with unit-test
+* rework dispatcher::flush()  
+DSO-16888
+* [#9188](https://github.com/IntelRealSense/librealsense/pull/9188) - **[Python]** box_dimensioner_multicam_demo error fix for L515 (RS5-11319)
+* [#8156](https://github.com/IntelRealSense/librealsense/pull/8156) - **[Examples]**  Recording Bag file under "Program Files".  
+Now it attemts to write to temp folder first
+* [#9207](https://github.com/IntelRealSense/librealsense/pull/9207) - **[Viewer]** Fix crash when opening 'Stereo Module' of a playback
+
+* [#8884](https://github.com/IntelRealSense/librealsense/pull/8884) - **[Examples]** Connect to rs-server and draw frames by means of GPU  
+  This sample demonstrates how to connect to remote rs-server over the network and to utilize the GPU for processing of depth frames received from remote camera. This sample is based on rs-gl sample and appears when generating solution by cmake with BUILD_GRAPHICAL_EXAMPLES and BUILD_GLSL_EXTENSIONS flags is ON.  
+* [#9185](https://github.com/IntelRealSense/librealsense/pull/9185) - **[L515]** FW version compatibility fix  
+L515 FW version prerequisites must be defined with min/max range to avoid cross-product versions reference.
+Can be seen as a temporal solution since FW versions may overlap eventually.
+Update L515 minimal downgradeable version to 1.5.1.3 instead of 1.4.1.0.  
+(RS5-11513), (DSO-16641)
+
+* [#9183](https://github.com/IntelRealSense/librealsense/pull/9183) - **[Core]** Increase the syncer queue on model-views.h to avoid frame drops.  
+This queue stores the output from the syncer, and has to be large enough to deal with slowdowns on the processing / rendering threads of the Viewer, to avoid frame drops.
+The problem here wasn't slowdowns of the other thread -- it was bust output from the syncer, too fast for any other thread to deal with and causing drops. The bursts are caused by latency introduced on the USB/FW side when different streams have different FPS.  
+(DSO-16419)
+* [#9145](https://github.com/IntelRealSense/librealsense/pull/9145) - **[Core]** 0x0B5B SKU to display in cm**  (DSO-17052)
+* [#9081](https://github.com/IntelRealSense/librealsense/pull/9081) - **[L515]** Make sensor-mode r/o during streaming  (LRS-7)
+* [#9153](https://github.com/IntelRealSense/librealsense/pull/9153) - **[Core]** 0x0B5B SKU Fix Color stream calibration retrieval  (DSO-17104)
+* [#9132](https://github.com/IntelRealSense/librealsense/pull/9132) - **[Core]** 0x0B5B SKU remove intercam sync support  (DSO-17061)
+* [#8674](https://github.com/IntelRealSense/librealsense/pull/8674) - **[Core]** 
+Fix Extrinsic map build algorithm  (DSO-16814)
+* [#9061](https://github.com/IntelRealSense/librealsense/pull/9061) - **[Viewer]** Fix ROI display rectangle selection  (DSO-16748)
+
+### Known issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+
 ## Release 2.47.0
 Release Date: 6th June 2021
 
