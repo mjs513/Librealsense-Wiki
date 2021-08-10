@@ -1,3 +1,156 @@
+## Release 2.49.0
+Release Date: 10th Aug 2021
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2490
+
+### New Features
+* [#8925](https://github.com/IntelRealSense/librealsense/pull/8925) - **[D400]** Fw version 5.12.15.50.
+  - Fixes and stability improvements
+* [#9273](https://github.com/IntelRealSense/librealsense/pull/9273) - **Wrappers** Support OpenVino 2021  
+Add support for OpenVino 2020 and 2021.(LRS-71)
+
+### Bug Fixes and Enhancements
+* [#9509](https://github.com/IntelRealSense/librealsense/pull/9509) - **[Tools]** Viewer - fw update via popup fixed. (LRS-250)
+* [#9497](https://github.com/IntelRealSense/librealsense/pull/9497) - **[Core]** Fix SR300 - Depth-units control propagation. (LRS-248)  
+* [#9491](https://github.com/IntelRealSense/librealsense/pull/9491) - **[Core]** Fix L515 - Depth-units control propagation. (LRS-243)  
+* [#9490](https://github.com/IntelRealSense/librealsense/pull/9490) - **[Core]** Fix L515 - Pointcloud generation. (LRS-240)  
+* [#9486](https://github.com/IntelRealSense/librealsense/pull/9486) - **[Core]** Fix Linux compilation with GCC v7.5.  
+* [#9482](https://github.com/IntelRealSense/librealsense/pull/9482) - **[Core]** Fix CUDA implementation for Pointcloud.  
+* [#9435](https://github.com/IntelRealSense/librealsense/pull/9435) - **[C#]** Restructure tutorials & add load-json  
+Rebase of [#8653](https://github.com/IntelRealSense/librealsense/issues/8653). (LRS-59)  
+* [#9470](https://github.com/IntelRealSense/librealsense/pull/9470) - **[Core]** json preset files format update. (LRS-206)  
+* [#9467](https://github.com/IntelRealSense/librealsense/pull/9467) - **[Core]** Adjust cmake target for Presets.  
+The presets will be deployed in `$ENV{HOME}/Documents/librealsense2/presets` (LRS-215)
+* [#9465](https://github.com/IntelRealSense/librealsense/pull/9465) - **[Core]** Update preset json format + Add device info
+Change preset json format to SCHEMA_VERSION = 1
+* Reading backward compatible - old style (flat) preset json files is supported. (LRS-210)  
+* [#9458](https://github.com/IntelRealSense/librealsense/pull/9458) - **[Core]** Create .preset files for planned presets.  
+ Added json files:
+  - Max Range With Binning.preset
+  - Max Range.preset 
+  - Medium Range.preset
+  - Min Range.preset.  
+ (LRS-206)
+* [#9382](https://github.com/IntelRealSense/librealsense/pull/9382) - **[Core]** 0x0B5B to support OEM Cal resolutions
+Allow streaming non-native resolutions simultaneously. (DSO-17425)  
+* [#9441](https://github.com/IntelRealSense/librealsense/pull/9441) - **[L515] Add RS2_OPTION_RECEIVER_SENSITIVITY control
+Integrate into Core and wrappers. (RS5-11828)  
+* [#9271](https://github.com/IntelRealSense/librealsense/pull/9271) - **[Tools]** Enhance rs-terminal with files input
+Pass binary blobs from ANSI files. (DSO-17305)  
+* [#9416](https://github.com/IntelRealSense/librealsense/pull/9416) - **[Core]** Remove unused member
+`satisfied_streams` input removed from `map_sub_device method(...`  (LRS-212)  
+* [#9414](https://github.com/IntelRealSense/librealsense/pull/9414) - **[CI]** Build CI: re-enable Node.js job
+  - Fix errors from `esling` and `cpplint`
+  - Added enum checks after linter
+  - Changed folder for npm install 
+  (LRS-203) contributed by [@whsol](https://github.com/whsol)
+* [#9321](https://github.com/IntelRealSense/librealsense/pull/9321) - **[Linux]** Clone only the files of the tag for Tegra.  
+Cloning the Tegra kernel sources repository was taking so much time. It couldn't complete even once on my device. With this change*, it only retrieves the tagged version of the repository. The whole process can complete in less than 5 minutes. Refers to https://stackoverflow.com/questions/20280726/how-to-git-clone-a-specific-tag contributed by [@rszengin](https://github.com/rszengin)
+* [#9431](https://github.com/IntelRealSense/librealsense/pull/9431) - **[Android]** FW names convention update L5xx -> L51x & L53x
+Follows on [#9264](https://github.com/IntelRealSense/librealsense/issues/9264)Fixes Jenkins CI nightly. (LRS-214)
+* [#9264](https://github.com/IntelRealSense/librealsense/pull/9264) - **L5XX**  FW bundling
+  - Change L5XX_FW_Image to L51X_FW_Image  
+  - Added support for L53X FW bundling.
+  - Added `recommended_fw_version` for L5XX. (RS5-11533)
+* [#9415](https://github.com/IntelRealSense/librealsense/pull/9415) - **[Core]** Add parser for Y411 packed format
+Includes [#9065](https://github.com/IntelRealSense/librealsense/issues/9065) and [#9380](https://github.com/IntelRealSense/librealsense/issues/9380)
+(LRS-29)
+* [#9396](https://github.com/IntelRealSense/librealsense/pull/9396) - **[L53X]** Added min-max fw_version check  
+(LRS-143)
+* [#9380](https://github.com/IntelRealSense/librealsense/pull/9380) - **[Core]** Tunnel Y411 format as NV12; OpenGL processing**  (LRS-29)  
+* [#9394](https://github.com/IntelRealSense/librealsense/pull/9394) - **[Core]** Fix playback deadlock on live tests (Git Actions CI fail)
+  - Bring back playback sensor flush on end-of-file or else last frames may get lost.  
+  - Move sensor stop outside of mutex lock.  
+  - Fix 2 unit-tests that did not stop & close the sensors.  
+(LRS-190)
+* [#9379](https://github.com/IntelRealSense/librealsense/pull/9379) - **[Core]** Drop `static` from function signature
+Follow up on [#9096](https://github.com/IntelRealSense/librealsense/issues/9096). Addresses [#6055](https://github.com/IntelRealSense/librealsense/issues/6055). (DSO-17046)
+* [#9352](https://github.com/IntelRealSense/librealsense/pull/9352) - **[Android]** Sensor API `getProfile` added, sensor example using it
+(LRS-182)
+* [#8873](https://github.com/IntelRealSense/librealsense/pull/8873) - **[Wrappers]** Add lrs-net viewer for Python
+(LRS-174)
+* [#9339](https://github.com/IntelRealSense/librealsense/pull/9339) - **[Viewer]** Add support for recovery device in online update flow
+  - Add recovery device support
+  - Fix misaligned UI
+  - Remove "Update URL" button from settings
+(LRS-64)
+* [#9256](https://github.com/IntelRealSense/librealsense/pull/9256) - **[C#]** Add D400 Calibration APIs extensions. (LRS-74/LRS-75/DSO-16811)  
+Follow up on @DenisGeek's work in [#8773](https://github.com/IntelRealSense/librealsense/issues/8773)
+* [#9320](https://github.com/IntelRealSense/librealsense/pull/9320) - **[Android]** API fixes
+  - `openSensor` with multiple profiles API added (LRS-132)
+Using Sensor example, we get both depth and infrared profiles from the depth sensor.
+* [#9285](https://github.com/IntelRealSense/librealsense/pull/9285) - **[Demos]** Connect to rs-server and render frames by means of GPU  
+This sample demonstrates how to connect to remote rs-server over the network and to utilize the GPU for processing of depth frames received from remote camera. This sample is based on `rs-gl` sample and appears when generating solution by cmake with BUILD_GRAPHICAL_EXAMPLE , BUILD_GLSL_EXTENSIONS and BUILD_NETWORK_DEVICE flags is ON) 
+* [#9065](https://github.com/IntelRealSense/librealsense/pull/9065) - **[Core]** Support for Y411 format  (Reopened [#8871](https://github.com/IntelRealSense/librealsense/issues/8871)
+Native & SSE support included. (RS5-10803)
+* [#9301](https://github.com/IntelRealSense/librealsense/pull/9301) - **[Tools]** viewer - add informative tooltip message
+...when Measure is disabled (DSO-17011)
+* [#9300](https://github.com/IntelRealSense/librealsense/pull/9300) - **[Core]** Depth Units refactoring fix
+Fix correct depth units extraction from ROSbag records (lRS-140)
+* [#9309](https://github.com/IntelRealSense/librealsense/pull/9309) - **[Core]** Syncer mutex to fix single_consumer_queue::peek() issues
+And revised peek() mechanism, too... (LRS-162)
+* [#9261](https://github.com/IntelRealSense/librealsense/pull/9261) - **[L515]** Set all the values of amc controls on start up.
+(Fixes RS5-11488)
+* [#9299](https://github.com/IntelRealSense/librealsense/pull/9299) - **[Core]** Fix playback crash in Dtor 
+(LRS-135)
+* [#9254](https://github.com/IntelRealSense/librealsense/pull/9254) - **[L515]** Control Vertical binning.
+  - Added `RS2_OPTION_VERTICAL_BINNING` option - Enables vertical binning which increases the maximal sensed distance.
+  - Added support on wrappers
+(RS5-11533)
+* [#9276](https://github.com/IntelRealSense/librealsense/pull/9276) - **[Wrappers]** include USB info on pyrs device repr()  
+Export data in the following format
+  `<pyrealsense2.device: Intel RealSense L515 (S/N: f9440703  FW: 01.05.05.00  UNLOCKED  on USB3.2)>`  
+(LRS-129)
+* [#9274](https://github.com/IntelRealSense/librealsense/pull/9274) - **[Tools]** Rosbag-Inspector fix.  
+Addresses issue introduced with [#9154](https://github.com/IntelRealSense/librealsense/issues/9154)
+* [#9258](https://github.com/IntelRealSense/librealsense/pull/9258) - **[Core]** Handle Dispatcher exception + high CPU usage fix**  (Continuation of [#9219](https://github.com/IntelRealSense/librealsense/issues/9219).
+(LRS-125)  
+* [#9154](https://github.com/IntelRealSense/librealsense/pull/9154) - **[Core]** Add Depth Units value to frame metadata
+(DSO-16066)  
+* [#9255](https://github.com/IntelRealSense/librealsense/pull/9255) - **[Core]** D4xx Default preset with sub-millimetric units
+(DSO-17316)
+* [#9240](https://github.com/IntelRealSense/librealsense/pull/9240) - **[Core]**  change default resolutions for 0xB5B SKU**  (LRS-81) 
+* [#9228](https://github.com/IntelRealSense/librealsense/pull/9228) - **[Viewer]** FW build version is not properly displayed
+Fixed regex that parses the version (DSO-17194)
+* [#9238](https://github.com/IntelRealSense/librealsense/pull/9238) - **[Viewer]** - depth units changing fix
+(LRS-124)
+* [#9230](https://github.com/IntelRealSense/librealsense/pull/9230) - **[D400]** Advanced controls have no min/max
+(DSO-17312)
+* [#9213](https://github.com/IntelRealSense/librealsense/pull/9213) - **[Viewer]** - Fix decimal point display
+* [#9221](https://github.com/IntelRealSense/librealsense/pull/9221) - **[Core]** Memory leak in IMU/Win
+Addresses [#8091](https://github.com/IntelRealSense/librealsense/issues/8091) (DSO-17238, DSO-17239)
+* [#9225](https://github.com/IntelRealSense/librealsense/pull/9225) - **[Tools]** DQT - Fix IR reflectivity display
+Fix issue created on [#9061](https://github.com/IntelRealSense/librealsense/issues/9061) (LRS-117)
+* [#9222](https://github.com/IntelRealSense/librealsense/pull/9222) - **[Tools]** Viewer syncer loop correction
+Switching to IR in 3D texture source froze the view.
+The render_loop() depends only on `synchronization_enable` but sometimes we bypass it and so it cannot get the frames...
+(LRS-116)
+* [#9223](https://github.com/IntelRealSense/librealsense/pull/9223) - **[Tools]** DQT - do not set sensor mode while streaming
+Caused by [#9081](https://github.com/IntelRealSense/librealsense/issues/9081).
+(LRS-115)
+* [#9209](https://github.com/IntelRealSense/librealsense/pull/9209) - **[Core]** fix CppCheck warning in string-utilities.h
+
+### Documentation
+* [#9345](https://github.com/IntelRealSense/librealsense/pull/9345) - **[MacOS]** Update vulkan brew install instructions
+`brew cask install` has been superseded by `brew install --cask`  
+If you use `brew cask install`, you will be greeted with `Error: Unknown command: cask`.  contributed by [@alkasm](https://github.com/alkasm)
+* [#9436](https://github.com/IntelRealSense/librealsense/pull/9436) - **[MacOS]** Update installation_osx.md
+Homebrew doesn't use "cask" anymore. IF you try this build process you get  this error `error: Unknown command: cask`
+I've updated the doc to use the new way of doing things. (Basically just trash the cask part of the install) Ive tested this works.) contributed by [@martystack](https://github.com/martystack)
+* [#9433](https://github.com/IntelRealSense/librealsense/pull/9433) - **[Debians]** Update PPA public server key repo
+Fix PPA public key registration for X86 and Jetsons due to the deprecation of `keys.gnu.net`. Uses the [alternative server](https://github.com/IntelRealSense/librealsense/issues/9289#issuecomment-873457374) mentioned in [#9289](https://github.com/IntelRealSense/librealsense/issues/9289) by @hanzheteng. (LRS-204)
+* [#9412](https://github.com/IntelRealSense/librealsense/pull/9412) - **[Arch]** Add librealsense2 playback readme file.
+
+### Known issues
+* [#2860](https://github.com/IntelRealSense/librealsense/issues/2860) - Memory-leak in Pointcloud processing block.
+* [#3433](https://github.com/IntelRealSense/librealsense/issues/3433) - Valgrind: Conditional jump or move depends on uninitialized variable. (DSO-13700)
+* [#4261](https://github.com/IntelRealSense/librealsense/issues/4261) - [T265] Add ability to open multiple devices from different processes.
+* [#4518](https://github.com/IntelRealSense/librealsense/issues/4518) – [T265] Pose data produces `NaNs`. Can still occur in some cases. If detected, please attempt to make a raw data (images + IMU) recording using the [recorder tool](https://github.com/IntelRealSense/librealsense/tree/master/tools/recorder), and attach a link to it in the github issue, to assist our resolution.
+* [#6009](https://github.com/IntelRealSense/librealsense/issues/6009) v2.33.1 does not compile with -DBUILDEASYLOGGINGPP=OFF
+* [T265][Mac] - Start after stop is not working on Mac with the T265 camera
+* (DSO-13525) - [D400] 3D viewer moved when sliding the tare calibration sliders
+
 ## Release 2.48.0
 Release Date: 29th June 2021
 
@@ -8,7 +161,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2480
 * [#8905](https://github.com/IntelRealSense/librealsense/pull/8905) - **Android** - Support Sensor API for streaming  
     - Add sensor open/close/start/stop with callbacks
     - Add callbacks to pipeline API with default and custom configurations
-    - Demo apps to use the new apis
+    - Demo apps to use the new APIs
     - Impact to existing API (these are bugs in current implementation and the change should not impact existing apps):
     -  Extend Java class FrameSet from Frame so the frame from pipeline callback can be cast to a set of frames.
     - Add deleter to Java Sensor API with content from old close.  
