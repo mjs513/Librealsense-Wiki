@@ -32,6 +32,8 @@
     "controls-color-white-balance-manual": "4600",
     "controls-depth-gain": "16",
     "controls-depth-white-balance-auto": "False",
+    "controls-laserpower": "150",
+    "controls-laserstate": "on",
     "ignoreSAD": "0",
     "param-amplitude-factor": "0",
     "param-autoexposure-setpoint": "400",
