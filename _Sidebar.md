@@ -20,6 +20,7 @@
 - [Using Two Cameras with ROS](https://github.com/intel-ros/realsense/wiki/Showcase-of-using-2-cameras)
 - [Frame Buffering Management](https://github.com/IntelRealSense/librealsense/wiki/Frame-Buffering-Management-in-RealSense-SDK-2.0)
 - [Supported Matrix](https://github.com/IntelRealSense/librealsense/blob/master/doc/support-matrix.md)
+- [Building with Docker](https://github.com/IntelRealSense/librealsense/scripts/Docker/readme.md)
 ### Help
 - [Closed GitHub Issues](https://github.com/IntelRealSense/librealsense/issues?utf8=%E2%9C%93&q=is%3Aclosed)
 - [Support](https://support.intelrealsense.com)
