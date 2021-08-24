@@ -14,11 +14,13 @@ For further information, please refer to "_Best Known Methods for Tuning Intel R
 Please refer to [latest release](https://github.com/IntelRealSense/librealsense/releases/latest) for the supported devices and platforms.
 
 ## Preset Table
+<!-- This is commented out. 
 Note: Some of the presets are different based on the resolution and some are the same for all resolutions.
 The resolution range is:
 * High Res  - 1280x720 or 848x480
 * Med Res - 640x480 or 640x360
 * Low Res  - 480x270 or 424x240
+-->
 
 | Resolution \ Preset| Use Cases recommended for usage| JSON files |
 | ------------------------- | ------------------------------------------------ |------- |
