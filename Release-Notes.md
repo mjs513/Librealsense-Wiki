@@ -6,7 +6,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2500
 
 ### What's new
 * [#8925](https://github.com/IntelRealSense/librealsense/pull/8925) - **[D400]** Firmware version 5.13.0.50
-  - Intermittent failure on sequential Depth start/stop streaming scenario (DSO-17659)
+  - Intermittent failures in sequential Depth start/stop stress-test scenario (DSO-17659)
   - Fix for Emitter on/off stops on RGB srteam deactivates (DSO-16964)
   - Minor fixes and stability improvements
 * [#9336](https://github.com/IntelRealSense/librealsense/pull/9336) - **[D400] Self-Calibration (UCAL) Routines - enhancements and refactoring**  
