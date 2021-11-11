@@ -1,3 +1,194 @@
+## Release 2.50.0
+Release Date: 11th Nov 2021
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2500
+
+### What's new
+* [#8925](https://github.com/IntelRealSense/librealsense/pull/8925) - **[D400]** Firmware version 5.13.0.50
+  - Intermittent failure on sequential Depth start/stop streaming scenario (DSO-17659)
+  - Fix for Emitter on/off stops on RGB srteam deactivates (DSO-16964)
+  - Minor fixes and stability improvements
+* [#9336](https://github.com/IntelRealSense/librealsense/pull/9336) - **[D400] Self-Calibration (UCAL) Routines - enhancements and refactoring**  
+  - UCAL is an advanced feature<sup>(1)</sup> intended to compensate for camera's calibration misalignments developed over the product's life cycle after it's being deployed. The re-calibration is achieved by running a set of predefined routines - On-Chip, Tare and Focal-Length<sup>(2)</sup>, on the Depth camera. Each routine is designed to address specific Camera's metric and to readjust it to a level comparable to factory calibration spec.  
+   (1) Read the [White Paper](https://dev.intelrealsense.com/docs/self-calibration-for-depth-cameras) prior to running UCAL steps, as it affecta the camera's calibration tables.  
+   (2) As part of the Self-Calibration refactoring, Focal-Length calibration and Tare Target-based distance calculation were introduced, that require a printed target to be provided (follow the White Paper link above).
+* [#9831](https://github.com/IntelRealSense/librealsense/pull/9831) - **[Linux]** Switch to OS Event-driven device discovery instead of polling mechanism.
+  - Reduce camera reset cycles delays and improves software responsivenes.
+  - Replace Linux `polling_device_watcher` with `udev_device_watcher`. More than one udev notification is sent for each add/remove event. We "aggregate" and enumerate only when a polling period comes up "empty" meaning nothing else is incoming. 
+  - Utilizes `libudev-dev` package functionality. (LRS-294)
+* [#9268](https://github.com/IntelRealSense/librealsense/pull/9268) - **[Docker]**
+  - Provide tutorial with a demo docker file to generate and deploy a containerized version of the SDK (LRS-85)
+* [#9558](https://github.com/IntelRealSense/librealsense/pull/9558) - **[Demo]** Pointcloud-Stitching demo.
+  - The demo combines Depth live feeds from two cameras and presents a single Wide FOV image.
+  - The method used to stitch the images is to transfer both pointclouds into the virtual device's coordinate system and then project them on the virtual device's images.
+  - The app assumes the calibration matrix between the devices is known. A method for calculating it is demonstrated in the wrappers\pointcloud\pointcloud-stitching\doc\pointcloud-stitching-demo.md file.
+  - The source code is available under `wrapper/pointcloud/pointcloud-stitching/rs-pointcloud-stitching demo` path.
+
+### Bug Fixes and Enhancements
+* [#9878](https://github.com/IntelRealSense/librealsense/pull/9878) - **[Core]** fix callback ptr (DSO-17796)  
+* [#9876](https://github.com/IntelRealSense/librealsense/pull/9876) - **[Core]** C++17 std::iterator error. Addresses for [#6283](https://github.com/IntelRealSense/librealsense/issues/6283). (DSO-15172)  
+* [#9871](https://github.com/IntelRealSense/librealsense/pull/9871) - **[Windows]** Handle SEMAPHORE_TIMEOUT error on set_pu command.  Addresses [#7129](https://github.com/IntelRealSense/librealsense/issues/7129). (DSO-17181)  
+* [#9855](https://github.com/IntelRealSense/librealsense/pull/9855) - **[Jetsons]** Support for l4t 32.6.1  (the latest supported jetson version 32.5.1 is not the latest official version from nvidia (32.6.1)  contributed by [@wall0404](https://github.com/wall0404)  
+* [#9815](https://github.com/IntelRealSense/librealsense/pull/9815) - **[D400]** Group FW calls.  Apply wrapper function "group_multiple_fw_calls" to ds5 devices to speed-up device activation. Speedsup camera's startup in cold boot scenario by 200+ msec (DSO-16629)  
+* [#9845](https://github.com/IntelRealSense/librealsense/pull/9845) - **[Video4Linux]** Fix set gain exception raised on Ubuntu 20.  Use Status Interrupt Endpoint Vl42 (async. controls) for verifying `set_pu` command was executed before the function call returns. (DSO-17185)  
+* [#9692](https://github.com/IntelRealSense/librealsense/pull/9692) - **[D400]** Reset Auto Exp/Gain Limit back to default value 0. (DSO-17393)  
+* [#9844](https://github.com/IntelRealSense/librealsense/pull/9844) - **[Core]** Wrap android log with lrs namespace.  (LRS-316)  
+* [#9821](https://github.com/IntelRealSense/librealsense/pull/9821) - **[RSUSB]** Backend - reattach kernel driver.  
+ Fixes RSUSB/V4L interoperability:  
+ RSUSB backend detaches the device from the V4L2 kernel driver and never reattaches it. Consequently, after using RSUSB backend, applications using the v4l backend can't find the device. (DSO-17429)  
+* [#9824](https://github.com/IntelRealSense/librealsense/pull/9824) - **[Viewer]** Add minimal delay between set_option commands**  (LRS-311)  
+* [#9804](https://github.com/IntelRealSense/librealsense/pull/9804) - **[Core]** LibCI improvements & VS2019 (glad, atlstr) compatibility. (LRS-303)  
+* [#9807](https://github.com/IntelRealSense/librealsense/pull/9807) - **[C#]** Add tutorial for network device.  (Follow-up on PR [#8809](https://github.com/IntelRealSense/librealsense/issues/8809) (LRS-200)  
+* [#9792](https://github.com/IntelRealSense/librealsense/pull/9792) - **[Viewer]** Add stream index to stream window title (DSO-17647)  
+* [#9794](https://github.com/IntelRealSense/librealsense/pull/9794) - **[Viewer]** Prompt for `advanced mode` when changing depth units  (LRS-202)  
+* [#9782](https://github.com/IntelRealSense/librealsense/pull/9782) - **[Android]** Fix Android motion line UX.
+  - Draw a centered dot under dead zone values
+  - Change line color to white to match the RS Viewer UX. (LRS-122)  
+* [#9789](https://github.com/IntelRealSense/librealsense/pull/9789) - **[Viewer]** Settings windows affected by measure tool (DSO-17665) 
+* [#9764](https://github.com/IntelRealSense/librealsense/pull/9764) - **[Tools]** Add `rs-embed` tool
+ - The tool converts 3D models into a string format suitable for embedding into C++ aplications.
+  - Update 3d models for the supported camera SKUs.
+  - Switch the tool to use the latest LZ4 library version. (LRS-290)  
+* [#9642](https://github.com/IntelRealSense/librealsense/pull/9642) - **[D400]** Presets update
+  - Update hard-coded presets to the latest reccomended configuraton.
+  - Specify D450 default preset.
+  Tested by comparing the JSONs files of the new presets (in the ticket) to the exported JSONs files from the viewer. (DSO-17183)
+* [#9763](https://github.com/IntelRealSense/librealsense/pull/9763) - **[Core]** Firmware check when updating in recovery mode
+  - Add FW check when the device is in recovery mode.
+  - Add D4xx and L5xx FW checks by the FW version when updating in recovery mode.
+  - Add heuristic FW size check to sr3xxx when updating in recovery mode. 
+  Follow-up on PR: [#9683](https://github.com/IntelRealSense/librealsense/issues/9683) (DSO-17448)  
+* [#9770](https://github.com/IntelRealSense/librealsense/pull/9770) - **[CMake]** remove cmake deprecation warnings**  (Newer CMake was complaining of deprecations in certain source files. (LRS-108)  
+* [#9767](https://github.com/IntelRealSense/librealsense/pull/9767) - **[Linux]** Lower Linux device polling interval to 2 seconds.
+The time for enumeration when there are no changes is on average 0.005s, when there are changes it is 0.15s. So polling every 2s shouldn't cause too much burden on the system. (LRS-234)
+* [#9768](https://github.com/IntelRealSense/librealsense/pull/9768) - **[Core]** Another escapee for a mem leak  (Followup to [#9762](https://github.com/IntelRealSense/librealsense/issues/9762) )  
+* [#9762](https://github.com/IntelRealSense/librealsense/pull/9762) - **[Core]** avoid mem leaks in rs.cpp by taking ownership of callback ptrs. Addresses [#3873](https://github.com/IntelRealSense/librealsense/issues/3873) and [#4447](https://github.com/IntelRealSense/librealsense/issues/4447): potential memory leak in pipeline::start method (callback overloads). (DSO-13704)  
+* [#9746](https://github.com/IntelRealSense/librealsense/pull/9746) - **[Viewer]** Switch off histogram equalization when min/max distance is changed.  (LRS-291)  
+* [#9688](https://github.com/IntelRealSense/librealsense/pull/9688) - **[Viewer]** Fix Unreadable stream info while multi stream**  (If multiple stream views are packed closely together, the Info line overwrites the view to the right. (DSO-17042)  
+* [#9732](https://github.com/IntelRealSense/librealsense/pull/9732) - **[MacOS]** Set default CHECK_FOR_UPDATES=OFF for OSX. 
+  Due to a non trivial flow when building with online updates on OSX, we set the default CMake flag to OFF (on OSX only)
+  Update the OSX installation guide for users who want the online updates feature on. (DSO-17551)
+* [#9731](https://github.com/IntelRealSense/librealsense/pull/9731) - **[Viewer]** Window size callback is called with value of 0 for height and width.  (LRS-292)  
+* [#9715](https://github.com/IntelRealSense/librealsense/pull/9715) - **[Core]** Dix crash with desynced frames; add unit-test**  (LRS-289)  
+* [#9517](https://github.com/IntelRealSense/librealsense/pull/9517) - **[Android]** UI fixes  
+  Make the stream statistic view in camera app scrollable (RS5-11519)
+* [#9625](https://github.com/IntelRealSense/librealsense/pull/9625) - **[Core]** Improve unsigned firmware update on android**  (Improve unsigned firmware update:
+  1) use file browser to pick the firmware file in any accessible directory
+  2) error handling
+   (DSO-17007, DSO-17550)  
+* [#9662](https://github.com/IntelRealSense/librealsense/pull/9662) - **[Android]** RS Camera viewer restarts the stream when rotating screen.
+- Handle device orientation change to avoid interruption during preview, recording and playback
+- Fix memory leak during device rotations (DSO-14436)
+
+* [#9716](https://github.com/IntelRealSense/librealsense/pull/9716) - **[Core]** 
+  Update frame callback logs  
+  - Remove callback-started field in frame  
+  - Remove frame release log message  
+  - Separate composite frame release log  
+  - Split archive into several files (DSO-16993)  
+* [#9720](https://github.com/IntelRealSense/librealsense/pull/9720) - **[Viewer]** Depth data hides the content of export window. (DSO-17561)  
+* [#9721](https://github.com/IntelRealSense/librealsense/pull/9721) - **[Viewer]** Export window affected by Measure tool  (DSO-17658)  
+* [#9689](https://github.com/IntelRealSense/librealsense/pull/9689) - **[Android]** Default Started streams appears off in settings
+Changes:
+  - added getActiveStreams api in sensor and pipeline on android
+  - populate default stream profiles in camera viewer settings
+  - turn off all settings to reset to default streams. (DSO-15687)
+* [#9711](https://github.com/IntelRealSense/librealsense/pull/9711) - **[Viewer]** Windows sometimes goes to 0 width & height.  (LRS-288)  
+* [#9710](https://github.com/IntelRealSense/librealsense/pull/9710) - **[Viewer]** Disabling Measure when depth stream is stopped.  (DSO-17043)  
+* [#9706](https://github.com/IntelRealSense/librealsense/pull/9706) - **[Viewer]** Measurement line is not disappeared after disabling distance Button*
+Revised tooltip to make it clear how to draw a polygon. (DSO-17043)
+* [#9668](https://github.com/IntelRealSense/librealsense/pull/9668) - **[Core]** Playback behavior with syncer at EOF.
+Added improvements to Python wrapper usability:
+  - added `frame_queue`-like `wait_for_frame` etc. to `syncer` so they can be used interchangeably
+  - added pyrs.sensor.name and repr
+Also:
+  -added a text converter to `rs-convert` to easily see the frame content of a rosbag (LRS-172]) 
+* [#9704](https://github.com/IntelRealSense/librealsense/pull/9704) - **[Viewer]** - Visual Preset value change when reselecting the default value. (LRS-119)  
+* [#9677](https://github.com/IntelRealSense/librealsense/pull/9677) - **[Core]** Crash on stopping context  
+Added debug messages, in general. But the issue, it seems, was that `context::stop()` only called `device_watcher::stop()` when there were NO callbacks registered. (LRS-219)
+* [#9676](https://github.com/IntelRealSense/librealsense/pull/9676) - **[Demos]** 'rs-measure' example program has missing measurement value.  (DSO-17549)  
+* [#9670](https://github.com/IntelRealSense/librealsense/pull/9670) - **[Core]** 
+Removed unneeded ; character in serialized-utilities.cpp.  (Removed unneeded ; character) contributed by [@mgeorg](https://github.com/mgeorg)
+* [#9669](https://github.com/IntelRealSense/librealsense/pull/9669) - **[Viewer]** Error message when click on pause in 3D Viewer**  (DSO-17558)  
+* [#9666](https://github.com/IntelRealSense/librealsense/pull/9666) - **[Viewer]** Flash screen hourglass show a palm (hand) icon.  (LRS-177)  
+* [#9656](https://github.com/IntelRealSense/librealsense/pull/9656) - **[Android]]** Controls option not begins with capital letter
+Changes: Minor fix controls option not begins with capital letter (DSO-15651)
+* [#9665](https://github.com/IntelRealSense/librealsense/pull/9665) - **[Tools]** Update tool dfu alert
+  - Capitalize messages
+  - Show list of devices without any command-line arguments
+  - If device is in recovery mode, give proper message (LRS-33)  
+* [#9562](https://github.com/IntelRealSense/librealsense/pull/9562) - **[Viewer]** Correct `get_folder_path` behavior.  
+  For `documents` folder use `SHGetFolderPath` instead of `SHGetKnownFolderPath` because `SHGetKnownFolderPath` doesn't give the path to OneDrive documents folder but to the local documents folder. (LRS-229)
+* [#9602](https://github.com/IntelRealSense/librealsense/pull/9602) - **[Android]** - Fix resource issue handling issue.  
+  This is part b fix to additional issues found when switching between 2d and 3d. Changes:
+  - release frame resources when switching between 2d and 3d
+  - handle cases when only depth, no rgb, is part of the stream
+  - handle cases when no depth is part of the stream (DSO-16584)  
+* [#9011](https://github.com/IntelRealSense/librealsense/pull/9011) - **[Python]** Fix software device in Python wrapper.  
+  - fix matcher for Python wrapper. contributed by [@mengyui](https://github.com/mengyui)
+* [#9616](https://github.com/IntelRealSense/librealsense/pull/9616) - **[Core]** Fix Stepping Forward / Backwards with `playback` device.  (DSO-17562)  
+* [#9593](https://github.com/IntelRealSense/librealsense/pull/9593) - **[Core]** Syncer fix for  not releasing frames with inactive stream.  
+  - The syncer was comparing to the wrong timestamp.  
+  - Reduce the threshold used to detect inactive streams (10 -> 7 gaps), which can also reduce ability to handle big latency. But it's more important to reduce change of reaching the current queue limit of 10 frames.  
+  - Unit-test that shows this is WIP, to follow in another PR. (LRS-275)  
+* [#9599](https://github.com/IntelRealSense/librealsense/pull/9599) - **[Viewer]** Closing the viewer app while in playback mode causes seg fault.
+  - live tests crash fix + dispatcher flush() fix**  (Includes changes from PR [#9570](https://github.com/IntelRealSense/librealsense/issues/9570). (LRS-265)
+* [#9595](https://github.com/IntelRealSense/librealsense/pull/9595) - **[Core]** Enable `Global_timestamp` domain with ARM architecture for Raspberry PI.  
+  Revert patch of commit e992be3b84f164e0e917f6fa0adad9f50e0. Address issue in [librealsense-ros[#1906](https://github.com/IntelRealSense/librealsense/issues/1906)](https://github.com/IntelRealSense/realsense-ros/issues/1906) (DSO-17352)  
+* [#9518](https://github.com/IntelRealSense/librealsense/pull/9518) - **[Android]** Sensor callback improvement.  (DSO-17538)
+* [#9575](https://github.com/IntelRealSense/librealsense/pull/9575) - **[Viewer]** - Alert user on recovery device bundled update
+  - Expose PID for recovery device
+  - Add notification for recovery device update. (DSO-17527)  
+* [#9559](https://github.com/IntelRealSense/librealsense/pull/9559) - **[Android]** device watcher add is stopped**  (LRS-257)  
+* [#9498](https://github.com/IntelRealSense/librealsense/pull/9498) - **[D400]** HDR merge - discarding merged frame on resume.  (DSO-17341)  
+* [#9553](https://github.com/IntelRealSense/librealsense/pull/9553) - **[Core]** Remove circular shared_ptr dependency in Pointcloud class. 
+  - Handle memory leak in PointCloud processing block
+  - Addresses a long-standing issue [#2860](https://github.com/IntelRealSense/librealsense/issues/2860). (DSO-13695)
+* [#9540](https://github.com/IntelRealSense/librealsense/pull/9540) - **[Core]** Update LZ4 compression utility to version 1.9.3**  
+  - (**Benchmark results of compress + write RGB 1280x720 frame (frame only no additional data)**
+  - Tested on Windows 10. Laptop HP Elitebook 850 G6
+  - 1.8.0 benchmark results: AVG time: 53 [ms], Min time: 40 [ms], Max time: 67 [ms]
+  - 1.9.3 benchmark results: AVG time: 23 [ms], Min time: 19 [ms], Max time: 39 [ms]
+  - Performance improvement of :~ 50% (LRS-34)  
+* [#9253](https://github.com/IntelRealSense/librealsense/pull/9253) - **[MacOS]** Fix build on macOS arm64.  
+  This fixes the build on macOS running on Apple Silicon (arm64). contributed by [@prusnak](https://github.com/prusnak)  
+* [#9496](https://github.com/IntelRealSense/librealsense/pull/9496) - **[Android]** Java example adjusted to androidX**  (LRS-249)  
+* [#9525](https://github.com/IntelRealSense/librealsense/pull/9525) - **[Python]** `receiver sensitivity` option added to python wrapper**  (LRS-258)  
+* [#9514](https://github.com/IntelRealSense/librealsense/pull/9514) - **[Android]** Memory leak fix. 
+  Release point cloud resources when clearing the rendering surface. (DSO-16584)  
+* [#9503](https://github.com/IntelRealSense/librealsense/pull/9503) - **[Core]** Fix for `device_watcher` class.
+  - start it on register_internal_device_callback**  (Device_hub API registers for events using `register_internal_device_callback` but this didn't start the device-watcher... we weren't getting device change notifications. (DSO-11850).
+* [#9502](https://github.com/IntelRealSense/librealsense/pull/9502) - **[Core]** Add missing DS error codes.  (DSO-16036)  
+* [#9522](https://github.com/IntelRealSense/librealsense/pull/9522) - **[Core]** Protect playback sensor call to user callback (LRS-255)  
+* [#9509](https://github.com/IntelRealSense/librealsense/pull/9509) - **[Viewer]** FW Update via popup fix.  (LRS-250)  
+* [#9497](https://github.com/IntelRealSense/librealsense/pull/9497) - **[Core]** Fix zero depth for SR300.
+  - Add UT for depth units from metadata. (LRS-248)
+* [#9491](https://github.com/IntelRealSense/librealsense/pull/9491) - **[Viewer]** - Handle crash with L515 with USB2.
+  Fixes issue introduced in [#9382](https://github.com/IntelRealSense/librealsense/issues/9382)
+ (LRS-243).  
+* [#9490](https://github.com/IntelRealSense/librealsense/pull/9490) - **[Viewer] Fix pointcloud for L515  
+  Rectifies improver assignment of `depth_units`. Addresses [#9154](https://github.com/IntelRealSense/librealsense/issues/9154). (LRS-240)  
+* [#9486](https://github.com/IntelRealSense/librealsense/pull/9486) - **[Core]** GCC 7.5 fixes.  
+  - Add explicit `#include` reference
+  - Remove warning - drop unnecessary struct in signature.  
+* [#9482](https://github.com/IntelRealSense/librealsense/pull/9482) - **[CUDA]** Fix building with CUDA accelerators.
+  - Hot-fix to propagate depth-units refactoring into CUDA-enabled build. Rectifies [#9154](https://github.com/IntelRealSense/librealsense/issues/9154)
+
+
+### Documentation
+* [#9633](https://github.com/IntelRealSense/librealsense/pull/9633) - **[Jetson]** Fix doc-jetson-installation.  
+  This PR fixes the installation for jetson, which is currently broken for the second part. It also has some minor editorial changes to enhance readability.) contributed by [@tkazik](https://github.com/tkazik).
+* [#9849](https://github.com/IntelRealSense/librealsense/pull/9849) - **[Core]** Update installation readme for libudev + add ROS dependency**  (LRS-315)  
+* [#9834](https://github.com/IntelRealSense/librealsense/pull/9834) - **[Jetson]** Update installation_jetson.md.  Fix markdown grammar error. contributed by [@Sn-Kinos](https://github.com/Sn-Kinos)
+* [#9781](https://github.com/IntelRealSense/librealsense/pull/9781) - **[Python]** Update python wrapper docs 
+  Add a note about building pyrealsense from source as a self-contained library ([#9760](https://github.com/IntelRealSense/librealsense/issues/9760)) (LRS-293)  
+* [#9719](https://github.com/IntelRealSense/librealsense/pull/9719) - **[Jetson]** Update installation_jetson.md. Contributed by [@DestinyOne](https://github.com/DestinyOne)  
+* [#9577](https://github.com/IntelRealSense/librealsense/pull/9577) - **[Core]** Document LRS Viewer version update notifications flow**  (LRS-268)  
+* [#9547](https://github.com/IntelRealSense/librealsense/pull/9547) - **[Demo]** Fix record and playback readme link**  (LRS-218)  
+* [#9235](https://github.com/IntelRealSense/librealsense/pull/9235) - **[MacOS]** Update out-of-date brew command in macOS guide. contributed by [@zgotsch](https://github.com/zgotsch)
+* [#9499](https://github.com/IntelRealSense/librealsense/pull/9499) - **[Core]** Merge record and playback readme files.  (LRS-218)
+
 ## Release 2.49.0
 Release Date: 10th Aug 2021
 
