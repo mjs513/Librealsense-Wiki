@@ -1,3 +1,24 @@
+## Version [2.50.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.50.0)
+Functionality:
+ - [rs2_run_focal_length_calibration_cpp](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_device.h#L471) - [UCAL] Perform Target-based Focal Length calibration (UCAL). The API call expect to receive Y8 frames gathered from Left and Right IR/Intensity sensors, to find and extract the targets captured by the camera, and then to readjust the focal length of the lef/right sensors. The output is the new calibration table ready to be flashed to the device. The user can pass on a callback that will get the algorithm processing status in percentage. Follow the Release Notes for v2.50.0 and read the accompanying White Paper for in-depth discussion of the camera intrinsic properties  and the provided calibration methods
+ - [rs2_run_focal_length_calibration](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_device.h#L488) - [UCAL]  C-language version of the above call
+ - [rs2_run_uv_map_calibration_cpp](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_device.h#L503) - [UCAL] UV-Mapping calibration is a provisional API for future enhancements (UCAL).
+ - [rs2_run_uv_map_calibration](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_device.h#L519) - [UCAL] UV-Mapping calibration is a provisional API for future enhancements.
+ - [rs2_calculate_target_z_cpp](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_device.h#L531) - [UCAL] The API call accepts frame collected by the Left sensor that include Y8 stream data, extracts the target that was captured by the camera and provides the estimated distance to the target's plane. Note that the accuracy of the algorithm is bounded by the precision of the target dimensions measured and provided by the customer
+ - [rs2_calculate_target_z](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_device.h#L545) - C-language API call for the above algorithm
+ - [rs2_frame_queue_size](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_processing.h#L176) - Retrieve the number of frames that the queue holds.
+ - [rs2_matchers_to_string](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_types.h#L255) -Auxiliary function utilized by the Python wrapper
+
+Enumerations:
+ - [RS2_CALIB_TARGET_ROI_RECT_GAUSSIAN_DOT_VERTICES](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_frame.h#L77) 
+ - [RS2_CALIB_TARGET_POS_GAUSSIAN_DOT_VERTICES](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_frame.h#L78) 
+- Printed Target types in use by UCAL
+
+Options:
+ - [RS2_OPTION_AUTO_EXPOSURE_LIMIT_TOGGLE](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_option.h#L116) - Toggles D400 series Auto-exposure limit on/off. When both this and Auto-Exposure controls are set on, changing the value of `RS2_OPTION_AUTO_EXPOSURE_LIMIT` would set the upper bound of exposure values in FW, allowing to keep the required FPS rate.
+ - [RS2_OPTION_AUTO_GAIN_LIMIT_TOGGLE](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_option.h#L117) - Toggles D400 series Auto-gain limit on/off. When both this and Auto-Exposure controls are set on, changing the value of `RS2_OPTION_AUTO_GAIN_LIMIT` would set the upper bound of digital gain values in FW, preventing over-saturation.
+
+
 ## Version [2.47.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.47.0)
 Functionality:
 - [rs2_check_firmware_compatibility](https://github.com/IntelRealSense/librealsense/blob/v2.47.0/include/librealsense2/h/rs_device.h#L223-L231) - Check the FW image provided by the users and the target device. Prevent flashing devices with incompatible FW images to prevent bricking and malfunctioning. In case of incompatible match a user warning is issued and the DFU process is interrupted.
