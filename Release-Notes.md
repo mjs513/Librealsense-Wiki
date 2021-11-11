@@ -10,11 +10,11 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2500
   - Fix for Emitter on/off stops on RGB srteam deactivates (DSO-16964)
   - Minor fixes and stability improvements
 * [#9336](https://github.com/IntelRealSense/librealsense/pull/9336) - **[D400] Self-Calibration (UCAL) Routines - enhancements and refactoring**  
-  - UCAL is an advanced feature<sup>(1)</sup> intended to compensate for camera's calibration misalignments developed over the product's life cycle after it's being deployed. The re-calibration is achieved by running a set of predefined routines - On-Chip, Tare and Focal-Length<sup>(2)</sup>, on the Depth camera. Each routine is designed to address specific Camera's metric and to readjust it to a level comparable to factory calibration spec.  
-   (1) Read the [White Paper](https://dev.intelrealsense.com/docs/self-calibration-for-depth-cameras) prior to running UCAL steps, as it affecta the camera's calibration tables.  
-   (2) As part of the Self-Calibration refactoring, Focal-Length calibration and Tare Target-based distance calculation were introduced, that require a printed target to be provided (follow the White Paper link above).
+  - UCAL is an advanced feature<sup>(1)</sup> intended to compensate for camera's calibration misalignments developed over the product's life cycle after it's being deployed. The re-calibration is achieved by running a set of predefined routines - On-Chip, Tare and Focal-Length<sup>(2)</sup>, on the Depth camera. Each routine is designed to address specific Camera's metric and to re-adjust it to a level comparable to factory calibration spec.  
+   (1) Read the [White Paper](https://dev.intelrealsense.com/docs/self-calibration-for-depth-cameras) prior to running UCAL steps, as it affects the camera's calibration tables.  
+   (2) As part of the Self-Calibration refactoring, Focal-Length calibration and Tare Target-based distance calculation were introduced, that require a printed target to be provided ([Target_for_print](https://librealsense.intel.com/Releases/UCAL/Calibration_Target_v1.pdf)).
 * [#9831](https://github.com/IntelRealSense/librealsense/pull/9831) - **[Linux]** Switch to OS Event-driven device discovery instead of polling mechanism.
-  - Reduce camera reset cycles delays and improves software responsivenes.
+  - Reduce camera reset cycles delays and improves software responsiveness.
   - Replace Linux `polling_device_watcher` with `udev_device_watcher`. More than one udev notification is sent for each add/remove event. We "aggregate" and enumerate only when a polling period comes up "empty" meaning nothing else is incoming. 
   - Utilizes `libudev-dev` package functionality. (LRS-294)
 * [#9268](https://github.com/IntelRealSense/librealsense/pull/9268) - **[Docker]**
@@ -47,11 +47,11 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2500
   - Change line color to white to match the RS Viewer UX. (LRS-122)  
 * [#9789](https://github.com/IntelRealSense/librealsense/pull/9789) - **[Viewer]** Settings windows affected by measure tool (DSO-17665) 
 * [#9764](https://github.com/IntelRealSense/librealsense/pull/9764) - **[Tools]** Add `rs-embed` tool
- - The tool converts 3D models into a string format suitable for embedding into C++ aplications.
+ - The tool converts 3D models into a string format suitable for embedding into C++ applications.
   - Update 3d models for the supported camera SKUs.
   - Switch the tool to use the latest LZ4 library version. (LRS-290)  
 * [#9642](https://github.com/IntelRealSense/librealsense/pull/9642) - **[D400]** Presets update
-  - Update hard-coded presets to the latest reccomended configuraton.
+  - Update hard-coded presets to the latest recommended configuration.
   - Specify D450 default preset.
   Tested by comparing the JSONs files of the new presets (in the ticket) to the exported JSONs files from the viewer. (DSO-17183)
 * [#9763](https://github.com/IntelRealSense/librealsense/pull/9763) - **[Core]** Firmware check when updating in recovery mode
@@ -62,7 +62,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2500
 * [#9770](https://github.com/IntelRealSense/librealsense/pull/9770) - **[CMake]** remove cmake deprecation warnings**  (Newer CMake was complaining of deprecations in certain source files. (LRS-108)  
 * [#9767](https://github.com/IntelRealSense/librealsense/pull/9767) - **[Linux]** Lower Linux device polling interval to 2 seconds.
 The time for enumeration when there are no changes is on average 0.005s, when there are changes it is 0.15s. So polling every 2s shouldn't cause too much burden on the system. (LRS-234)
-* [#9768](https://github.com/IntelRealSense/librealsense/pull/9768) - **[Core]** Another escapee for a mem leak  (Followup to [#9762](https://github.com/IntelRealSense/librealsense/issues/9762) )  
+* [#9768](https://github.com/IntelRealSense/librealsense/pull/9768) - **[Core]** Another escapee for a mem leak  (Follow-up to [#9762](https://github.com/IntelRealSense/librealsense/issues/9762) )  
 * [#9762](https://github.com/IntelRealSense/librealsense/pull/9762) - **[Core]** avoid mem leaks in rs.cpp by taking ownership of callback ptrs. Addresses [#3873](https://github.com/IntelRealSense/librealsense/issues/3873) and [#4447](https://github.com/IntelRealSense/librealsense/issues/4447): potential memory leak in pipeline::start method (callback overloads). (DSO-13704)  
 * [#9746](https://github.com/IntelRealSense/librealsense/pull/9746) - **[Viewer]** Switch off histogram equalization when min/max distance is changed.  (LRS-291)  
 * [#9688](https://github.com/IntelRealSense/librealsense/pull/9688) - **[Viewer]** Fix Unreadable stream info while multi stream**  (If multiple stream views are packed closely together, the Info line overwrites the view to the right. (DSO-17042)  
@@ -91,7 +91,7 @@ The time for enumeration when there are no changes is on average 0.005s, when th
 * [#9721](https://github.com/IntelRealSense/librealsense/pull/9721) - **[Viewer]** Export window affected by Measure tool  (DSO-17658)  
 * [#9689](https://github.com/IntelRealSense/librealsense/pull/9689) - **[Android]** Default Started streams appears off in settings
 Changes:
-  - added getActiveStreams api in sensor and pipeline on android
+  - added `getActiveStreams` API in sensor and pipeline on android
   - populate default stream profiles in camera viewer settings
   - turn off all settings to reset to default streams. (DSO-15687)
 * [#9711](https://github.com/IntelRealSense/librealsense/pull/9711) - **[Viewer]** Windows sometimes goes to 0 width & height.  (LRS-288)  
@@ -153,7 +153,7 @@ Changes: Minor fix controls option not begins with capital letter (DSO-15651)
   - Performance improvement of :~ 50% (LRS-34)  
 * [#9253](https://github.com/IntelRealSense/librealsense/pull/9253) - **[MacOS]** Fix build on macOS arm64.  
   This fixes the build on macOS running on Apple Silicon (arm64). contributed by [@prusnak](https://github.com/prusnak)  
-* [#9496](https://github.com/IntelRealSense/librealsense/pull/9496) - **[Android]** Java example adjusted to androidX**  (LRS-249)  
+* [#9496](https://github.com/IntelRealSense/librealsense/pull/9496) - **[Android]** Java example adjusted to Android X**  (LRS-249)  
 * [#9525](https://github.com/IntelRealSense/librealsense/pull/9525) - **[Python]** `receiver sensitivity` option added to python wrapper**  (LRS-258)  
 * [#9514](https://github.com/IntelRealSense/librealsense/pull/9514) - **[Android]** Memory leak fix. 
   Release point cloud resources when clearing the rendering surface. (DSO-16584)  
