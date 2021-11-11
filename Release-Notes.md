@@ -18,8 +18,8 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2500
   - Replace Linux `polling_device_watcher` with `udev_device_watcher`. More than one udev notification is sent for each add/remove event. We "aggregate" and enumerate only when a polling period comes up "empty" meaning nothing else is incoming. 
   - Utilizes `libudev-dev` package functionality. (LRS-294)
 * [#9268](https://github.com/IntelRealSense/librealsense/pull/9268) - **[Docker]**
-  - Provide tutorial with a demo docker file to generate and deploy a containerized version of the SDK (LRS-85)
-* [#9558](https://github.com/IntelRealSense/librealsense/pull/9558) - **[Demo]** Pointcloud-Stitching demo.
+  - Provide [tutorial](https://github.com/IntelRealSense/librealsense/tree/master/scripts/Docker) with a demo docker file to generate and deploy a containerized version of the SDK (LRS-85)
+* [#9558](https://github.com/IntelRealSense/librealsense/pull/9558) - **[Demo]** [Pointcloud-Stitching](https://github.com/IntelRealSense/librealsense/tree/master/wrappers/pointcloud/pointcloud-stitching).
   - The demo combines Depth live feeds from two cameras and presents a single Wide FOV image.
   - The method used to stitch the images is to transfer both pointclouds into the virtual device's coordinate system and then project them on the virtual device's images.
   - The app assumes the calibration matrix between the devices is known. A method for calculating it is demonstrated in the wrappers\pointcloud\pointcloud-stitching\doc\pointcloud-stitching-demo.md file.
