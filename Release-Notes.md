@@ -29,7 +29,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2500
 * [#9878](https://github.com/IntelRealSense/librealsense/pull/9878) - **[Core]** fix callback ptr (DSO-17796)  
 * [#9876](https://github.com/IntelRealSense/librealsense/pull/9876) - **[Core]** C++17 std::iterator error. Addresses for [#6283](https://github.com/IntelRealSense/librealsense/issues/6283). (DSO-15172)  
 * [#9871](https://github.com/IntelRealSense/librealsense/pull/9871) - **[Windows]** Handle SEMAPHORE_TIMEOUT error on set_pu command.  Addresses [#7129](https://github.com/IntelRealSense/librealsense/issues/7129). (DSO-17181)  
-* [#9855](https://github.com/IntelRealSense/librealsense/pull/9855) - **[Jetsons]** Support for l4t 32.6.1  (the latest supported jetson version 32.5.1 is not the latest official version from nvidia (32.6.1)  contributed by [@wall0404](https://github.com/wall0404)  
+* [#9855](https://github.com/IntelRealSense/librealsense/pull/9855) - **[Jetsons]** Support for l4t 32.6.1  (the latest supported jetson version 32.5.1 is not the latest official version from nvidia (32.6.1)  contributed by kevin  
 * [#9815](https://github.com/IntelRealSense/librealsense/pull/9815) - **[D400]** Group FW calls.  Apply wrapper function "group_multiple_fw_calls" to ds5 devices to speed-up device activation. Speedsup camera's startup in cold boot scenario by 200+ msec (DSO-16629)  
 * [#9845](https://github.com/IntelRealSense/librealsense/pull/9845) - **[Video4Linux]** Fix set gain exception raised on Ubuntu 20.  Use Status Interrupt Endpoint Vl42 (async. controls) for verifying `set_pu` command was executed before the function call returns. (DSO-17185)  
 * [#9692](https://github.com/IntelRealSense/librealsense/pull/9692) - **[D400]** Reset Auto Exp/Gain Limit back to default value 0. (DSO-17393)  
@@ -70,7 +70,7 @@ The time for enumeration when there are no changes is on average 0.005s, when th
   Due to a non trivial flow when building with online updates on OSX, we set the default CMake flag to OFF (on OSX only)
   Update the OSX installation guide for users who want the online updates feature on. (DSO-17551)
 * [#9731](https://github.com/IntelRealSense/librealsense/pull/9731) - **[Viewer]** Window size callback is called with value of 0 for height and width.  (LRS-292)  
-* [#9727](https://github.com/IntelRealSense/librealsense/pull/9727) - **[Linux]** Enable patches for kernel 5.11. Contributed by https://github.com/kevindehecker .
+* [#9727](https://github.com/IntelRealSense/librealsense/pull/9727) - **[Linux]** Enable patches for kernel 5.11. Contributed by [@kevindehecker](https://github.com/kevindehecker).
 * [#9715](https://github.com/IntelRealSense/librealsense/pull/9715) - **[Core]** Dix crash with desynced frames; add unit-test**  (LRS-289)  
 * [#9517](https://github.com/IntelRealSense/librealsense/pull/9517) - **[Android]** UI fixes  
   Make the stream statistic view in camera app scrollable (RS5-11519)
