@@ -70,7 +70,7 @@ The time for enumeration when there are no changes is on average 0.005s, when th
   Due to a non trivial flow when building with online updates on OSX, we set the default CMake flag to OFF (on OSX only)
   Update the OSX installation guide for users who want the online updates feature on. (DSO-17551)
 * [#9731](https://github.com/IntelRealSense/librealsense/pull/9731) - **[Viewer]** Window size callback is called with value of 0 for height and width.  (LRS-292)  
-* [#9727](https://github.com/IntelRealSense/librealsense/pull/9727) - **[Linux]** Enable patches for kernel 5.11. Contributed by @kevindehecker.
+* [#9727](https://github.com/IntelRealSense/librealsense/pull/9727) - **[Linux]** Enable patches for kernel 5.11. Contributed by https://github.com/kevindehecker .
 * [#9715](https://github.com/IntelRealSense/librealsense/pull/9715) - **[Core]** Dix crash with desynced frames; add unit-test**  (LRS-289)  
 * [#9517](https://github.com/IntelRealSense/librealsense/pull/9517) - **[Android]** UI fixes  
   Make the stream statistic view in camera app scrollable (RS5-11519)
