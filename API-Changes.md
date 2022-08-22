@@ -1,3 +1,8 @@
+## Version [2.51.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.51.1)
+Functionality:
+ - [rs2_build_debug_protocol_command](https://github.com/IntelRealSense/librealsense/blob/v2.51.1/include/librealsense2/h/rs_device.h#L97) - See [#10261](https://github.com/IntelRealSense/librealsense/pull/10261) and [#10279](https://github.com/IntelRealSense/librealsense/pull/10279) - this API, and `rs2::device::build_command()`, generates a raw data cmd from opcode, params, and data, to help with `rs2_send_and_receive_raw_data`
+ 
+
 ## Version [2.50.0](https://github.com/IntelRealSense/librealsense/releases/tag/v2.50.0)
 Functionality:
  - [rs2_run_focal_length_calibration_cpp](https://github.com/IntelRealSense/librealsense/blob/v2.50.0/include/librealsense2/h/rs_device.h#L471) - [UCAL] Perform Target-based Focal Length calibration (UCAL). The API call expect to receive Y8 frames gathered from Left and Right IR/Intensity sensors, to find and extract the targets captured by the camera, and then to readjust the focal length of the lef/right sensors. The output is the new calibration table ready to be flashed to the device. The user can pass on a callback that will get the algorithm processing status in percentage. Follow the Release Notes for v2.50.0 and read the accompanying White Paper for in-depth discussion of the camera intrinsic properties  and the provided calibration methods
