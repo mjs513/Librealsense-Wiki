@@ -1,3 +1,58 @@
+## Release 2.51.1
+Release Date: 23rd Aug 2022
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2511
+
+
+### What's new
+- D405 is now officially supported
+- Official support for Windows 7, 8, MacOS, and Android is removed (the code is still compilable, but collaterals are no longer generated or tested)
+
+
+### Bug Fixes and Enhancements
+* [#10740](https://github.com/IntelRealSense/librealsense/pull/10740) - **Remove unused variable pid in ds5_advanced_mode_base constructor**
+    See [#10336](https://github.com/IntelRealSense/librealsense/issues/10336): Crash in applications when running x86 in Win10 with D405
+* [#10619](https://github.com/IntelRealSense/librealsense/pull/10619) - **fix [#10617](https://github.com/IntelRealSense/librealsense/issues/10617) rs-software-device black output**
+* [#10147](https://github.com/IntelRealSense/librealsense/pull/10147) - **Partial frame notif acc to kpi**
+* [#10573](https://github.com/IntelRealSense/librealsense/pull/10573) - **Remove redundant frame copies inside librealsense core**
+* [#10388](https://github.com/IntelRealSense/librealsense/pull/10388) - **Add easylogging include cmake**
+* [#10384](https://github.com/IntelRealSense/librealsense/pull/10384) - **Fix root include path**
+* [#10369](https://github.com/IntelRealSense/librealsense/pull/10369) - **Move utilities to librealsense include dir**
+* [#10314](https://github.com/IntelRealSense/librealsense/pull/10314) - **Fix LibCI-nightly reset_update_counter opcode**  (wrongly changed in [#10261](https://github.com/IntelRealSense/librealsense/issues/10261))
+* [#10296](https://github.com/IntelRealSense/librealsense/pull/10296) - **Remove ENABLE_ZERO_COPY CMake flag**  (wasn't in use)
+* [#10261](https://github.com/IntelRealSense/librealsense/pull/10261) - **add debug_protocol::build_command()**
+    - add build_raw_data to the debug_protocol API - (this API generates a raw data cmd from opcode, params, and data)
+    - add the new API to C# and Python wrappers
+* [#10183](https://github.com/IntelRealSense/librealsense/pull/10183) - **tooltip corrected**
+* [#10152](https://github.com/IntelRealSense/librealsense/pull/10152) - **Allow retries for USB claim interface +  Increase FW update UT stability**
+* [#10130](https://github.com/IntelRealSense/librealsense/pull/10130) - **Force non-realtime playback to be synchronous **
+* [#10117](https://github.com/IntelRealSense/librealsense/pull/10117) - **Fix option_set_drop_test**
+* [#10091](https://github.com/IntelRealSense/librealsense/pull/10091) - **Fix error polling last value reset logic**
+* [#10082](https://github.com/IntelRealSense/librealsense/pull/10082) - **syntax error corrected**
+* [#10047](https://github.com/IntelRealSense/librealsense/pull/10047) - **Gh actions update windows label & fix mac-os OpenSSL link**
+* [#10032](https://github.com/IntelRealSense/librealsense/pull/10032) - **Concurrency improvements**  (Improve `dispatcher::flush()` and `waiting_on<>` so that the stopped mutex/cv are used -- otherwise the stopped signal may not stop the wait and we get a timeout.)
+* [#10024](https://github.com/IntelRealSense/librealsense/pull/10024) - **Fix playback flush halt + add UT**
+* [#9936](https://github.com/IntelRealSense/librealsense/pull/9936) - **Adjust the Self-Calibration script for UCAL flows**
+* [#9912](https://github.com/IntelRealSense/librealsense/pull/9912) - **Fix UCAL inconsistencies**
+    Viewer-specific fixes and refinements:
+    - Enable preview with ROI for GT after HW reset event
+    - Improve FL robustness in USB2 mode by adding more time for camera's exposure to settle
+    -  Add blocking notification when invoking FL-Calib for D455 at USB2 mode.
+* [#9727](https://github.com/IntelRealSense/librealsense/pull/9727) by [@kevindehecker](https://github.com/kevindehecker) - **Enable patches for kernel 5.11**
+* [#9887](https://github.com/IntelRealSense/librealsense/pull/9887) - **Error on playing paused bag** (Fix issue [#4249](https://github.com/IntelRealSense/librealsense/issues/4249))
+* [#9882](https://github.com/IntelRealSense/librealsense/pull/9882) - **Ucal fixes**  (Ucal amendments)
+
+
+### Documentation
+* [#10210](https://github.com/IntelRealSense/librealsense/pull/10210) - **Add Ubuntu 20 to installation guide**
+* [#9973](https://github.com/IntelRealSense/librealsense/pull/9973) - **Remove Jetson installation doc Debians built with FORCE_RSUSB comment**
+    Jetson Debians no longer build with -DFORCE_RS_USB_BACKEND=true,
+    The backend built is V4L2
+* [#9895](https://github.com/IntelRealSense/librealsense/pull/9895) - **Add libudev-dev dependency to Jetson installation guide**
+* [#9898](https://github.com/IntelRealSense/librealsense/pull/9898) - **Disclaimer notification for D415 and Self-cal**  (Add notification and provide a link to Self-Cal white paper)
+
+
 ## Release 2.50.0
 Release Date: 11th Nov 2021
 
