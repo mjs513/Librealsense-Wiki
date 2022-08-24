@@ -26,7 +26,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2511
     - add the new API to C# and Python wrappers
 * [#10183](https://github.com/IntelRealSense/librealsense/pull/10183) - **tooltip corrected**
 * [#10152](https://github.com/IntelRealSense/librealsense/pull/10152) - **Allow retries for USB claim interface +  Increase FW update UT stability**
-* [#10130](https://github.com/IntelRealSense/librealsense/pull/10130) - **Force non-realtime playback to be synchronous **
+* [#10130](https://github.com/IntelRealSense/librealsense/pull/10130) - **Force non-realtime playback to be synchronous**
 * [#10117](https://github.com/IntelRealSense/librealsense/pull/10117) - **Fix option_set_drop_test**
 * [#10091](https://github.com/IntelRealSense/librealsense/pull/10091) - **Fix error polling last value reset logic**
 * [#10082](https://github.com/IntelRealSense/librealsense/pull/10082) - **syntax error corrected**
