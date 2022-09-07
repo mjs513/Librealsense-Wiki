@@ -7,8 +7,7 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2511
 
 ### What's new
 - D405 is now officially supported
-- Official support for Windows 7, 8, MacOS, and Android is removed (the code is still compilable, but collaterals are no longer generated or tested)
-
+- Windows 7 executable is no longer created as part of the release, but the code is still compilable
 
 ### Bug Fixes and Enhancements
 * [#10740](https://github.com/IntelRealSense/librealsense/pull/10740) - **Remove unused variable pid in ds5_advanced_mode_base constructor**
