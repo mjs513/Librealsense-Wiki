@@ -1,3 +1,16 @@
+## Pre-Release 2.52.1
+Release Date: 28th Sep, 2022
+
+### What's new
+- Collaterals for Python 2.7 and 32-bit are no longer generated or tested
+    - NOTE: the Windows installer is still 32-bit
+- Introducing support for MIPI devices!
+
+### NOTE
+This is a **PRE-release**, off a branch that is yet to be merged to the main development branch, of MIPI support.
+Validation of USB devices is ongoing and, while we expect no major issues, this release is intended for use with a MIPI device.
+
+
 ## Release 2.51.1
 Release Date: 23rd Aug 2022
 
