@@ -1,3 +1,17 @@
+## Version [2.53.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.53.1)
+Functionality:
+- OCC/Tare Host-Assistance (HA) mode
+	- Calibration algorithms used in both regular and HA modes are similar, however the differences in implementation require minor API adaptation:
+	- HA mode shall be applied for RealSense MIPI cameras only; RealSense USB camera shall continue to use existing (on-chip) calibration mode
+	- The selection of the HA/Regular calibration mode is done via [calibration Json file](https://github.com/IntelRealSense/librealsense/blob/253/wrappers/python/examples/auto_calibration_config.json) via a new attribute
+		- The presence of `host-assistance` parameter is not mandatory for USB cameras
+	- Modified Tare calibration routine now also extracts the camera health metric before and after the calibration, to facilitate the user decision and provision for unattended execution/automation
+	- OCC/Tare calibration routines the camera shall be configured as following:
+		- Depth 1280X720@30FPS
+	* For details please refer to [example code](https://github.com/IntelRealSense/librealsense/blob/253/wrappers/python/examples/depth_ucal_example.py)
+	- Tare calibration API `rs2_run_tare_calibration` arguments have changed and therefore break backwards compatibility 
+ 
+
 ## Version [2.51.1](https://github.com/IntelRealSense/librealsense/releases/tag/v2.51.1)
 Functionality:
  - [rs2_build_debug_protocol_command](https://github.com/IntelRealSense/librealsense/blob/v2.51.1/include/librealsense2/h/rs_device.h#L97) - See [#10261](https://github.com/IntelRealSense/librealsense/pull/10261) and [#10279](https://github.com/IntelRealSense/librealsense/pull/10279) - this API, and `rs2::device::build_command()`, generates a raw data cmd from opcode, params, and data, to help with `rs2_send_and_receive_raw_data`
