@@ -1,3 +1,72 @@
+## Release 2.53.1
+Release Date: 
+
+### API Changes
+https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2531
+
+### What's new
+- New FW version 5.14.0.0 for the D400 product-line
+- Python 3.10 support
+- Added support for Ubuntu 2020 kernels 5.13 and 5.15, and Ubuntu 2022 with kernel 5.15
+- Collaterals for Python 3.5 and Ubuntu 16 are no longer generated or tested
+- Added support for MIPI camera OCC/Tare calibration that offloads part of the algorithmic flow to the host, also known as **Host-Assistance (HA) mode** (see [API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2531))
+
+### Bug Fixes and Enhancements
+* [#11166](https://github.com/IntelRealSense/librealsense/pull/11166) - **update D4xx FW to 5.14.0.0**
+* [#11001](https://github.com/IntelRealSense/librealsense/pull/11001) - **OCC/Tare integration with MIPI SKU**  (Integration of OCC/Tare host-assisted flow)
+* [#11072](https://github.com/IntelRealSense/librealsense/pull/11072) - **Add python 3.10 support**
+* [#11070](https://github.com/IntelRealSense/librealsense/pull/11070) by [@hsuys](https://github.com/hsuys) - **Enable multi camera support for D457**
+* [#11076](https://github.com/IntelRealSense/librealsense/pull/11076) - **Update supported kernel versions in docs**
+* [#11061](https://github.com/IntelRealSense/librealsense/pull/11061) - **Fix jammy debian build**
+* [#11041](https://github.com/IntelRealSense/librealsense/pull/11041) by [@codekansas](https://github.com/codekansas) - **Do a shallow git fetch instead of full fetch**
+* [#10948](https://github.com/IntelRealSense/librealsense/pull/10948) - **Fix DSO-18454 laser turned off after calibration**
+* [#11034](https://github.com/IntelRealSense/librealsense/pull/11034) - **D4xx emitter on off**
+* [#11026](https://github.com/IntelRealSense/librealsense/pull/11026) by [@Hsiang0717](https://github.com/Hsiang0717) - **fix rs-server can't compile when -DBUILD_WITH_OPENMP:bool=ON**
+* [#11013](https://github.com/IntelRealSense/librealsense/pull/11013) by [@stefanhige](https://github.com/stefanhige) - **fix possibly uninitialized memory. Add documentation.**  (See [#11
+006](https://github.com/IntelRealSense/librealsense/issues/11006).)
+* [#11000](https://github.com/IntelRealSense/librealsense/pull/11000) - **bump json to v3.11.2**
+* [#10953](https://github.com/IntelRealSense/librealsense/pull/10953) - **Add a new Emitter frequency option**
+* [#10992](https://github.com/IntelRealSense/librealsense/pull/10992) - **Update RS icons**
+* [#10971](https://github.com/IntelRealSense/librealsense/pull/10971) - **Update Intel RealSense logo**
+* [#10925](https://github.com/IntelRealSense/librealsense/pull/10925) - **Test timestamp domain**
+* [#10931](https://github.com/IntelRealSense/librealsense/pull/10931) by [@aoxu2000](https://github.com/aoxu2000) - **fix type and method err for Python3**
+* [#10913](https://github.com/IntelRealSense/librealsense/pull/10913) - **restricting the D405 w/a for calibration resolution to D405 PID only**
+* [#10921](https://github.com/IntelRealSense/librealsense/pull/10921) - **attempt at reducing warnings (U20)**
+* [#10920](https://github.com/IntelRealSense/librealsense/pull/10920), [#10918](https://github.com/IntelRealSense/librealsense/pull/10918) - **adding gil_scoped_release to sensor open api methods**
+* [#10522](https://github.com/IntelRealSense/librealsense/pull/10522) by [@YoniChechik](https://github.com/YoniChechik) - **bugfix: next_pixel_in_line**
+* [#10634](https://github.com/IntelRealSense/librealsense/pull/10634) by [@jcremona](https://github.com/jcremona) - **Bash script made an incorrect string comparison**
+* [#10898](https://github.com/IntelRealSense/librealsense/pull/10898) by [@dmipx](https://github.com/dmipx) - **docs - Ubuntu 20/22 driver patching note**
+* [#10895](https://github.com/IntelRealSense/librealsense/pull/10895) by [@noacoohen](https://github.com/noacoohen) - **Set the metadata hardware size tool tip description**
+* [#10865](https://github.com/IntelRealSense/librealsense/pull/10865) by [@mengyui](https://github.com/mengyui) - **add missing dependence for build kernel module**
+* [#10893](https://github.com/IntelRealSense/librealsense/pull/10893) by [@35selim](https://github.com/35selim) - **Improved/fixed installation.md syntax**
+* [#10874](https://github.com/IntelRealSense/librealsense/pull/10874) - **Fix video md sync issue in v4l2 backend**
+* [#10881](https://github.com/IntelRealSense/librealsense/pull/10881) by [@baderouaich](https://github.com/baderouaich) - **Fix build fail due missing operator= in popup**
+* [#10809](https://github.com/IntelRealSense/librealsense/pull/10809) by [@baderouaich](https://github.com/baderouaich) - **Some bug fixes**
+    - [Fix popup's operator== comparison](https://github.com/IntelRealSense/librealsense/pull/10809/commits/a96a09642dd9a9726106084febdec8ac825536b9)
+    - [Changed order of the if condition to avoid the possibility of dereferencing an invalid iterator](https://github.com/IntelRealSense/librealsense/pull/10809/commits/248f9afdbeb9bdc92b628a85a3ad522c0c54adaa)
+    - [Fixed wrong usage of memset()](https://github.com/IntelRealSense/librealsense/pull/10809/commits/49be7fddc5d2ec713d7edc0be5603235347520ab)
+    - [Fixed standard deviation check must be between range](https://github.com/IntelRealSense/librealsense/pull/10809/commits/ef96f6670de326dbaa919fcf3bf30abb1a98d875)
+    - [Fixed wrong usage of memset()](https://github.com/IntelRealSense/librealsense/pull/10809/commits/328c28a37da41a68a4d9b67720c5f8956e738f0e)
+    - [Fixed potential memory leak in RsSimpleRTPSink](https://github.com/IntelRealSense/librealsense/pull/10809/commits/4e90d0a93412157421580425753b68c687dcf5a4)
+* [#10876](https://github.com/IntelRealSense/librealsense/pull/10876) by [@riking](https://github.com/riking) - **Fix two undefined behavior issues (pipeline/config, elpp)**
+* [#10880](https://github.com/IntelRealSense/librealsense/pull/10880) - **upgrade ELPP to v9.96.7**
+* [#10818](https://github.com/IntelRealSense/librealsense/pull/10818) by [@chris-durand](https://github.com/chris-durand) - **Fix compilation with GCC 10+**
+* [#10737](https://github.com/IntelRealSense/librealsense/pull/10737) - **adding support for y16i - 10 MSB**
+* [#10745](https://github.com/IntelRealSense/librealsense/pull/10745) by [@dmipx](https://github.com/dmipx) - **LRS Linux kernel support for Y16i**
+* [#10625](https://github.com/IntelRealSense/librealsense/pull/10625) by [@mengyui](https://github.com/mengyui) - **enable kernel patch for Ubuntu 22.04**
+* [#10840](https://github.com/IntelRealSense/librealsense/pull/10840) - **Undef v4l debug logs**
+* [#10839](https://github.com/IntelRealSense/librealsense/pull/10839) - **Fix cast/conversion issue when using mixed int/float types**
+* [#10816](https://github.com/IntelRealSense/librealsense/pull/10816) - **Revert "v4l2 backend - ignoring buffers with flag V4L2_BUF_FLAG_ERROR"**  (Reverts IntelRealSense/librealsense[#10772](https://github.com/IntelRealSense/librealsense/issues/10772))
+* [#10797](https://github.com/IntelRealSense/librealsense/pull/10797) - **Addressing LRS-462 Viewer IR frames switch**
+* [#10800](https://github.com/IntelRealSense/librealsense/pull/10800) - **cuda code compilation correction**
+* [#10798](https://github.com/IntelRealSense/librealsense/pull/10798) - **D4xx ts global hw fix**
+* [#10793](https://github.com/IntelRealSense/librealsense/pull/10793) - **mipi fw update ui fix**
+* [#10794](https://github.com/IntelRealSense/librealsense/pull/10794) - **wa added in frame size assertion, and processing block for mipi added**
+* [#10762](https://github.com/IntelRealSense/librealsense/pull/10762) - **added utilities/string/chrono.h; fix test-waiting-on.cpp to use it**
+
+
+
+
 ## Pre-Release 2.52.1
 Release Date: 28th Sep, 2022
 
@@ -16,7 +85,6 @@ Release Date: 23rd Aug 2022
 
 ### API Changes
 https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2511
-
 
 ### What's new
 - D405 is now officially supported
