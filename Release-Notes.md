@@ -1,5 +1,5 @@
 ## Release 2.53.1
-Release Date: 
+Release Date: 6th Dec, 2022
 
 ### API Changes
 https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2531
