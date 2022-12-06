@@ -8,6 +8,8 @@ https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2531
 - New FW version 5.14.0.0 for the D400 product-line
 - Python 3.10 support
 - Added support for Ubuntu 2020 kernels 5.13 and 5.15, and Ubuntu 2022 with kernel 5.15
+- LibRS ROS wrapper is now supporting ROS Humble - click [here](https://github.com/IntelRealSense/realsense-ros/releases/tag/4.51.1) for more info
+
 - Collaterals for Python 3.5 and Ubuntu 16 are no longer generated or tested
 - Added support for MIPI camera OCC/Tare calibration that offloads part of the algorithmic flow to the host, also known as **Host-Assistance (HA) mode** (see [API changes](https://github.com/IntelRealSense/librealsense/wiki/API-Changes#version-2531))
 
